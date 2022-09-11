@@ -15,25 +15,32 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <div id='banner'>
+          <h1>Asian &#38; Black Alliances</h1>
+        </div>
         <div id='landingGrid'>
           <a href='/historyOfCollaboration'>
             <div>
               <h2> History</h2>
+              <p>Explore the history of Asian and Black collaboration around the world.</p>
             </div>
           </a>
           <a href='/crossCulturalInfluences'>
             <div>
               <h2>Culture</h2>
+              <p>Learn about the cultural influences of Asian and Black communities.</p>
             </div>
           </a>
           <a href='/mythsCuriosity'>
             <div>
               <h2>Myths</h2>
+              <p>Learn about the myths and misconceptions of Asian and Black communities.</p>
             </div>
           </a>
           <a href='/ourVoices'>
             <div>
               <h2>Our Voices</h2>
+              <p>Hear from Asian and Black community members about their experiences.</p>
             </div>
           </a>
         </div>
