@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Asian &#38; Black Alliances</title>
         <meta name="description" content="Exploring the history and cultural relations of Asian and Black communities aroun the world." />
@@ -59,7 +59,7 @@ const Home: NextPage = () => {
           </span>
         </a>
       </footer>
-    </div>
+    </>
   )
 }
 
