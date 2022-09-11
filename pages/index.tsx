@@ -1,0 +1,59 @@
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import Image from 'next/image'
+import styles from '../styles/Home.module.css'
+
+import Grid from '@mui/material/Grid';
+
+const Home: NextPage = () => {
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>Asian &#38; Black Alliances</title>
+        <meta name="description" content="Exploring the history and cultural relations of Asian and Black communities aroun the world." />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <main className={styles.main}>
+        <div id='landingGrid'>
+          <a href='/historyOfCollaboration'>
+            <div>
+              <h2> History</h2>
+            </div>
+          </a>
+          <a href='/crossCulturalInfluences'>
+            <div>
+              <h2>Culture</h2>
+            </div>
+          </a>
+          <a href='/mythsCuriosity'>
+            <div>
+              <h2>Myths</h2>
+            </div>
+          </a>
+          <a href='/ourVoices'>
+            <div>
+              <h2>Our Voices</h2>
+            </div>
+          </a>
+        </div>
+
+      </main>
+
+      <footer className={styles.footer}>
+        <a
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by{' '}
+          <span className={styles.logo}>
+            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+          </span>
+        </a>
+      </footer>
+    </div>
+  )
+}
+
+export default Home
