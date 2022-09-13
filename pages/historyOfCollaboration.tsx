@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Header from '../public/components/header'
 
 import Grid from '@mui/material/Grid';
 
@@ -26,6 +27,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <Header />
         <ComposableMap projection="geoMercator">
           <ZoomableGroup center={[0, 0]} zoom={9}>
             <Geographies geography={geoUrl}>

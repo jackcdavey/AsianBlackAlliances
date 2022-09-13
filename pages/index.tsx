@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 
 import { useTheme } from '@mui/material/styles';
 import { Container } from '@mui/material';
+import Header from '../public/components/header';
 
 // const theme = useTheme();
 
@@ -18,9 +19,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Container id='banner' sx={{ backgroundColor: 'primary.main' }}>
-          <h1>Asian &#38; Black Alliances</h1>
-        </Container>
+        <Header />
         <div id='landingGrid' >
           <a href='/historyOfCollaboration'>
             <div>
