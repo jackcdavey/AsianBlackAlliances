@@ -29,7 +29,7 @@ a {
 
 
 
-/* Home */
+
 #banner {
   top: 0;
   left: 0;
@@ -47,6 +47,24 @@ a {
   padding-bottom: 2vh;
 }
 
+#footer {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  border-top: 1px solid #eaeaea;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+
+/* Home */
 #landingGrid {
   display: flex;
   flex-direction: row;
@@ -64,12 +82,17 @@ a {
   color: #333;
   border: gray 3px solid;
   border-radius: 5px;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 100%;
   width: 35vw;
   height: 15vh;
   margin: auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+#landingGrid a div {
+  text-align: center;
+  margin: 5%;
 }
 
 #landingGrid a:hover {

@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css'
 import { useTheme } from '@mui/material/styles';
 import { Container } from '@mui/material';
 import Header from '../public/components/header';
+import Footer from '../public/components/footer';
 
 // const theme = useTheme();
 
@@ -23,19 +24,19 @@ const Home: NextPage = () => {
         <div id='landingGrid' >
           <a href='/historyOfCollaboration'>
             <div>
-              <h2> History</h2>
+              <h2> History of Collaboration</h2>
               <p>Explore the history of Asian and Black collaboration around the world.</p>
             </div>
           </a>
           <a href='/crossCulturalInfluences'>
             <div>
-              <h2>Culture</h2>
+              <h2>Cross-Cultural Influences</h2>
               <p>Learn about the cultural influences of Asian and Black communities.</p>
             </div>
           </a>
           <a href='/mythsCuriosity'>
             <div>
-              <h2>Myths</h2>
+              <h2>Myths &#38; Curiosity</h2>
               <p>Learn about the myths and misconceptions of Asian and Black communities.</p>
             </div>
           </a>
@@ -45,22 +46,17 @@ const Home: NextPage = () => {
               <p>Hear from Asian and Black community members about their experiences.</p>
             </div>
           </a>
-        </div>
 
+
+          <a>
+            <div>
+              <h2>Share Your Story</h2>
+            </div>
+          </a>
+        </div>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <Footer />
     </>
   )
 }
