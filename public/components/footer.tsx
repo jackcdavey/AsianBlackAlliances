@@ -2,7 +2,7 @@ import { Container } from '@mui/material';
 
 export default function Footer() {
     return (
-        <Container id='footer' sx={{ backgroundColor: 'primary.main' }}>
+        <Container style={{ width: '100vw' }} id='footer' sx={{ backgroundColor: 'primary.main' }}>
             <a
                 href="https://www.scu.edu"
                 target="_blank"

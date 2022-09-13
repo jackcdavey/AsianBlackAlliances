@@ -19,6 +19,22 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <Header />
         <h1>Cross Cultural Influences</h1>
+        <h3>Black peoples and Asian peoples have been mutually influencing and learning from each other. These dynamic interactions are expressed through and reflected in our everyday activities. Below are xxx aspects***  </h3>
+
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6} md={4}>
+            <h2>Music</h2>
+            <p>Music is a universal language that has been used to express and share ideas, emotions, and experiences. Music is a powerful tool that can be used to unite people and communities. </p>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <h2>Food</h2>
+            <p>Food is a way to share culture and history. It is a way to connect with people and communities. </p>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <h2>Art</h2>
+            <p>Art is a way to express and share ideas, emotions, and experiences. It is a way to connect with people and communities. </p>
+          </Grid>
+        </Grid>
       </main>
 
       <Footer />

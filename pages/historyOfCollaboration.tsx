@@ -16,6 +16,16 @@ import {
   Marker
 } from 'react-simple-maps';
 
+import {
+  Timeline,
+  TimelineItem,
+  TimelineDot,
+  TimelineSeparator,
+  TimelineConnector,
+  TimelineContent
+} from '@mui/lab';
+
+
 const geoUrl = '/features.json';
 
 const Home: NextPage = () => {
@@ -29,8 +39,8 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <Header />
-        <ComposableMap projection="geoMercator">
-          <ZoomableGroup center={[0, 0]} zoom={9}>
+        <ComposableMap projection="geoMercator" width={800} height={400}>
+          <ZoomableGroup center={[0, 0]} zoom={1}>
             <Geographies geography={geoUrl}>
               {({ geographies }) =>
                 geographies.map((geo) => (
@@ -44,6 +54,21 @@ const Home: NextPage = () => {
           </ZoomableGroup>
         </ComposableMap>
         <h1>History of Collaboration</h1>
+        <Timeline position="alternate">
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot color="secondary" />
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>Secondary</TimelineContent>
+          </TimelineItem>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot color="success" />
+            </TimelineSeparator>
+            <TimelineContent>Success</TimelineContent>
+          </TimelineItem>
+        </Timeline>
 
 
       </main>

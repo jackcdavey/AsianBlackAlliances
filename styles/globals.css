@@ -54,6 +54,8 @@ a {
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
+  width: 100vw;
+  margin: 0;
 }
 
 #footer a {
@@ -83,7 +85,7 @@ a {
   border: gray 3px solid;
   border-radius: 5px;
   width: 35vw;
-  height: 15vh;
+  min-height: 15vh;
   margin: auto;
   justify-content: center;
   align-items: center;
@@ -93,6 +95,7 @@ a {
 #landingGrid a div {
   text-align: center;
   margin: 5%;
+  display: flexbox;
 }
 
 #landingGrid a:hover {
