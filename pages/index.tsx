@@ -4,7 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 import { useTheme } from '@mui/material/styles';
-import { Container } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import Header from '../public/components/header';
 import Footer from '../public/components/footer';
 
@@ -20,43 +20,57 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Header />
-        <div id='landingGrid' >
-          <a href='/historyOfCollaboration'>
-            <div>
-              <h2> History of Collaboration</h2>
-              <p>Explore the history of Asian and Black collaboration around the world.</p>
-            </div>
-          </a>
-          <a href='/crossCulturalInfluences'>
-            <div>
-              <h2>Cross-Cultural Influences</h2>
-              <p>Learn about the cultural influences of Asian and Black communities.</p>
-            </div>
-          </a>
-          <a href='/mythsCuriosity'>
-            <div>
-              <h2>Myths &#38; Curiosity</h2>
-              <p>Learn about the myths and misconceptions of Asian and Black communities.</p>
-            </div>
-          </a>
-          <a href='/ourVoices'>
-            <div>
-              <h2>Our Voices</h2>
-              <p>Hear from Asian and Black community members about their experiences.</p>
-            </div>
-          </a>
+        <div id='body'>
+          <Header />
+          <Grid container rowSpacing={6} columnSpacing={6} id={'landingGrid'}>
 
-
-          <a>
-            <div>
-              <h2>Share Your Story</h2>
-            </div>
-          </a>
+            <Grid item xs={12} sm={4} className={'landingGridItem'}>
+              <a href='/historyOfCollaboration'>
+                <div className={'landingGridContent'}>
+                  <h2> History of Collaboration</h2>
+                  <p>Explore the history of Asian and Black collaboration around the world.</p>
+                </div>
+              </a>
+            </Grid>
+            <Grid item xs={12} sm={4} className={'landingGridItem'}>
+              <a href='/crossCulturalInfluences'>
+                <div className={'landingGridContent'}>
+                  <h2> Cross Cultural Influences</h2>
+                  <p>Explore the ways in which Asian and Black communities have influenced each other.</p>
+                </div>
+              </a>
+            </Grid>
+            <Grid item xs={12} sm={4} className={'landingGridItem'}>
+              <a href='/mythsCuriosity'>
+                <div className={'landingGridContent'}>
+                  <h2> Myths &#38; Curiosity</h2>
+                  <p>Explore the myths and curiosity surrounding Asian and Black communities.</p>
+                </div>
+              </a>
+            </Grid>
+            <Grid item xs={12} sm={4} className={'landingGridItem'}>
+              <a href='/ourVoices'>
+                <div className={'landingGridContent'}>
+                  <h2> Our Voices</h2>
+                  <p>Explore the voices of Asian and Black communities.</p>
+                </div>
+              </a>
+            </Grid>
+            <Grid item xs={12} sm={6} className={'landingGridItem'}>
+              <a href='/'>
+                <div className={'landingGridContent'}>
+                  <h2> Share Your Story</h2>
+                  <p>Share your story about Asian and Black communities.</p>
+                </div>
+              </a>
+            </Grid>
+          </Grid>
         </div>
+        <Footer />
+
       </main>
 
-      <Footer />
+
     </>
   )
 }

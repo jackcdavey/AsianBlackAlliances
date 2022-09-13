@@ -6,6 +6,8 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+
+
 a {
   color: inherit;
   text-decoration: none;
@@ -33,8 +35,8 @@ a {
 #banner {
   top: 0;
   left: 0;
-  position: absolute;
-  width: 100vw;
+  position: fixed;
+  min-width: 100vw;
   height: 10vh;
   /* background: lightgreen; */
   display: flex;
@@ -48,14 +50,13 @@ a {
 }
 
 #footer {
-  display: flex;
-  flex: 1;
   padding: 2rem 0;
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  margin: 0;
+  min-width: 100vw;
+  margin-top: auto;
+  /* bottom: 0; */
 }
 
 #footer a {
@@ -65,41 +66,43 @@ a {
   flex-grow: 1;
 }
 
+#body {
+  min-height: 100vh;
+  display: flex;
+}
 
 /* Home */
 #landingGrid {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-
   width: 100vw;
   height: 60vh;
+  padding-top: 10vh;
   padding-left: 5vw;
   padding-right: 5vw;
+  justify-content: center;
 }
 
-#landingGrid a {
-  background: #f0f0f0;
-  color: #333;
-  border: gray 3px solid;
-  border-radius: 5px;
-  width: 35vw;
-  min-height: 15vh;
+.landingGridItem {
+  margin: 2vw;
+  height: 20vh;
+}
+
+.landingGridItem :hover {
+  background: lightgreen;
+}
+
+.landingGridContent {
+  min-width: 100%;
+  min-height: 100%;
+  border: #333 3px solid;
+  border-radius: 25px;
+
   margin: auto;
   justify-content: center;
   align-items: center;
-  display: flex;
-}
-
-#landingGrid a div {
   text-align: center;
-  margin: 5%;
-  display: flexbox;
 }
 
-#landingGrid a:hover {
-  background: lightgreen;
-}
+
+
 
 /* End Home */
