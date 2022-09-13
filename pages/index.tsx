@@ -3,7 +3,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
-import Grid from '@mui/material/Grid';
+import { useTheme } from '@mui/material/styles';
+import { Container } from '@mui/material';
+
+// const theme = useTheme();
 
 const Home: NextPage = () => {
   return (
@@ -15,10 +18,10 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <div id='banner'>
+        <Container id='banner' sx={{ backgroundColor: 'primary.main' }}>
           <h1>Asian &#38; Black Alliances</h1>
-        </div>
-        <div id='landingGrid'>
+        </Container>
+        <div id='landingGrid' >
           <a href='/historyOfCollaboration'>
             <div>
               <h2> History</h2>

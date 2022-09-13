@@ -15,7 +15,7 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
@@ -24,11 +24,9 @@ a {
     color: white;
     background: black;
   }
-}
+} */
 
-main {
-  background: #f5f5f5;
-}
+
 
 
 /* Home */
@@ -38,7 +36,7 @@ main {
   position: absolute;
   width: 100vw;
   height: 10vh;
-  background: lightgreen;
+  /* background: lightgreen; */
   display: flex;
   align-items: center;
 }

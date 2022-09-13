@@ -1,9 +1,20 @@
+import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 import Grid from '@mui/material/Grid';
+
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  ZoomableGroup,
+  Marker
+} from 'react-simple-maps';
+
+const geoUrl = '/features.json';
 
 const Home: NextPage = () => {
   return (
@@ -15,6 +26,20 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <ComposableMap projection="geoMercator">
+          <ZoomableGroup center={[0, 0]} zoom={9}>
+            <Geographies geography={geoUrl}>
+              {({ geographies }) =>
+                geographies.map((geo) => (
+                  <Geography key={geo.rsmKey} geography={geo} />
+                ))
+              }
+            </Geographies>
+            <Marker coordinates={[0, 0]}>
+              <circle r={3} fill="#FF5533" />
+            </Marker>
+          </ZoomableGroup>
+        </ComposableMap>
         <h1>History of Collaboration</h1>
 
 
