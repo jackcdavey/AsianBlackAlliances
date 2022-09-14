@@ -38,6 +38,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #e8f5e9;
 }
 
 #banner {
@@ -107,14 +108,14 @@ a {
   border: #333 3px solid;
   border-radius: 25px;
   margin: auto;
-  padding: 1rem;
+  /* padding: 1rem; */
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
 .landingGridItem :hover {
-  background-color: #f8ffd7;
+  background-color: #e8f5e9;
 }
 
 

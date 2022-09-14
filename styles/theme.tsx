@@ -30,15 +30,17 @@ export const theme = createTheme({
         MuiCssBaseline: {
             styleOverrides: {
                 body: {
-                    backgroundColor: "#f5f5f5",
+                    // backgroundColor: "#f5f5f5",
                 },
             }
         }
     },
     palette: {
         primary: {
-            main: "#c5e1a5",
+            // main: "#c5e1a5",
             // lightGreen[200],, 
+            main: "#a5d6a7",
+            //green200
         },
         secondary: {
             main: "#ffe57f",

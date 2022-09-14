@@ -10,6 +10,8 @@ import Header from '../public/components/header';
 import Footer from '../public/components/footer';
 import Layout from '../public/components/layout';
 
+import wave from '../public/wave.svg';
+
 // const theme = useTheme();
 
 const Home: NextPage = () => {
@@ -22,7 +24,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Layout title={"Asian and Black Alliances"} description={""}>
-        <div id='body'>
+        <div id='body' style={{ backgroundImage: `url(${wave.src})` }}>
           <Header />
           <Grid container rowSpacing={2} columnSpacing={6} id={'landingGrid'}>
             <Grid item xs={12} sm={4} className={'landingGridItem'}>

@@ -33,7 +33,7 @@ const Home: NextPage = () => {
 
           <h1>Cross Cultural Influences</h1>
           <h3>Black peoples and Asian peoples have been mutually influencing and learning from each other. These dynamic interactions are expressed through and reflected in our everyday activities. Below are xxx aspects***  </h3>
-          <SubtitleSeparator title='Food' />
+
           <FoodCard chefName='Chef Name' chefDesc='Chef Desc' dishName='Dish Name' dishDesc='Dish Description' />
           <FoodCard chefName='Chef Name' chefDesc='Chef Desc' dishName='Dish Name' dishDesc='Dish Description' />
           <FoodCard chefName='Chef Name' chefDesc='Chef Desc' dishName='Dish Name' dishDesc='Dish Description' />
