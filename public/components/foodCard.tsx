@@ -19,7 +19,7 @@ const styles = {
         borderRadius: "25px",
         boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.75)",
         border: "1px solid black",
-        margin: "1%",
+        marginBottom: "5%",
     },
     cardContent: {
         display: "flex",

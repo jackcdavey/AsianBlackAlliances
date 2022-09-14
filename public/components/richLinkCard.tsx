@@ -5,6 +5,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 
+import Image from 'next/image';
+
+import DishCountryCaptain from '../media/DishCountryCaptain.png';
+
 const styles = {
     card: {
         width: '25vw',
@@ -20,8 +24,8 @@ export default function MultiActionAreaCard() {
                 <CardMedia
                     component="img"
                     height="100%"
-                    image="https://images.unsplash.com/photo-1616489950003-1b1b1b1b1b1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                // alt="green iguana"
+                    image={DishCountryCaptain.src}
+                    alt="Placeholder image"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
