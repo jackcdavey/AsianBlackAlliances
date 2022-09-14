@@ -29,8 +29,16 @@ a {
 } */
 
 
-
-
+#body {
+  padding-top: 10vh;
+  min-height: 100vh;
+  margin-bottom: auto;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 #banner {
   top: 0;
@@ -68,13 +76,7 @@ a {
   height: 100%;
 }
 
-#body {
-  padding-top: 10vh;
-  min-height: 100vh;
-  margin-bottom: auto;
-  padding-left: 2vw;
-  padding-right: 2vw;
-}
+
 
 /* Home */
 #landingGrid {
@@ -112,7 +114,7 @@ a {
 }
 
 .landingGridItem :hover {
-  background-color: lightgreen;
+  background-color: #f8ffd7;
 }
 
 

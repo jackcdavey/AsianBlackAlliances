@@ -10,6 +10,14 @@ import Layout from '../public/components/layout';
 
 import FoodCard from '../public/components/foodCard';
 
+function SubtitleSeparator(title: string) {
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '1rem', marginBottom: '1rem', width: '100vw' }}>
+      <h1>{title}</h1>
+    </div>
+  );
+}
+
 const Home: NextPage = () => {
   return (
     <>
@@ -25,7 +33,9 @@ const Home: NextPage = () => {
 
           <h1>Cross Cultural Influences</h1>
           <h3>Black peoples and Asian peoples have been mutually influencing and learning from each other. These dynamic interactions are expressed through and reflected in our everyday activities. Below are xxx aspects***  </h3>
-
+          <SubtitleSeparator title='Food' />
+          <FoodCard chefName='Chef Name' chefDesc='Chef Desc' dishName='Dish Name' dishDesc='Dish Description' />
+          <FoodCard chefName='Chef Name' chefDesc='Chef Desc' dishName='Dish Name' dishDesc='Dish Description' />
           <FoodCard chefName='Chef Name' chefDesc='Chef Desc' dishName='Dish Name' dishDesc='Dish Description' />
         </div>
         <Footer />

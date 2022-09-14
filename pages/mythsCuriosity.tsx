@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Header from '../public/components/header';
 import Footer from '../public/components/footer';
+import MythCard from '../public/components/mythCard';
 
 import Grid from '@mui/material/Grid';
 
@@ -19,6 +20,7 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <Header />
         <h1> Myths and Curiosity</h1>
+        <MythCard mythTitle='Myth Title' mythDesc='Myth Description' mythImage='https://images.unsplash.com/photo-1616489950003-1b1b1b1b1b1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80' />
       </main>
 
       <Footer />

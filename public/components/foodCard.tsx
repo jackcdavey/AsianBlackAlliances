@@ -1,5 +1,7 @@
 import React from "react";
 
+import Paper from "@mui/material/Paper";
+
 interface FoodCardProps {
     chefName: string;
     chefDesc: string;
@@ -19,17 +21,23 @@ const styles = {
         border: "1px solid black",
         margin: "1%",
     },
+    cardContent: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+    },
 };
 
 
 export default function FoodCard({ chefName, chefDesc, dishName, dishDesc }: FoodCardProps) {
     return (
         <div style={styles.card}>
-            <div>
+            <div style={styles.cardContent}>
                 <h1>{chefName}</h1>
                 <h3>{chefDesc}</h3>
             </div>
-            <div>
+            <div style={styles.cardContent}>
                 <h1>{dishName}</h1>
                 <h3>{dishDesc}</h3>
             </div>
