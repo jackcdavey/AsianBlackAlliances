@@ -30,25 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/crossCulturalInfluences": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/crossCulturalInfluences.js"
-    ],
-    "/discussion": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/discussion.js"
-    ],
     "/historyOfCollaboration": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/historyOfCollaboration.js"
-    ],
-    "/mythsCuriosity": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/mythsCuriosity.js"
     ]
   },
   "ampFirstPages": []

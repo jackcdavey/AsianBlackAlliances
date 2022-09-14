@@ -23,8 +23,11 @@ import {
   TimelineDot,
   TimelineSeparator,
   TimelineConnector,
-  TimelineContent
+  TimelineContent,
+  TimelineOppositeContent
 } from '@mui/lab';
+
+import { Paper, Typography } from '@mui/material';
 
 
 const geoUrl = '/features.json';
@@ -57,18 +60,85 @@ const Home: NextPage = () => {
           </ComposableMap>
           <h1>History of Collaboration</h1>
           <Timeline position="alternate">
-            <TimelineItem>
+            <TimelineItem sx={{ margin: '2%' }}>
+              <TimelineOppositeContent color="text.secondary">
+                1850s
+              </TimelineOppositeContent>
               <TimelineSeparator>
-                <TimelineDot color="secondary" />
+                <TimelineDot />
                 <TimelineConnector />
               </TimelineSeparator>
-              <TimelineContent>Secondary</TimelineContent>
+              <TimelineContent>
+                <Typography variant="h6" component="span">
+                  One
+                </Typography>
+                <Typography>                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Typography>
+              </TimelineContent>
             </TimelineItem>
-            <TimelineItem>
+            <TimelineItem sx={{ margin: '2%' }}>
+              <TimelineOppositeContent color="text.secondary">
+                1900s
+              </TimelineOppositeContent>
               <TimelineSeparator>
-                <TimelineDot color="success" />
+                <TimelineDot />
+                <TimelineConnector />
               </TimelineSeparator>
-              <TimelineContent>Success</TimelineContent>
+              <TimelineContent>
+                <Typography variant="h6" component="span">
+                  Two
+                </Typography>
+                <Typography>                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Typography>
+              </TimelineContent>
+            </TimelineItem>
+            <TimelineItem sx={{ margin: '2%' }}>
+              <TimelineOppositeContent color="text.secondary">
+                1950s
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineDot />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>
+                <Typography variant="h6" component="span">
+                  Three
+                </Typography>
+                <Typography>                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Typography>
+              </TimelineContent>
+            </TimelineItem>
+            <TimelineItem sx={{ margin: '2%' }}>
+              <TimelineOppositeContent color="text.secondary">
+                1970s
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineDot />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>
+                <Typography variant="h6" component="span">
+                  Four
+                </Typography>
+                <Typography>                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Typography>
+              </TimelineContent>
+            </TimelineItem>
+            <TimelineItem sx={{ margin: '2%' }}>
+              <TimelineOppositeContent color="text.secondary">
+                1980s
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineDot />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>
+                <Typography variant="h6" component="span">
+                  Five
+                </Typography>
+                <Typography>                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Typography>
+              </TimelineContent>
             </TimelineItem>
           </Timeline>
         </div>
