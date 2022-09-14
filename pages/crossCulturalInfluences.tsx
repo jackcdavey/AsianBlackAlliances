@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css'
 import Grid from '@mui/material/Grid';
 import Header from '../public/components/header';
 import Footer from '../public/components/footer';
+import Layout from '../public/components/layout';
 
 import FoodCard from '../public/components/foodCard';
 
@@ -18,16 +19,17 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <Layout title='ABA: Cross-Cultural Influences' description=' '>
         <Header />
         <div id='body'>
 
           <h1>Cross Cultural Influences</h1>
           <h3>Black peoples and Asian peoples have been mutually influencing and learning from each other. These dynamic interactions are expressed through and reflected in our everyday activities. Below are xxx aspects***  </h3>
 
+          <FoodCard chefName='Chef Name' chefDesc='Chef Desc' dishName='Dish Name' dishDesc='Dish Description' />
         </div>
         <Footer />
-      </main>
+      </Layout>
     </>
   )
 }

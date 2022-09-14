@@ -2,7 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/mythsCuriosity": "pages/mythsCuriosity.js",
   "/crossCulturalInfluences": "pages/crossCulturalInfluences.js",
-  "/": "pages/index.js",
-  "/historyOfCollaboration": "pages/historyOfCollaboration.js"
+  "/historyOfCollaboration": "pages/historyOfCollaboration.js",
+  "/": "pages/index.js"
 }

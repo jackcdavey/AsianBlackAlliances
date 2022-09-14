@@ -5,6 +5,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Header from '../public/components/header'
 import Footer from '../public/components/footer'
+import Layout from '../public/components/layout'
 
 import Grid from '@mui/material/Grid';
 
@@ -37,7 +38,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <Layout title={'History of Collaboration'} description={' '}>
         <Header />
         <ComposableMap projection="geoMercator" width={800} height={400}>
           <ZoomableGroup center={[0, 0]} zoom={1}>
@@ -71,7 +72,7 @@ const Home: NextPage = () => {
         </Timeline>
 
 
-      </main>
+      </Layout>
 
       <Footer />
     </>
