@@ -50,13 +50,14 @@ a {
 }
 
 #footer {
-  padding: 2rem 0;
+  /* padding: 2rem; */
   border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
   min-width: 100vw;
-  margin-top: auto;
-  /* bottom: 0; */
+  height: 10vh;
+  display: block;
+  /* margin-top: auto; */
+  position: relative;
+  bottom: 0;
 }
 
 #footer a {
@@ -64,45 +65,70 @@ a {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  height: 100%;
 }
 
 #body {
+  padding-top: 10vh;
   min-height: 100vh;
-  display: flex;
+  margin-bottom: auto;
+  padding-left: 2vw;
+  padding-right: 2vw;
 }
 
 /* Home */
 #landingGrid {
   width: 100vw;
-  height: 60vh;
-  padding-top: 10vh;
+
   padding-left: 5vw;
   padding-right: 5vw;
+  margin: 0 !important;
   justify-content: center;
+  align-items: center;
+
 }
 
 .landingGridItem {
   margin: 2vw;
   height: 20vh;
-}
+  /* display: flex; */
+  width: 100%;
+  padding: 0 !important;
+  /* border: #333 solid 1px; */
+  justify-content: center;
 
-.landingGridItem :hover {
-  background: lightgreen;
 }
 
 .landingGridContent {
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   border: #333 3px solid;
   border-radius: 25px;
-
   margin: auto;
+  padding: 1rem;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
+.landingGridItem :hover {
+  background-color: lightgreen;
+}
+
+
 
 
 
 /* End Home */
+
+
+/* Culture */
+#cultureGrid {
+  width: 100vw;
+  padding-top: 10vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  margin: 0 !important;
+  justify-content: center;
+  align-items: center;
+}
