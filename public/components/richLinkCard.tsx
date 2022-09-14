@@ -8,7 +8,7 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 const styles = {
     card: {
         width: '25vw',
-        height: '8vh',
+        maxHeight: '5vh',
         display: 'flex',
     },
 }
@@ -35,7 +35,7 @@ export default function MultiActionAreaCard() {
             </CardActionArea>
             <CardActions>
                 <Button size="small" color="primary">
-                    Share
+                    Visit
                 </Button>
             </CardActions>
         </Card>

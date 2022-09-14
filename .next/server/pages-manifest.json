@@ -3,8 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/crossCulturalInfluences": "pages/crossCulturalInfluences.js",
   "/mythsCuriosity": "pages/mythsCuriosity.js",
-  "/ourVoices": "pages/ourVoices.js",
-  "/historyOfCollaboration": "pages/historyOfCollaboration.js"
+  "/ourVoices": "pages/ourVoices.js"
 }

@@ -23,7 +23,24 @@ const Home: NextPage = () => {
       <Layout title='ABA: Myths and Curiosity' description=' '>
         <div id='body'>
           <h1> Myths and Curiosity</h1>
-          <MythCard mythTitle='Myth Title' mythDesc='Myth Description' mythImage='https://images.unsplash.com/photo-1616489950003-1b1b1b1b1b1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80' />
+          <MythCard
+            mythTitle='Myth Title'
+            mythDesc='Myth Description'
+            mythLink='https://www.npr.org/2015/10/15/448840691/how-asian-americans-have-redefined-what-it-means-to-be-american'
+            mythLinkTitle='NPR – How Asian-Americans Have Redefined What It Means To Be American'
+          />
+          <MythCard
+            mythTitle='Myth Title'
+            mythDesc='Myth Description'
+            mythLink='https://www.npr.org/2015/10/15/448840691/how-asian-americans-have-redefined-what-it-means-to-be-american'
+            mythLinkTitle='NPR – How Asian-Americans Have Redefined What It Means To Be American'
+          />
+          <MythCard
+            mythTitle='Myth Title'
+            mythDesc='Myth Description'
+            mythLink='https://www.npr.org/2015/10/15/448840691/how-asian-americans-have-redefined-what-it-means-to-be-american'
+            mythLinkTitle='NPR – How Asian-Americans Have Redefined What It Means To Be American'
+          />
         </div>
       </Layout>
       <Footer />
