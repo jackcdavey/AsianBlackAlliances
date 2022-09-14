@@ -40,37 +40,38 @@ const Home: NextPage = () => {
 
       <Layout title={'History of Collaboration'} description={' '}>
         <Header />
-        <ComposableMap projection="geoMercator" width={800} height={400}>
-          <ZoomableGroup center={[0, 0]} zoom={1}>
-            <Geographies geography={geoUrl}>
-              {({ geographies }) =>
-                geographies.map((geo) => (
-                  <Geography key={geo.rsmKey} geography={geo} />
-                ))
-              }
-            </Geographies>
-            <Marker coordinates={[0, 0]}>
-              <circle r={3} fill="#FF5533" />
-            </Marker>
-          </ZoomableGroup>
-        </ComposableMap>
-        <h1>History of Collaboration</h1>
-        <Timeline position="alternate">
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineDot color="secondary" />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>Secondary</TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineDot color="success" />
-            </TimelineSeparator>
-            <TimelineContent>Success</TimelineContent>
-          </TimelineItem>
-        </Timeline>
-
+        <div id='body'>
+          <ComposableMap projection="geoMercator" width={800} height={400}>
+            <ZoomableGroup center={[0, 0]} zoom={1}>
+              <Geographies geography={geoUrl}>
+                {({ geographies }) =>
+                  geographies.map((geo) => (
+                    <Geography key={geo.rsmKey} geography={geo} />
+                  ))
+                }
+              </Geographies>
+              <Marker coordinates={[0, 0]}>
+                <circle r={3} fill="#FF5533" />
+              </Marker>
+            </ZoomableGroup>
+          </ComposableMap>
+          <h1>History of Collaboration</h1>
+          <Timeline position="alternate">
+            <TimelineItem>
+              <TimelineSeparator>
+                <TimelineDot color="secondary" />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>Secondary</TimelineContent>
+            </TimelineItem>
+            <TimelineItem>
+              <TimelineSeparator>
+                <TimelineDot color="success" />
+              </TimelineSeparator>
+              <TimelineContent>Success</TimelineContent>
+            </TimelineItem>
+          </Timeline>
+        </div>
 
       </Layout>
 

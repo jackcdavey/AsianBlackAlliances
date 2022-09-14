@@ -44,6 +44,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/mythsCuriosity.js"
+    ],
+    "/ourVoices": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/ourVoices.js"
     ]
   },
   "ampFirstPages": []

@@ -6,6 +6,8 @@ import Header from '../public/components/header';
 import Footer from '../public/components/footer';
 import MythCard from '../public/components/mythCard';
 
+import Layout from '../public/components/layout';
+
 import Grid from '@mui/material/Grid';
 
 const Home: NextPage = () => {
@@ -17,12 +19,13 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <Header />
-        <h1> Myths and Curiosity</h1>
-        <MythCard mythTitle='Myth Title' mythDesc='Myth Description' mythImage='https://images.unsplash.com/photo-1616489950003-1b1b1b1b1b1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80' />
-      </main>
-
+      <Header />
+      <Layout title='ABA: Myths and Curiosity' description=' '>
+        <div id='body'>
+          <h1> Myths and Curiosity</h1>
+          <MythCard mythTitle='Myth Title' mythDesc='Myth Description' mythImage='https://images.unsplash.com/photo-1616489950003-1b1b1b1b1b1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80' />
+        </div>
+      </Layout>
       <Footer />
     </>
   )
