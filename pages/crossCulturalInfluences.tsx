@@ -12,23 +12,19 @@ import FoodCard from '../public/components/foodCard';
 
 interface SubtitleSeparatorProps {
   title: string;
+  contentJustification: 'flex-start' | 'flex-end';
+  marginLeft?: string;
+  marginRight?: string;
 }
 
-function SubtitleSeparatorLeft({ title }: SubtitleSeparatorProps) {
+function SubtitleSeparator({ title, contentJustification, marginLeft, marginRight }: SubtitleSeparatorProps) {
   return (
-    <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', marginTop: '1rem', marginBottom: '1rem', marginLeft: '25%', width: '100vw' }}>
+    <div style={{ display: 'flex', justifyContent: contentJustification, alignItems: 'center', marginTop: '1rem', marginBottom: '1rem', marginLeft: marginLeft, marginRight: marginRight, width: '100vw' }}>
       <h1>{title}</h1>
     </div>
   );
 }
 
-function SubtitleSeparatorRight({ title }: SubtitleSeparatorProps) {
-  return (
-    <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginTop: '1rem', marginBottom: '1rem', marginRight: '25%', width: '100vw' }}>
-      <h1>{title}</h1>
-    </div>
-  );
-}
 
 const Home: NextPage = () => {
   return (
@@ -49,14 +45,18 @@ const Home: NextPage = () => {
 
           {/* <span > <h1>Food</h1></span>
            */}
-          <SubtitleSeparatorLeft title='Food' />
+          <SubtitleSeparator title='Food' contentJustification='flex-start' marginLeft='25%' />
           <FoodCard chefName='Chef Name' chefDesc='Chef Desc' dishName='Dish Name' dishDesc='Dish Description' />
           <FoodCard chefName='Chef Name' chefDesc='Chef Desc' dishName='Dish Name' dishDesc='Dish Description' />
           <FoodCard chefName='Chef Name' chefDesc='Chef Desc' dishName='Dish Name' dishDesc='Dish Description' />
 
-          <SubtitleSeparatorRight title='Fashion' />
+          <SubtitleSeparator title='Fashion' contentJustification='flex-end' marginRight='25%' />
 
-          <SubtitleSeparatorLeft title='Black-Asian Blended Family' />
+          <SubtitleSeparator title='Black-Asian Blended Family' contentJustification='flex-start' marginLeft='25%' />
+
+          <SubtitleSeparator title='Music / Anime / Manga' contentJustification='flex-end' marginRight='25%' />
+
+          <SubtitleSeparator title='Celebrating Cultural Memories' contentJustification='flex-start' marginLeft='25%' />
         </div>
         <Footer />
       </Layout>

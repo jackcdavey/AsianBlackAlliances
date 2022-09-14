@@ -60,7 +60,7 @@ const Home: NextPage = () => {
               </a></Link>
             </Grid>
             <Grid item xs={12} sm={6} className={'landingGridItem'}>
-              <Link href='/'><a>
+              <Link href='/discussion'><a>
                 <Paper elevation={10} className={'landingGridContent'}>
                   <h2> Share Your Story</h2>
                   <p>Share your story about Asian and Black communities.</p>

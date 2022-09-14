@@ -39,17 +39,6 @@ a {
   background-color: #e8f5e9;
 }
 
-#banner {
-  top: 0;
-  left: 0;
-  position: fixed;
-  min-width: 100vw;
-  height: 10vh;
-  /* background: lightgreen; */
-  display: flex;
-  align-items: center;
-}
-
 #banner h1 {
   padding-left: 3vh;
   padding-top: 2vh;
