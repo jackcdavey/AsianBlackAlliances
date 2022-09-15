@@ -25,7 +25,7 @@ const DisqusBlock = () => {
     );
 }
 
-const Home: NextPage = () => {
+const Discussion: NextPage = () => {
     return (
         <>
             <Head>
@@ -47,4 +47,4 @@ const Home: NextPage = () => {
     )
 }
 
-export default Home
+export default Discussion

@@ -8,6 +8,8 @@ import Header from '../public/components/header';
 import Footer from '../public/components/footer';
 import Layout from '../public/components/layout';
 
+import ImgMediaCard from '../public/components/cards/imageMediaCard';
+
 import FoodCard from '../public/components/foodCard';
 
 interface SubtitleSeparatorProps {
@@ -26,7 +28,7 @@ function SubtitleSeparator({ title, contentJustification, marginLeft, marginRigh
 }
 
 
-const Home: NextPage = () => {
+const CrossCulturalInfluences: NextPage = () => {
   return (
     <>
       <Head>
@@ -52,6 +54,12 @@ const Home: NextPage = () => {
 
           <SubtitleSeparator title='Fashion' contentJustification='flex-end' marginRight='25%' />
 
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '1rem', marginBottom: '1rem', marginLeft: '25%', marginRight: '25%', width: '100vw' }}>
+            <ImgMediaCard />
+            <ImgMediaCard />
+          </div>
+
+
           <SubtitleSeparator title='Black-Asian Blended Family' contentJustification='flex-start' marginLeft='25%' />
 
           <SubtitleSeparator title='Music / Anime / Manga' contentJustification='flex-end' marginRight='25%' />
@@ -64,4 +72,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default CrossCulturalInfluences

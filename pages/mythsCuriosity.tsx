@@ -10,7 +10,7 @@ import Layout from '../public/components/layout';
 
 import Grid from '@mui/material/Grid';
 
-const Home: NextPage = () => {
+const MythsCuriosity: NextPage = () => {
   return (
     <>
       <Head>
@@ -48,4 +48,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default MythsCuriosity

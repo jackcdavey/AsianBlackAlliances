@@ -31,7 +31,8 @@ const Home: NextPage = () => {
               <Link href='/historyOfCollaboration'><a>
                 <Paper elevation={10} className={'landingGridContent'}>
                   <h2> History of Collaboration</h2>
-                  <p>Explore the history of Asian and Black collaboration around the world.</p>
+                  <p>                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
                 </Paper>
               </a></Link>
             </Grid>
@@ -39,7 +40,8 @@ const Home: NextPage = () => {
               <Link href='/crossCulturalInfluences'><a>
                 <Paper elevation={10} className={'landingGridContent'}>
                   <h2> Cross-Cultural Influences</h2>
-                  <p>Explore the ways in which Asian and Black communities have influenced each other.</p>
+                  <p>                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
                 </Paper>
               </a></Link>
             </Grid>
@@ -47,7 +49,8 @@ const Home: NextPage = () => {
               <Link href='/mythsCuriosity'><a>
                 <Paper elevation={10} className={'landingGridContent'}>
                   <h2> Myths &#38; Curiosity</h2>
-                  <p>Explore the myths and curiosity surrounding Asian and Black communities.</p>
+                  <p>                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    .</p>
                 </Paper>
               </a></Link>
             </Grid>
@@ -55,7 +58,8 @@ const Home: NextPage = () => {
               <Link href='/ourVoices'><a>
                 <Paper elevation={10} className={'landingGridContent'}>
                   <h2> Our Voices</h2>
-                  <p>Explore the voices of Asian and Black communities.</p>
+                  <p>                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
                 </Paper>
               </a></Link>
             </Grid>
@@ -63,7 +67,8 @@ const Home: NextPage = () => {
               <Link href='/discussion'><a>
                 <Paper elevation={10} className={'landingGridContent'}>
                   <h2> Share Your Story</h2>
-                  <p>Share your story about Asian and Black communities.</p>
+                  <p>                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
                 </Paper>
               </a></Link>
             </Grid>

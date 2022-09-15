@@ -32,7 +32,7 @@ import { Paper, Typography } from '@mui/material';
 
 const geoUrl = '/features.json';
 
-const Home: NextPage = () => {
+const HistoryOfCollaboration: NextPage = () => {
   return (
     <>
       <Head>
@@ -150,4 +150,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default HistoryOfCollaboration
