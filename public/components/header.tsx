@@ -1,5 +1,6 @@
 import { Container } from '@mui/material';
 import Link from 'next/link';
+import React from 'react';
 
 const styles = {
     banner: {
@@ -16,7 +17,7 @@ const styles = {
 
 export default function Header() {
     return (
-        <Container style={styles.banner} id='banner' sx={{ backgroundColor: 'primary.main' }}>
+        <Container style={styles.banner as React.CSSProperties} id='banner' sx={{ backgroundColor: 'primary.main' }}>
             <Link href='/'><a><h1>Asian &#38; Black Alliances</h1></a></Link>
         </Container>
     )

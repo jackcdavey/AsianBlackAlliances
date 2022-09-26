@@ -33,11 +33,11 @@ const styles = {
 export default function FoodCard({ chefName, chefDesc, dishName, dishDesc }: FoodCardProps) {
     return (
         <div style={styles.card}>
-            <div style={styles.cardContent}>
+            <div style={styles.cardContent as React.CSSProperties}>
                 <h1>{chefName}</h1>
                 <h3>{chefDesc}</h3>
             </div>
-            <div style={styles.cardContent}>
+            <div style={styles.cardContent as React.CSSProperties}>
                 <h1>{dishName}</h1>
                 <h3>{dishDesc}</h3>
             </div>
