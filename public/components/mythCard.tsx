@@ -44,15 +44,15 @@ const styles = {
 
 export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkTitle }: MythCardProps) {
     return (
-        <div style={styles.card}>
-            <div style={styles.cardContent}>
+        <div style={styles.card as React.CSSProperties}>
+            <div style={styles.cardContent as React.CSSProperties}>
                 <h2>{mythTitle}</h2>
                 <h4>{mythDesc}</h4>
             </div>
-            <div style={styles.cardContent}>
+            <div style={styles.cardContent as React.CSSProperties}>
                 {/* Pass to card in future */}
                 <MultiActionAreaCard />
-                <a style={styles.linkTxt} href={mythLink}>{mythLinkTitle}</a>
+                <a style={styles.linkTxt as React.CSSProperties} href={mythLink}>{mythLinkTitle}</a>
             </div>
         </div>
     );

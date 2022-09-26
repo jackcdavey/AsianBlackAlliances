@@ -33,7 +33,7 @@ const Home: NextPage = () => {
         <div id='body'>
 
           <h1>Our Voices</h1>
-          <div style={styles.playerStyle}>
+          <div style={styles.playerStyle as React.CSSProperties}>
             <ReactPlayer url='https://www.youtube.com/watch?v=xcJtL7QggTI' />
           </div>
         </div>
