@@ -14,7 +14,9 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        zIndex: 100,
+        zIndex: 5,
+        opacity: 0.95,
+        backdropFilter: 'blur(10px)',
     },
 }
 
