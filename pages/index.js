@@ -47,7 +47,7 @@ function Home({ homepageTile }){
             <Grid item xs={12} sm={4} className={'landingGridItem'} key={homepageTile._id}>
               <a href={homepageTile?.link}>
                 <Paper elevation={10} className={'landingGridContent'}>
-                    <h2>{homepageTile?.title}</h2>
+                    <h3>{homepageTile?.title}</h3>
                     <p>{homepageTile?.description}</p>
                 </Paper>
               </a>

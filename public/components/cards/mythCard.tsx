@@ -48,7 +48,7 @@ const styles = {
 export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote }: MythCardProps) {
     return (
         <div className="mythCard" style={styles.cardWrap as React.CSSProperties}>
-            <h2>{mythTitle}</h2>
+            <h4>{mythTitle}</h4>
             <div style={styles.card as React.CSSProperties}>
                 <div style={styles.cardContent as React.CSSProperties}>
                     <p>{mythDesc}</p>
