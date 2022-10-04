@@ -4,14 +4,12 @@ import Image from 'next/image'
 
 import { createClient } from 'next-sanity'
 
-import styles from '../styles/Home.module.css'
 import Header from '../public/components/header';
 import Footer from '../public/components/footer';
 import MythCard from '../public/components/cards/mythCard';
 
 import Layout from '../public/components/layout';
 
-import Grid from '@mui/material/Grid';
 
 const client = createClient({
   projectId: 'hiagtp2f',
@@ -49,7 +47,7 @@ export default function MythsCuriosity({myth}) {
 
 
 export async function getStaticProps() {
-  const myth = await client.fetch(`*[_type == "myth"]`)
+  const myth = await client.fetch(`*[_type == "myth"] | order(order asc)`);
 
   return {
     props: {

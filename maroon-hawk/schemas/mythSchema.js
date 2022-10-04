@@ -24,6 +24,13 @@ export default {
             type: 'array',
             title: 'Link Note',
             of: [{ type: 'string' }],
-        }
+        },
+          {
+            name: "order",
+            title: "Order",
+            type: "number",
+            hidden: true,
+        },
+
     ]
 }
