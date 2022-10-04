@@ -122,3 +122,15 @@
    justify-content: center;
    align-items: center;
  }
+
+
+ /* Myths */
+ .mythCard {
+   max-height: 30vh;
+   transition: max-height 0.25s ease-in;
+ }
+
+ .mythCard:hover {
+   max-height: 150vh;
+   transition: max-height 0.25s ease-in;
+ }

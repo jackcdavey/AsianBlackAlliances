@@ -18,7 +18,7 @@ const styles = {
         margin: "1%",
         padding: "2%",
         textAlign: "center",
-
+        overflow: "hidden",
     },
     card: {
         display: "grid",
@@ -47,7 +47,7 @@ const styles = {
 
 export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote }: MythCardProps) {
     return (
-        <div style={styles.cardWrap as React.CSSProperties}>
+        <div className="mythCard" style={styles.cardWrap as React.CSSProperties}>
             <h2>{mythTitle}</h2>
             <div style={styles.card as React.CSSProperties}>
                 <div style={styles.cardContent as React.CSSProperties}>
