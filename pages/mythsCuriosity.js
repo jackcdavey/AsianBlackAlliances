@@ -7,7 +7,7 @@ import { createClient } from 'next-sanity'
 import styles from '../styles/Home.module.css'
 import Header from '../public/components/header';
 import Footer from '../public/components/footer';
-import MythCard from '../public/components/mythCard';
+import MythCard from '../public/components/cards/mythCard';
 
 import Layout from '../public/components/layout';
 
@@ -34,29 +34,12 @@ export default function MythsCuriosity({myth}) {
         <div id='body'>
           <h1> Myths and Curiosity</h1>
           {myth.map((myth) => (
-            <MythCard key={myth._id} mythTitle={myth?.title} mythDesc={myth?.body} 
-            mythLink='https://www.npr.org/2015/10/15/448840691/how-asian-americans-have-redefined-what-it-means-to-be-american'
-            mythLinkTitle='NPR – How Asian-Americans Have Redefined What It Means To Be American'/>
+            <MythCard key={myth._id}
+              mythTitle={myth?.title}
+              mythDesc={myth?.body}
+              mythLink={myth?.link}
+              mythLinkNote={myth?.linkNote} />
           ))}
-
-          <MythCard
-            mythTitle='Myth Title'
-            mythDesc='Myth Description'
-            mythLink='https://www.npr.org/2015/10/15/448840691/how-asian-americans-have-redefined-what-it-means-to-be-american'
-            mythLinkTitle='NPR – How Asian-Americans Have Redefined What It Means To Be American'
-          />
-          <MythCard
-            mythTitle='Myth Title'
-            mythDesc='Myth Description'
-            mythLink='https://www.npr.org/2015/10/15/448840691/how-asian-americans-have-redefined-what-it-means-to-be-american'
-            mythLinkTitle='NPR – How Asian-Americans Have Redefined What It Means To Be American'
-          />
-          <MythCard
-            mythTitle='Myth Title'
-            mythDesc='Myth Description'
-            mythLink='https://www.npr.org/2015/10/15/448840691/how-asian-americans-have-redefined-what-it-means-to-be-american'
-            mythLinkTitle='NPR – How Asian-Americans Have Redefined What It Means To Be American'
-          />
         </div>
       </Layout>
       <Footer />

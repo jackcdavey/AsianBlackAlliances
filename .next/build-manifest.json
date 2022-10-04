@@ -30,10 +30,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/crossCulturalInfluences": [
+    "/historyOfCollaboration": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/crossCulturalInfluences.js"
+      "static/chunks/pages/historyOfCollaboration.js"
+    ],
+    "/mythsCuriosity": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/mythsCuriosity.js"
     ]
   },
   "ampFirstPages": []

@@ -17,6 +17,7 @@ const styles = {
         zIndex: 5,
         opacity: 0.95,
         backdropFilter: 'blur(10px)',
+        minHeight: '80px',
     },
 }
 

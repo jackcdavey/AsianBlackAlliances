@@ -12,6 +12,18 @@ export default {
             name: 'body',
             type: 'text',
             title: 'Body',
+        },
+        {
+            name: 'link',
+            type: 'array',
+            title: 'Link',
+            of: [{ type: 'url' }],
+        },
+        {
+            name: 'linkNote',
+            type: 'array',
+            title: 'Link Note',
+            of: [{ type: 'string' }],
         }
     ]
 }

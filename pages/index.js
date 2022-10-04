@@ -43,8 +43,8 @@ function Home({ homepageTile }){
           </div>
 
           <Grid container rowSpacing={2} columnSpacing={6} id={'landingGrid'}>
-            {homepageTile.map((homepageTile) => (
-            <Grid item xs={12} sm={4} className={'landingGridItem'}>
+            {homepageTile?.map((homepageTile) => (
+            <Grid item xs={12} sm={4} className={'landingGridItem'} key={homepageTile._id}>
               <a href={homepageTile?.link}>
                 <Paper elevation={10} className={'landingGridContent'}>
                     <h2>{homepageTile?.title}</h2>
