@@ -2,6 +2,9 @@ import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+
+import { createClient } from 'next-sanity'
+
 import styles from '../styles/Home.module.css'
 import Header from '../public/components/header'
 import Footer from '../public/components/footer'
@@ -30,9 +33,16 @@ import {
 import { Paper, Typography } from '@mui/material';
 
 
+const client = createClient({
+  projectId: 'hiagtp2f',
+  dataset: 'production',
+  apiVersion: '2022-10-03',
+  useCdn: false,
+});
+
 const geoUrl = '/features.json';
 
-const HistoryOfCollaboration: NextPage = () => {
+const HistoryOfCollaboration: NextPage = ({ timelinePoint }: any) => {
   return (
     <>
       <Head>
@@ -59,23 +69,28 @@ const HistoryOfCollaboration: NextPage = () => {
             </ZoomableGroup>
           </ComposableMap>
           <h1>History of Collaboration</h1>
+
+
           <Timeline position="alternate">
-            <TimelineItem sx={{ margin: '2%' }}>
-              <TimelineOppositeContent color="text.secondary">
-                1850s
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot />
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent>
-                <Typography variant="h6" component="span">
-                  One
-                </Typography>
-                <Typography>                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </Typography>
-              </TimelineContent>
-            </TimelineItem>
+            {timelinePoint.map((timelinePoint: any) => (
+              <TimelineItem key={timelinePoint._id} sx={{ margin: '2%' }}>
+                <TimelineOppositeContent color="text.secondary">
+                  {timelinePoint?.date}
+                </TimelineOppositeContent>
+                <TimelineSeparator>
+                  <TimelineDot />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent>
+                  <Typography variant="h6" component="span">
+                    {timelinePoint?.title}
+                  </Typography>
+                  <Typography>
+                    {timelinePoint?.body}
+                  </Typography>
+                </TimelineContent>
+              </TimelineItem>
+            ))}
             <TimelineItem sx={{ margin: '2%' }}>
               <TimelineOppositeContent color="text.secondary">
                 1900s
@@ -148,6 +163,16 @@ const HistoryOfCollaboration: NextPage = () => {
       <Footer />
     </>
   )
+}
+
+export async function getStaticProps() {
+  const timelinePoint = await client.fetch(`*[_type == "timelinePoint"] | order(order asc)`)
+
+  return {
+    props: {
+      timelinePoint
+    }
+  };
 }
 
 export default HistoryOfCollaboration

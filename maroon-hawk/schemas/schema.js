@@ -8,6 +8,7 @@ import myth from './mythSchema'
 import homepageTile from './homepageTileSchema'
 import food from './foodSchema'
 import homepageCarousel from './homepageCarouselSchema'
+import timelinePoint from './timelineSchema'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -17,5 +18,6 @@ export default createSchema({
     homepageTile,
     homepageCarousel,
     food,
+    timelinePoint,
   ]),
 })

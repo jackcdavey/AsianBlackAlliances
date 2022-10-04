@@ -18,5 +18,11 @@ export default {
             type: 'string',
             title: 'Link',
         },
+        {
+            name: "order",
+            title: "Order",
+            type: "number",
+            hidden: true,
+        },
     ]
 }

@@ -56,7 +56,6 @@ function Home({ homepageTile }){
           </Grid>
         </div>
         <Footer />
-
       </Layout>
 
 
@@ -65,7 +64,7 @@ function Home({ homepageTile }){
 }
 
 export async function getStaticProps() {
-  const homepageTile = await client.fetch(`*[_type == "homepageTile"]`)
+  const homepageTile = await client.fetch(`*[_type == "homepageTile"]  | order(order asc)`)
 
   return {
     props: {
