@@ -92,7 +92,7 @@
  .landingGridContent {
    width: 100%;
    height: 100%;
-   border: #333 3px solid;
+   /* border: 3px solid; */
    border-radius: 25px;
    margin: auto;
    padding: 1rem;
