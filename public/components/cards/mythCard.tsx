@@ -2,6 +2,10 @@ import React from "react";
 import MultiActionAreaCard from "../richLinkCard";
 import Paper from "@mui/material/Paper";
 
+import dynamic from 'next/dynamic';
+// import ReactTinyLink from 'react-tiny-link';
+import TinyLinkPreview from '../tinyLinkPreview.js';
+
 interface MythCardProps {
     mythTitle: string;
     mythDesc: string;
@@ -30,8 +34,8 @@ const styles = {
         display: "flex",
         flexWrap: "wrap",
         flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "flex-start",
+        fontSize: "0.8rem",
 
     }, linkTxt: {
         alignSelf: "flex-start",
@@ -48,6 +52,7 @@ const styles = {
 export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote }: MythCardProps) {
     return (
         <div className="mythCard" style={styles.cardWrap as React.CSSProperties}>
+
             <h4>{mythTitle}</h4>
             <div style={styles.card as React.CSSProperties}>
                 <div style={styles.cardContent as React.CSSProperties}>
@@ -57,7 +62,17 @@ export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote }
                     {/* Pass to card in future */}
                     {mythLink &&
                         <>
-                            <MultiActionAreaCard />
+                            {/* <ReactTinyLink
+                                cardSize="small"
+                                showGraphic={true}
+                                maxLine={2}
+                                minLine={1}
+                                url={mythLink?.toString()}
+                            /> */}
+                            <TinyLinkPreview
+                                url={mythLink?.toString()}
+                            />
+
                             <a style={styles.linkTxt as React.CSSProperties} href={mythLink}>{mythLinkNote}</a>
                         </>
                     }

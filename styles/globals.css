@@ -131,6 +131,6 @@
  }
 
  .mythCard:hover {
-   max-height: 150vh;
+   max-height: 350vh;
    transition: max-height 0.25s ease-in;
  }
