@@ -16,7 +16,7 @@ export default function HomeCarousel({ homepageCarousel }: any) {
         {
             name: "Carousel Item #1",
             description: "Enter a description for this item here.",
-            image: "https://picsum.photos/800/300/?random"
+            // image: "https://picsum.photos/800/300/?random"
         },
         {
             name: "Carousel Item #2",
