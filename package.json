@@ -22,7 +22,8 @@
     "react-dom": "18.2.0",
     "react-material-ui-carousel": "^3.4.2",
     "react-player": "^2.10.1",
-    "react-simple-maps": "^3.0.0"
+    "react-simple-maps": "^3.0.0",
+    "scss": "^0.2.4"
   },
   "devDependencies": {
     "@types/node": "18.7.16",

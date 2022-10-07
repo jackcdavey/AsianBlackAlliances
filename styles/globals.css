@@ -79,11 +79,7 @@
    row-gap: 2vh;
  }
 
- @media screen and (max-width: 700px) {
-   #landingGrid {
-     grid-template-columns: repeat(2, 1fr);
-   }
- }
+
 
  .landingGridItem {
    grid-column: span 2;
@@ -94,8 +90,18 @@
    border-radius: 25px;
  }
 
- .landingGridItem:last-child:nth-child(2n - 1) {
-   grid-column-end: 4;
+
+ /* Bit of a hacky workaround for centering final grid item... */
+ @media screen and (min-width: 701px) {
+   .landingGridItem:last-child:nth-child(odd) {
+     grid-column-end: 4;
+   }
+ }
+
+ @media screen and (max-width: 700px) {
+   #landingGrid {
+     grid-template-columns: repeat(2, 1fr);
+   }
  }
 
 
@@ -150,4 +156,44 @@
    transition: max-height 0.25s ease-in;
    box-shadow: 0px 0px 15px 0px rgb(229, 124, 27) !important;
 
+ }
+
+
+ .gradientMediaCard {
+   --card-gradient: rgba(0, 0, 0, 0.8);
+   --card-gradient: #5e9ad9, #e271ad;
+   --card-blend-mode: overlay;
+   background-color: #fff;
+   border-radius: 0.5rem;
+   box-shadow: 0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.45);
+   padding-bottom: 1rem;
+   background-image: linear-gradient(var(--card-gradient), white max(9.5rem, 27vh));
+   overflow: hidden;
+ }
+
+ .gradientMediaCard :hover,
+ :focus-within {
+   --card-gradient: #24a9d5 max(8.5rem, 20vh);
+ }
+
+ .gradientMediaCard> :last-child {
+   margin-bottom: 0;
+ }
+
+ .gradientMediaCard img {
+   border-radius: 0.5rem 0.5rem 0 0;
+   width: 100%;
+   object-fit: cover;
+   max-height: max(10rem, 30vh);
+   aspect-ratio: 4/3;
+   mix-blend-mode: var(--card-blend-mode);
+ }
+
+ .gradientMediaCard h3 {
+   margin-top: 1rem;
+   font-size: 1.25rem;
+ }
+
+ .gradientMediaCard a {
+   color: inherit;
  }
