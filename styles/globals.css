@@ -70,23 +70,32 @@
  /* Home */
  #landingGrid {
    width: 100vw;
-   padding-left: 5vw;
-   padding-right: 5vw;
-   margin: 0 !important;
+   padding: 5vw;
    justify-content: center;
    align-items: center;
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   column-gap: 2vw;
+   row-gap: 2vh;
+ }
 
+ @media screen and (max-width: 400px) {
+   #landingGrid {
+     grid-template-columns: repeat(2, 1fr);
+   }
  }
 
  .landingGridItem {
-   margin: 2vw;
-   height: 20vh;
-   /* display: flex; */
+   grid-column: span 2;
+   height: 100%;
    width: 100%;
-   padding: 0 !important;
-   /* border: #333 solid 1px; */
    justify-content: center;
+   border: rgb(86, 129, 39) solid 3px;
+   border-radius: 25px;
+ }
 
+ .landingGridItem:last-child:nth-child(2n - 1) {
+   grid-column-end: 4;
  }
 
  .landingGridContent {
@@ -133,4 +142,6 @@
  .mythCard:hover {
    max-height: 350vh;
    transition: max-height 0.25s ease-in;
+   box-shadow: 0px 0px 15px 0px rgb(229, 124, 27) !important;
+
  }

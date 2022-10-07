@@ -6,6 +6,8 @@ import dynamic from 'next/dynamic';
 // import ReactTinyLink from 'react-tiny-link';
 import TinyLinkPreview from '../tinyLinkPreview.js';
 
+import { COLORS } from '../../styling/colors.js';
+
 interface MythCardProps {
     mythTitle: string;
     mythDesc: string;
@@ -17,8 +19,9 @@ const styles = {
     cardWrap: {
         width: "90%",
         borderRadius: "25px",
-        boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.75)",
-        border: "1px solid black",
+        boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.75)",
+        border: "3px solid " + COLORS.primary,
+        backgroundColor: COLORS.neutral,
         margin: "1%",
         padding: "2%",
         textAlign: "center",

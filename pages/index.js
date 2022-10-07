@@ -7,7 +7,7 @@ import { createClient } from 'next-sanity'
 
 import Link from 'next/link'
 // import { useTheme } from '@mui/material/styles';
-import { Container, Grid, Paper } from '@mui/material';
+import { Container, Grid, Paper, Box } from '@mui/material';
 import Header from '../public/components/header';
 import Footer from '../public/components/footer';
 import Layout from '../public/components/layout';
@@ -44,18 +44,18 @@ function Home({ homepageTile }){
             <HomeCarousel />
           </div>
 
-          <Grid container rowSpacing={2} columnSpacing={6} id={'landingGrid'}>
+          <Box id={'landingGrid'}>
             {homepageTile?.map((homepageTile) => (
-            <Grid item xs={12} sm={4} className={'landingGridItem'} sx={{border: COLORS.primary+'3px solid', borderRadius: '25px'}} key={homepageTile._id}>
+            <Box className={'landingGridItem'} key={homepageTile._id}>
               <a href={homepageTile?.link}>
                 <Paper elevation={10} className={'landingGridContent'}>
                     <h3>{homepageTile?.title}</h3>
                     <p>{homepageTile?.description}</p>
                 </Paper>
               </a>
-            </Grid>
+            </Box>
             ))}
-          </Grid>
+          </Box>
         </div>
         <Footer />
       </Layout>
