@@ -12,6 +12,8 @@ import ImgMediaCard from '../public/components/cards/imageMediaCard';
 
 import FoodCard from '../public/components/foodCard';
 
+import LinkWithImage from '../public/components/cards/linkWithImageCard';
+
 interface SubtitleSeparatorProps {
   title: string;
   contentJustification: 'flex-start' | 'flex-end';
@@ -40,7 +42,12 @@ const CrossCulturalInfluences: NextPage = () => {
       <Layout title='ABA: Cross-Cultural Influences' description=' '>
         <Header />
         <div id='body'>
-
+          <LinkWithImage
+            link='https://www.youtube.com/watch?v=QZ9Y4Z0Z1Z8'
+            image='https://picsum.photos/800/300/?random'
+            title='Food'
+            description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem.'
+          />
           <h1>Cross Cultural Influences</h1>
           <h3>Black peoples and Asian peoples have been mutually influencing and learning from each other. These dynamic interactions are expressed through and reflected in our everyday activities. Below are xxx aspects***  </h3>
 
