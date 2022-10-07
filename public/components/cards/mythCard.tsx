@@ -21,7 +21,7 @@ const styles = {
         borderRadius: "25px",
         boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.75)",
         border: "3px solid " + COLORS.primary,
-        backgroundColor: COLORS.neutral,
+        // backgroundColor: COLORS.neutral,
         margin: "1%",
         padding: "2%",
         textAlign: "center",
@@ -54,7 +54,7 @@ const styles = {
 
 export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote }: MythCardProps) {
     return (
-        <div className="mythCard" style={styles.cardWrap as React.CSSProperties}>
+        <Paper className="mythCard" style={styles.cardWrap as React.CSSProperties}>
 
             <h4>{mythTitle}</h4>
             <div style={styles.card as React.CSSProperties}>
@@ -81,6 +81,6 @@ export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote }
                     }
                 </div>
             </div>
-        </div>
+        </Paper>
     );
 }
