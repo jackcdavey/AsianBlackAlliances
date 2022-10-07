@@ -49,8 +49,8 @@ export default function LinkWithImage({ link, image, title, description }: LinkW
 
     return (
         <a href={link}>
-            <Paper style={styles.cardWrapper}>
-                <div style={styles.card}>
+            <Paper style={styles.cardWrapper as React.CSSProperties}>
+                <div style={styles.card as React.CSSProperties}>
 
                     {image &&
                         <img
@@ -59,9 +59,9 @@ export default function LinkWithImage({ link, image, title, description }: LinkW
                             width={'30%'}
                         />
                     }
-                    <div style={styles.cardText}>
+                    <div style={styles.cardText as React.CSSProperties}>
                         <h3>{title}</h3>
-                        <div style={styles.linkText}>{link}</div>
+                        <div style={styles.linkText as React.CSSProperties}>{link}</div>
                         <p>{description}</p>
                     </div>
 
