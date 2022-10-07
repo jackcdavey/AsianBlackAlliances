@@ -31,16 +31,24 @@ export default function LinkWithImage({ link, image, title, description }: LinkW
             flexDirection: 'column',
             alignItems: 'flex-start',
             marginLeft: '1rem',
+            marginRight: '1rem',
             maxWidth: '66%',
             maxHeight: '30vh',
             overflow: 'auto',
+            overflowX: 'hidden',
             fontSize: '0.8rem',
-        }
+        },
+        linkText: {
+            // textDecoration: 'none',
+
+            maxWidth: '66%',
+            whiteSpace: 'nowrap',
+        },
     }
 
 
     return (
-        <a href={link}>{link}
+        <a href={link}>
             <Paper style={styles.cardWrapper}>
                 <div style={styles.card}>
 
@@ -53,7 +61,7 @@ export default function LinkWithImage({ link, image, title, description }: LinkW
                     }
                     <div style={styles.cardText}>
                         <h3>{title}</h3>
-
+                        <div style={styles.linkText}>{link}</div>
                         <p>{description}</p>
                     </div>
 
