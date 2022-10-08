@@ -7,6 +7,8 @@ import {
     Marker
 } from 'react-simple-maps';
 
+import { COLORS } from '../styling/colors.js';
+
 const geoUrl = '/features.json';
 
 
@@ -31,14 +33,44 @@ export default function CollaborationMap({ setTooltipContent }) {
                     }
                 </Geographies>
                 {/*  */}
-                <Marker coordinates={[50, 0]}
+                {/* China */}
+                <Marker coordinates={[100, 35]}
+                
                     // onMouseEnter={() => {
                     // setTooltipContent(`${geo.properties.name}`);
                     //     // alert('HELLO WORLD');
                 // }}
                 >
-                    <circle r={3} fill="#FF5533" />
+                    <circle r={9} fill={COLORS.secondary} />
                 </Marker>
+
+                {/* Japan */}
+                <Marker coordinates={[140, 35]}>
+                    <circle r={9} fill={COLORS.secondary} />
+                </Marker>
+
+                {/* USA, Wash DC */}
+                <Marker coordinates={[-78, 40]}>
+                    <circle r={9} fill={COLORS.secondary} />
+                </Marker>
+
+                {/* Philippines  */}
+                <Marker coordinates={[120, 13]}>
+                    <circle r={9} fill={COLORS.secondary} />
+                </Marker>
+
+                {/* Vietnam */}
+                <Marker coordinates={[105, 16]}>
+                    <circle r={9} fill={COLORS.secondary} />
+                </Marker>
+
+                {/* Indonesia, Bandung */}
+                <Marker coordinates={[107, -6]}>
+                    <circle r={9} fill={COLORS.secondary} />
+                </Marker>
+
+
+
                 {/* </div> */}
             </ZoomableGroup>
         </ComposableMap>

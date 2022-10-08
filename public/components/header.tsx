@@ -24,7 +24,7 @@ const styles = {
 export default function Header() {
     return (
         <Container style={styles.banner as React.CSSProperties} id='banner' sx={{ backgroundColor: 'primary.main' }}>
-            <Link href='/'><a>
+            <a href='/' style={{ backgroundColor: 'red' }}>
                 <Image
                     src="/media/CustomAssets/ABAlogo.png"
                     layout='fill'
@@ -32,8 +32,27 @@ export default function Header() {
                     alt="ABA Logo"
                     objectPosition={'left'}
                 />
-                {/* <h1>Asian &#38; Black Alliances</h1> */}
-            </a></Link>
+            </a>
+            {/* <div style={{ display: 'flex', paddingLeft: '20%' }}>
+
+                <a href='/historyOfCollaboration'>
+                    <div style={{ paddingRight: '1.5rem' }}>
+                        <h2>History</h2>
+                    </div>
+                </a>
+
+                <div style={{ paddingRight: '1.5rem' }}>
+                    <Link href='/crossCulturalInfluences'>
+                        <h2>Culture</h2>
+                    </Link>
+                </div>
+                <div style={{ paddingRight: '1.5rem' }}>
+                    <Link href='/mythsCuriosity'>
+                        <h2>Myths</h2>
+                    </Link>
+                </div>
+            </div> */}
+
         </Container>
     )
 }
