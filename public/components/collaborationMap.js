@@ -44,6 +44,12 @@ export default function CollaborationMap({ setTooltipContent }) {
                     <circle r={9} fill={COLORS.secondary} />
                 </Marker>
 
+                {/* Papua New Guinea */}
+                <Marker coordinates={[145, -6]}>
+                    <circle r={9} fill={COLORS.secondary} />
+                </Marker>
+
+
                 {/* Japan */}
                 <Marker coordinates={[140, 35]}>
                     <circle r={9} fill={COLORS.secondary} />

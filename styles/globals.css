@@ -103,6 +103,15 @@
    #landingGrid {
      grid-template-columns: repeat(2, 1fr);
    }
+
+   #foodSection {
+     flex-direction: column !important;
+     align-items: center;
+   }
+
+   .foodColumn {
+     max-width: 90vw !important;
+   }
  }
 
 
