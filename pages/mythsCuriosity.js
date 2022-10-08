@@ -10,6 +10,9 @@ import MythCard from '../public/components/cards/mythCard';
 
 import Layout from '../public/components/layout';
 
+import RoadtripMap from '../public/components/roadtripMap';
+
+
 
 const client = createClient({
   projectId: 'hiagtp2f',
@@ -38,7 +41,13 @@ export default function MythsCuriosity({myth}) {
               mythLink={myth?.link}
               mythLinkNote={myth?.linkNote} />
           ))}
+
+          <h2>Be Curious on Your Next Roadtrip!</h2>
+          <p style={{textAlign: "center"}}>As racial minorities, we do not see our histories taught in formal education. Therefore, we need to self educate with true and comprehensive information. When you plan your next family vacation, consider building in a couple of such lessons to learn about ourselves and each other</p>
+          <RoadtripMap />
         </div>
+
+
       </Layout>
       <Footer />
     </>

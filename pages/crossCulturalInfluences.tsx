@@ -17,6 +17,8 @@ import React from 'react';
 import Paper from '@mui/material/Paper';
 import GradientMediaCard from '../public/components/cards/gradientMediaCard';
 
+import RoadtripMap from '../public/components/roadtripMap';
+
 interface SubtitleSeparatorProps {
   title: string;
   contentJustification: 'flex-start' | 'flex-end';
