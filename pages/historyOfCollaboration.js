@@ -85,7 +85,7 @@ function HistoryOfCollaboration({ timelinePoint }) {
               ) : (
               
               <TimelineItem key={timelinePoint._id} sx={{ margin: '2%' }}>
-                <TimelineOppositeContent color="text.secondary">
+                <TimelineOppositeContent color="text.secondary" fontSize="1.2rem">
                   {timelinePoint?.date}
                 </TimelineOppositeContent>
                 <TimelineSeparator>
