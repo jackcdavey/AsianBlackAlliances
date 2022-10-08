@@ -33,7 +33,7 @@ export default function MythsCuriosity({myth}) {
       <Header />
       <Layout title='ABA: Myths and Curiosity' description=' '>
         <div id='body'>
-          <h1> Myths and Curiosity</h1>
+          <h1> Myths &#38; Curiosity</h1>
           {myth.map((myth) => (
             <MythCard key={myth._id}
               mythTitle={myth?.title}
