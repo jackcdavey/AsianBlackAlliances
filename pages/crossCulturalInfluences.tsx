@@ -38,10 +38,12 @@ const styles = {
     flexDirection: "column",
     justifyContent: "space-evenly",
     alignItems: "center",
-    width: "100%",
+    maxWidth: "40vw",
     margin: "2vw",
     border: "rgb(86, 129, 39) solid 3px",
     borderRadius: '25px',
+    padding: '1rem',
+    // overflow: 'contain',
   },
 };
 
@@ -69,10 +71,10 @@ const CrossCulturalInfluences: NextPage = () => {
       <Layout title='ABA: Cross-Cultural Influences' description=' '>
         <Header />
         <div id='body'>
-          <LinkWithImage link='https://www.youtube.com/watch?v=QZ9Y4Z0Z1Z8'
+          {/* <LinkWithImage link='https://www.youtube.com/watch?v=QZ9Y4Z0Z1Z8'
             image='https://picsum.photos/800/300/?random'
             title='Food'
-            description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem.' />
+            description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem.' /> */}
 
 
           {/* <div className='gradientMediaCard'>
@@ -81,9 +83,7 @@ const CrossCulturalInfluences: NextPage = () => {
             <p>Lorem ipsum sit dolor amit</p>
           </div> */}
 
-          <GradientMediaCard imgAlt='' title='A Super Wonderful Headline' content='Lorem ipsum sit dolor amit' link='www.google.com' />
-          <h1>Cross Cultural Influences</h1>
-          <h3>Black peoples and Asian peoples have been mutually influencing and learning from each other. These dynamic interactions are expressed through and reflected in our everyday activities. Below are xxx aspects***  </h3>
+
 
 
           {/* <span > <h1>Food</h1></span>
@@ -93,9 +93,12 @@ const CrossCulturalInfluences: NextPage = () => {
           <div style={styles.foodSectionWrap as React.CSSProperties}>
             <Paper style={styles.foodColumn as React.CSSProperties}>
               <h2>Chefs</h2>
+              <GradientMediaCard imgSource='https://images.unsplash.com/photo-1611916656173-875e4277bea6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400' imgAlt='' title='A Super Wonderful Headline' content='Lorem ipsum sit dolor amit' link='www.google.com' useGradient={true} />
+
             </Paper>
             <Paper style={styles.foodColumn as React.CSSProperties}>
               <h2>Dishes</h2>
+              <GradientMediaCard imgSource='https://images.unsplash.com/photo-1611916656173-875e4277bea6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400' imgAlt='' title='A Super Wonderful Headline' content='Lorem ipsum sit dolor amit' link='www.google.com' useGradient={true} />
             </Paper>
           </div>
 
