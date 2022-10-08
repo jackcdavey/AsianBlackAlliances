@@ -23,6 +23,7 @@
     "react-material-ui-carousel": "^3.4.2",
     "react-player": "^2.10.1",
     "react-simple-maps": "^3.0.0",
+    "react-tooltip": "^4.2.21",
     "scss": "^0.2.4"
   },
   "devDependencies": {

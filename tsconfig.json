@@ -26,7 +26,8 @@
     "public/components/carousel.tsx",
     "pages/index.js",
     "pages/mythsCuriosity.js",
-    "pages/historyOfCollaboration.js"
+    "pages/historyOfCollaboration.js",
+    "public/components/collaborationMap.js"
   ],
   "exclude": [
     "node_modules"

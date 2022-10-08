@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+// import styles from '../styles/Home.module.css'
 
 import Grid from '@mui/material/Grid';
 import Header from '../public/components/header';
@@ -13,6 +13,9 @@ import ImgMediaCard from '../public/components/cards/imageMediaCard';
 import FoodCard from '../public/components/foodCard';
 
 import LinkWithImage from '../public/components/cards/linkWithImageCard';
+import React from 'react';
+import Paper from '@mui/material/Paper';
+import GradientMediaCard from '../public/components/cards/gradientMediaCard';
 
 interface SubtitleSeparatorProps {
   title: string;
@@ -20,6 +23,30 @@ interface SubtitleSeparatorProps {
   marginLeft?: string;
   marginRight?: string;
 }
+
+
+const styles = {
+  foodSectionWrap: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    // alignItems: "center",
+    width: "100%",
+  },
+  foodColumn: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    width: "100%",
+    margin: "2vw",
+    border: "rgb(86, 129, 39) solid 3px",
+    borderRadius: '25px',
+  },
+};
+
+
+
 
 function SubtitleSeparator({ title, contentJustification, marginLeft, marginRight }: SubtitleSeparatorProps) {
   return (
@@ -42,12 +69,19 @@ const CrossCulturalInfluences: NextPage = () => {
       <Layout title='ABA: Cross-Cultural Influences' description=' '>
         <Header />
         <div id='body'>
-          <LinkWithImage
-            link='https://www.youtube.com/watch?v=QZ9Y4Z0Z1Z8'
+          <LinkWithImage link='https://www.youtube.com/watch?v=QZ9Y4Z0Z1Z8'
             image='https://picsum.photos/800/300/?random'
             title='Food'
-            description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem.'
-          />
+            description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem.' />
+
+
+          {/* <div className='gradientMediaCard'>
+            <img src='https://images.unsplash.com/photo-1611916656173-875e4277bea6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400' alt='' />
+            <h3><a href="">A Super Wonderful Headline</a></h3>
+            <p>Lorem ipsum sit dolor amit</p>
+          </div> */}
+
+          <GradientMediaCard imgAlt='' title='A Super Wonderful Headline' content='Lorem ipsum sit dolor amit' link='www.google.com' />
           <h1>Cross Cultural Influences</h1>
           <h3>Black peoples and Asian peoples have been mutually influencing and learning from each other. These dynamic interactions are expressed through and reflected in our everyday activities. Below are xxx aspects***  </h3>
 
@@ -55,6 +89,16 @@ const CrossCulturalInfluences: NextPage = () => {
           {/* <span > <h1>Food</h1></span>
            */}
           <SubtitleSeparator title='Food' contentJustification='flex-start' marginLeft='25%' />
+
+          <div style={styles.foodSectionWrap as React.CSSProperties}>
+            <Paper style={styles.foodColumn as React.CSSProperties}>
+              <h2>Chefs</h2>
+            </Paper>
+            <Paper style={styles.foodColumn as React.CSSProperties}>
+              <h2>Dishes</h2>
+            </Paper>
+          </div>
+
           <FoodCard chefName='Chef Name' chefDesc='Chef Desc' dishName='Dish Name' dishDesc='Dish Description' />
           <FoodCard chefName='Chef Name' chefDesc='Chef Desc' dishName='Dish Name' dishDesc='Dish Description' />
           <FoodCard chefName='Chef Name' chefDesc='Chef Desc' dishName='Dish Name' dishDesc='Dish Description' />

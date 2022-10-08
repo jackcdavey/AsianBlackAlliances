@@ -160,8 +160,7 @@
 
 
  .gradientMediaCard {
-   --card-gradient: rgba(0, 0, 0, 0.8);
-   --card-gradient: #5e9ad9, #e271ad;
+   --card-gradient: rgb(86, 129, 39), rgb(229, 124, 27);
    --card-blend-mode: overlay;
    background-color: #fff;
    border-radius: 0.5rem;
@@ -169,6 +168,7 @@
    padding-bottom: 1rem;
    background-image: linear-gradient(var(--card-gradient), white max(9.5rem, 27vh));
    overflow: hidden;
+
  }
 
  .gradientMediaCard :hover,
@@ -191,9 +191,25 @@
 
  .gradientMediaCard h3 {
    margin-top: 1rem;
+   margin-left: 0.5rem;
+   margin-right: 0.5rem;
    font-size: 1.25rem;
  }
 
+ .gradientMediaCard p {
+   margin-left: 0.5rem;
+   margin-right: 0.5rem;
+
+ }
+
+
  .gradientMediaCard a {
    color: inherit;
+ }
+
+ .mapPoint :hover {
+   background-color: #e8f5e9;
+   width: 20vw;
+   height: 20vh;
+   box-shadow: 0px 0px 10px 0px rgb(229, 124, 27);
  }
