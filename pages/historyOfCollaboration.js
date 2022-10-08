@@ -36,7 +36,7 @@ import {
   TimelineOppositeContent
 } from '@mui/lab';
 
-import { Paper, Typography } from '@mui/material';
+import { Button, Paper, Typography } from '@mui/material';
 import CollaborationMap from '../public/components/collaborationMap.js'
 
 // import Tooltip from '@mui/material/Tooltip'
@@ -85,8 +85,13 @@ function HistoryOfCollaboration({ timelinePoint }) {
               ) : (
               
               <TimelineItem key={timelinePoint._id} sx={{ margin: '2%' }}>
-                <TimelineOppositeContent color="text.secondary" fontSize="1.2rem">
-                  {timelinePoint?.date}
+                <TimelineOppositeContent color="text.secondary" fontSize="1.2rem" display='flex' flexDirection="column">
+                      {timelinePoint?.date}
+                      {timelinePoint?.citation && (
+                        timelinePoint?.citation?.map((citation) => (
+                          <Button variant="outlined" color="primary" href={timelinePoint?.citation} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '1rem', width: '50%', margin: 'auto' }} >More Info</Button>
+                        ))
+                      )}
                 </TimelineOppositeContent>
                 <TimelineSeparator>
                   <TimelineDot />
