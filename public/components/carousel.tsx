@@ -37,7 +37,7 @@ function Item(props: {
     item: any;
 }) {
     return (
-        <Paper sx={{ padding: '5%' }}>
+        <Paper sx={{ padding: '5%', borderRadius: '25px' }}>
             <img src={props.item.image} alt={props.item.name} />
             <h2>{props.item.name}</h2>
             <p>{props.item.description}</p>
