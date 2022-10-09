@@ -44,6 +44,27 @@ const styles = {
     padding: '1rem',
     // overflow: 'contain',
   },
+
+  seasonSectionWrap: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+     gridTemplateRows: 'repeat(2, 1fr)',
+     gridGap: '1rem',
+     marginTop: '1rem',
+     marginBottom: '1rem',
+     marginLeft: '25%',
+     marginRight: '25%',
+     width: '100%',
+     aspectRatio: '2/1'
+  },
+
+  seasonQuad: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '0.25rem'
+  }
 };
 
 
@@ -99,7 +120,7 @@ export default function CrossCulturalInfluences({food, chef}) {
 
           {/* <span > <h1>Food</h1></span>
            */}
-          <SubtitleSeparator title='Food' contentJustification='flex-start' marginLeft='25%' />
+          <SubtitleSeparator title='Food' contentJustification='flex-start' marginLeft='10%' />
 
           <div id="foodSection" style={styles.foodSectionWrap}>
             <Paper className='foodColumn' style={styles.foodColumn}>
@@ -122,7 +143,7 @@ export default function CrossCulturalInfluences({food, chef}) {
           </div>
 
 
-          <SubtitleSeparator title='Fashion' contentJustification='flex-end' marginRight='25%' />
+          <SubtitleSeparator title='Fashion' contentJustification='flex-end' marginRight='10%' />
 
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '1rem', marginBottom: '1rem', marginLeft: '25%', marginRight: '25%', width: '100vw' }}>
             <ImgMediaCard />
@@ -130,15 +151,48 @@ export default function CrossCulturalInfluences({food, chef}) {
           </div>
 
 
-          <SubtitleSeparator title='Black-Asian Blended Family' contentJustification='flex-start' marginLeft='25%' />
+          <SubtitleSeparator title='Black-Asian Blended Family' contentJustification='flex-start' marginLeft='10%' />
 
-          <SubtitleSeparator title='Music / Anime / Manga' contentJustification='flex-end' marginRight='25%' />
+          {/* <SubtitleSeparator title='Music / Anime / Manga' contentJustification='flex-end' marginRight='25%' /> */}
 
-          <SubtitleSeparator title='Celebrating Cultural Memories' contentJustification='flex-start' marginLeft='25%' />
+          <SubtitleSeparator title='Celebrating Cultural Memories' contentJustification='flex-end' marginRight='10%' />
+
+          <SeasonChart />
         </div>
         <Footer />
       </Layout>
     </>
+  )
+}
+
+function SeasonChart() {
+  return (
+    // Display a grid with two rows and two columns of equal size.
+    <div style={styles.seasonSectionWrap}>
+      <div style={{ gridColumn: '1 / 2', gridRow: '1 / 2', backgroundColor: 'lightblue' }}>
+        <div style={styles.seasonQuad}>
+          <h1>Winter</h1>
+          </div>
+      </div>
+      <div style={{ gridColumn: '2 / 2', gridRow: '1 / 2', backgroundColor: 'lightgreen' }}>
+        <div style={styles.seasonQuad}>
+          <h1>Spring</h1>
+          </div>
+      </div>
+      <div style={{ gridColumn: '1 / 2', gridRow: '2 / 2', backgroundColor: 'lightcoral' }}>
+        <div style={styles.seasonQuad}>
+          <h1>Summer</h1>
+          </div>
+      </div>
+      <div style={{ gridColumn: '2 / 2', gridRow: '2 / 2', backgroundColor: 'lightyellow' }}>
+        <div style={styles.seasonQuad}>
+          <h1>Fall</h1>
+        </div>
+        </div>
+</div>
+  
+
+    
   )
 }
 
