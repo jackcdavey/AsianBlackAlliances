@@ -56,7 +56,7 @@ export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote }
     return (
         <Paper className="mythCard" style={styles.cardWrap as React.CSSProperties}>
 
-            <h4>{mythTitle}</h4>
+            <h2>{mythTitle}</h2>
             <div style={styles.card as React.CSSProperties}>
                 <div style={styles.cardContent as React.CSSProperties}>
                     <p>{mythDesc}</p>
