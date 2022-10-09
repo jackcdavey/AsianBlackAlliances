@@ -183,21 +183,48 @@ export default function CrossCulturalInfluences({food, chef, holiday}) {
       <div style={{ gridColumn: '2 / 2', gridRow: '1 / 2', backgroundColor: 'lightgreen' }}>
         <div style={styles.seasonQuad}>
           <div style={{textAlign: 'left', paddingLeft: '0.5rem'}}>
-            <h1>Spring</h1>
+                  <h1>Spring</h1>
+                  {holiday.map((holiday) => (
+              holiday.season === 'spring' ?
+              <div style={{ paddingBottom: "10%", lineHeight: '1.3rem' }}>
+                <h3 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.title}</h3>
+                <h5 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.date}</h5>
+                <p style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.body}</p>
+                      </div>
+              : null
+            ))}
             </div>
           </div>
       </div>
       <div style={{ gridColumn: '1 / 2', gridRow: '2 / 2', backgroundColor: 'lightcoral' }}>
         <div style={styles.seasonQuad}>
-          <div style={{alignSelf: 'flex-end', paddingRight: '0.5rem'}}>
-            <h1>Summer</h1>
+          <div style={{textAlign: 'right', paddingRight: '0.5rem'}}>
+                  <h1>Summer</h1>
+                  {holiday.map((holiday) => (
+              holiday.season === 'summer' ?
+              <div style={{ paddingBottom: "10%", lineHeight: '1.3rem' }}>
+                <h3 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.title}</h3>
+                <h5 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.date}</h5>
+                <p style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.body}</p>
+                      </div>
+              : null
+            ))}
             </div>
           </div>
       </div>
       <div style={{ gridColumn: '2 / 2', gridRow: '2 / 2', backgroundColor: 'lightyellow' }}>
         <div style={styles.seasonQuad}>
-                    <div style={{alignSelf: 'flex-start', paddingLeft: '0.5rem'}}>
-            <h1>Fall</h1>
+                    <div style={{textAlign: 'left', paddingLeft: '0.5rem'}}>
+                  <h1>Fall</h1>
+                  {holiday.map((holiday) => (
+              holiday.season === 'fall' ?
+              <div style={{ paddingBottom: "10%", lineHeight: '1.3rem' }}>
+                <h3 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.title}</h3>
+                <h5 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.date}</h5>
+                <p style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.body}</p>
+                      </div>
+              : null
+            ))}
             </div>
         </div>
         </div>
