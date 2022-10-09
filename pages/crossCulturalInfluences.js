@@ -64,7 +64,8 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     padding: '0.25rem'
-  }
+  },
+
 };
 
 
@@ -91,7 +92,7 @@ function SubtitleSeparator({ title, contentJustification, marginLeft, marginRigh
 
 
 
-export default function CrossCulturalInfluences({food, chef}) {
+export default function CrossCulturalInfluences({food, chef, holiday}) {
   return (
     <>
       <Head>
@@ -157,7 +158,54 @@ export default function CrossCulturalInfluences({food, chef}) {
 
           <SubtitleSeparator title='Celebrating Cultural Memories' contentJustification='flex-end' marginRight='10%' />
 
-          <SeasonChart />
+
+          
+          {/* SEASON CHART */}
+          {/* This should really be a separate component, but does not seem to work with CMS */}
+          <div style={styles.seasonSectionWrap}>
+      <div style={{ gridColumn: '1 / 2', gridRow: '1 / 2', backgroundColor: 'lightblue' }}>
+        <div style={styles.seasonQuad}>
+          <div style={{textAlign: 'right', paddingRight: '0.5rem'}}>
+            <h1 style={{ alignSelf: 'flex-end' }}>Winter</h1>
+                  {holiday.map((holiday) => (
+              holiday.season === 'winter' ?
+              <div style={{ paddingBottom: "10%", lineHeight: '1.3rem' }}>
+                <h3 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.title}</h3>
+                <h5 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.date}</h5>
+                <p style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.body}</p>
+                      </div>
+              : null
+            ))}
+
+            </div>
+          </div>
+      </div>
+      <div style={{ gridColumn: '2 / 2', gridRow: '1 / 2', backgroundColor: 'lightgreen' }}>
+        <div style={styles.seasonQuad}>
+          <div style={{textAlign: 'left', paddingLeft: '0.5rem'}}>
+            <h1>Spring</h1>
+            </div>
+          </div>
+      </div>
+      <div style={{ gridColumn: '1 / 2', gridRow: '2 / 2', backgroundColor: 'lightcoral' }}>
+        <div style={styles.seasonQuad}>
+          <div style={{alignSelf: 'flex-end', paddingRight: '0.5rem'}}>
+            <h1>Summer</h1>
+            </div>
+          </div>
+      </div>
+      <div style={{ gridColumn: '2 / 2', gridRow: '2 / 2', backgroundColor: 'lightyellow' }}>
+        <div style={styles.seasonQuad}>
+                    <div style={{alignSelf: 'flex-start', paddingLeft: '0.5rem'}}>
+            <h1>Fall</h1>
+            </div>
+        </div>
+        </div>
+          </div>
+          
+
+
+
         </div>
         <Footer />
       </Layout>
@@ -165,45 +213,16 @@ export default function CrossCulturalInfluences({food, chef}) {
   )
 }
 
-function SeasonChart() {
-  return (
-    // Display a grid with two rows and two columns of equal size.
-    <div style={styles.seasonSectionWrap}>
-      <div style={{ gridColumn: '1 / 2', gridRow: '1 / 2', backgroundColor: 'lightblue' }}>
-        <div style={styles.seasonQuad}>
-          <h1>Winter</h1>
-          </div>
-      </div>
-      <div style={{ gridColumn: '2 / 2', gridRow: '1 / 2', backgroundColor: 'lightgreen' }}>
-        <div style={styles.seasonQuad}>
-          <h1>Spring</h1>
-          </div>
-      </div>
-      <div style={{ gridColumn: '1 / 2', gridRow: '2 / 2', backgroundColor: 'lightcoral' }}>
-        <div style={styles.seasonQuad}>
-          <h1>Summer</h1>
-          </div>
-      </div>
-      <div style={{ gridColumn: '2 / 2', gridRow: '2 / 2', backgroundColor: 'lightyellow' }}>
-        <div style={styles.seasonQuad}>
-          <h1>Fall</h1>
-        </div>
-        </div>
-</div>
-  
-
-    
-  )
-}
-
 
 export async function getStaticProps() {
   const food = await client.fetch(`*[_type == "food"]  | order(order asc)`);
   const chef = await client.fetch(`*[_type == "chef"]  | order(order asc)`);
+  const holiday = await client.fetch(`*[_type == "holiday"]  | order(order asc)`);
   return {
     props: {
       food,
       chef,
+      holiday,
     }
   };
 }
