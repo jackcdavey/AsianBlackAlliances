@@ -8,7 +8,6 @@ import Header from '../public/components/header';
 import Footer from '../public/components/footer';
 import Layout from '../public/components/layout';
 
-import ImgMediaCard from '../public/components/cards/imageMediaCard';
 
 import FoodCard from '../public/components/foodCard';
 
@@ -22,6 +21,7 @@ import { createClient } from 'next-sanity'
 import { COLORS } from '../public/styling/colors.js';
 
 import imageUrlBuilder from '@sanity/image-url'
+import { Button } from '@mui/material';
 
 
 
@@ -58,6 +58,7 @@ const styles = {
     filter: 'blur(10px)',
     backgroundColor: COLORS.secondaryLight,
     zIndex: '-1',
+    borderRadius: '25px',
   },
 
   seasonSectionWrap: {
@@ -162,14 +163,17 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion}) 
 
 
           <SubtitleSeparator title='Fashion' contentJustification='flex-end' marginRight='10%' />
-
+          
           {fashion.map((fashion) => (
             <div key={fashion._id} style={{display: 'flex', flexDirection: 'row'}}>
-              <p>{fashion?.body}</p>
+              <p style={{width: "70%"}}>{fashion?.body}</p>
               {fashion.image &&
               <img src={urlFor(fashion?.image)} alt='' />
-              }
-              <a href={fashion?.link}>{fashion?.link}</a>
+              } 
+              <Button link={fashion?.link} sx={{ width: "30%" }} >
+                Learn More
+              </Button>
+              
             </div>
           ))}
 
