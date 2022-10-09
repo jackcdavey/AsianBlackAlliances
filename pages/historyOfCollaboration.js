@@ -98,7 +98,7 @@ function HistoryOfCollaboration({ timelinePoint }) {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Typography variant="h6" component="span">
+                  <Typography variant="h6" component="span" fontWeight="500">
                     {timelinePoint?.title}
                   </Typography>
                   <Typography>
