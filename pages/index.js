@@ -41,7 +41,7 @@ function Home({ homepageTile }){
           <Header />
           {/* Create dedicated carousel container later */}
           <div style={{ width: '100vw', overflow: 'hidden' }}>
-            <HomeCarousel />
+            {/* <HomeCarousel /> */}
           </div>
 
           <Box id={'landingGrid'}>
