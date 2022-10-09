@@ -11,6 +11,7 @@ import homepageCarousel from './homepageCarouselSchema'
 import timelinePoint from './timelineSchema'
 import chef from './chefSchema'
 import holiday from './holidaySchema'
+import fashion from './fashionSchema'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -23,5 +24,6 @@ export default createSchema({
     timelinePoint,
     chef,
     holiday,
+    fashion,
   ]),
 })

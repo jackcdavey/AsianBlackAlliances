@@ -92,7 +92,7 @@ function SubtitleSeparator({ title, contentJustification, marginLeft, marginRigh
 
 
 
-export default function CrossCulturalInfluences({food, chef, holiday}) {
+export default function CrossCulturalInfluences({food, chef, holiday, fashion}) {
   return (
     <>
       <Head>
@@ -137,7 +137,7 @@ export default function CrossCulturalInfluences({food, chef, holiday}) {
               <h2>Dishes</h2>
               {food.map((food) => (
                 <div style={{paddingBottom: "10%"}}>
-                  <GradientMediaCard key={chef._id} imgSource={urlFor(food?.image)} title={food?.title} content={food?.body} link={food?.link} useGradient={true} />
+                  <GradientMediaCard key={food._id} imgSource={urlFor(food?.image)} title={food?.title} content={food?.body} link={food?.link} useGradient={true} />
                   </div>
                ))}
             </Paper>
@@ -146,10 +146,15 @@ export default function CrossCulturalInfluences({food, chef, holiday}) {
 
           <SubtitleSeparator title='Fashion' contentJustification='flex-end' marginRight='10%' />
 
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '1rem', marginBottom: '1rem', marginLeft: '25%', marginRight: '25%', width: '100vw' }}>
-            <ImgMediaCard />
-            <ImgMediaCard />
-          </div>
+          {fashion.map((fashion) => (
+            <div key={fashion._id} style={{display: 'flex', flexDirection: 'row'}}>
+              <p>{fashion?.body}</p>
+              {fashion.image &&
+              <img src={urlFor(fashion?.image)} alt='' />
+              }
+              <a href={fashion?.link}>{fashion?.link}</a>
+            </div>
+          ))}
 
 
           <SubtitleSeparator title='Black-Asian Blended Family' contentJustification='flex-start' marginLeft='10%' />
@@ -245,11 +250,13 @@ export async function getStaticProps() {
   const food = await client.fetch(`*[_type == "food"]  | order(order asc)`);
   const chef = await client.fetch(`*[_type == "chef"]  | order(order asc)`);
   const holiday = await client.fetch(`*[_type == "holiday"]  | order(order asc)`);
+  const fashion = await client.fetch(`*[_type == "fashion"]  | order(order asc)`);
   return {
     props: {
       food,
       chef,
       holiday,
+      fashion,
     }
   };
 }
