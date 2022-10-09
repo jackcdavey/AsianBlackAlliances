@@ -19,6 +19,8 @@ import Paper from '@mui/material/Paper';
 import GradientMediaCard from '../public/components/cards/gradientMediaCard';
 import { createClient } from 'next-sanity'
 
+import { COLORS } from '../public/styling/colors.js';
+
 import imageUrlBuilder from '@sanity/image-url'
 
 
@@ -37,12 +39,25 @@ const styles = {
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "center",
-    maxWidth: "40vw",
+    maxWidth: "45vw",
     margin: "2vw",
-    border: "rgb(86, 129, 39) solid 3px",
     borderRadius: '25px',
     padding: '1rem',
+    position: 'relative',
+    zIndex: '1',
     // overflow: 'contain',
+  },
+  foodColumnBackground: {
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    right: '0',
+    bottom: '0',
+    width: '100%',
+    height: '100%',
+    filter: 'blur(10px)',
+    backgroundColor: COLORS.secondaryLight,
+    zIndex: '-1',
   },
 
   seasonSectionWrap: {
@@ -124,7 +139,8 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion}) 
           <SubtitleSeparator title='Food' contentJustification='flex-start' marginLeft='10%' />
 
           <div id="foodSection" style={styles.foodSectionWrap}>
-            <Paper className='foodColumn' style={styles.foodColumn}>
+            <div className='foodColumn' style={styles.foodColumn}>
+              <div style={styles.foodColumnBackground} > </div>
               <h2>Chefs</h2>
               {chef.map((chef) => (
                 <div style={{paddingBottom: "10%"}}>
@@ -132,15 +148,16 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion}) 
                   </div>
               ))}
 
-            </Paper>
-            <Paper className='foodColumn' style={styles.foodColumn}>
+            </div>
+            <div className='foodColumn' style={styles.foodColumn}>
+              <div style={styles.foodColumnBackground} > </div>
               <h2>Dishes</h2>
               {food.map((food) => (
                 <div style={{paddingBottom: "10%"}}>
                   <GradientMediaCard key={food._id} imgSource={urlFor(food?.image)} title={food?.title} content={food?.body} link={food?.link} useGradient={true} />
                   </div>
                ))}
-            </Paper>
+            </div>
           </div>
 
 
