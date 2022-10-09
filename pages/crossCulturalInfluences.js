@@ -39,7 +39,6 @@ const styles = {
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "center",
-    maxWidth: "45vw",
     margin: "2vw",
     borderRadius: '25px',
     padding: '1rem',
@@ -47,6 +46,8 @@ const styles = {
     zIndex: '1',
     // overflow: 'contain',
   },
+
+
   foodColumnBackground: {
     position: 'absolute',
     top: '0',
@@ -144,9 +145,15 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion}) 
               <div style={styles.foodColumnBackground} > </div>
               <h2>Chefs</h2>
               {chef.map((chef) => (
-                <div style={{paddingBottom: "10%"}}>
-                <GradientMediaCard key={chef._id} link={chef?.link} image={urlFor(chef?.image)} title={chef?.title} description={chef?.body} />
-                  </div>
+                <div style={{ paddingBottom: "10%" }}>
+                  <a href={chef?.link}>
+                  <Paper key={chef._id} className="chefCard">
+                    <h3>{chef?.title}</h3>
+                    <a>{chef?.link}</a>
+                    </Paper>
+                    </a>
+                </div>
+                
               ))}
 
             </div>

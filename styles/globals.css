@@ -161,6 +161,35 @@
  }
 
 
+ .foodColumn {
+   width: 45vw;
+ }
+
+
+
+ .chefCard {
+   width: 35vw;
+   height: 100%;
+   /* border: 3px solid; */
+   border-radius: 25px;
+   margin: auto;
+   padding: 1rem;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+ }
+
+ @media screen and (max-width: 700px) {
+   .foodColumn {
+     width: 90vw;
+   }
+
+   .chefCard {
+     width: 80vw;
+   }
+
+ }
+
  /* Myths */
  .mythCard {
    max-height: 30vh;
