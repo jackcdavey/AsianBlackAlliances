@@ -144,6 +144,13 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion}) 
             <div className='foodColumn' style={styles.foodColumn}>
               <div style={styles.foodColumnBackground} > </div>
               <h2>Chefs</h2>
+              <div style={{paddingBottom: '10%'}}>
+              <LinkWithImage link='https://www.amazon.com/Adrian-Miller/e/B00CJV744I'
+                image="https://cdn.firstwefeast.com/assets/2015/06/adrianmiller1.jpg"
+                title='Adrian Miller'
+                description='Adrian Miller is a chef and author of many books. A “history buff” as he calls himself, Adrian’s books tell stories of rich cultures beyond the food .  '
+                />
+              </div>
               {chef.map((chef) => (
                 <div style={{ paddingBottom: "10%" }}>
                   <a href={chef?.link}>
