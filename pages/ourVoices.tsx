@@ -7,16 +7,30 @@ import Footer from '../public/components/footer'
 import Layout from '../public/components/layout'
 
 import React from 'react'
-import ReactPlayer from 'react-player'
+
 
 import Grid from '@mui/material/Grid';
 
+import dynamic from 'next/dynamic'
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
+
+
+
 const styles = {
+  playerWrap: {
+    position: "relative",
+    width: "100%",
+    paddingBottom: "100%",
+  },
   playerStyle: {
     borderRadius: '25px',
     boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.75)',
     border: '1px solid #000000',
-    overflow: 'hidden',
+    // overflow: 'hidden',
+    // maxWidth: '100%',
+    position: "absolute",
+    maxWidth: "80%",
+    maxHeight: "100%",
   },
 }
 
@@ -33,8 +47,9 @@ const Home: NextPage = () => {
         <div id='body'>
 
           <h1>Our Voices</h1>
-          <div style={styles.playerStyle as React.CSSProperties}>
-            <ReactPlayer url='https://www.youtube.com/watch?v=xcJtL7QggTI' />
+          <div style={styles.playerWrap as React.CSSProperties}>
+            <ReactPlayer url='https://www.youtube.com/watch?v=xcJtL7QggTI'
+              width={"auto"} style={{ borderRadius: "25px", overflow: "hidden" }} />
           </div>
         </div>
       </Layout>

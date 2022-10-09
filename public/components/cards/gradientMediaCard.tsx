@@ -1,3 +1,4 @@
+import React from "react";
 
 
 interface GradientMediaCardProps {
@@ -54,7 +55,9 @@ export default function GradientMediaCard({ imgSource, imgAlt, title, content, l
         <div style={converted[".gradientMediaCard"]} >
             <a href={link}>
                 {imgSource &&
-                    <img src={imgSource} alt={imgAlt} />
+                    <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
+                        <img style={converted[".gradientMediaCard img"] as React.CSS} src={imgSource} alt={imgAlt} />
+                    </div>
                 }
                 {title &&
                     <h3 style={{ paddingLeft: '0.5rem' }}>{title}</h3>

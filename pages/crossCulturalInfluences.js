@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+
 import Head from 'next/head'
 import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
@@ -12,19 +12,15 @@ import ImgMediaCard from '../public/components/cards/imageMediaCard';
 
 import FoodCard from '../public/components/foodCard';
 
+
 import LinkWithImage from '../public/components/cards/linkWithImageCard';
 import React from 'react';
 import Paper from '@mui/material/Paper';
 import GradientMediaCard from '../public/components/cards/gradientMediaCard';
+import { createClient } from 'next-sanity'
 
-import RoadtripMap from '../public/components/roadtripMap';
+import imageUrlBuilder from '@sanity/image-url'
 
-interface SubtitleSeparatorProps {
-  title: string;
-  contentJustification: 'flex-start' | 'flex-end';
-  marginLeft?: string;
-  marginRight?: string;
-}
 
 
 const styles = {
@@ -39,7 +35,7 @@ const styles = {
   foodColumn: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-evenly",
+    justifyContent: "flex-start",
     alignItems: "center",
     maxWidth: "40vw",
     margin: "2vw",
@@ -51,9 +47,19 @@ const styles = {
 };
 
 
+const client = createClient({
+  projectId: 'hiagtp2f',
+  dataset: 'production',
+  apiVersion: '2022-10-03',
+  useCdn: false,
+});
 
+const builder = imageUrlBuilder(client)
+function urlFor(source) {
+  return builder.image(source)
+}
 
-function SubtitleSeparator({ title, contentJustification, marginLeft, marginRight }: SubtitleSeparatorProps) {
+function SubtitleSeparator({ title, contentJustification, marginLeft, marginRight }) {
   return (
     <div style={{ display: 'flex', justifyContent: contentJustification, alignItems: 'center', marginTop: '1rem', marginBottom: '1rem', marginLeft: marginLeft, marginRight: marginRight, width: '100vw' }}>
       <h1>{title}</h1>
@@ -62,7 +68,9 @@ function SubtitleSeparator({ title, contentJustification, marginLeft, marginRigh
 }
 
 
-const CrossCulturalInfluences: NextPage = () => {
+
+
+export default function CrossCulturalInfluences({food, chef}) {
   return (
     <>
       <Head>
@@ -93,21 +101,26 @@ const CrossCulturalInfluences: NextPage = () => {
            */}
           <SubtitleSeparator title='Food' contentJustification='flex-start' marginLeft='25%' />
 
-          <div id="foodSection" style={styles.foodSectionWrap as React.CSSProperties}>
-            <Paper className='foodColumn' style={styles.foodColumn as React.CSSProperties}>
+          <div id="foodSection" style={styles.foodSectionWrap}>
+            <Paper className='foodColumn' style={styles.foodColumn}>
               <h2>Chefs</h2>
-              <GradientMediaCard imgSource='https://images.unsplash.com/photo-1611916656173-875e4277bea6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400' imgAlt='' title='A Super Wonderful Headline' content='Lorem ipsum sit dolor amit' link='www.google.com' useGradient={true} />
+              {chef.map((chef) => (
+                <div style={{paddingBottom: "10%"}}>
+                <GradientMediaCard key={chef._id} link={chef?.link} image={urlFor(chef?.image)} title={chef?.title} description={chef?.body} />
+                  </div>
+              ))}
 
             </Paper>
-            <Paper className='foodColumn' style={styles.foodColumn as React.CSSProperties}>
+            <Paper className='foodColumn' style={styles.foodColumn}>
               <h2>Dishes</h2>
-              <GradientMediaCard imgSource='https://images.unsplash.com/photo-1611916656173-875e4277bea6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400' imgAlt='' title='A Super Wonderful Headline' content='Lorem ipsum sit dolor amit' link='www.google.com' useGradient={true} />
+              {food.map((food) => (
+                <div style={{paddingBottom: "10%"}}>
+                  <GradientMediaCard key={chef._id} imgSource={urlFor(food?.image)} title={food?.title} content={food?.body} link={food?.link} useGradient={true} />
+                  </div>
+               ))}
             </Paper>
           </div>
 
-          <FoodCard chefName='Chef Name' chefDesc='Chef Desc' dishName='Dish Name' dishDesc='Dish Description' />
-          <FoodCard chefName='Chef Name' chefDesc='Chef Desc' dishName='Dish Name' dishDesc='Dish Description' />
-          <FoodCard chefName='Chef Name' chefDesc='Chef Desc' dishName='Dish Name' dishDesc='Dish Description' />
 
           <SubtitleSeparator title='Fashion' contentJustification='flex-end' marginRight='25%' />
 
@@ -129,4 +142,15 @@ const CrossCulturalInfluences: NextPage = () => {
   )
 }
 
-export default CrossCulturalInfluences
+
+export async function getStaticProps() {
+  const food = await client.fetch(`*[_type == "food"]  | order(order asc)`);
+  const chef = await client.fetch(`*[_type == "chef"]  | order(order asc)`);
+  return {
+    props: {
+      food,
+      chef,
+    }
+  };
+}
+
