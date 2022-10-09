@@ -70,7 +70,7 @@ function HistoryOfCollaboration({ timelinePoint }) {
           {/* <Tooltip className='card' title="add">{tooltipContent}</Tooltip> */}
           <h1>History of Collaboration</h1>
           <span style={{width: '70%', textAlign: 'center'}}>
-                <p>This page Integrating Cultural and Political Transnational Historical Significant Events on Asian and Black Interactions. These events are not positive or negative. Rather, each builds on the others as continuation of possibilities to build a sustainable relationality between these two heterogeneous groups  </p>
+                <p>This page integrates cultural and political transnational historically significant events on Asian and Black interactions. These events are not positive or negative. Rather, each builds on the others as continuation of possibilities to build a sustainable relationality between these two heterogeneous groups  </p>
           </span>
               
           <Timeline position="alternate">
