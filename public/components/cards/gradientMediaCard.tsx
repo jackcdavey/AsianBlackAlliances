@@ -17,7 +17,7 @@ const converted = {
         backgroundColor: "#fff",
         borderRadius: "25px",
         boxShadow: "0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.45)",
-        paddingBottom: "1rem",
+        paddingBottom: "0.5rem",
         backgroundImage:
             "linear-gradient(var(--card-gradient), white max(9.5rem, 27vh))",
         overflow: "hidden",
@@ -36,9 +36,6 @@ const converted = {
         aspectRatio: "4/3"
     },
     ".gradientMediaCard h3": {
-        marginTop: "1rem",
-        marginLeft: "0.5rem",
-        marginRight: "0.5rem",
         fontSize: "1.25rem"
     },
     ".gradientMediaCard p": { marginLeft: "0.5rem", marginRight: "0.5rem" },
@@ -60,13 +57,13 @@ export default function GradientMediaCard({ imgSource, imgAlt, title, content, l
                     </div>
                 }
                 {title &&
-                    <h3 style={{ paddingLeft: '0.5rem' }}>{title}</h3>
+                    <h3 style={{ paddingLeft: '0.5rem', margin: '1%' }}>{title}</h3>
                 }
                 {content &&
-                    <p style={{ paddingLeft: '0.5rem' }}>{content}</p>
+                    <p style={{ paddingLeft: '0.5rem', margin: "1%" }}>{content}</p>
                 }
                 {link && !content &&
-                    <p style={{ paddingLeft: '0.5rem' }}>{link}</p>
+                    <p style={{ paddingLeft: '0.5rem', margin: '1%' }}>{link}</p>
                 }
 
             </a >
