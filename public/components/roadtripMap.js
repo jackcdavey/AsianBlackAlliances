@@ -7,12 +7,19 @@ import {
     Marker
 } from 'react-simple-maps';
 
+import { useState } from 'react';
+
 import { COLORS } from '../styling/colors.js';
+
+import { Tooltip } from './tooltip.js';
 
 const geoUrl = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json';
 
 
+
 export default function RoadtripMap({ setTooltipContent }) {
+    const [currentTooltip, setCurrentTooltip] = useState('');
+
     return (
         <ComposableMap projection="geoMercator">
             <ZoomableGroup center={[-455, 33]} zoom={5}>
@@ -20,16 +27,18 @@ export default function RoadtripMap({ setTooltipContent }) {
                     {({ geographies }) =>
                         geographies.map((geo) => (
                             // fill={'#00' + Math.floor(Math.random() * 200 + 56).toString(16) + '50'}
-                            <Geography key={geo.rsmKey} stroke="#FFF" strokeWidth={0.5} geography={geo} fill="#DDD" />
+                            <Geography key={geo.rsmKey} onMouseEnter={setCurrentTooltip(geo.rsmKey)} stroke="#FFF" strokeWidth={0.5} geography={geo} fill="#DDD" />
                         ))
                     }
                 </Geographies>
                 
 
                 {/* USA, Wash DC */}
-                <Marker coordinates={[-78, 40]}>
-                    <circle r={1.5} stroke='#aaa' strokeWidth={0.5} fill={COLORS.secondary} />
-                </Marker>
+                {/* <Tooltip tooltipText="Washington, DC"> */}
+                <Marker coordinates={[-78, 40]}>'
+                        <circle r={1.5} stroke='#aaa' strokeWidth={0.5} fill={COLORS.secondary} />
+                    </Marker>
+                {/* </Tooltip> */}
                 {/* San Francisco */}
                 <Marker coordinates={[-122.4194, 37.7749]}>
                     <circle r={1.5} stroke='#aaa' strokeWidth={0.5} fill={COLORS.secondary} />
@@ -46,7 +55,7 @@ export default function RoadtripMap({ setTooltipContent }) {
                 <Marker coordinates={[-97.7431, 30.2672]}>
                     <circle r={1.5} stroke='#aaa' strokeWidth={0.5} fill={COLORS.secondary} />
                 </Marker>
-                
+
                 {/* Boston MA */}
                 <Marker coordinates={[-71.0589, 42.3601]}>
                     <circle r={1.5} stroke='#aaa' strokeWidth={0.5} fill={COLORS.secondary} />

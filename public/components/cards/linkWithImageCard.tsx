@@ -16,15 +16,18 @@ export default function LinkWithImage({ link, image, title, description }: LinkW
 
     const styles = {
         cardWrapper: {
-            maxWidth: '30vw',
+            // maxWidth: '30vw',
             borderRadius: '25px',
             marginTop: '5%',
+            // width: '80vw',
         },
         card: {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
             borderRadius: '25px',
+            overflow: 'hidden',
+
         },
         cardText: {
             display: 'flex',

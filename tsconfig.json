@@ -27,7 +27,8 @@
     "pages/index.js",
     "pages/mythsCuriosity.js",
     "pages/historyOfCollaboration.js",
-    "public/components/collaborationMap.js"
+    "pages/crossCulturalInfluences.js",
+    "public/components/collaborationMap.js",
   ],
   "exclude": [
     "node_modules"

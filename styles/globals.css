@@ -165,10 +165,11 @@
    width: 45vw;
  }
 
-
+ #chefCard {
+   width: 35vw
+ }
 
  .chefCard {
-   width: 35vw;
    height: 100%;
    /* border: 3px solid; */
    border-radius: 25px;
@@ -184,7 +185,7 @@
      width: 90vw;
    }
 
-   .chefCard {
+   #chefCard {
      width: 80vw;
    }
 

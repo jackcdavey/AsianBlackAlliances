@@ -7,12 +7,16 @@ import {
     Marker
 } from 'react-simple-maps';
 
+import { useState } from 'react';
+
 import { COLORS } from '../styling/colors.js';
 
 const geoUrl = '/features.json';
 
 
 export default function CollaborationMap({ setTooltipContent }) {
+    const [markerA, setMarkerA] = useState(9);
+
     return (
         <ComposableMap projection="geoMercator" width={800} height={400}>
             <ZoomableGroup center={[0, 0]} zoom={1}>
@@ -34,14 +38,18 @@ export default function CollaborationMap({ setTooltipContent }) {
                 </Geographies>
                 {/*  */}
                 {/* China */}
-                <Marker coordinates={[100, 35]}
-                
-                    // onMouseEnter={() => {
-                    // setTooltipContent(`${geo.properties.name}`);
-                    //     // alert('HELLO WORLD');
-                // }}
-                >
-                    <circle r={9} fill={COLORS.secondary} />
+                <Marker coordinates={[100, 35]}>
+                    <circle r={markerA} fill={COLORS.secondary}
+                        onMouseEnter={() => {
+                            setMarkerA(30);
+                        }
+                        }
+
+                        onMouseLeave={() => {
+                            setMarkerA(9);
+                        }
+                        }
+                        />
                 </Marker>
 
                 {/* Papua New Guinea */}

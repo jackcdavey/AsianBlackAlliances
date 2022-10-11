@@ -12,7 +12,12 @@ import Layout from '../public/components/layout';
 import FoodCard from '../public/components/foodCard';
 
 
-import LinkWithImage from '../public/components/cards/linkWithImageCard';
+import dynamic from 'next/dynamic';
+
+const LinkWithImage = dynamic(
+  () => import('../public/components/cards/linkWithImageCard'),
+);
+
 import React from 'react';
 import Paper from '@mui/material/Paper';
 import GradientMediaCard from '../public/components/cards/gradientMediaCard';
@@ -144,17 +149,19 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion}) 
             <div className='foodColumn' style={styles.foodColumn}>
               <div style={styles.foodColumnBackground} > </div>
               <h2>Chefs</h2>
-              <div style={{paddingBottom: '10%'}}>
+              <div style={{paddingBottom: '10%'}} id='chefCard'>
               <LinkWithImage link='https://www.amazon.com/Adrian-Miller/e/B00CJV744I'
                 image="https://cdn.firstwefeast.com/assets/2015/06/adrianmiller1.jpg"
                 title='Adrian Miller'
-                description='Adrian Miller is a chef and author of many books. A “history buff” as he calls himself, Adrian’s books tell stories of rich cultures beyond the food .  '
+                  description='Adrian Miller is a chef and author of many books. A “history buff” as he calls himself, Adrian’s books tell stories of rich cultures beyond the food .  '
+
+                  
                 />
               </div>
               {chef.map((chef) => (
                 <div style={{ paddingBottom: "10%" }}>
                   <a href={chef?.link}>
-                  <Paper key={chef._id} className="chefCard">
+                  <Paper key={chef._id} id="chefCard" className="chefCard">
                     <h3>{chef?.title}</h3>
                     <a>{chef?.link}</a>
                     </Paper>
