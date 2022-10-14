@@ -60,6 +60,8 @@ export default function LinkWithImage({ link, image, title, description }: LinkW
                             src={image}
                             alt={title}
                             width={'30%'}
+                            style={{ borderRadius: '5px' }}
+                        //25px looks a bit off
                         />
                     }
                     <div style={styles.cardText as React.CSSProperties}>

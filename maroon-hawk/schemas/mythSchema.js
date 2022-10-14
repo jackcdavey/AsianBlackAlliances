@@ -1,6 +1,7 @@
 export default {
     name: 'myth',
     type: 'document',
+    i18n: true,
     title: 'Myth',
     fields: [
         {
