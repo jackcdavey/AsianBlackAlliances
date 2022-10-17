@@ -300,7 +300,9 @@ export async function getStaticProps() {
       chef,
       holiday,
       fashion,
-    }
+    },
+    revalidate: 10,
+
   };
 }
 

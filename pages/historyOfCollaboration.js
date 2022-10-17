@@ -122,7 +122,8 @@ export async function getStaticProps() {
   return {
     props: {
       timelinePoint
-    }
+    },
+    revalidate: 10,
   };
 }
 

@@ -64,6 +64,8 @@ export async function getStaticProps() {
   return {
     props: {
       myth
-    }
+    },
+    revalidate: 10,
+
   };
 }

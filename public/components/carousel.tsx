@@ -55,6 +55,8 @@ export async function getStaticProps() {
     return {
         props: {
             homepageTile,
-        }
+        },
+        revalidate: 10,
+
     };
 }
