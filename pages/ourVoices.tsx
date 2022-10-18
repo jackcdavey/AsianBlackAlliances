@@ -48,7 +48,7 @@ const Home: NextPage = () => {
 
           <h1>Our Voices</h1>
           <div style={styles.playerWrap as React.CSSProperties}>
-            <ReactPlayer url='https://www.youtube.com/watch?v=xcJtL7QggTI'
+            <ReactPlayer url='https://www.youtube.com/watch?v=qjYiuV66KEw'
               width={"auto"} style={{ borderRadius: "25px", overflow: "hidden" }} />
           </div>
         </div>

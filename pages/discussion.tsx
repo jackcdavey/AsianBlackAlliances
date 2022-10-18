@@ -38,7 +38,14 @@ const Discussion: NextPage = () => {
                 <div id='body'>
 
                     <h1>Discussion</h1>
-                    <DisqusBlock />
+                    <form action="mailto:jack2018g@me.com" method="post" enctype="text/plain">
+                        <label htmlFor="name">Name:</label><br />
+                        <input type="text" id="name" name="name" /><br />
+                        <label htmlFor="subject">Subject:</label><br />
+                        <input type="text" id="subject" name="subject" /><br /><br />
+                        <label htmlFor="message">Message:</label><br />
+                        <textarea id="message" name="message" rows={10} cols={100}></textarea><br /><br />
+                    </form>
                 </div>
             </Layout>
 
