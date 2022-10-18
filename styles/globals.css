@@ -71,14 +71,14 @@
 
  /* Home */
  #landingGrid {
-   width: 100vw;
+   width: 50vw;
    padding: 5vw;
    justify-content: center;
    align-items: center;
    display: grid;
    grid-template-columns: repeat(4, 1fr);
-   column-gap: 2vw;
-   row-gap: 2vh;
+   column-gap: 5%;
+   row-gap: 5%;
  }
 
 
@@ -86,7 +86,7 @@
  .landingGridItem {
    grid-column: span 2;
    height: 100%;
-   width: 100%;
+   aspect-ratio: 1/1;
    justify-content: center;
    border: rgb(86, 129, 39) solid 3px;
    border-radius: 25px;

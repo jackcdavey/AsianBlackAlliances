@@ -60,6 +60,9 @@ function Home({ homepageTile }){
             </Box>
             ))}
           </Box>
+          <div style={{ marginBottom: '1vh', textAlign: 'center', paddingTop: '5%', paddingLeft: '5%', paddingRight: '5%' }}>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lorem eros, iaculis at diam in, tempus imperdiet ligula. Cras eget gravida nibh. Nunc ut ex augue. Mauris vulputate neque et malesuada mattis. Donec quis ante elementum, porta dui a, feugiat arcu. Sed viverra a quam sit amet efficitur. Maecenas ac sem sit amet neque elementum cursus. Nullam eget metus eros. Aliquam efficitur ac tortor et iaculis. Nunc eget purus dolor. Nunc ac tellus nunc. Nulla eu facilisis tortor, a vulputate sapien.  </p>  
+          </div>
         </div>
         <Footer />
       </Layout>
