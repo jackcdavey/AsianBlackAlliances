@@ -34,6 +34,7 @@ function Home({ homepageTile }){
         <title>Asian &#38; Black Alliances</title>
         <meta name="description" content="Exploring the history and cultural relations of Asian and Black communities aroun the world." />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://use.typekit.net/hco7ora.css" />
       </Head>
 
       <Layout title={"Asian and Black Alliances"} description={""}>

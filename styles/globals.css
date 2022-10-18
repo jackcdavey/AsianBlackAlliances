@@ -27,6 +27,14 @@
 } */
 
 
+ h1 {
+   font-family: dream-big-wide, sans-serif;
+   font-weight: 700;
+   font-style: normal;
+   font-size: 3rem;
+   color: rgb(86, 129, 39)
+ }
+
  #body {
    padding-top: 10vh;
    min-height: 100vh;
