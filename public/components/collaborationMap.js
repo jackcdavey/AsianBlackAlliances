@@ -19,7 +19,7 @@ export default function CollaborationMap({ setTooltipContent }) {
 
     return (
         <ComposableMap projection="geoMercator" width={800} height={400}>
-            <ZoomableGroup center={[0, 0]} zoom={1}>
+            {/* <ZoomableGroup center={[0, 0]} zoom={1}> */}
                 <Geographies geography={geoUrl}>
                     {({ geographies }) =>
                         geographies.map((geo) => (
@@ -86,7 +86,7 @@ export default function CollaborationMap({ setTooltipContent }) {
 
 
                 {/* </div> */}
-            </ZoomableGroup>
+            {/* </ZoomableGroup> */}
         </ComposableMap>
     );
 }
