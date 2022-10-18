@@ -27,7 +27,8 @@ const client = createClient({
   useCdn: false,
 });
 
-function Home({ homepageTile }){
+function Home({ homepageTile, homepageDescription }) {
+  var cardColor = '';
   return (
     <>
       <Head>
@@ -46,11 +47,16 @@ function Home({ homepageTile }){
           <div style={{ width: '100vw', overflow: 'hidden' }}>
             <HomeCarousel />
           </div>
-          <div style={{ marginBottom: '1vh', textAlign: 'center',  paddingLeft: '5%', paddingRight: '5%' }}>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lorem eros, iaculis at diam in, tempus imperdiet ligula. Cras eget gravida nibh. Nunc ut ex augue. Mauris vulputate neque et malesuada mattis. Donec quis ante elementum, porta dui a, feugiat arcu. Sed viverra a quam sit amet efficitur. Maecenas ac sem sit amet neque elementum cursus. Nullam eget metus eros. Aliquam efficitur ac tortor et iaculis. Nunc eget purus dolor. Nunc ac tellus nunc. Nulla eu facilisis tortor, a vulputate sapien.  </p>  
+          <div style={{ marginBottom: '1vh', textAlign: 'center', paddingLeft: '5%', paddingRight: '5%' }}>
+            
+            {homepageDescription.map((desc) => (
+              // If the description title is "Intro", then display the body as a paragraph
+              desc.title === "Intro" ? <p>{desc.body}</p> : null
+            ))}
           </div>
           <Box id={'landingGrid'}>
             {homepageTile?.map((homepageTile) => (
+              
             <Box className={'landingGridItem'} key={homepageTile._id}>
               <a href={homepageTile?.link}>
                 <Paper elevation={10} className={'landingGridContent'}>
@@ -62,7 +68,10 @@ function Home({ homepageTile }){
             ))}
           </Box>
           <div style={{ marginBottom: '1vh', textAlign: 'center', paddingTop: '5%', paddingLeft: '5%', paddingRight: '5%' }}>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lorem eros, iaculis at diam in, tempus imperdiet ligula. Cras eget gravida nibh. Nunc ut ex augue. Mauris vulputate neque et malesuada mattis. Donec quis ante elementum, porta dui a, feugiat arcu. Sed viverra a quam sit amet efficitur. Maecenas ac sem sit amet neque elementum cursus. Nullam eget metus eros. Aliquam efficitur ac tortor et iaculis. Nunc eget purus dolor. Nunc ac tellus nunc. Nulla eu facilisis tortor, a vulputate sapien.  </p>  
+            {homepageDescription.map((desc) => (
+              // If the description title is "Thanks", then display the body as a paragraph
+              desc.title === "Thanks" ? <p>{desc.body}</p> : null
+            ))}
           </div>
         </div>
         <Footer />
@@ -75,10 +84,12 @@ function Home({ homepageTile }){
 
 export async function getStaticProps() {
   const homepageTile = await client.fetch(`*[_type == "homepageTile"]  | order(order asc)`)
+  const homepageDescription = await client.fetch(`*[_type == "homepageDescription"]  | order(order asc)`)
 
   return {
     props: {
       homepageTile,
+      homepageDescription
     },
     revalidate: 10,
   };
