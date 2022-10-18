@@ -110,10 +110,19 @@ function HistoryOfCollaboration({ timelinePoint }) {
           <div style={{textAlign: 'left', width: "100vw", paddingLeft: '5%'}}>
             <h1 >Continuous Relationships Building</h1>
           </div>
-          <div style={{textAlign: 'center', paddingLeft: '5%', paddingRight: '5%'}}> 
+        <div style={{textAlign: 'center', paddingLeft: '5%', paddingRight: '5%'}}> 
+          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lorem eros, iaculis at diam in, tempus imperdiet ligula. Cras eget gravida nibh. Nunc ut ex augue. Mauris vulputate neque et malesuada mattis. Donec quis ante elementum, porta dui a, feugiat arcu. Sed viverra a quam sit amet efficitur. Maecenas ac sem sit amet neque elementum cursus. Nullam eget metus eros. Aliquam efficitur ac tortor et iaculis. Nunc eget purus dolor. Nunc ac tellus nunc. Nulla eu facilisis tortor, a vulputate sapien.  </p>
+          </div>
+
+           <div style={{textAlign: 'right', width: "100vw", paddingRight: '5%'}}>
+            <h1 >Additional Resources</h1>
+          </div>
+        <div style={{textAlign: 'center', paddingLeft: '5%', paddingRight: '5%'}}> 
           <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lorem eros, iaculis at diam in, tempus imperdiet ligula. Cras eget gravida nibh. Nunc ut ex augue. Mauris vulputate neque et malesuada mattis. Donec quis ante elementum, porta dui a, feugiat arcu. Sed viverra a quam sit amet efficitur. Maecenas ac sem sit amet neque elementum cursus. Nullam eget metus eros. Aliquam efficitur ac tortor et iaculis. Nunc eget purus dolor. Nunc ac tellus nunc. Nulla eu facilisis tortor, a vulputate sapien.  </p>
           </div>
         </div>
+        
+        
         
 
       </Layout>
