@@ -7,6 +7,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { COLORS } from '../styling/colors.js';
 
 
 const styles = {
@@ -24,7 +25,24 @@ const styles = {
         zIndex: 5,
         opacity: 0.95,
         backdropFilter: 'blur(10px)',
-        minHeight: '80px',
+        minHeight: '10vh',
+        backgroundColor: 'rgba(165, 214, 167, 150',
+    },
+    homeBanner: {
+        top: 0,
+        left: 0,
+        position: 'fixed',
+        minWidth: '100vw',
+        minHeight: '20vh',
+        /* background: lightgreen; */
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 5,
+        opacity: 0.95,
+        backdropFilter: 'blur(10px)',
+        backgroundColor: 'rgba(165, 214, 167, 150',
     },
 }
 
@@ -37,17 +55,15 @@ export default function Header() {
 
     return (
         <Container style={styles.banner as React.CSSProperties} id='banner' sx={{ backgroundColor: 'primary.main' }}>
-            <div style={{ backgroundColor: 'red' }}>
-                <a href='/'>
-                    <Image
-                        src="/media/CustomAssets/ABAlogo.png"
-                        layout='fill'
-                        objectFit='contain'
-                        alt="ABA Logo"
-                        objectPosition={'left'}
-                    />
-                </a>
-            </div>
+            <a href='/'>
+                <Image
+                    src="/media/CustomAssets/ABAlogo.png"
+                    layout='fill'
+                    objectFit='contain'
+                    alt="ABA Logo"
+                    objectPosition='left'
+                />
+            </a>
             <Box sx={{ minWidth: 120 }}>
                 <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">Language</InputLabel>
@@ -86,5 +102,65 @@ export default function Header() {
             </div> */}
 
         </Container>
+    )
+}
+
+export const HomepageHeader = () => {
+    const [lang, setLang] = React.useState('');
+
+    const handleChange = (event: SelectChangeEvent) => {
+        setLang(event.target.value as string);
+    };
+
+    return (
+        <Container style={styles.homeBanner as React.CSSProperties} id='banner' >
+            <Container style={{ height: '100%', width: '100%', position: 'absolute', justifySelf: 'center', display: 'flex', flexDirection: 'column', textAlign: 'center', verticalAlign: 'bottom' }}>
+                {/* <a href='/'> */}
+                {/* <Image
+                        src="/media/CustomAssets/ABAlogo.png"
+                        layout='fill'
+                        objectFit='contain'
+                        alt="ABA Logo"
+                        objectPosition={'top'}
+                        style={{
+                            minWidth: '0 !important',
+                            minHeight: '0 !important',
+                            width: '50px !important',
+                            height: '50px !important',
+                        }}
+                    /> */}
+                <img
+                    src="/media/CustomAssets/ABAlogohome.png"
+                    alt="ABA Logo"
+                    style={{
+                        maxHeight: '120%',
+                        width: 'auto',
+                        objectFit: 'contain',
+
+                    }}
+                />
+                {/* </a> */}
+
+            </Container>
+            <Box sx={{ maxWidth: 120, flex: 1, marginLeft: 'auto' }}>
+                <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">Language</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={lang}
+                        label="Language"
+                        onChange={handleChange}
+                    >
+                        <MenuItem value={10}>English</MenuItem>
+
+                    </Select>
+                </FormControl>
+            </Box>
+
+
+
+
+        </Container >
     )
 }

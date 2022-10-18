@@ -8,7 +8,7 @@ import { createClient } from 'next-sanity'
 import Link from 'next/link'
 // import { useTheme } from '@mui/material/styles';
 import { Container, Grid, Paper, Box } from '@mui/material';
-import Header from '../public/components/header';
+import {HomepageHeader} from '../public/components/header';
 import Footer from '../public/components/footer';
 import Layout from '../public/components/layout';
 
@@ -38,7 +38,9 @@ function Home({ homepageTile }){
 
       <Layout title={"Asian and Black Alliances"} description={""}>
         <div id='body' style={{ backgroundImage: `url(${wave.src})` }}>
-          <Header />
+          <div style={{marginBottom: '10vh'}}>
+            <HomepageHeader />
+            </div>
           {/* Create dedicated carousel container later */}
           <div style={{ width: '100vw', overflow: 'hidden' }}>
             {/* <HomeCarousel /> */}
