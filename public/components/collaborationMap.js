@@ -18,7 +18,7 @@ export default function CollaborationMap({ setTooltipContent }) {
     const [markerA, setMarkerA] = useState(9);
 
     return (
-        <ComposableMap projection="geoMercator" width={800} height={400}>
+        <ComposableMap projection="geoMercator" width={900} height={300}>
             {/* <ZoomableGroup center={[0, 0]} zoom={1}> */}
                 <Geographies geography={geoUrl}>
                     {({ geographies }) =>
