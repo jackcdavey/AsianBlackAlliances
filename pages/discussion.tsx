@@ -41,7 +41,7 @@ const Discussion: NextPage = () => {
 
                     <h1>Discussion</h1>
                     <p style={{ textAlign: "center" }}>If you would like to share your own story, plese submit a comment below</p>
-                    <form action="mailto:jack2018g@me.com" method="post" enctype="text/plain">
+                    {/* <form action="mailto:jack2018g@me.com" method="post" enctype="text/plain">
                         <label htmlFor="name">Name:</label><br />
                         <input type="text" id="name" name="name" /><br />
                         <label htmlFor="subject">Subject:</label><br />
@@ -49,7 +49,7 @@ const Discussion: NextPage = () => {
                         <label htmlFor="message">Message:</label><br />
                         <textarea id="message" name="message" rows={10} cols={100}></textarea><br /><br />
                         <input type="submit" value="Submit" />
-                    </form>
+                    </form> */}
                 </div>
             </Layout>
 
