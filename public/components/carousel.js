@@ -36,6 +36,7 @@ export default function HomeCarousel({ homepageCarousel }) {
         })
     ))
 
+    console.log("Items:" + items.length);
     return (
         <Carousel animation='slide' sx={{ margin: '5%' }} >
             {

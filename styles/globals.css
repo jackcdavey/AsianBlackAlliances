@@ -79,7 +79,7 @@
 
  /* Home */
  #landingGrid {
-   width: 50vw;
+   width: 80vw;
    padding: 5vw;
    justify-content: center;
    align-items: center;
@@ -98,6 +98,7 @@
    justify-content: center;
    border: rgb(86, 129, 39) solid 3px;
    border-radius: 25px;
+   overflow: auto;
  }
 
 
