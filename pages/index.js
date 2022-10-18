@@ -12,7 +12,7 @@ import {HomepageHeader} from '../public/components/header';
 import Footer from '../public/components/footer';
 import Layout from '../public/components/layout';
 
-import HomeCarousel from '../public/components/carousel';
+import HomeCarousel from '../public/components/carousel.js';
 
 import {COLORS} from '../public/styling/colors.js';
 

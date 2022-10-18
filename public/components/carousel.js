@@ -11,7 +11,11 @@ const client = createClient({
     useCdn: false,
 });
 
-export default function HomeCarousel({ homepageCarousel }: any) {
+export default function HomeCarousel({ homepageCarousel }) {
+
+    
+
+
     var items = [
         {
             name: "Carousel Item #1",
@@ -24,6 +28,14 @@ export default function HomeCarousel({ homepageCarousel }: any) {
         }
     ]
 
+    homepageCarousel?.map((homepageCarousel) => (
+        items.push({
+            name: homepageCarousel.title,
+            description: homepageCarousel.description,
+            image: homepageCarousel.image,
+        })
+    ))
+
     return (
         <Carousel animation='slide' sx={{ margin: '5%' }} >
             {
@@ -33,9 +45,7 @@ export default function HomeCarousel({ homepageCarousel }: any) {
     )
 }
 
-function Item(props: {
-    item: any;
-}) {
+function Item(props) {
     return (
         <Paper sx={{ padding: '5%', borderRadius: '25px' }}>
             <img src={props.item.image} alt={props.item.name} />
@@ -50,11 +60,11 @@ function Item(props: {
 }
 
 export async function getStaticProps() {
-    const homepageTile = await client.fetch(`*[_type == "homepageTile"]`)
+    const homepageCarousel = await client.fetch(`*[_type == "homepageCarousel"] | order(order asc)`)
 
     return {
         props: {
-            homepageTile,
+            homepageCarousel,
         },
         revalidate: 10,
 
