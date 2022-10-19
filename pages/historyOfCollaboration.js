@@ -52,7 +52,7 @@ const client = createClient({
 });
 
 
-function HistoryOfCollaboration({ timelinePoint, footerContent }) {
+function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources }) {
     
     const [tooltipContent, setTooltipContent] = useState("");
   return (
@@ -116,19 +116,15 @@ function HistoryOfCollaboration({ timelinePoint, footerContent }) {
               </TimelineItem>
             )))}
           </Timeline>
-          <div style={{textAlign: 'left', width: "100vw", paddingLeft: '5%'}}>
-            <h1 >Continuous Relationships Building</h1>
-          </div>
-        <div style={{textAlign: 'center', paddingLeft: '5%', paddingRight: '5%'}}> 
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lorem eros, iaculis at diam in, tempus imperdiet ligula. Cras eget gravida nibh. Nunc ut ex augue. Mauris vulputate neque et malesuada mattis. Donec quis ante elementum, porta dui a, feugiat arcu. Sed viverra a quam sit amet efficitur. Maecenas ac sem sit amet neque elementum cursus. Nullam eget metus eros. Aliquam efficitur ac tortor et iaculis. Nunc eget purus dolor. Nunc ac tellus nunc. Nulla eu facilisis tortor, a vulputate sapien.  </p>
-          </div>
 
-           <div style={{textAlign: 'right', width: "100vw", paddingRight: '5%'}}>
-            <h1 >Additional Resources</h1>
-          </div>
-        <div style={{textAlign: 'center', paddingLeft: '5%', paddingRight: '5%'}}> 
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lorem eros, iaculis at diam in, tempus imperdiet ligula. Cras eget gravida nibh. Nunc ut ex augue. Mauris vulputate neque et malesuada mattis. Donec quis ante elementum, porta dui a, feugiat arcu. Sed viverra a quam sit amet efficitur. Maecenas ac sem sit amet neque elementum cursus. Nullam eget metus eros. Aliquam efficitur ac tortor et iaculis. Nunc eget purus dolor. Nunc ac tellus nunc. Nulla eu facilisis tortor, a vulputate sapien.  </p>
-          </div>
+          {historyResources?.map((historyResource) => (
+            <div key={historyResource._id} style={{ margin: '2%' }}>
+              <h1 style={{ textAlign: 'left', width: "100vw", paddingLeft: '5%' }}>{historyResource?.title}</h1>
+              <div style={{textAlign: 'center', paddingLeft: '5%', paddingRight: '5%'}}> 
+                {historyResource?.body}
+              </div>
+            </div>
+          ))}
         </div>
         
         
@@ -149,11 +145,13 @@ function HistoryOfCollaboration({ timelinePoint, footerContent }) {
 export async function getStaticProps() {
   const timelinePoint = await client.fetch(`*[_type == "timelinePoint"] | order(order asc)`)
   const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
+  const historyResources = await client.fetch(`*[_type == "historyResources"]  | order(order asc)`)
 
   return {
     props: {
       timelinePoint,
       footerContent,
+      historyResources,
     },
     revalidate: 10,
   };

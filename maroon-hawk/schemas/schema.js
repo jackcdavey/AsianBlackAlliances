@@ -17,6 +17,7 @@ import bio from './bioSchema'
 import footerContent from './footerSchema'
 import mythCuriosityHeader from './mythCuriosityHeaderSchema'
 import discussionPost from './discussionPostSchema'
+import historyResources from './historyResourcesSchema'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -35,5 +36,6 @@ export default createSchema({
     footerContent,
     mythCuriosityHeader,
     discussionPost,
+    historyResources,
   ]),
 })

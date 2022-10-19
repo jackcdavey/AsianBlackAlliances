@@ -62,7 +62,7 @@ const styles = {
     width: '100%',
     height: '100%',
     filter: 'blur(10px)',
-    backgroundColor: COLORS.secondaryLight,
+    backgroundColor: COLORS.primaryLight,
     zIndex: '-1',
     borderRadius: '25px',
   },
