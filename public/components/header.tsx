@@ -65,7 +65,7 @@ export default function Header() {
                     objectPosition='left'
                 />
             </a>
-            <div style={{ width: '80%', display: 'flex', flexDirection: "row", alignItems: 'center' }}>
+            <div style={{ width: '80%', display: 'flex', flexDirection: "row", alignItems: 'center', justifyContent: "flex-end" }}>
                 <div id='navBar' >
                     <Link href='/historyOfCollaboration'>
                         <div className='navLink'>
