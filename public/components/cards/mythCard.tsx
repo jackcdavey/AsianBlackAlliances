@@ -79,6 +79,7 @@ export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote }
                             <a style={styles.linkTxt as React.CSSProperties} href={mythLink} target="_blank">{mythLinkNote}</a>
                         </>
                     }
+
                 </div>
             </div>
         </Paper>

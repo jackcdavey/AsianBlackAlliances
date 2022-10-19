@@ -64,21 +64,47 @@ export default function Header() {
                     objectPosition='left'
                 />
             </a>
-            <Box sx={{ minWidth: 120 }}>
-                <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Language</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={lang}
-                        label="Language"
-                        onChange={handleChange}
-                    >
-                        <MenuItem value={10}>English</MenuItem>
+            <div style={{ width: '80%', display: 'flex', flexDirection: "row", alignItems: 'center' }}>
+                <div id='navBar' >
+                    <Link href='/historyOfCollaboration'>
+                        <div className='navLink'>
+                            <a>History of Collaboration</a>
+                        </div>
+                    </Link>
+                    <Link href='/crossCulturalInfluences'>
+                        <div className='navLink'>
+                            <a> Cross Cultural Influences</a>
+                        </div>
+                    </Link>
+                    <Link href={'/mythsCuriosity'}>
+                        <div className='navLink'>
+                            <a>Myths & Curiosity</a>
+                        </div>
+                    </Link>
+                    <Link href='/ourVoices'>
+                        <div className='navLink'>
+                            <a>Our Voices</a>
+                        </div>
+                    </Link>
+                </div>
+                <div id='langSelect' >
+                    <Box sx={{ wdth: 120 }}>
+                        <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Language</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={lang}
+                                label="Language"
+                                onChange={handleChange}
+                            >
+                                <MenuItem value={10}>English</MenuItem>
 
-                    </Select>
-                </FormControl>
-            </Box>
+                            </Select>
+                        </FormControl>
+                    </Box>
+                </div>
+            </div>
 
 
             {/* <div style={{ display: 'flex', paddingLeft: '20%' }}>

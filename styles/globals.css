@@ -113,6 +113,31 @@
    /* box-shadow: 0px 0px 15px 0px rgb(229, 124, 27) !important; */
  }
 
+ #navBar {
+   width: 80%;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+   align-items: center;
+   z-index: 20;
+ }
+
+ #langSelect {
+   width: 25%;
+   max-width: 200px;
+ }
+
+ .navLink {
+   color: black;
+   font-size: 1.3rem;
+ }
+
+ .navLink :hover {
+   text-decoration: underline;
+   cursor: pointer;
+   color: rgb(229, 124, 27)
+ }
+
 
  /* Bit of a hacky workaround for centering final grid item... */
  @media screen and (min-width: 701px) {
@@ -122,6 +147,17 @@
  }
 
  @media screen and (max-width: 700px) {
+
+   /* Collapse the navbar into 3 lines on small screens, expand when clicked */
+   #navBar {
+     display: none;
+   }
+
+   #langSelect {
+     margin-left: 50%;
+     width: 50%;
+   }
+
    #landingGrid {
      grid-template-columns: repeat(2, 1fr);
      padding-bottom: 70%;

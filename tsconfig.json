@@ -29,6 +29,8 @@
     "pages/historyOfCollaboration.js",
     "pages/crossCulturalInfluences.js",
     "public/components/collaborationMap.js",
+    "pages/ourVoices.js",
+    "public/components/footer.js",
     "pages/discussion.js",
   ],
   "exclude": [
