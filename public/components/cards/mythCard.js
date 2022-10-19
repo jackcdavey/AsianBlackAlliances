@@ -62,7 +62,7 @@ export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote, 
     return (
         <Paper className="mythCard" style={styles.cardWrap}>
 
-            <h2>{mythTitle}</h2>
+            <h2 style={{marginTop: 0}}>{mythTitle}</h2>
             <div style={styles.card}>
                 <div style={styles.cardContent}>
                     <p>{mythDesc}</p>
