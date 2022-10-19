@@ -1,10 +1,11 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
 import Header from '../public/components/header'
 import Footer from '../public/components/footer'
 import Layout from '../public/components/layout'
+import { createClient } from 'next-sanity'
+
 
 import React from 'react'
 
@@ -14,6 +15,12 @@ import Grid from '@mui/material/Grid';
 import dynamic from 'next/dynamic'
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
+const client = createClient({
+  projectId: 'hiagtp2f',
+  dataset: 'production',
+  apiVersion: '2022-10-03',
+  useCdn: false,
+});
 
 
 const styles = {
@@ -21,20 +28,20 @@ const styles = {
     position: "relative",
     width: "100%",
     paddingBottom: "100%",
+    display: "flex",
+    justifyContent: "center",
   },
   playerStyle: {
     borderRadius: '25px',
     boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.75)',
     border: '1px solid #000000',
-    // overflow: 'hidden',
-    // maxWidth: '100%',
     position: "absolute",
-    maxWidth: "80%",
-    maxHeight: "100%",
+    aspectRatio: "16/9",
+    overflow: "hidden",
   },
 }
 
-const Home: NextPage = () => {
+const OurVoices = ({footerContent}) => {
   return (
     <>
       <Head>
@@ -49,16 +56,32 @@ const Home: NextPage = () => {
         <div id='body'>
 
           <h1>Our Voices</h1>
-          <div style={styles.playerWrap as React.CSSProperties}>
+          <div style={styles.playerWrap}>
             <ReactPlayer url='https://www.youtube.com/watch?v=qjYiuV66KEw'
-              width={"auto"} style={{ borderRadius: "25px", overflow: "hidden" }} />
+              width={"70vw"} height={"auto"} style={styles.playerStyle} />
           </div>
         </div>
       </Layout>
 
-      <Footer />
+      <Footer
+      link={
+          footerContent[0]?.link
+        } body={
+          footerContent[0]?.body
+        } />
     </>
   )
 }
 
-export default Home
+export async function getStaticProps() {
+  const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
+   return {
+     props: {
+       footerContent,
+     },
+   }
+}
+  
+
+
+export default OurVoices
