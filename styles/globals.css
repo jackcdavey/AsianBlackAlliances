@@ -130,6 +130,9 @@
  .navLink {
    color: black;
    font-size: 1.3rem;
+   max-width: 15%;
+   text-align: center;
+   margin-right: 5%;
  }
 
  .navLink :hover {
