@@ -281,6 +281,32 @@
 
  }
 
+ .collapsed {
+   width: 90vw;
+   height: 10vh;
+   cursor: pointer;
+   border-radius: 25px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-left: 5%;
+   margin: 5%;
+ }
+
+ .collapsed-content {
+   overflow: auto;
+   transition: all 0.5s ease;
+   max-height: 0vh;
+   /* margin: 5%; */
+   display: grid;
+   align-items: center;
+   justify-items: center;
+ }
+
+ .collapsed-content:target {
+   max-height: 1000vh;
+ }
+
 
 
  .mapPoint :hover {

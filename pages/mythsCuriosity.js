@@ -14,6 +14,8 @@ import RoadtripMap from '../public/components/roadtripMap';
 
 import { Tooltip } from '../public/components/tooltip';
 
+import { Paper } from '@mui/material'
+
 
 
 const client = createClient({
@@ -37,7 +39,13 @@ export default function MythsCuriosity({myth, footerContent}) {
       <Header />
       <Layout title='ABA: Myths and Curiosity' description=' '>
         <div id='body'>
-          <h1> Myths &#38; Curiosity</h1>
+          {/* <h1> Myths &#38; Curiosity</h1> */}
+          <Paper className='collapsed'>
+            <a href='#myths'>
+              <h1>Myths</h1>
+            </a>
+          </Paper>
+          <div className='collapsed-content' id='myths'>
           {myth.map((myth) => (
             <MythCard key={myth._id}
               mythTitle={myth?.title}
@@ -45,11 +53,20 @@ export default function MythsCuriosity({myth, footerContent}) {
               mythLink={myth?.link}
               mythLinkNote={myth?.linkNote} />
           ))}
+          </div>
+
+          <Paper className='collapsed'>
+            <a href='#curiosity'>
+              <h1>Curiosity</h1>
+            </a>
+          </Paper>
+          <div className='collapsed-content' id='curiosity'>
           {/* <Tooltip tooltipText="Washington, DC"> */}
             <h1>Be Curious on Your Next Roadtrip!</h1>
           {/* </Tooltip> */}
           <p style={{textAlign: "center"}}>As racial minorities, we do not see our histories taught in formal education. Therefore, we need to self educate with true and comprehensive information. When you plan your next family vacation, consider building in a couple of such lessons to learn about ourselves and each other</p>
-          <RoadtripMap />
+            <RoadtripMap />
+            </div>
         </div>
 
 
