@@ -14,6 +14,7 @@ import holiday from './holidaySchema'
 import fashion from './fashionSchema'
 import homepageDescription from './homepageDescriptions'
 import bio from './bioSchema'
+import footerContent from './footerSchema'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -29,6 +30,6 @@ export default createSchema({
     fashion,
     homepageDescription,
     bio,
-
+    footerContent,
   ]),
 })
