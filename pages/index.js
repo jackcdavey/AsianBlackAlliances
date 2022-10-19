@@ -52,6 +52,8 @@ function Home({ homepageTile, homepageDescription, bio, footerContent }) {
         <meta name="description" content="Exploring the history and cultural relations of Asian and Black communities aroun the world." />
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://use.typekit.net/hco7ora.css" />
+        <link rel="stylesheet" href="https://use.typekit.net/hco7ora.css" />
+        <link rel="stylesheet" href="https://use.typekit.net/hco7ora.css" />
       </Head>
 
       <Layout title={"Asian and Black Alliances"} description={""}>
@@ -76,7 +78,7 @@ function Home({ homepageTile, homepageDescription, bio, footerContent }) {
               <a href={homepageTile?.link}>
                   <Paper elevation={10} className={'landingGridContent'}
                     style={{backgroundColor: homepageTile?.backgroundColor, color: homepageTile?.textColor}}>
-                    <h3>{homepageTile?.title}</h3>
+                    <h2>{homepageTile?.title}</h2>
                     <p>{homepageTile?.description}</p>
                 </Paper>
               </a>
