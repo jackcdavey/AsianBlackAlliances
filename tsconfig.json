@@ -23,12 +23,13 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "public/components/carousel.tsx",
+    "public/components/carousel.js",
     "pages/index.js",
     "pages/mythsCuriosity.js",
     "pages/historyOfCollaboration.js",
     "pages/crossCulturalInfluences.js",
     "public/components/collaborationMap.js",
+    "pages/discussion.js",
   ],
   "exclude": [
     "node_modules"

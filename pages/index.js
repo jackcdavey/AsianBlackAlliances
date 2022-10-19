@@ -14,9 +14,20 @@ import Layout from '../public/components/layout';
 
 import HomeCarousel from '../public/components/carousel.js';
 
+import dynamic from 'next/dynamic';
+
+
 import {COLORS} from '../public/styling/colors.js';
 
 import wave from '../public/wave.svg';
+
+import imageUrlBuilder from '@sanity/image-url'
+
+
+const BioCard  = dynamic(
+  () => import("../public/components/cards/bioCard"),
+  { ssr: false }
+)
 
 // const theme = useTheme();
 
@@ -27,7 +38,12 @@ const client = createClient({
   useCdn: false,
 });
 
-function Home({ homepageTile, homepageDescription }) {
+const builder = imageUrlBuilder(client)
+function urlFor(source) {
+    return builder.image(source)
+}
+
+function Home({ homepageTile, homepageDescription, bio }) {
   var cardColor = '';
   return (
     <>
@@ -67,6 +83,16 @@ function Home({ homepageTile, homepageDescription }) {
             </Box>
             ))}
           </Box>
+          <div style={{textAlign: 'left', width: "100vw", paddingLeft: '5%'}}>
+            <h1 >About The Team</h1>
+          </div>
+          <div style={{ marginBottom: '1vh', textAlign: 'center', paddingLeft: '5%', paddingRight: '5%', display: 'flex', flexDirection: 'column' }}>
+            
+            {bio.map((bio) => (
+              <BioCard key={bio._id} name={bio?.name} desc={bio?.body} image={urlFor(bio?.image)} link={bio?.link} />
+            ))}
+          </div>
+
           <div style={{ marginBottom: '1vh', textAlign: 'center', paddingTop: '5%', paddingLeft: '5%', paddingRight: '5%' }}>
             {homepageDescription.map((desc) => (
               // If the description title is "Thanks", then display the body as a paragraph
@@ -85,11 +111,13 @@ function Home({ homepageTile, homepageDescription }) {
 export async function getStaticProps() {
   const homepageTile = await client.fetch(`*[_type == "homepageTile"]  | order(order asc)`)
   const homepageDescription = await client.fetch(`*[_type == "homepageDescription"]  | order(order asc)`)
+  const bio = await client.fetch(`*[_type == "bio"]  | order(order asc)`)
 
   return {
     props: {
       homepageTile,
-      homepageDescription
+      homepageDescription,
+      bio,
     },
     revalidate: 10,
   };
