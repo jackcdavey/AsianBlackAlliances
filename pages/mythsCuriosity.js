@@ -88,7 +88,7 @@ export default function MythsCuriosity({myth, footerContent, mythCuriosityHeader
 
 
 export async function getStaticProps() {
-  const myth = await client.fetch(`*[_type == "myth"] | order(order asc)`);
+  const myth = await client.fetch(`*[_type == "myth" && language == "en"] | order(order asc)`);
   const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
   const mythCuriosityHeader = await client.fetch(`*[_type == "mythCuriosityHeader"]  | order(order asc)`)
 

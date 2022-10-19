@@ -4,6 +4,20 @@ export default {
     i18n: true,
     title: 'Myth Cards',
     fields: [
+    {
+      title: "Language",
+      type: "string",
+      name: "language",
+      options: {
+        list: [
+              { title: 'English', value: 'en' },
+              { title: 'Mandarin', value: 'zh' },
+              { title: 'Vietnamese', value: 'vi' },
+              { title: 'Korean', value: 'ko' },
+            {title: 'French', value: 'fr'}
+          ]
+      }
+        },
         {
             name: 'title',
             type: 'string',

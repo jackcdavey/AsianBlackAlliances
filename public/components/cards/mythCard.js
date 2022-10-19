@@ -37,7 +37,16 @@ const styles = {
         justifyContent: "flex-start",
         fontSize: "0.8rem",
 
-    }, linkTxt: {
+    },
+    cardContent2: {
+        display: "flex",
+        flexWrap: "wrap",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        fontSize: "0.8rem",
+        maxWidth: "100%",
+
+    },linkTxt: {
         alignSelf: "flex-start",
         paddingTop: "1%",
         paddingLeft: "15%",
@@ -58,7 +67,7 @@ export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote, 
                 <div style={styles.cardContent}>
                     <p>{mythDesc}</p>
                 </div>
-                <div style={styles.cardContent}>
+                <div style={styles.cardContent2}>
                     {/* Pass to card in future */}
                     {mythLink && mythLink?.map((link, index) => (
                         <div style={{width: '100%', display: 'flex', flexDirection:'column', alignItems: 'center', }}>
