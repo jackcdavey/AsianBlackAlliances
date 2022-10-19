@@ -23,7 +23,7 @@ const client = createClient({
   useCdn: false,
 });
 
-export default function MythsCuriosity({myth}) {
+export default function MythsCuriosity({myth, footerContent}) {
   return (
     <>
       <Head>
@@ -54,7 +54,11 @@ export default function MythsCuriosity({myth}) {
 
 
       </Layout>
-      <Footer />
+      <Footer link={
+          footerContent[0]?.link
+        } body={
+          footerContent[0]?.body
+        } />
     </>
   )
 }
@@ -62,10 +66,12 @@ export default function MythsCuriosity({myth}) {
 
 export async function getStaticProps() {
   const myth = await client.fetch(`*[_type == "myth"] | order(order asc)`);
+  const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
 
   return {
     props: {
-      myth
+      myth,
+      footerContent,
     },
     revalidate: 10,
 

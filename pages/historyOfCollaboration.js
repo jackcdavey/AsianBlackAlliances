@@ -52,7 +52,7 @@ const client = createClient({
 });
 
 
-function HistoryOfCollaboration({ timelinePoint }) {
+function HistoryOfCollaboration({ timelinePoint, footerContent }) {
     
     const [tooltipContent, setTooltipContent] = useState("");
   return (
@@ -129,17 +129,24 @@ function HistoryOfCollaboration({ timelinePoint }) {
 
       </Layout>
 
-      <Footer />
+      <Footer
+      link={
+          footerContent[0]?.link
+        } body={
+          footerContent[0]?.body
+        }/>
     </>
   )
 }
 
 export async function getStaticProps() {
   const timelinePoint = await client.fetch(`*[_type == "timelinePoint"] | order(order asc)`)
+  const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
 
   return {
     props: {
-      timelinePoint
+      timelinePoint,
+      footerContent,
     },
     revalidate: 10,
   };

@@ -114,7 +114,7 @@ function SubtitleSeparator({ title, contentJustification, marginLeft, marginRigh
 
 
 
-export default function CrossCulturalInfluences({food, chef, holiday, fashion}) {
+export default function CrossCulturalInfluences({food, chef, holiday, fashion, footerContent}) {
   return (
     <>
       <Head>
@@ -284,7 +284,12 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion}) 
 
 
         </div>
-        <Footer />
+        <Footer
+          link={
+          footerContent[0]?.link
+        } body={
+          footerContent[0]?.body
+        } />
       </Layout>
     </>
   )
@@ -296,12 +301,14 @@ export async function getStaticProps() {
   const chef = await client.fetch(`*[_type == "chef"]  | order(order asc)`);
   const holiday = await client.fetch(`*[_type == "holiday"]  | order(order asc)`);
   const fashion = await client.fetch(`*[_type == "fashion"]  | order(order asc)`);
+  const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
   return {
     props: {
       food,
       chef,
       holiday,
       fashion,
+      footerContent,
     },
     revalidate: 10,
 

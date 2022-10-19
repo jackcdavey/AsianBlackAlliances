@@ -1,14 +1,21 @@
 import React from "react";
 import { NextPage } from "next";
 import Head from "next/head";
+import { createClient } from 'next-sanity'
+
 
 import Layout from "../public/components/layout";
 import Header from "../public/components/header";
 import Footer from "../public/components/footer.js";
 
+const client = createClient({
+  projectId: 'hiagtp2f',
+  dataset: 'production',
+  apiVersion: '2022-10-03',
+  useCdn: false,
+});
 
-
-const Discussion = () => {
+const Discussion = ({footerContent}) => {
     const [status, setStatus] = React.useState("Submit");
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -65,9 +72,24 @@ const Discussion = () => {
                 </div>
             </Layout>
 
-            <Footer />
+            <Footer 
+            link={
+          footerContent[0]?.link
+        } body={
+          footerContent[0]?.body
+        } />
         </>
     )
+}
+
+
+export async function getStaticProps() {
+    const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
+    return {
+        props: {
+            footerContent,
+        },
+    };
 }
 
 export default Discussion
