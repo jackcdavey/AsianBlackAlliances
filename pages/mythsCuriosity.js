@@ -46,7 +46,7 @@ export default function MythsCuriosity({myth, footerContent}) {
               mythLinkNote={myth?.linkNote} />
           ))}
           {/* <Tooltip tooltipText="Washington, DC"> */}
-            <h2>Be Curious on Your Next Roadtrip!</h2>
+            <h1>Be Curious on Your Next Roadtrip!</h1>
           {/* </Tooltip> */}
           <p style={{textAlign: "center"}}>As racial minorities, we do not see our histories taught in formal education. Therefore, we need to self educate with true and comprehensive information. When you plan your next family vacation, consider building in a couple of such lessons to learn about ourselves and each other</p>
           <RoadtripMap />

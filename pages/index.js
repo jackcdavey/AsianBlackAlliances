@@ -74,7 +74,8 @@ function Home({ homepageTile, homepageDescription, bio, footerContent }) {
               
             <Box className={'landingGridItem'} key={homepageTile._id}>
               <a href={homepageTile?.link}>
-                <Paper elevation={10} className={'landingGridContent'}>
+                  <Paper elevation={10} className={'landingGridContent'}
+                    style={{backgroundColor: homepageTile?.backgroundColor, color: homepageTile?.textColor}}>
                     <h3>{homepageTile?.title}</h3>
                     <p>{homepageTile?.description}</p>
                 </Paper>

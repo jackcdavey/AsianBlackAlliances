@@ -152,7 +152,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
               <div style={styles.foodColumnBackground} > </div>
               <h2>Chefs</h2>
               <div style={{paddingBottom: '10%'}} id='chefCard'>
-              <LinkWithImage link='https://www.amazon.com/Adrian-Miller/e/B00CJV744I'
+              <LinkWithImage link='https://www.youtube.com/watch?v=KPkNxb9zlBk&feature=youtu.be&themeRefresh=1'
                 image="https://cdn.firstwefeast.com/assets/2015/06/adrianmiller1.jpg"
                 title='Adrian Miller'
                   description='Adrian Miller is a chef and author of many books. A “history buff” as he calls himself, Adrian’s books tell stories of rich cultures beyond the food .  '

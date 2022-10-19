@@ -19,6 +19,16 @@ export default {
             title: 'Link',
         },
         {
+            name: 'backgroundColor',
+            type: 'string',
+            title: 'Background Color',
+        },
+        {
+            name: 'textColor',
+            type: 'string',
+            title: 'Text Color',
+        },
+        {
             name: "order",
             title: "Order",
             type: "number",

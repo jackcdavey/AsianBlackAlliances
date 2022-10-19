@@ -3,5 +3,9 @@ export const COLORS = {
     secondary: 'rgb(229, 124, 27)',
     primaryLight: 'rgb(134, 178, 108)',
     secondaryLight: 'rgb(235, 171, 78)',
-    neutral: 'rgb(206, 206, 160)'
+    neutral: 'rgb(206, 206, 160)',
+    blue: 'lightblue',
+    green: 'lightgreen',
+    yellow: 'lightyellow',
+    red: 'lightsalmon',
 }
