@@ -19,6 +19,7 @@ const styles = {
         height: '10vh',
         /* background: lightgreen; */
         display: 'flex',
+        flexGrow: 1,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-end',

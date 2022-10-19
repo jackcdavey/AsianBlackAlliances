@@ -21,8 +21,14 @@ export default {
         {
             name: 'citation',
             type: 'array',
-            title: 'Citation',
+            title: 'Link',
             of: [{ type: 'url' }],
+        },
+        {
+            name: 'linkNote',
+            type: 'array',
+            title: 'Link Note',
+            of: [{ type: 'string' }],
         },
         {
             name: "order",
