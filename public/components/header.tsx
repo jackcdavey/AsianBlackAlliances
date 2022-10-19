@@ -98,8 +98,13 @@ export default function Header() {
                                 value={lang}
                                 label="Language"
                                 onChange={handleChange}
+                                defaultValue='en'
                             >
-                                <MenuItem value={10}>English</MenuItem>
+                                <MenuItem value={'en'}>English</MenuItem>
+                                <MenuItem value={'zh'}>Mandarin</MenuItem>
+                                <MenuItem value={'vi'}>Vietnamese</MenuItem>
+                                <MenuItem value={'ko'}>Korean</MenuItem>
+                                <MenuItem value={'fr'}>French</MenuItem>
 
                             </Select>
                         </FormControl>
