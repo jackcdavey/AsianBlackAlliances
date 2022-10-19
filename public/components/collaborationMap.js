@@ -16,6 +16,13 @@ const geoUrl = '/features.json';
 
 export default function CollaborationMap({ setTooltipContent }) {
     const [markerA, setMarkerA] = useState(9);
+    const [markerB, setMarkerB] = useState(9);
+    const [markerC, setMarkerC] = useState(9);
+    const [markerD, setMarkerD] = useState(9);
+    const [markerE, setMarkerE] = useState(9);
+    const [markerF, setMarkerF] = useState(9);
+    const [markerG, setMarkerG] = useState(9);
+
 
     return (
         <ComposableMap projection="geoMercator" width={900} height={300}>
@@ -54,33 +61,90 @@ export default function CollaborationMap({ setTooltipContent }) {
 
                 {/* Papua New Guinea */}
                 <Marker coordinates={[145, -6]}>
-                    <circle r={9} fill={COLORS.secondary} />
+                <circle r={markerB} fill={COLORS.secondary}
+                    onMouseEnter={() => {
+                        setMarkerB(30);
+                    }
+                    }
+
+                    onMouseLeave={() => {
+                        setMarkerB(9);
+                    }
+                    }
+                />
                 </Marker>
 
 
                 {/* Japan */}
                 <Marker coordinates={[140, 35]}>
-                    <circle r={9} fill={COLORS.secondary} />
+                <circle r={markerC} fill={COLORS.secondary}
+                    onMouseEnter={() => {
+                        setMarkerC(30);
+                    }
+                    }
+                    
+                    onMouseLeave={() => {
+                        setMarkerC(9);
+                    }
+                    }
+                />
                 </Marker>
 
                 {/* USA, Wash DC */}
                 <Marker coordinates={[-78, 40]}>
-                    <circle r={9} fill={COLORS.secondary} />
+                <circle r={markerD} fill={COLORS.secondary}
+                onMouseEnter={() => {
+                        setMarkerD(30);
+                    }
+                    }
+                    
+                    onMouseLeave={() => {
+                        setMarkerD(9);
+                    }
+                    }/>
                 </Marker>
 
                 {/* Philippines  */}
                 <Marker coordinates={[120, 13]}>
-                    <circle r={9} fill={COLORS.secondary} />
+                <circle r={markerE} fill={COLORS.secondary}
+                onMouseEnter={() => {
+                        setMarkerE(30);
+                    }
+                    }
+                    
+                    onMouseLeave={() => {
+                        setMarkerE(9);
+                    }
+                    }/>
                 </Marker>
 
                 {/* Vietnam */}
                 <Marker coordinates={[105, 16]}>
-                    <circle r={9} fill={COLORS.secondary} />
+                <circle r={markerF} fill={COLORS.secondary}
+                    onMouseEnter={() => {
+                        setMarkerF(30);
+                    }
+                    }
+                    
+                    onMouseLeave={() => {
+                        setMarkerF(9);
+                    }
+                    }
+                />
                 </Marker>
 
                 {/* Indonesia, Bandung */}
                 <Marker coordinates={[107, -6]}>
-                    <circle r={9} fill={COLORS.secondary} />
+                <circle r={markerG} fill={COLORS.secondary}
+                onMouseEnter={() => {
+                        setMarkerG(30);
+                    }
+                    }
+                    
+                    onMouseLeave={() => {
+                        setMarkerG(9);
+                    }
+                    }/>
                 </Marker>
 
 
