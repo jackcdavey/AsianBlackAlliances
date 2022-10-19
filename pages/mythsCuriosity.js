@@ -6,7 +6,7 @@ import { createClient } from 'next-sanity'
 
 import Header from '../public/components/header';
 import Footer from '../public/components/footer.js';
-import MythCard from '../public/components/cards/mythCard';
+import MythCard from '../public/components/cards/mythCard.js';
 
 import Layout from '../public/components/layout';
 
@@ -55,6 +55,7 @@ export default function MythsCuriosity({myth, footerContent, mythCuriosityHeader
               mythTitle={myth?.title}
               mythDesc={myth?.body}
               mythLink={myth?.link}
+              mythLinkLabel={myth?.linkLabel}
               mythLinkNote={myth?.linkNote} />
           ))}
           </div>

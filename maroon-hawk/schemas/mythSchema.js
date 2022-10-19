@@ -26,7 +26,13 @@ export default {
             title: 'Link Note',
             of: [{ type: 'string' }],
         },
-          {
+        {
+            name: 'linkLabel',
+            type: 'array',
+            title: 'Link Label',
+            of: [{ type: 'string' }],
+        },
+        {
             name: "order",
             title: "Order",
             type: "number",
