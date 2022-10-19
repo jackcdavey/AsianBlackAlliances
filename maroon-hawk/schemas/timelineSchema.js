@@ -1,7 +1,7 @@
 export default {
     name: 'timelinePoint',
     type: 'document',
-    title: 'Timeline Point',
+    title: 'Timeline Points',
     fields: [
         {
             name: 'title',

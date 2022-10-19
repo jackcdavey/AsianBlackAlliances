@@ -1,7 +1,7 @@
 export default {
     name: 'homepageTile',
     type: 'document',
-    title: 'Homepage Tile',
+    title: 'Homepage Tiles',
     fields: [
         {
             name: 'title',

@@ -1,7 +1,7 @@
 export default {
     name: 'holiday',
     type: 'document',
-    title: 'Holiday',
+    title: 'Holidays',
     fields: [
         {
             name: 'title',

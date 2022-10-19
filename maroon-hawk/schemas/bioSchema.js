@@ -2,7 +2,7 @@ export default {
     name: 'bio',
     type: 'document',
     i18n: true,
-    title: 'Bio',
+    title: 'Team Bios',
     fields: [
               {
             name: 'name',

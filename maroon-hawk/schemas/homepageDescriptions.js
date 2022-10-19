@@ -1,7 +1,7 @@
 export default {
     name: 'homepageDescription',
     type: 'document',
-    title: 'Homepage Paragraph',
+    title: 'Homepage Into & Thanks',
     fields: [
         {
             name: 'title',

@@ -1,7 +1,7 @@
 export default {
     name: 'chef',
     type: 'document',
-    title: 'Chef',
+    title: 'Chefs',
     fields: [
         {
             name: 'title',

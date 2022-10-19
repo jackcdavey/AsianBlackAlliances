@@ -2,7 +2,7 @@ export default {
     name: 'myth',
     type: 'document',
     i18n: true,
-    title: 'Myth',
+    title: 'Myth Cards',
     fields: [
         {
             name: 'title',
