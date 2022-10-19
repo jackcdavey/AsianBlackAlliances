@@ -25,7 +25,7 @@ const client = createClient({
   useCdn: false,
 });
 
-export default function MythsCuriosity({myth, footerContent}) {
+export default function MythsCuriosity({myth, footerContent, mythCuriosityHeader}) {
   return (
     <>
       <Head>
@@ -41,8 +41,10 @@ export default function MythsCuriosity({myth, footerContent}) {
         <div id='body'>
           {/* <h1> Myths &#38; Curiosity</h1> */}
           <Paper className='collapsed'>
-            <a href='#myths'>
-              <h1>Myths</h1>
+            <a href='#myths' className='collapsed-desc'>
+              {/* Display the first item in mythsCuriosityHeader */}
+              <h1>{mythCuriosityHeader[1]?.title}</h1>
+              <h3>{mythCuriosityHeader[1]?.desc}</h3>
             </a>
           </Paper>
           <div className='collapsed-content' id='myths'>
@@ -56,8 +58,9 @@ export default function MythsCuriosity({myth, footerContent}) {
           </div>
 
           <Paper className='collapsed'>
-            <a href='#curiosity'>
-              <h1>Curiosity</h1>
+            <a href='#curiosity' className='collapsed-desc'>
+              <h1>{mythCuriosityHeader[0]?.title}</h1>
+              <h3>{mythCuriosityHeader[0]?.desc}</h3>
             </a>
           </Paper>
           <div className='collapsed-content' id='curiosity'>
@@ -84,11 +87,13 @@ export default function MythsCuriosity({myth, footerContent}) {
 export async function getStaticProps() {
   const myth = await client.fetch(`*[_type == "myth"] | order(order asc)`);
   const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
+  const mythCuriosityHeader = await client.fetch(`*[_type == "mythCuriosityHeader"]  | order(order asc)`)
 
   return {
     props: {
       myth,
       footerContent,
+      mythCuriosityHeader,
     },
     revalidate: 10,
 

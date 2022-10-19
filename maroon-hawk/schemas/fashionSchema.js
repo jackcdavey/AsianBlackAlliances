@@ -25,5 +25,11 @@ export default {
             title: 'Image',
             of: [{ type: 'image' }],
         },
+        {
+            name: "order",
+            title: "Order",
+            type: "number",
+            hidden: true,
+        },
     ]
 }

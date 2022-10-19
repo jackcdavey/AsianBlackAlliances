@@ -1,27 +1,18 @@
 export default {
-    name: 'chef',
+    name: 'mythCuriosityHeader',
     type: 'document',
-    title: 'Chefs',
+    i18n: true,
+    title: 'Myths & Curiosity Headers',
     fields: [
-        {
+              {
             name: 'title',
             type: 'string',
             title: 'Title',
         },
         {
-            name: 'body',
+            name: 'desc',
             type: 'text',
-            title: 'Body',
-        },
-        {
-            name: 'link',
-            type: 'url',
-            title: 'Link',
-        },
-        {
-            name: 'image',
-            type: 'image',
-            title: 'Image',
+            title: 'Description',
         },
         {
             name: "order",
@@ -29,5 +20,6 @@ export default {
             type: "number",
             hidden: true,
         },
+
     ]
 }

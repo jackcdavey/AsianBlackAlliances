@@ -282,7 +282,7 @@
 
  .collapsed {
    width: 90vw;
-   height: 10vh;
+   height: 15vh;
    cursor: pointer;
    border-radius: 25px;
    display: flex;
@@ -290,6 +290,16 @@
    align-items: center;
    padding-left: 5%;
    margin: 5%;
+ }
+
+ .collapsed-desc {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+
+ .collapsed-desc h1 {
+   margin: 0 !important;
  }
 
  .collapsed-content {
