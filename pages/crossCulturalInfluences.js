@@ -130,25 +130,13 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
       <Layout title='ABA: Cross-Cultural Influences' description=' '>
         <Header />
         <div id='body'>
-          {/* <LinkWithImage link='https://www.youtube.com/watch?v=QZ9Y4Z0Z1Z8'
-            image='https://picsum.photos/800/300/?random'
-            title='Food'
-            description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet lorem.' /> */}
-
-
-          {/* <div className='gradientMediaCard'>
-            <img src='https://images.unsplash.com/photo-1611916656173-875e4277bea6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400' alt='' />
-            <h3><a href="">A Super Wonderful Headline</a></h3>
-            <p>Lorem ipsum sit dolor amit</p>
-          </div> */}
-
-
-
-
-          {/* <span > <h1>Food</h1></span>
-           */}
-          <SubtitleSeparator title='Food' contentJustification='flex-start' marginLeft='10%' />
-
+          
+           <Paper className='collapsed'>
+            <a href='#food' className='collapsed-desc'>
+              <SubtitleSeparator title='Food' contentJustification='flex-start' marginLeft='10%' />
+            </a>
+            </Paper>
+         <div className='collapsed-content' id='food'>
           <div id="foodSection" style={styles.foodSectionWrap}>
             <div className='foodColumn' style={styles.foodColumn}>
               <div style={styles.foodColumnBackground} > </div>
@@ -184,10 +172,15 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
                   </div>
                ))}
             </div>
-          </div>
+            </div>
+            </div>
 
-
-          <SubtitleSeparator title='Fashion' contentJustification='flex-end' marginRight='10%' />
+<Paper className='collapsed'>
+            <a href='#fashion' className='collapsed-desc'>
+              <SubtitleSeparator title='Fashion' contentJustification='flex-end' marginRight='20%' />
+            </a>
+            </Paper>
+         <div className='collapsed-content' id='fashion'>
           
           {fashion.map((fashion) => (
             <div key={fashion._id} style={{display: 'flex', flexDirection: 'row'}}>
@@ -201,16 +194,19 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
               
             </div>
           ))}
+          </div>
 
 
           {/* <SubtitleSeparator title='Black-Asian Blended Family' contentJustification='flex-start' marginLeft='10%' /> */}
 
           {/* <SubtitleSeparator title='Music / Anime / Manga' contentJustification='flex-end' marginRight='25%' /> */}
 
-          <SubtitleSeparator title='Celebrating Cultural Memories' contentJustification='flex-end' marginRight='10%' />
-
-
-          
+          <Paper className='collapsed'>
+            <a href='#holidays' className='collapsed-desc'>
+              <SubtitleSeparator title='Celebrating Cultural Memories' contentJustification='flex-start' marginLeft='10%' />
+            </a>
+            </Paper>
+         <div className='collapsed-content' id='holidays'>
           {/* SEASON CHART */}
           {/* This should really be a separate component, but does not seem to work with CMS */}
           <div style={styles.seasonSectionWrap}>
@@ -280,7 +276,8 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
             </div>
         </div>
         </div>
-          </div>
+            </div>
+            </div>
           
 
 
