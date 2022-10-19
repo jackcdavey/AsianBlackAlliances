@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 import Grid from '@mui/material/Grid';
 import Header from '../public/components/header';
-import Footer from '../public/components/footer';
+import Footer from '../public/components/footer.js';
 import Layout from '../public/components/layout';
 
 
@@ -162,7 +162,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion}) 
               </div>
               {chef.map((chef) => (
                 <div style={{ paddingBottom: "10%" }}>
-                  <a href={chef?.link}>
+                  <a href={chef?.link} target="_blank">
                   <Paper key={chef._id} id="chefCard" className="chefCard">
                     <h3>{chef?.title}</h3>
                     <a>{chef?.link}</a>

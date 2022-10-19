@@ -9,7 +9,7 @@ import { createClient } from 'next-sanity'
 
 import styles from '../styles/Home.module.css'
 import Header from '../public/components/header'
-import Footer from '../public/components/footer'
+import Footer from '../public/components/footer.js'
 import Layout from '../public/components/layout'
 
 import dynamic from 'next/dynamic'

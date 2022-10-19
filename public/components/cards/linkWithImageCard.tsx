@@ -51,7 +51,7 @@ export default function LinkWithImage({ link, image, title, description }: LinkW
 
 
     return (
-        <a href={link}>
+        <a href={link} target="_blank">
             <Paper style={styles.cardWrapper as React.CSSProperties}>
                 <div style={styles.card as React.CSSProperties}>
 

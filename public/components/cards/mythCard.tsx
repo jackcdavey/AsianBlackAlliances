@@ -76,7 +76,7 @@ export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote }
                                 url={mythLink?.toString()}
                             />
 
-                            <a style={styles.linkTxt as React.CSSProperties} href={mythLink}>{mythLinkNote}</a>
+                            <a style={styles.linkTxt as React.CSSProperties} href={mythLink} target="_blank">{mythLinkNote}</a>
                         </>
                     }
                 </div>

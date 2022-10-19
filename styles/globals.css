@@ -61,10 +61,14 @@
    border-top: 1px solid #eaeaea;
    min-width: 100vw;
    height: 10vh;
-   display: block;
+   display: flex;
+   justify-content: center;
+   align-items: center;
    /* margin-top: auto; */
    position: relative;
    bottom: 0;
+   text-align: center;
+
  }
 
  #footer a {

@@ -4,7 +4,7 @@ import Head from "next/head";
 
 import Layout from "../public/components/layout";
 import Header from "../public/components/header";
-import Footer from "../public/components/footer";
+import Footer from "../public/components/footer.js";
 
 
 
@@ -48,20 +48,20 @@ const Discussion = () => {
                     <p style={{ textAlign: "center" }}>If you would like to share your own story, plese submit a comment below</p>
                     
 
-                    <form onSubmit={handleSubmit}>
-    <div id="formWrap">
-      <div id="nameWrap">
-        <input type="text" id="name" placeholder="Name" required />
-      </div>
-      <div id="emailWrap">
-        <input type="email" id="email" placeholder="Email" required />
-      </div>
-      <div id="messageWrap">
-        <textarea id="message" placeholder="Message" required />
-      </div>
-      <button type="submit">{status}</button>
-      </div>
-    </form>
+            <form onSubmit={handleSubmit}>
+            <div id="formWrap">
+            <div id="nameWrap">
+                <input type="text" id="name" placeholder="Name" required />
+            </div>
+            <div id="emailWrap">
+                <input type="email" id="email" placeholder="Email" required />
+            </div>
+            <div id="messageWrap">
+                <textarea id="message" placeholder="Message" required />
+            </div>
+            <button type="submit">{status}</button>
+            </div>
+            </form>
                 </div>
             </Layout>
 

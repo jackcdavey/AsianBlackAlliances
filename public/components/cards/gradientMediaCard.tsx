@@ -50,7 +50,7 @@ export default function GradientMediaCard({ imgSource, imgAlt, title, content, l
     return (
 
         <div style={converted[".gradientMediaCard"]} >
-            <a href={link}>
+            <a href={link} target="_blank">
                 {imgSource &&
                     <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
                         <img style={converted[".gradientMediaCard img"] as React.CSSProperties} src={imgSource} alt={imgAlt} />

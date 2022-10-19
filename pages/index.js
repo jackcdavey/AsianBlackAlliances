@@ -9,7 +9,7 @@ import Link from 'next/link'
 // import { useTheme } from '@mui/material/styles';
 import { Container, Grid, Paper, Box } from '@mui/material';
 import {HomepageHeader} from '../public/components/header';
-import Footer from '../public/components/footer';
+import Footer from '../public/components/footer.js';
 import Layout from '../public/components/layout';
 
 import HomeCarousel from '../public/components/carousel.js';
@@ -43,7 +43,7 @@ function urlFor(source) {
     return builder.image(source)
 }
 
-function Home({ homepageTile, homepageDescription, bio }) {
+function Home({ homepageTile, homepageDescription, bio, footerContent }) {
   var cardColor = '';
   return (
     <>
@@ -64,7 +64,6 @@ function Home({ homepageTile, homepageDescription, bio }) {
             <HomeCarousel />
           </div>
           <div style={{ marginBottom: '1vh', textAlign: 'center', paddingLeft: '5%', paddingRight: '5%' }}>
-            
             {homepageDescription.map((desc) => (
               // If the description title is "Intro", then display the body as a paragraph
               desc.title === "Intro" ? <p>{desc.body}</p> : null
@@ -100,7 +99,11 @@ function Home({ homepageTile, homepageDescription, bio }) {
             ))}
           </div>
         </div>
-        <Footer />
+        <Footer link={
+          footerContent[0]?.link
+        } body={
+          footerContent[0]?.body
+        } />
       </Layout>
  
 
@@ -112,12 +115,14 @@ export async function getStaticProps() {
   const homepageTile = await client.fetch(`*[_type == "homepageTile"]  | order(order asc)`)
   const homepageDescription = await client.fetch(`*[_type == "homepageDescription"]  | order(order asc)`)
   const bio = await client.fetch(`*[_type == "bio"]  | order(order asc)`)
+  const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
 
   return {
     props: {
       homepageTile,
       homepageDescription,
       bio,
+      footerContent,
     },
     revalidate: 10,
   };
