@@ -83,7 +83,7 @@ function Home({ homepageTile, homepageDescription, bio }) {
             </Box>
             ))}
           </Box>
-          <div style={{textAlign: 'left', width: "100vw", paddingLeft: '5%'}}>
+          <div style={{textAlign: 'left', width: "100vw", padding: '5% 0 0 5%'}}>
             <h1 >About The Team</h1>
           </div>
           <div style={{ marginBottom: '1vh', textAlign: 'center', paddingLeft: '5%', paddingRight: '5%', display: 'flex', flexDirection: 'column' }}>

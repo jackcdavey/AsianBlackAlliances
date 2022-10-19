@@ -23,8 +23,9 @@ const converted = {
         backgroundImage:
             "linear-gradient(var(--card-gradient), white max(9.5rem, 27vh))",
         overflow: "hidden",
-        maxWidth: "25%"
+
     },
+
     "#gradientMediaCardNoGradient": { "--card-gradient": "none !important" },
     ".gradientMediaCard :hover,\n :focus-within": {
         "--card-gradient": "#24a9d5 max(8.5rem, 20vh)"
@@ -48,7 +49,7 @@ const converted = {
 
 export default function BioCard({ name, desc, image, link }: BioCardProps) {
     return (
-        <div style={converted[".gradientMediaCard"]} >
+        <div style={converted[".gradientMediaCard"]} id="bioCard">
             <a href={link}>
                 {image &&
                     <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
