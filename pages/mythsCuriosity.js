@@ -4,6 +4,8 @@ import Image from 'next/image'
 
 import { createClient } from 'next-sanity'
 
+import { useState } from 'react';
+
 import Header from '../public/components/header';
 import Footer from '../public/components/footer.js';
 import MythCard from '../public/components/cards/mythCard.js';
@@ -16,6 +18,10 @@ import { Tooltip } from '../public/components/tooltip';
 
 import { Paper } from '@mui/material'
 
+import dynamic from 'next/dynamic'
+const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
+
+
 
 
 const client = createClient({
@@ -25,7 +31,8 @@ const client = createClient({
   useCdn: false,
 });
 
-export default function MythsCuriosity({myth, footerContent, mythCuriosityHeader}) {
+export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeader }) {
+    const [tooltipContent, setTooltipContent] = useState("");
   return (
     <>
       <Head>
@@ -71,7 +78,9 @@ export default function MythsCuriosity({myth, footerContent, mythCuriosityHeader
             {/* <h1>Be Curious on Your Next Roadtrip!</h1> */}
           {/* </Tooltip> */}
           <p style={{textAlign: "center", maxWidth: '70%'}}>As racial minorities, we do not see our histories taught in formal education. Therefore, we need to self educate with true and comprehensive information. When you plan your next family vacation, consider building in a couple of such lessons to learn about ourselves and each other</p>
-            <RoadtripMap />
+            <RoadtripMap setTooltipContent={setTooltipContent}/>
+            <ReactTooltip effect='solid' >{tooltipContent}</ReactTooltip>
+
             </div>
         </div>
 
