@@ -63,6 +63,7 @@ export default function CollaborationMap({ setTooltipContent }) {
             projection="geoMercator"
             width={900}
             height={200}
+            style={{ borderRadius: '25px', overflow: 'hidden', borderColor: COLORS.primaryLight, borderWidth: '3px', borderStyle: 'solid' }}
             projectionConfig={{
                 // Center between the US and China
                 center: [0, 30],
