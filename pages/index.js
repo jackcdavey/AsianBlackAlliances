@@ -83,7 +83,7 @@ function Home({ homepageTile, homepageDescription, bio, footerContent }) {
                     style={{ backgroundColor: homepageTile?.backgroundColor, color: homepageTile?.textColor }}>
                     
                     {/* If a random number between 1 and 10 is less than 5, display the image */}
-                    <Decor />
+                    {/* <Decor /> */}
                     
                     <h2>{homepageTile?.title}</h2>
                     <p>{homepageTile?.description}</p>

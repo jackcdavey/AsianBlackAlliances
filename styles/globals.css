@@ -126,18 +126,20 @@
  }
 
  #decorTopLeft {
-   top: -70px;
-   left: -100px;
+   top: -5rem;
+   left: -3rem;
  }
 
  #decorTopRight {
-   top: -70px;
-   right: -200px;
+   top: -5rem;
+   right: -3rem;
+   -webkit-transform: scaleX(-1);
  }
 
  #decorRightBottom {
-   bottom: -300px;
-   right: -230px;
+   bottom: 0;
+   right: -3rem;
+   -webkit-transform: scaleY(-1);
  }
 
  #decorRightTop {

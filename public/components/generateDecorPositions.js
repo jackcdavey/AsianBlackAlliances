@@ -23,7 +23,7 @@ export default function Decor() {
     
 
     
-
+    assetPosition="decorTopRight";
     // Pick a random number between 0 and 40, and render a different image based on the number
     const randomNum = Math.floor(Math.random() * 40 + 1)
     if (randomNum < 10) {
