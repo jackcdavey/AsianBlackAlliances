@@ -39,11 +39,11 @@ const Discussion = ({footerContent}) => {
             <form action="https://formspree.io/f/xgedrjkp" method="POST">
                 <div id="formWrap">
                     <div className="fieldWrap">
-                        <input style={{marginRight: "2%"}} type="text" id="name" placeholder="Name" required />
-                        <input style={{marginLeft: "2%"}} type="email" id="email" placeholder="Email" required />
+                        <input style={{marginRight: "2%"}} type="text" id="name" placeholder="Name" required name="submissionName" />
+                        <input style={{marginLeft: "2%"}} type="email" id="email" placeholder="Email" name="email" required />
                     </div>
                     <div className="fieldWrap">
-                        <textarea id="message" rows="7" placeholder="Message" required />
+                        <textarea id="message" rows="7" placeholder="Message" name="message" required />
                     </div>
                     <Button variant="contained" type="submit">Send</Button>
                 </div>
