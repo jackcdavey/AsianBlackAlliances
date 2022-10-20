@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { createClient } from 'next-sanity'
 
-import { Button } from '@mui/material';
+import { Button, Paper } from '@mui/material';
 
 import { useForm, ValidationError } from '@formspree/react';
 
@@ -18,7 +18,7 @@ const client = createClient({
   useCdn: false,
 });
 
-const Discussion = ({footerContent}) => {
+const Discussion = ({footerContent, discussionPost}) => {
     return (
         <>
             <Head>
@@ -47,7 +47,18 @@ const Discussion = ({footerContent}) => {
                     </div>
                     <Button variant="contained" type="submit">Send</Button>
                 </div>
-            </form>
+                    </form>
+                    
+
+                    {/* Display each discussion post in a Card below */}
+                    {discussionPost.map((post) => (
+                        <Paper className="discussionCard">
+                            <h2>{post?.title}</h2>
+                            <h3>From: {" " + post?.name}</h3>
+                            <p>{post?.body}</p>
+                        </Paper>
+                    ))}
+
                 </div>
             </Layout>
 
@@ -64,9 +75,11 @@ const Discussion = ({footerContent}) => {
 
 export async function getStaticProps() {
     const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
+    const discussionPost = await client.fetch(`*[_type == "discussionPost"]  | order(order asc)`)
     return {
         props: {
             footerContent,
+            discussionPost,
         },
     };
 }

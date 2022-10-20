@@ -43,6 +43,12 @@
    font-style: normal;
  }
 
+ h3 {
+   font-family: ofelia-text, sans-serif;
+   font-weight: 400;
+   font-style: italic;
+ }
+
  #body {
    padding-top: 10vh;
    min-height: 100vh;
@@ -371,5 +377,20 @@
  }
 
  #NATabs {}
+
+ .discussionCard {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   text-align: left;
+   border-radius: 25px;
+   max-width: 80%;
+   padding: 1rem;
+ }
+
+ .discussionCard h2,
+ .discussionCard h3 {
+   margin: 0;
+ }
 
  /* When the cursor hovers over #nAmericaCircle, set #NATabs to display: none */
