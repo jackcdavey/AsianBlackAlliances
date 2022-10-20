@@ -69,7 +69,7 @@ export default function Header() {
                 <div id='navBar' >
                     <Link href='/historyOfCollaboration'>
                         <div className='navLink'>
-                            <a>History of Collaboration</a>
+                            <a>Contact & Collaboration</a>
                         </div>
                     </Link>
                     <Link href='/crossCulturalInfluences'>
