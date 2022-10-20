@@ -50,6 +50,8 @@ function showAsiaTimeline() {
 export default function CollaborationMap({ setTooltipContent }) {
     const [markerA, setMarkerA] = useState(9);
     const [markerB, setMarkerB] = useState(9);
+    const [colorA, setColorA] = useState(COLORS.secondary);
+    const [colorB, setColorB] = useState(COLORS.secondary);
 
 
     const wrapperRef = useRef(null);
@@ -60,10 +62,10 @@ export default function CollaborationMap({ setTooltipContent }) {
         <ComposableMap
             projection="geoMercator"
             width={900}
-            height={300}
+            height={200}
             projectionConfig={{
                 // Center between the US and China
-                center: [0, 40],
+                center: [0, 30],
                 scale: 180
 
             }}
@@ -107,15 +109,18 @@ export default function CollaborationMap({ setTooltipContent }) {
                 {/* China */}
             <Marker coordinates={[100, 35]}>
                 <a href="#asia">
-                    <circle id="asiaCircle" ref={wrapperRef} r={markerA} fill={COLORS.secondary}
+                    <circle id="asiaCircle" ref={wrapperRef} r={markerA} fill={colorA}
                         onMouseEnter={() => {
-                            setMarkerA(40);                            
+                            setMarkerA(30);   
+                            setColorA(COLORS.primary);
 
                         }
                         }
                         // When the mouse is clicked elsewhere, the circle will return to its original size
                     onMouseLeave={() => {
                         setMarkerA(9);
+                        setColorA(COLORS.secondary);
+
                     }}
 
                         
@@ -129,14 +134,17 @@ export default function CollaborationMap({ setTooltipContent }) {
                 {/* North America */}
             <Marker coordinates={[-100, 40]}>
               <a href="#northAmerica">
-                <circle id="nAmericaCircle" r={markerB} fill={COLORS.secondary}
+                <circle id="nAmericaCircle" r={markerB} fill={colorB}
                 onMouseEnter={() => {
-                            setMarkerB(40);                            
+                    setMarkerB(30);   
+                    setColorB(COLORS.primary);
                         }
                     }
                     
                     onMouseLeave={() => {
                         setMarkerB(9);
+                        setColorB(COLORS.secondary);
+
                     }
                     } />
                 </a>
