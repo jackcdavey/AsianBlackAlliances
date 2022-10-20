@@ -116,8 +116,56 @@
    justify-content: center;
    border: rgb(86, 129, 39) solid 3px;
    border-radius: 25px;
+   z-index: 1;
    /* overflow: auto; */
  }
+
+ .cardDecor {
+   position: relative;
+   z-index: 0;
+ }
+
+ #decorTopLeft {
+   top: -70px;
+   left: -100px;
+ }
+
+ #decorTopRight {
+   top: -70px;
+   right: -200px;
+ }
+
+ #decorRightBottom {
+   bottom: -300px;
+   right: -230px;
+ }
+
+ #decorRightTop {
+   top: -30px;
+   right: -230px;
+ }
+
+ /* #decorBottomLeft {
+   bottom: -100%;
+   left: -50%;
+ }
+
+ #decorBottomRight {
+   bottom: -100%;
+   right: -50%;
+ }
+
+ #decorLeftBottom {
+   bottom: -90%;
+   left: -60%;
+ }
+
+ #decorLeftTop {
+   top: -150%;
+   left: -60%;
+ } */
+
+
 
  #bioCard {
    max-width: 25%;
@@ -410,5 +458,3 @@
  .discussionCard h3 {
    margin: 0;
  }
-
- /* When the cursor hovers over #nAmericaCircle, set #NATabs to display: none */

@@ -17,7 +17,9 @@ import HomeCarousel from '../public/components/carousel.js';
 import dynamic from 'next/dynamic';
 
 
-import {COLORS} from '../public/styling/colors.js';
+import { COLORS } from '../public/styling/colors.js';
+
+import Decor from '../public/components/generateDecorPositions.js';
 
 import wave from '../public/wave.svg';
 
@@ -75,9 +77,14 @@ function Home({ homepageTile, homepageDescription, bio, footerContent }) {
             {homepageTile?.map((homepageTile) => (
               
             <Box className={'landingGridItem'} key={homepageTile._id}>
+                
               <a href={homepageTile?.link}>
                   <Paper elevation={10} className={'landingGridContent'}
-                    style={{backgroundColor: homepageTile?.backgroundColor, color: homepageTile?.textColor}}>
+                    style={{ backgroundColor: homepageTile?.backgroundColor, color: homepageTile?.textColor }}>
+                    
+                    {/* If a random number between 1 and 10 is less than 5, display the image */}
+                    <Decor />
+                    
                     <h2>{homepageTile?.title}</h2>
                     <p>{homepageTile?.description}</p>
                 </Paper>
