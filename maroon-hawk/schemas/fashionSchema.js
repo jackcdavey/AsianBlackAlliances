@@ -20,6 +20,12 @@ export default {
             of: [{ type: 'url' }],
         },
         {
+            name: 'linkLabel',
+            type: 'array',
+            title: 'Link Label',
+            of: [{ type: 'string' }],
+        },
+        {
             name: 'image',
             type: 'array',
             title: 'Image',

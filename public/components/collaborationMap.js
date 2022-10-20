@@ -72,12 +72,12 @@ export default function CollaborationMap({ setTooltipContent }) {
                             // fill={'#00' + Math.floor(Math.random() * 200 + 56).toString(16) + '50'}
                             <Geography
                                 key={geo.rsmKey}
-                                data-tip={"TEST"}
                                 geography={geo}
+                                data-tip="TEST"
                                 fill={'lightgray'}
                                 stroke={'gray'}
                                 onMouseEnter={() => {
-                                    setTooltipContent(geo.properties.name);
+                                    setTooltipContent("TEST");
                                 }}
                                 onMouseLeave={() => {
                                     setTooltipContent("");
@@ -104,9 +104,9 @@ export default function CollaborationMap({ setTooltipContent }) {
                 {/* China */}
                 <Marker coordinates={[100, 35]}>
                     <circle id="asiaCircle" ref={wrapperRef} r={markerA} fill={COLORS.secondary}
-                        onClick={() => {
-                            setMarkerA(30);
-                            }
+                        onMouseEnter={() => {
+                            alert('Yes, hello!');
+                        }
                         }
                         // When the mouse is clicked elsewhere, the circle will return to its original size
                     onMouseLeave={() => {

@@ -183,15 +183,21 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
          <div className='collapsed-content' id='fashion'>
           
           {fashion.map((fashion) => (
-            <div key={fashion._id} style={{display: 'flex', flexDirection: 'row'}}>
-              <p style={{width: "70%"}}>{fashion?.body}</p>
+            <div key={fashion._id} style={{display: 'flex', flexDirection: 'row', marginBottom: '8vh'}}>
+              <p style={{minWidth: "70%"}}>{fashion?.body}</p>
               {fashion.image &&
               <img src={urlFor(fashion?.image)} alt='' />
               } 
-              <Button link={fashion?.link} sx={{ width: "30%" }} >
-                Learn More
-              </Button>
-              
+
+              <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%'}}>
+              {/* for each link, create a button */}
+              {fashion?.link && fashion?.link.map((link) => (
+              <Button variant="contained" color="primary" href={fashion?.link}  target="_blank" rel="noopener noreferrer" sx={{ display: 'flex', width: "90%", textAlign: 'center', margin: '2%' }} >
+                  {/* If a linkLabel exists in the same index as the link, use that as the button text. Otherwise, use the link */}
+                  {fashion?.linkLabel && fashion?.linkLabel[fashion?.link.indexOf(link)] ? fashion?.linkLabel[fashion?.link.indexOf(link)] : "More Info"}
+                </Button>
+              ))}
+              </div>
             </div>
           ))}
           </div>

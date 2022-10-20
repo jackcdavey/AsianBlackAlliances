@@ -318,6 +318,7 @@
 
  .collapsed-desc h1 {
    margin: 0 !important;
+   padding-top: 3%;
  }
 
  .collapsed-content {
@@ -371,6 +372,4 @@
 
  #NATabs {}
 
- #nAmericaCircle :hover {
-   display: none;
- }
+ /* When the cursor hovers over #nAmericaCircle, set #NATabs to display: none */
