@@ -45,7 +45,7 @@ const Discussion = ({footerContent, discussionPost}) => {
                     <div className="fieldWrap">
                         <textarea id="message" rows="7" placeholder="Message" name="message" required />
                     </div>
-                    <Button variant="contained" type="submit">Send</Button>
+                    <Button variant="contained" type="submit" style={{margin: '1rem'}}>Send</Button>
                 </div>
                     </form>
                     
