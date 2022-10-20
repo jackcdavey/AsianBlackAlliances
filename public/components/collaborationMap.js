@@ -48,8 +48,8 @@ function showAsiaTimeline() {
 
 
 export default function CollaborationMap({ setTooltipContent }) {
-    const [markerA, setMarkerA] = useState(9);
-    const [markerB, setMarkerB] = useState(9);
+    const [markerA, setMarkerA] = useState(90);
+    const [markerB, setMarkerB] = useState(90);
     const [colorA, setColorA] = useState(COLORS.secondary);
     const [colorB, setColorB] = useState(COLORS.secondary);
 
@@ -107,18 +107,18 @@ export default function CollaborationMap({ setTooltipContent }) {
                 </Geographies>
                 {/*  */}
                 {/* China */}
-            <Marker coordinates={[100, 35]}>
+            <Marker coordinates={[100, 30]}>
                 <a href="#asia">
-                    <circle id="asiaCircle" ref={wrapperRef} r={markerA} fill={colorA}
+                    <circle id="asiaCircle" ref={wrapperRef} r={markerA} fill={colorA} opacity={0.5} 
                         onMouseEnter={() => {
-                            setMarkerA(30);   
+                            setMarkerA(100);   
                             setColorA(COLORS.primary);
 
                         }
                         }
                         // When the mouse is clicked elsewhere, the circle will return to its original size
                     onMouseLeave={() => {
-                        setMarkerA(9);
+                        setMarkerA(90);
                         setColorA(COLORS.secondary);
 
                     }}
@@ -132,17 +132,17 @@ export default function CollaborationMap({ setTooltipContent }) {
                 
 
                 {/* North America */}
-            <Marker coordinates={[-100, 40]}>
+            <Marker coordinates={[-100, 30]}>
               <a href="#northAmerica">
-                <circle id="nAmericaCircle" r={markerB} fill={colorB}
+                <circle id="nAmericaCircle" r={markerB} fill={colorB} opacity={0.5}
                 onMouseEnter={() => {
-                    setMarkerB(30);   
+                    setMarkerB(100);   
                     setColorB(COLORS.primary);
                         }
                     }
                     
                     onMouseLeave={() => {
-                        setMarkerB(9);
+                        setMarkerB(90);
                         setColorB(COLORS.secondary);
 
                     }
