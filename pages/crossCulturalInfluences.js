@@ -191,8 +191,10 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
 
               <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%'}}>
               {/* for each link, create a button */}
-              {fashion?.link && fashion?.link.map((link) => (
-              <Button variant="contained" color="primary" href={fashion?.link}  target="_blank" rel="noopener noreferrer" sx={{ display: 'flex', width: "90%", textAlign: 'center', margin: '2%' }} >
+                {fashion?.link && fashion?.link.map((link) => (
+                // Display a button for each link
+                  
+              <Button variant="contained" color="primary" href={fashion?.link[fashion?.link.indexOf(link)]}  target="_blank" rel="noopener noreferrer" sx={{ display: 'flex', width: "90%", textAlign: 'center', margin: '2%' }} >
                   {/* If a linkLabel exists in the same index as the link, use that as the button text. Otherwise, use the link */}
                   {fashion?.linkLabel && fashion?.linkLabel[fashion?.link.indexOf(link)] ? fashion?.linkLabel[fashion?.link.indexOf(link)] : "More Info"}
                 </Button>
