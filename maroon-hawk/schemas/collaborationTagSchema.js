@@ -1,7 +1,7 @@
 export default {
     name: 'collaborationTag',
     type: 'document',
-    title: 'Collaoaboration Tags',
+    title: 'Collaboration Tags',
     fields: [
         {
             name: 'title',

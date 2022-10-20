@@ -81,10 +81,10 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
 
           <div className='collapsed-content' id='asia'>
           {/* display all collaboration tags that have section = asia in a timeline */}
-          <Timeline align="alternate">
+          <Timeline position="alternate">
               {collaborationTag.map((tag) => (
                 tag.section === 'asia' &&
-              <TimelineItem>
+              <TimelineItem key={collaborationTag._id}>
                 <TimelineOppositeContent>
                   <Typography variant="body2" color="text.secondary">
                     {tag.date}
@@ -117,10 +117,10 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
 
           <div className='collapsed-content' id='northAmerica'>
           {/* display all collaboration tags that have section = northAmerica in a timeline */}
-          <Timeline align="alternate">
+          <Timeline position="alternate">
               {collaborationTag.map((tag) => (
                 tag.section === 'northamerica' &&
-              <TimelineItem>
+              <TimelineItem key={collaborationTag._id}>
                 <TimelineOppositeContent>
                   <Typography variant="body2" color="text.secondary">
                     {tag.date}
