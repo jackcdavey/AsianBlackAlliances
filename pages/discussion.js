@@ -3,6 +3,9 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { createClient } from 'next-sanity'
 
+import { Button } from '@mui/material';
+
+import { useForm, ValidationError } from '@formspree/react';
 
 import Layout from "../public/components/layout";
 import Header from "../public/components/header";
@@ -16,28 +19,6 @@ const client = createClient({
 });
 
 const Discussion = ({footerContent}) => {
-    const [status, setStatus] = React.useState("Submit");
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setStatus("Sending...");
-        const { name, email, message } = e.target.elements;
-        let details = {
-            name: name.value,
-            email: email.value,
-            message: message.value,
-        };
-        let response = await fetch("http://localhost:5000/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json;charset=utf-8",
-            },
-            body: JSON.stringify(details),
-        });
-        setStatus("Submit");
-        let result = await response.json();
-        alert(result.status);
-    };
-
     return (
         <>
             <Head>
@@ -55,19 +36,17 @@ const Discussion = ({footerContent}) => {
                     <p style={{ textAlign: "center" }}>If you would like to share your own story, plese submit a comment below</p>
                     
 
-            <form onSubmit={handleSubmit}>
-            <div id="formWrap">
-            <div id="nameWrap">
-                <input type="text" id="name" placeholder="Name" required />
-            </div>
-            <div id="emailWrap">
-                <input type="email" id="email" placeholder="Email" required />
-            </div>
-            <div id="messageWrap">
-                <textarea id="message" placeholder="Message" required />
-            </div>
-            <button type="submit">{status}</button>
-            </div>
+            <form action="https://formspree.io/f/xgedrjkp" method="POST">
+                <div id="formWrap">
+                    <div className="fieldWrap">
+                        <input style={{marginRight: "2%"}} type="text" id="name" placeholder="Name" required />
+                        <input style={{marginLeft: "2%"}} type="email" id="email" placeholder="Email" required />
+                    </div>
+                    <div className="fieldWrap">
+                        <textarea id="message" rows="7" placeholder="Message" required />
+                    </div>
+                    <Button variant="contained" type="submit">Send</Button>
+                </div>
             </form>
                 </div>
             </Layout>

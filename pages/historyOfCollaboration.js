@@ -92,7 +92,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
                       {timelinePoint?.date}
                       {timelinePoint?.citation && (
                         timelinePoint?.citation?.map((citation) => (
-                          <Button variant="outlined" color="primary" href={timelinePoint?.citation} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '1rem', width: '50%', margin: 'auto', marginBottom: '5%' }} >
+                          <Button variant="contained" color="primary" href={timelinePoint?.citation} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '1rem', width: '50%', margin: 'auto', marginBottom: '5%' }} >
                             <div style={{textAlign: 'center' }}>
                             {/* Display the linkNote if it exists, otherwise display "More Info" */}
                               {timelinePoint?.linkNote ? timelinePoint?.linkNote : "More Info"}

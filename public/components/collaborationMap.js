@@ -9,23 +9,60 @@ import {
 
 import { useState } from 'react';
 
+import React, { useRef, useEffect } from "react";
+
 import { COLORS } from '../styling/colors.js';
 
 const geoUrl = '/features.json';
+
+function useOutsideAlerter(ref) {
+  useEffect(() => {
+    /**
+     * Alert if clicked on outside of element
+     */
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        //   alert("You clicked outside of me!");
+        //   Reset market sizes, hide tooltips
+          
+          
+          
+          
+          
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [ref]);
+}
+
 
 
 export default function CollaborationMap({ setTooltipContent }) {
     const [markerA, setMarkerA] = useState(9);
     const [markerB, setMarkerB] = useState(9);
-    const [markerC, setMarkerC] = useState(9);
-    const [markerD, setMarkerD] = useState(9);
-    const [markerE, setMarkerE] = useState(9);
-    const [markerF, setMarkerF] = useState(9);
-    const [markerG, setMarkerG] = useState(9);
+
+
+    const wrapperRef = useRef(null);
+    useOutsideAlerter(wrapperRef);
 
 
     return (
-        <ComposableMap projection="geoMercator" width={900} height={300}>
+        <ComposableMap
+            projection="geoMercator"
+            width={900}
+            height={300}
+            projectionConfig={{
+                // Center between the US and China
+                center: [0, 40],
+                scale: 180
+
+            }}
+        >
             {/* <ZoomableGroup center={[0, 0]} zoom={1}> */}
                 <Geographies geography={geoUrl}>
                     {({ geographies }) =>
@@ -46,109 +83,39 @@ export default function CollaborationMap({ setTooltipContent }) {
                 {/*  */}
                 {/* China */}
                 <Marker coordinates={[100, 35]}>
-                    <circle r={markerA} fill={COLORS.secondary}
-                        onMouseEnter={() => {
+                    <circle id="asiaCircle" ref={wrapperRef} r={markerA} fill={COLORS.secondary}
+                        onClick={() => {
                             setMarkerA(30);
+                            }
                         }
-                        }
+                        // When the mouse is clicked elsewhere, the circle will return to its original size
+                    onMouseLeave={() => {
+                        setMarkerA(9);
+                    }}
 
-                        onMouseLeave={() => {
-                            setMarkerA(9);
-                        }
-                        }
+                        
+                        
                         />
                 </Marker>
 
-                {/* Papua New Guinea */}
-                <Marker coordinates={[145, -6]}>
-                <circle r={markerB} fill={COLORS.secondary}
-                    onMouseEnter={() => {
+                
+
+                {/* North America */}
+                <Marker coordinates={[-100, 40]}>
+                <circle id="nAmericaCircle" r={markerB} fill={COLORS.secondary}
+                onMouseEnter={() => {
                         setMarkerB(30);
                     }
                     }
-
+                    
                     onMouseLeave={() => {
                         setMarkerB(9);
                     }
-                    }
-                />
-                </Marker>
-
-
-                {/* Japan */}
-                <Marker coordinates={[140, 35]}>
-                <circle r={markerC} fill={COLORS.secondary}
-                    onMouseEnter={() => {
-                        setMarkerC(30);
-                    }
-                    }
-                    
-                    onMouseLeave={() => {
-                        setMarkerC(9);
-                    }
-                    }
-                />
-                </Marker>
-
-                {/* USA, Wash DC */}
-                <Marker coordinates={[-78, 40]}>
-                <circle r={markerD} fill={COLORS.secondary}
-                onMouseEnter={() => {
-                        setMarkerD(30);
-                    }
-                    }
-                    
-                    onMouseLeave={() => {
-                        setMarkerD(9);
-                    }
-                    }/>
-                </Marker>
-
-                {/* Philippines  */}
-                <Marker coordinates={[120, 13]}>
-                <circle r={markerE} fill={COLORS.secondary}
-                onMouseEnter={() => {
-                        setMarkerE(30);
-                    }
-                    }
-                    
-                    onMouseLeave={() => {
-                        setMarkerE(9);
-                    }
-                    }/>
-                </Marker>
-
-                {/* Vietnam */}
-                <Marker coordinates={[105, 16]}>
-                <circle r={markerF} fill={COLORS.secondary}
-                    onMouseEnter={() => {
-                        setMarkerF(30);
-                    }
-                    }
-                    
-                    onMouseLeave={() => {
-                        setMarkerF(9);
-                    }
-                    }
-                />
-                </Marker>
-
-                {/* Indonesia, Bandung */}
-                <Marker coordinates={[107, -6]}>
-                <circle r={markerG} fill={COLORS.secondary}
-                onMouseEnter={() => {
-                        setMarkerG(30);
-                    }
-                    }
-                    
-                    onMouseLeave={() => {
-                        setMarkerG(9);
-                    }
-                    }/>
-                </Marker>
-
-
-
+                    } />
+                        <text textAnchor="middle" fill="#F53">
+                    North America 
+                    </text>
+            </Marker>
                 {/* </div> */}
             {/* </ZoomableGroup> */}
         </ComposableMap>
