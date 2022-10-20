@@ -96,7 +96,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
                           <Button variant="contained" color="primary" href={timelinePoint?.citation[timelinePoint?.citation.indexOf(citation)]} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '1rem', width: '50%', margin: 'auto', marginBottom: '5%' }} >
                             <div style={{textAlign: 'center' }}>
                             {/* Display the linkNote if it exists, otherwise display "More Info" */}
-                              {timelinePoint?.linkNote ? timelinePoint?.linkNote : "More Info"}
+                              {timelinePoint?.linkNote && timelinePoint?.linkNote[timelinePoint?.citation.indexOf(citation)] ? timelinePoint?.linkNote[timelinePoint?.citation.indexOf(citation)] : "More Info"}
                               </div>
                           </Button>
                         ))
