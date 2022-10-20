@@ -14,6 +14,26 @@ export default {
             title: 'Body',
         },
         {
+            name: 'link',
+            type: 'array',
+            title: 'Link',
+            of: [
+                {
+                    type: 'url',
+                },
+            ],
+        },
+        {
+            name: 'linkLabel',
+            type: 'array',
+            title: 'Link Label',
+            of: [
+                {
+                    type: 'string',
+                },
+            ],
+        },
+        {
             name: "order",
             title: "Order",
             type: "number",

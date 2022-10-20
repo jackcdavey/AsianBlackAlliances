@@ -77,7 +77,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
                 <p>This page integrates cultural and political transnational historically significant events on Asian and Black interactions. These events are not positive or negative. Rather, each builds on the others as continuation of possibilities to build a sustainable relationality between these two heterogeneous groups  </p>
           </span>
               
-          <Timeline position="alternate" sx={{maxWidth: "100vw"}}>
+          <Timeline position="alternate" sx={{maxWidth: "100vw", display: "none"}}>
             {timelinePoint?.map((timelinePoint) => (
               //if the timelinePoint has no date, insert a timeline separator
               timelinePoint?.date == null ? (
@@ -121,9 +121,24 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
           {historyResources?.map((historyResource) => (
             <div key={historyResource._id} style={{ margin: '2%' }}>
               <h1 style={{ textAlign: 'left', width: "100vw", paddingLeft: '5%' }}>{historyResource?.title}</h1>
-              <div style={{textAlign: 'center', paddingLeft: '5%', paddingRight: '5%'}}> 
+              <div style={{textAlign: 'center', paddingLeft: '5%', paddingRight: '5%', alignItems: "center"}}> 
                 {historyResource?.body}
               </div>
+              {/* Display each link and linkLabel, display a button */}
+              {/* Create a centered grid 2 columns wide, with repeating rows */}
+              <Grid container spacing={2} style={{margin: 'auto', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
+              
+              {historyResource?.link && (
+                historyResource?.link?.map((link) => (
+                  <Button variant="contained" color="primary" href={historyResource?.link[historyResource?.link.indexOf(link)]} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '1rem', width: '30%', margin: 'auto', margin: '5%' }} >
+                    <div style={{textAlign: 'center' }}>
+                    {/* Display the linkLabel if it exists, otherwise display "More Info" */}
+                      {historyResource?.linkLabel && historyResource?.linkLabel[historyResource?.link.indexOf(link)] ? historyResource?.linkLabel[historyResource?.link.indexOf(link)] : "More Info"}
+                    </div>
+                  </Button>
+                ))
+                )}
+              </Grid>
             </div>
           ))}
         </div>
