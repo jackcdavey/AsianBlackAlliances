@@ -337,6 +337,7 @@
    justify-items: center;
  }
 
+
  .collapsed-content:target {
    max-height: 1000vh;
  }

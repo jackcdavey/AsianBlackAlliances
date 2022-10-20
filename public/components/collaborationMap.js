@@ -42,9 +42,7 @@ function useOutsideAlerter(ref, setMarkerA, setMarkerB) {
   }, [ref]);
 }
 
-function showAsiaTimeline() {
-    
-}
+
 
 
 export default function CollaborationMap({ setTooltipContent }) {
@@ -52,10 +50,22 @@ export default function CollaborationMap({ setTooltipContent }) {
     const [markerB, setMarkerB] = useState(90);
     const [colorA, setColorA] = useState(COLORS.secondary);
     const [colorB, setColorB] = useState(COLORS.secondary);
+    const [currentSelection, setCurrentSelection] = useState('');
 
 
     const wrapperRef = useRef(null);
     useOutsideAlerter(wrapperRef, setMarkerA, setMarkerB);
+
+    function resetMarkers() {
+        if (currentSelection == 'asia') {
+            setMarkerB(90);
+            setColorB(COLORS.secondary);
+        }
+        if (currentSelection == 'northamerica') {
+            setMarkerA(90);
+            setColorA(COLORS.secondary);
+        }
+    }
 
 
     return (
@@ -111,6 +121,10 @@ export default function CollaborationMap({ setTooltipContent }) {
             <Marker coordinates={[100, 30]}>
                 <a href="#asia">
                     <circle id="asiaCircle" ref={wrapperRef} r={markerA} fill={colorA} opacity={0.5} 
+                        onClick={() => {
+                            setCurrentSelection('asia');
+                            resetMarkers();
+                        }}
                         onMouseEnter={() => {
                             setMarkerA(100);   
                             setColorA(COLORS.primary);
@@ -118,9 +132,11 @@ export default function CollaborationMap({ setTooltipContent }) {
                         }
                         }
                         // When the mouse is clicked elsewhere, the circle will return to its original size
-                    onMouseLeave={() => {
+                        onMouseLeave={() => {
+                        if(currentSelection != 'asia') {
                         setMarkerA(90);
-                        setColorA(COLORS.secondary);
+                            setColorA(COLORS.secondary);
+                        }
 
                     }}
 
@@ -135,16 +151,22 @@ export default function CollaborationMap({ setTooltipContent }) {
                 {/* North America */}
             <Marker coordinates={[-100, 30]}>
               <a href="#northAmerica">
-                <circle id="nAmericaCircle" r={markerB} fill={colorB} opacity={0.5}
+                    <circle id="nAmericaCircle" r={markerB} fill={colorB} opacity={0.5}
+                        onClick={() => {
+                            setCurrentSelection('northAmerica');
+                            resetMarkers();
+                        }}
                 onMouseEnter={() => {
                     setMarkerB(100);   
                     setColorB(COLORS.primary);
                         }
                     }
                     
-                    onMouseLeave={() => {
-                        setMarkerB(90);
-                        setColorB(COLORS.secondary);
+                        onMouseLeave={() => {
+                            if (currentSelection != 'northAmerica') {
+                                setMarkerB(90);
+                                setColorB(COLORS.secondary);
+                            }
 
                     }
                     } />
