@@ -42,6 +42,9 @@ function useOutsideAlerter(ref, setMarkerA, setMarkerB) {
   }, [ref]);
 }
 
+function showAsiaTimeline() {
+    
+}
 
 
 export default function CollaborationMap({ setTooltipContent }) {
@@ -88,7 +91,7 @@ export default function CollaborationMap({ setTooltipContent }) {
                                         outline: "none"
                                     },
                                     hover: {
-                                        fill: "#F53",
+                                        fill: "#999999",
                                         outline: "none"
                                     },
                                     pressed: {
@@ -102,11 +105,11 @@ export default function CollaborationMap({ setTooltipContent }) {
                 </Geographies>
                 {/*  */}
                 {/* China */}
-                <Marker coordinates={[100, 35]}>
+            <Marker coordinates={[100, 35]}>
+                <a href="#asia">
                     <circle id="asiaCircle" ref={wrapperRef} r={markerA} fill={COLORS.secondary}
                         onMouseEnter={() => {
-                            // Display a gray square above the circle
-                            alert("DISPLAY.ASIA.TIPS");
+                            setMarkerA(40);                            
 
                         }
                         }
@@ -117,16 +120,18 @@ export default function CollaborationMap({ setTooltipContent }) {
 
                         
                         
-                        />
+                    />
+                </a>
                 </Marker>
 
                 
 
                 {/* North America */}
-                <Marker coordinates={[-100, 40]}>
+            <Marker coordinates={[-100, 40]}>
+              <a href="#northAmerica">
                 <circle id="nAmericaCircle" r={markerB} fill={COLORS.secondary}
                 onMouseEnter={() => {
-                            alert("DISPLAY.NA.TIPS");
+                            setMarkerB(40);                            
                         }
                     }
                     
@@ -134,6 +139,7 @@ export default function CollaborationMap({ setTooltipContent }) {
                         setMarkerB(9);
                     }
                     } />
+                </a>
                         {/* <text textAnchor="middle" fill="#F53" id="NATabs">
                     North America 
                     </text> */}

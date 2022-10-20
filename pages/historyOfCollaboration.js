@@ -53,7 +53,7 @@ const client = createClient({
 });
 
 
-function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources }) {
+function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources, collaborationTag }) {
     
     const [tooltipContent, setTooltipContent] = useState("");
   return (
@@ -76,6 +76,92 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
           <span style={{width: '70%', textAlign: 'center'}}>
                 <p>This page integrates cultural and political transnational historically significant events on Asian and Black interactions. These events are not positive or negative. Rather, each builds on the others as continuation of possibilities to build a sustainable relationality between these two heterogeneous groups  </p>
           </span>
+
+          <div className='collapsed-content' id='asia'>
+          {/* display all collaboration tags that have section = asia in a timeline */}
+          <Timeline align="alternate">
+              {collaborationTag.map((tag) => (
+                tag.section === 'asia' &&
+              <TimelineItem>
+                <TimelineOppositeContent>
+                  <Typography variant="body2" color="text.secondary">
+                    {tag.date}
+                  </Typography>
+                </TimelineOppositeContent>
+                <TimelineSeparator>
+                  <TimelineDot />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent>
+                  <Paper elevation={3} sx={{ p: 2, borderRadius: "25px", alignItems: 'left', display: 'flex', flexDirection: 'column' }}>
+                    <Typography variant="h2" component="span" fontSize='1.4rem' sx={{ textAlign: 'left' }}>
+                      {tag.title}
+                    </Typography>
+                    <Typography>{tag.body}</Typography>
+                    {/* display each link for this tag in a button */}
+                    {tag.link.map((link) => (
+                      <Button variant="contained" href={link} target="_blank" rel="noopener noreferrer" sx={{ m: 1, borderRadius: "25px", maxHeight: '25%' }}>
+                        {/* if there is a link label display, otherwise "More Info" */}
+                        {tag.linkLabel[tag.link.indexOf(link)] ? tag.linkLabel[tag.link.indexOf(link)] : "More Info"}
+                      </Button>
+                    ))}
+                  </Paper>
+                </TimelineContent>
+              </TimelineItem>
+            ))}
+          </Timeline>
+          </div>
+
+
+          <div className='collapsed-content' id='northAmerica'>
+          {/* display all collaboration tags that have section = northAmerica in a timeline */}
+          <Timeline align="alternate">
+              {collaborationTag.map((tag) => (
+                tag.section === 'northamerica' &&
+              <TimelineItem>
+                <TimelineOppositeContent>
+                  <Typography variant="body2" color="text.secondary">
+                    {tag.date}
+                  </Typography>
+                </TimelineOppositeContent>
+                <TimelineSeparator>
+                  <TimelineDot />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent>
+                  <Paper elevation={3} sx={{ p: 2, borderRadius: "25px", alignItems: 'left', display: 'flex', flexDirection: 'column' }}>
+                    <Typography variant="h2" component="span" fontSize='1.4rem' sx={{ textAlign: 'left' }}>
+                      {tag.title}
+                    </Typography>
+                    <Typography>{tag.body}</Typography>
+                    {/* display each link for this tag in a button */}
+                    {tag.link.map((link) => (
+                      <Button variant="contained" href={link} target="_blank" rel="noopener noreferrer" sx={{ m: 1, borderRadius: "25px", maxHeight: '25%' }}>
+                        {/* if there is a link label display, otherwise "More Info" */}
+                        {tag.linkLabel[tag.link.indexOf(link)] ? tag.linkLabel[tag.link.indexOf(link)] : "More Info"}
+                        
+                      </Button>
+                    ))}
+                  </Paper>
+                </TimelineContent>
+              </TimelineItem>
+            ))}
+          </Timeline>
+          </div>
+
+
+          {/* <Timeline position="alternate" sx={{maxWidth: "100vw"}}>
+            {collaborationTag.map((tag) => {
+              if (tag.section === 'asia') {
+                return (
+                  <div key={timelinePoint._id} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '200px', height: '200px', margin: '20px', backgroundColor: 'white', borderRadius: '10px', boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.75)' }}>
+                    <h3 style={{ textAlign: 'center', margin: '10px' }}>{tag.title}</h3>
+                    <p style={{ textAlign: 'center', margin: '10px' }}>{tag.body}</p>
+                  </div>
+                )
+              }
+            })}
+          </Timeline> */}
               
           <Timeline position="alternate" sx={{maxWidth: "100vw", display: "none"}}>
             {timelinePoint?.map((timelinePoint) => (
@@ -162,12 +248,14 @@ export async function getStaticProps() {
   const timelinePoint = await client.fetch(`*[_type == "timelinePoint"] | order(order asc)`)
   const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
   const historyResources = await client.fetch(`*[_type == "historyResources"]  | order(order asc)`)
+  const collaborationTag = await client.fetch(`*[_type == "collaborationTag"]  | order(order asc)`)
 
   return {
     props: {
       timelinePoint,
       footerContent,
       historyResources,
+      collaborationTag,
     },
     revalidate: 10,
   };
