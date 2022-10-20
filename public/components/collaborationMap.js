@@ -105,7 +105,9 @@ export default function CollaborationMap({ setTooltipContent }) {
                 <Marker coordinates={[100, 35]}>
                     <circle id="asiaCircle" ref={wrapperRef} r={markerA} fill={COLORS.secondary}
                         onMouseEnter={() => {
-                            alert('Yes, hello!');
+                            // Display a gray square above the circle
+                            alert("DISPLAY.ASIA.TIPS");
+
                         }
                         }
                         // When the mouse is clicked elsewhere, the circle will return to its original size
@@ -124,7 +126,7 @@ export default function CollaborationMap({ setTooltipContent }) {
                 <Marker coordinates={[-100, 40]}>
                 <circle id="nAmericaCircle" r={markerB} fill={COLORS.secondary}
                 onMouseEnter={() => {
-                            setMarkerB(30);
+                            alert("DISPLAY.NA.TIPS");
                         }
                     }
                     
