@@ -368,3 +368,9 @@
    align-items: center;
    width: 80vw;
  }
+
+ #NATabs {}
+
+ #nAmericaCircle :hover {
+   display: none;
+ }

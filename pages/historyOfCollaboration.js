@@ -15,7 +15,6 @@ import Layout from '../public/components/layout'
 import dynamic from 'next/dynamic'
 
 
-
 import Grid from '@mui/material/Grid';
 
 import {
@@ -38,6 +37,8 @@ import {
 
 import { Button, Paper, Typography } from '@mui/material';
 import CollaborationMap from '../public/components/collaborationMap.js'
+
+const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
 
 // import Tooltip from '@mui/material/Tooltip'
 
@@ -70,7 +71,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
       <Layout title={'History of Collaboration'} description={' '}>
         <div id='body'>
           <CollaborationMap setTooltipContent={setTooltipContent} />
-          {/* <Tooltip className='card' title="add">{tooltipContent}</Tooltip> */}
+          <ReactTooltip effect='solid' uuid='mytt'>{tooltipContent}</ReactTooltip>
           <h1>History of Collaboration</h1>
           <span style={{width: '70%', textAlign: 'center'}}>
                 <p>This page integrates cultural and political transnational historically significant events on Asian and Black interactions. These events are not positive or negative. Rather, each builds on the others as continuation of possibilities to build a sustainable relationality between these two heterogeneous groups  </p>
