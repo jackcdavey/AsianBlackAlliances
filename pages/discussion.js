@@ -33,7 +33,7 @@ const Discussion = ({footerContent, discussionPost}) => {
                 <div id='body'>
 
                     <h1>Discussion</h1>
-                    <p style={{ textAlign: "center" }}>If you would like to share your own story, plese submit a comment below</p>
+                    <p style={{ textAlign: "center" }}>If you would like to share your own story, plese submit a comment below.</p>
                     
 
             <form action="https://formspree.io/f/xgedrjkp" method="POST">
