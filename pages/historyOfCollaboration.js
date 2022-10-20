@@ -70,12 +70,14 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
       <Header />
       <Layout title={'Contact & Collaboration'} description={' '}>
         <div id='body'>
+          <h1 style={{margin:  0}}>Contact & Collaboration</h1>
+          <span style={{width: '70%', textAlign: 'center'}}>
+                <p>In this interactive page, you will find historically significant Black-Asian interactions. Each event builds on each other to create continuous possibilities for a sustainable relationship. </p>
+          </span>
           <CollaborationMap setTooltipContent={setTooltipContent}/>
           <ReactTooltip effect='solid' uuid='mytt' >{tooltipContent}</ReactTooltip>
-          <h1>Contact & Collaboration</h1>
-          <span style={{width: '70%', textAlign: 'center'}}>
-                <p>This page integrates cultural and political transnational historically significant events on Asian and Black interactions. These events are not positive or negative. Rather, each builds on the others as continuation of possibilities to build a sustainable relationality between these two heterogeneous groups  </p>
-          </span>
+          <h3 style={{fontSize: '1rem', marginBottom: 0}}>Please click on either marker to see a timeline of events. </h3>
+          
 
           <div className='collapsed-content' id='asia'>
           {/* display all collaboration tags that have section = asia in a timeline */}
