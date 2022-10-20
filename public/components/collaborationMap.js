@@ -139,9 +139,6 @@ export default function CollaborationMap({ setTooltipContent }) {
                         }
 
                     }}
-
-                        
-                        
                     />
                 </a>
                 </Marker>

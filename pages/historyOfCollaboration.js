@@ -95,7 +95,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Paper elevation={3} sx={{ p: 2, borderRadius: "25px", alignItems: 'left', display: 'flex', flexDirection: 'column' }}>
+                  <Paper elevation={3}  className="collabTag">
                     <Typography variant="h2" component="span" fontSize='1.4rem' sx={{ textAlign: 'left' }}>
                       {tag.title}
                     </Typography>
@@ -131,7 +131,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Paper elevation={3} sx={{ p: 2, borderRadius: "25px", alignItems: 'left', display: 'flex', flexDirection: 'column' }}>
+                  <Paper elevation={3} className="collabTag">
                     <Typography variant="h2" component="span" fontSize='1.4rem' sx={{ textAlign: 'left' }}>
                       {tag.title}
                     </Typography>
