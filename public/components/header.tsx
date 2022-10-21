@@ -16,7 +16,7 @@ const styles = {
         left: 0,
         position: 'fixed',
         minWidth: '100vw',
-        height: '10vh',
+        // height: '10vh',
         /* background: lightgreen; */
         display: 'flex',
         flexGrow: 1,

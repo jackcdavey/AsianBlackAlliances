@@ -137,7 +137,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Paper elevation={3} className="collabTag">
+                  <Paper elevation={3} className="collabTag" sx={{borderRadius: '25px !important'}}>
                     <Typography variant="h2" component="span" fontSize='1.4rem' sx={{ textAlign: 'left' }}>
                       {tag.title}
                     </Typography>
