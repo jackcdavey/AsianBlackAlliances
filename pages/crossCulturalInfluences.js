@@ -131,7 +131,7 @@ function SubtitleSeparator({ title, contentJustification, marginLeft, marginRigh
 
 
 
-export default function CrossCulturalInfluences({food, chef, holiday, fashion, footerContent}) {
+export default function CrossCulturalInfluences({food, chef, holiday, fashion, footerContent, fashion2}) {
   return (
     <>
       <Head>
@@ -200,18 +200,21 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
           <div className='collapsed-content' id='fashion'>
            
           
-            {fashion.map((fashion) => (
+            {fashion2.map((fashion) => (
             
-              <div key={fashion._id} style={{ display: 'flex', flexDirection: 'row', marginBottom: '8vh', position: 'relative', zIndex: '1', padding: "5%", margin: '2vw' }}>
-                <div style={styles.fashionRowBackground} > </div>
-              <p style={{minWidth: "70%"}}>{fashion?.body}</p>
-              {fashion.image &&
-                <>
-               {/* <img src={urlFor(fashion?.image)} alt='' /> */}
-                </>
+              <div className="fashionTiles" key={fashion._id} style={{  marginBottom: '8vh', position: 'relative', zIndex: '1', padding: "5%", margin: '2vw', justifyContent: 'space-between', alignItems: 'center' }}>
+                {urlFor(fashion?.image) &&
+                  // <></>
+                  // 'image-f2f8d887e3e8139e275cfe39e4413d766a9eff41-1200x675-png'
+                  <div className='fashionCols' style={{padding: 'rem'}}>
+                    <img src={urlFor(fashion?.image)} alt='' style={{maxWidth: "100%", borderRadius: '25px'}} /> 
+                    </div>
               } 
+                <div style={styles.fashionRowBackground} > </div>
+              <p className='fashionCols' style={{ paddingTop: 'auto', verticalAlign: "middle"}}>{fashion?.body}</p>
+                
 
-              <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%'}}>
+              <div className='fashionCols' style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',}}>
               {/* for each link, create a button */}
                 {fashion?.link && fashion?.link.map((link) => (
                 // Display a button for each link
@@ -329,6 +332,7 @@ export async function getStaticProps() {
   const chef = await client.fetch(`*[_type == "chef"]  | order(order asc)`);
   const holiday = await client.fetch(`*[_type == "holiday"]  | order(order asc)`);
   const fashion = await client.fetch(`*[_type == "fashion"]  | order(order asc)`);
+  const fashion2 = await client.fetch(`*[_type == "fashion2"]  | order(order asc)`);
   const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
   return {
     props: {
@@ -337,6 +341,7 @@ export async function getStaticProps() {
       holiday,
       fashion,
       footerContent,
+      fashion2,
     },
     revalidate: 10,
 

@@ -27,9 +27,8 @@ export default {
         },
         {
             name: 'image',
-            type: 'array',
+            type: 'image',
             title: 'Image',
-            of: [{ type: 'image' }],
         },
         {
             name: "order",

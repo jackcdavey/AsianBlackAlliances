@@ -19,6 +19,7 @@ import mythCuriosityHeader from './mythCuriosityHeaderSchema'
 import discussionPost from './discussionPostSchema'
 import historyResources from './historyResourcesSchema'
 import collaborationTagSchema from './collaborationTagSchema'
+import fashion2 from './fashionSchema2'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -39,5 +40,6 @@ export default createSchema({
     discussionPost,
     historyResources,
     collaborationTagSchema,
+    fashion2,
   ]),
 })

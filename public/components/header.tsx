@@ -54,6 +54,15 @@ export default function Header() {
         setLang(event.target.value as string);
     };
 
+    // function MobileNavigationToggle() {
+    //     var x = document.getElementById("mobileLinks");
+    //     if (x.style.display === "block") {
+    //         x.style.display = "none";
+    //     } else {
+    //         x.style.display = "block";
+    //     }
+    // }
+
     return (
         <Container style={styles.banner as React.CSSProperties} id='banner' sx={{ backgroundColor: 'primary.main' }}>
             <a href='/'>
@@ -66,6 +75,33 @@ export default function Header() {
                 />
             </a>
             <div style={{ width: '80%', display: 'flex', flexDirection: "row", alignItems: 'center', justifyContent: "flex-end" }}>
+                <div className='mobileNav'>
+                    <div id='mobileLinks'>
+                        <Link href='/historyOfCollaboration'>
+                            <div className='navLink'>
+                                <a>Contact & Collaboration</a>
+                            </div>
+                        </Link>
+                        <Link href='/crossCulturalInfluences'>
+                            <div className='navLink'>
+                                <a> Cross Cultural Influences</a>
+                            </div>
+                        </Link>
+                        <Link href={'/mythsCuriosity'}>
+                            <div className='navLink'>
+                                <a>Myths & Curiosity</a>
+                            </div>
+                        </Link>
+                        <Link href='/ourVoices'>
+                            <div className='navLink'>
+                                <a>Our Voices</a>
+                            </div>
+                        </Link>
+                    </div>
+                    {/* <a href="javascript:void(0);" className="icon" onClick={MobileNavigationToggle}>
+                        <i className="fa fa-bars"></i>
+                    </a> */}
+                </div>
                 <div id='navBar' >
                     <Link href='/historyOfCollaboration'>
                         <div className='navLink'>
