@@ -1,18 +1,21 @@
 // import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 
 import { createClient } from 'next-sanity'
 
 import Link from 'next/link'
 // import { useTheme } from '@mui/material/styles';
-import { Container, Grid, Paper, Box } from '@mui/material';
+import { Container, Grid, Paper, Box, Button } from '@mui/material';
 import {HomepageHeader} from '../public/components/header';
 import Footer from '../public/components/footer.js';
 import Layout from '../public/components/layout';
+import GradientMediaCard from '../public/components/cards/gradientMediaCard';
+
 
 import HomeCarousel from '../public/components/carousel.js';
+
+import Carousel from 'react-material-ui-carousel'
 
 import dynamic from 'next/dynamic';
 
@@ -45,7 +48,7 @@ function urlFor(source) {
     return builder.image(source)
 }
 
-function Home({ homepageTile, homepageDescription, bio, footerContent }) {
+function Home({ homepageTile, homepageDescription, bio, footerContent, homepageCarousel }) {
   var cardColor = '';
   return (
     <>
@@ -65,7 +68,31 @@ function Home({ homepageTile, homepageDescription, bio, footerContent }) {
             </div>
           {/* Create dedicated carousel container later */}
           <div style={{ width: '100vw', overflow: 'hidden' }}>
-            <HomeCarousel />
+            <Carousel animation='slide' sx={{ margin: '5%' }} >
+            {homepageCarousel?.map((homepageCarousel) => (
+              <Paper sx={{ maxHeight: '35vh', padding: '5%', borderRadius: '25px', display: 'flex', alignItems: 'center' }}>
+                <div style={{width: "30%"}}>
+                  <img src={urlFor(homepageCarousel.image).url()} alt={homepageCarousel.name} style={{ maxWidth: '100%' }} />
+                </div>
+                <div style={{width: "70%", display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: '1rem'}}>
+            <h2 style={{ margin: "0"}}>{homepageCarousel?.title}</h2>
+                  <p style={{  margin: "0"}}>{homepageCarousel?.description}</p>
+                  </div>
+
+                {homepageCarousel?.link &&
+                  <Button
+                    variant='contained'
+                    style={{ marginTop: 'auto', marginBottom: 'auto', marginLeft: 'auto', textAlign: 'center' }}
+                    href={homepageCarousel.link}>
+                    {homepageCarousel.linkLabel}
+                  </Button>
+                }
+                </Paper>
+            ))}
+
+
+            
+        </Carousel>
           </div>
           <div style={{ marginBottom: '1vh', textAlign: 'center', paddingLeft: '5%', paddingRight: '5%' }}>
             {homepageDescription.map((desc) => (
@@ -126,6 +153,7 @@ export async function getStaticProps() {
   const homepageDescription = await client.fetch(`*[_type == "homepageDescription"]  | order(order asc)`)
   const bio = await client.fetch(`*[_type == "bio"]  | order(order asc)`)
   const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
+  const homepageCarousel = await client.fetch(`*[_type == "homepageCarousel"]  | order(order asc)`)
 
   return {
     props: {
@@ -133,6 +161,7 @@ export async function getStaticProps() {
       homepageDescription,
       bio,
       footerContent,
+      homepageCarousel,
     },
     revalidate: 10,
   };

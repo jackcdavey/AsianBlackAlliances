@@ -18,5 +18,21 @@ export default {
             type: 'image',
             title: 'Image',
         },
+        {
+            name: 'link',
+            type: 'url',
+            title: 'Link',
+        },
+        {
+            name: 'linkLabel',
+            type: 'string',
+            title: 'Link Label',
+        },
+        {
+            name: 'order',
+            type: 'number',
+            title: 'Order',
+            hidden: true,
+        },
     ]
 }

@@ -16,32 +16,32 @@ export default function HomeCarousel({ homepageCarousel }) {
     
 
 
-    var items = [
-        {
-            name: "Carousel Item #1",
-            description: "Enter a description for this item here.",
-            // image: "https://picsum.photos/800/300/?random"
-        },
-        {
-            name: "Carousel Item #2",
-            description: "Enter a description for this item here.",
-        }
-    ]
+    var items = []
 
     homepageCarousel?.map((homepageCarousel) => (
         items.push({
             name: homepageCarousel.title,
             description: homepageCarousel.description,
-            image: homepageCarousel.image,
+            // image: homepageCarousel.image,
         })
     ))
 
     console.log("Items:" + items.length);
     return (
         <Carousel animation='slide' sx={{ margin: '5%' }} >
-            {
-                items.map((item, i) => <Item key={i} item={item} />)
-            }
+            {homepageCarousel?.map((homepageCarousel) => (
+                <Paper sx={{ padding: '5%', borderRadius: '25px' }}>
+            <h2>{homepageCarousel?.name}</h2>
+            <p>{homepageCarousel?.description}</p>
+
+            <Button className="CheckButton" href='http://www.google.com'>
+                Learn More Here!
+            </Button>
+                </Paper>
+            ))}
+
+
+            
         </Carousel>
     )
 }
