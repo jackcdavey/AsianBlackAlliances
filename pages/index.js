@@ -70,8 +70,8 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
           <div style={{ width: '100vw', overflow: 'hidden' }}>
             <Carousel animation='slide' sx={{ margin: '5%' }} >
             {homepageCarousel?.map((homepageCarousel) => (
-              <Paper sx={{ maxHeight: '35vh', padding: '5%', borderRadius: '25px', display: 'flex', alignItems: 'center' }}>
-                <div style={{width: "30%"}}>
+              <Paper sx={{ padding: '5%', paddingLeft: '2%', borderRadius: '25px', display: 'flex', alignItems: 'center', overflow: 'hidden', justifyContent: 'flex-start' }}>
+                <div style={{width: "30%", maxHeight: '35vh'}}>
                   <img src={urlFor(homepageCarousel.image).url()} alt={homepageCarousel.name} style={{ maxWidth: '100%' }} />
                 </div>
                 <div style={{width: "70%", display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: '1rem'}}>
