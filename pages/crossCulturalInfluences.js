@@ -87,6 +87,9 @@ const styles = {
     alignItems: 'center',
     padding: '0.25rem',
   },
+  theRadius: {
+    borderRadius: '25px',
+  },
 
 };
 
@@ -131,7 +134,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
         <Header />
         <div id='body'>
           
-           <Paper className='collapsed'>
+           <Paper className='collapsed' sx={styles.theRadius}>
             <a href='#food' className='collapsed-desc'>
               <SubtitleSeparator title='Food' contentJustification='flex-start' marginLeft='10%' />
             </a>
@@ -153,7 +156,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
               {chef.map((chef) => (
                 <div style={{ paddingBottom: "10%" }}>
                   <a href={chef?.link} target="_blank">
-                  <Paper key={chef._id} id="chefCard" className="chefCard">
+                  <Paper key={chef._id} id="chefCard" className="chefCard" sx={styles.theRadius}>
                     <h2>{chef?.title}</h2>
                     <a>{chef?.link}</a>
                     </Paper>

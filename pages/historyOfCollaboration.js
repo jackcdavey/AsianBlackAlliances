@@ -52,6 +52,12 @@ const client = createClient({
   useCdn: false,
 });
 
+const styles = {
+  theRadius: {
+    borderRadius: '25px',
+  },
+}
+
 
 function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources, collaborationTag }) {
     
@@ -95,7 +101,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Paper elevation={3}  className="collabTag">
+                  <Paper elevation={3}  className="collabTag" sx={styles.theRadius}>
                     <Typography variant="h2" component="span" fontSize='1.4rem' sx={{ textAlign: 'left' }}>
                       {tag.title}
                     </Typography>
@@ -218,7 +224,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
               
               {historyResource?.link && (
                 historyResource?.link?.map((link) => (
-                  <Button variant="contained" color="primary" href={historyResource?.link[historyResource?.link.indexOf(link)]} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '1rem', width: '30%', margin: 'auto', margin: '5%' }} >
+                  <Button variant="contained" color="primary" href={historyResource?.link[historyResource?.link.indexOf(link)]} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '1rem', width: '30%', margin: 'auto', margin: '5%', borderRadius: '25px' }} >
                     <div style={{textAlign: 'center' }}>
                     {/* Display the linkLabel if it exists, otherwise display "More Info" */}
                       {historyResource?.linkLabel && historyResource?.linkLabel[historyResource?.link.indexOf(link)] ? historyResource?.linkLabel[historyResource?.link.indexOf(link)] : "More Info"}

@@ -21,7 +21,7 @@ const styles = {
 
 export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote, mythLinkLabel }) {
     return (
-        <Paper className="mythCard">
+        <Paper className="mythCard" sx={styles.theRadius}>
 
             <h2 style={{marginTop: 0}}>{mythTitle}</h2>
             <div className="card">
