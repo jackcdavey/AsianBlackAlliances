@@ -12,66 +12,22 @@ import TinyLinkPreview from '../tinyLinkPreview.js';
 import { COLORS } from '../../styling/colors.js';
 
 
-const styles = {
-    cardWrap: {
-        width: "90%",
-        borderRadius: "25px",
-        boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.75)",
-        border: "3px solid " + COLORS.primary,
-        // backgroundColor: COLORS.neutral,
-        margin: "1%",
-        padding: "2%",
-        textAlign: "center",
-        overflow: "hidden",
-    },
-    card: {
-        display: "grid",
-        gridTemplateColumns: "2fr 1fr",
-        gap: "0px 10%",
-        textAlign: "left",
-    },
-    cardContent: {
-        display: "flex",
-        flexWrap: "wrap",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        fontSize: "0.8rem",
-
-    },
-    cardContent2: {
-        display: "flex",
-        flexWrap: "wrap",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        fontSize: "0.8rem",
-        maxWidth: "100%",
-
-    },linkTxt: {
-        alignSelf: "flex-start",
-        paddingTop: "1%",
-        paddingLeft: "15%",
-        maxWidth: "90%",
-        textDecoration: "none",
-        color: "black",
-        fontSize: "0.7rem",
-    },
-};
 
 
 export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote, mythLinkLabel }) {
     return (
-        <Paper className="mythCard" style={styles.cardWrap}>
+        <Paper className="mythCard">
 
             <h2 style={{marginTop: 0}}>{mythTitle}</h2>
-            <div style={styles.card}>
-                <div style={styles.cardContent}>
+            <div className="card">
+                <div className="cardContent">
                     <p>{mythDesc}</p>
                 </div>
-                <div style={styles.cardContent2}>
+                <div className="cardContent2">
                     {/* Pass to card in future */}
                     {mythLink && mythLink?.map((link, index) => (
                         <div style={{width: '100%', display: 'flex', flexDirection:'column', alignItems: 'center', }}>
-                            <Button variant="contained" color="primary" href={mythLink[index]} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '1rem', width: '50%', margin: 'auto', marginBottom: '5%' }} >
+                            <Button variant="contained" color="primary" href={mythLink[index]} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '1rem', width: '80%', margin: 'auto', marginBottom: '5%' }} >
                                 {/* If a mythLinkLabel exists, display here */}
                                 {mythLinkLabel && mythLinkLabel[index] ? mythLinkLabel[index] : "More Info"}
                             </Button>

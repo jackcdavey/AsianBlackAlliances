@@ -341,22 +341,87 @@
  }
 
  /* Myths */
+
+ .card {
+   display: grid;
+   grid-template-columns: 2fr 1fr;
+   gap: 0px 10%;
+   text-align: left;
+ }
+
+ /* on mobile displays, set the template to a single column */
+ @media screen and (max-width: 700px) {
+   .card {
+     grid-template-columns: 1fr;
+   }
+ }
+
+ .cardContent {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
+   justify-content: flex-start;
+   font-size: 0.8rem;
+
+ }
+
+ .cardContent2 {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
+   justify-content: flex-start;
+   font-size: 0.8rem;
+   max-width: 100%;
+
+ }
+
+ .linkTxt {
+   align-self: flex-start;
+   padding-top: 1%;
+   padding-left: 15%;
+   max-width: 90%;
+   text-decoration: none;
+   color: black;
+   font-size: 0.7rem;
+ }
+
  .mythCard {
-   max-height: 8vh;
+   width: 90%;
+   border-radius: 25px;
+   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+   border: 3px solid rgb(86, 129, 39);
+   margin: 1%;
+   padding: 2%;
+   text-align: center;
+   overflow: hidden;
+   max-height: 4rem;
    transition: max-height 0.25s ease-in;
-   min-height: 100px;
+   /* min-height: 100px; */
  }
 
  .mythCard:hover {
    max-height: 350vh;
    transition: max-height 0.25s ease-in;
    box-shadow: 0px 0px 15px 0px rgb(229, 124, 27) !important;
+ }
 
+ @media screen and (max-width: 700px) {
+   .mythCard {
+     max-height: 8rem;
+     transition: max-height 0.25s ease-in;
+     /* min-height: 100px; */
+   }
+
+   .mythCard:hover {
+     max-height: 1000vh;
+     transition: max-height 0.25s ease-in;
+     box-shadow: 0px 0px 15px 0px rgb(229, 124, 27) !important;
+   }
  }
 
  .collapsed {
    width: 90vw;
-   height: 15vh;
+   /* height: 17vh; */
    cursor: pointer;
    border-radius: 25px;
    display: flex;

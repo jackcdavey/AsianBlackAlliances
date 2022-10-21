@@ -180,13 +180,17 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
               <SubtitleSeparator title='Fashion' contentJustification='flex-end' marginRight='20%' />
             </a>
             </Paper>
-         <div className='collapsed-content' id='fashion'>
+          <div className='collapsed-content' id='fashion'>
+           
           
-          {fashion.map((fashion) => (
+            {fashion.map((fashion) => (
+            
             <div key={fashion._id} style={{display: 'flex', flexDirection: 'row', marginBottom: '8vh'}}>
               <p style={{minWidth: "70%"}}>{fashion?.body}</p>
               {fashion.image &&
-              <img src={urlFor(fashion?.image)} alt='' />
+                <>
+               {/* <img src={urlFor(fashion?.image)} alt='' /> */}
+                </>
               } 
 
               <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%'}}>
