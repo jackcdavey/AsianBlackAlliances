@@ -12,7 +12,12 @@ import TinyLinkPreview from '../tinyLinkPreview.js';
 import { COLORS } from '../../styling/colors.js';
 
 
-
+const styles = {
+  theRadius: {
+    borderRadius: '25px',
+  },
+}
+ 
 
 export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote, mythLinkLabel }) {
     return (
@@ -27,7 +32,7 @@ export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote, 
                     {/* Pass to card in future */}
                     {mythLink && mythLink?.map((link, index) => (
                         <div style={{width: '100%', display: 'flex', flexDirection:'column', alignItems: 'center', }}>
-                            <Button variant="contained" color="primary" href={mythLink[index]} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '1rem', width: '80%', margin: 'auto', marginBottom: '5%' }} >
+                            <Button variant="contained" color="primary" href={mythLink[index]} target="_blank" rel="noopener noreferrer" sx={styles.theRadius} style={{ marginLeft: '1rem', width: '80%', margin: 'auto', marginBottom: '5%' }} >
                                 {/* If a mythLinkLabel exists, display here */}
                                 {mythLinkLabel && mythLinkLabel[index] ? mythLinkLabel[index] : "More Info"}
                             </Button>

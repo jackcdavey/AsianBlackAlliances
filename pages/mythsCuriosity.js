@@ -21,8 +21,11 @@ import { Paper } from '@mui/material'
 import dynamic from 'next/dynamic'
 const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
 
-
-
+const styles = {
+  theRadius: {
+    borderRadius: '25px',
+  },
+}
 
 const client = createClient({
   projectId: 'hiagtp2f',
@@ -49,7 +52,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
       <Layout title='ABA: Myths and Curiosity' description=' '>
         <div id='body'>
           {/* <h1> Myths &#38; Curiosity</h1> */}
-          <Paper className='collapsed'>
+          <Paper className='collapsed' sx={styles.theRadius}>
             <a href='#myths' className='collapsed-desc'>
               {/* Display the first item in mythsCuriosityHeader */}
               <h1>{mythCuriosityHeader[1]?.title}</h1>
@@ -67,7 +70,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
           ))}
           </div>
 
-          <Paper className='collapsed'>
+          <Paper className='collapsed'  sx={styles.theRadius}>
             <a href='#curiosity' className='collapsed-desc'>
               <h1>{mythCuriosityHeader[0]?.title}</h1>
               <h2>{mythCuriosityHeader[0]?.desc}</h2>
