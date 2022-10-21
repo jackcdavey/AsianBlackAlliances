@@ -108,7 +108,7 @@ function urlFor(source) {
 
 function SubtitleSeparator({ title, contentJustification, marginLeft, marginRight }) {
   return (
-    <div style={{ display: 'flex', justifyContent: contentJustification, alignItems: 'center', marginTop: '1rem', marginBottom: '1rem', marginLeft: marginLeft, marginRight: marginRight, width: '100vw' }}>
+    <div style={{ display: 'flex', justifyContent: contentJustification, alignItems: 'center', marginTop: '1rem', marginBottom: '1rem', marginLeft: marginLeft, marginRight: marginRight, width: '100vw', marginTop: '0px' }}>
       <h1>{title}</h1>
     </div>
   );
