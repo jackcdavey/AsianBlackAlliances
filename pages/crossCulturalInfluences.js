@@ -231,7 +231,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
 
           {/* <SubtitleSeparator title='Music / Anime / Manga' contentJustification='flex-end' marginRight='25%' /> */}
 
-          <Paper className='collapsed' sx={styles.theRadius}>
+          <Paper className='collapsed' sx={{borderRadius: '25px', overflowX: 'hidden', overflowY: 'hidden'}}>
             <a href='#holidays' className='collapsed-desc'>
               <SubtitleSeparator title='Celebrating Cultural Memories' contentJustification='flex-start' marginLeft='10%' />
             </a>
@@ -239,9 +239,8 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
          <div className='collapsed-content' id='holidays'>
           {/* SEASON CHART */}
           {/* This should really be a separate component, but does not seem to work with CMS */}
-          <div style={styles.seasonSectionWrap}>
-      <div style={{ gridColumn: '1 / 2', gridRow: '1 / 2', backgroundColor: 'lightblue', borderRadius: '25px'
- }}>
+          <div className='seasonGrid'>
+      <div style={{ gridColumn: "span 2", backgroundColor: 'lightblue', borderRadius: '25px'}}>
         <div style={styles.seasonQuad}>
           <div style={{textAlign: 'right', paddingRight: '0.5rem'}}>
             <h1 style={{ alignSelf: 'flex-end' }}>Winter</h1>
@@ -258,7 +257,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
             </div>
           </div>
       </div>
-      <div style={{ gridColumn: '2 / 2', gridRow: '1 / 2', backgroundColor: 'lightgreen', borderRadius: '25px' }}>
+      <div style={{gridColumn: "span 2", backgroundColor: 'lightgreen', borderRadius: '25px' }}>
         <div style={styles.seasonQuad}>
           <div style={{textAlign: 'left', paddingLeft: '0.5rem'}}>
                   <h1>Spring</h1>
@@ -274,7 +273,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
             </div>
           </div>
       </div>
-      <div style={{ gridColumn: '1 / 2', gridRow: '2 / 2', backgroundColor: 'lightyellow', borderRadius: '25px' }}>
+      <div style={{gridColumn: "span 2", backgroundColor: 'lightyellow', borderRadius: '25px' }}>
         <div style={styles.seasonQuad}>
           <div style={{textAlign: 'right', paddingRight: '0.5rem'}}>
                   <h1>Summer</h1>
@@ -290,7 +289,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
             </div>
           </div>
       </div>
-      <div style={{ gridColumn: '2 / 2', gridRow: '2 / 2', backgroundColor: 'lightsalmon', borderRadius: '25px' }}>
+      <div style={{gridColumn: "span 2", backgroundColor: 'lightsalmon', borderRadius: '25px' }}>
         <div style={styles.seasonQuad}>
                     <div style={{textAlign: 'left', paddingLeft: '0.5rem'}}>
                   <h1>Fall</h1>

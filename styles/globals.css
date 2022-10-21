@@ -307,6 +307,40 @@
    margin: 0 !important;
    justify-content: center;
    align-items: center;
+   overflow-x: hidden;
+   overflow-y: hidden;
+ }
+
+ .seasonGrid {
+   display: grid;
+   /* grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: repeat(2, 1fr); */
+   /* grid-auto-rows: repeat(2, 1fr); */
+   grid-template-columns: repeat(4, 4fr);
+   grid-gap: 1rem;
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+   margin-left: 1rem;
+   margin-right: 1rem;
+   width: 100%;
+   padding: 2rem;
+   overflow-x: hidden;
+   /* aspect-ratio: 2/1; */
+ }
+
+ /* A grid  */
+
+ #holidays {
+   overflow-x: hidden;
+   overflow-y: hidden;
+ }
+
+ /* On mobile displays, switch to one column */
+ @media screen and (max-width: 700px) {
+   .seasonGrid {
+     grid-template-columns: repeat(1, 1fr);
+     grid-template-rows: repeat(4, 1fr);
+   }
  }
 
 
@@ -454,7 +488,7 @@
 
 
  .collapsed-content:target {
-   max-height: 1000vh;
+   max-height: none;
  }
 
 
