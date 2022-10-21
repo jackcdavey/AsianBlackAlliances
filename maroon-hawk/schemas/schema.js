@@ -11,7 +11,6 @@ import homepageCarousel from './homepageCarouselSchema'
 import timelinePoint from './timelineSchema'
 import chef from './chefSchema'
 import holiday from './holidaySchema'
-import fashion from './fashionSchema'
 import homepageDescription from './homepageDescriptions'
 import bio from './bioSchema'
 import footerContent from './footerSchema'
@@ -32,7 +31,6 @@ export default createSchema({
     timelinePoint,
     chef,
     holiday,
-    fashion,
     homepageDescription,
     bio,
     footerContent,

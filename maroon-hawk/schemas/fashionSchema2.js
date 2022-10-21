@@ -1,7 +1,7 @@
 export default {
     name: 'fashion2',
     type: 'document',
-    title: '[NEW] Fashion Cards',
+    title: 'Fashion Cards',
     fields: [
         {
             name: 'title',
