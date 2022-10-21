@@ -67,6 +67,20 @@ const styles = {
     borderRadius: '25px',
   },
 
+  fashionRowBackground: {
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    right: '0',
+    bottom: '0',
+    width: '100%',
+    height: '100%',
+    filter: 'blur(10px)',
+    backgroundColor: '#FAC898',
+    zIndex: '-1',
+    borderRadius: '25px',
+  },
+
   seasonSectionWrap: {
     display: 'grid',
     gridTemplateColumns: 'repeat(2, 1fr)',
@@ -188,7 +202,8 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
           
             {fashion.map((fashion) => (
             
-            <div key={fashion._id} style={{display: 'flex', flexDirection: 'row', marginBottom: '8vh'}}>
+              <div key={fashion._id} style={{ display: 'flex', flexDirection: 'row', marginBottom: '8vh', position: 'relative', zIndex: '1', padding: "5%", margin: '2vw' }}>
+                <div style={styles.fashionRowBackground} > </div>
               <p style={{minWidth: "70%"}}>{fashion?.body}</p>
               {fashion.image &&
                 <>
