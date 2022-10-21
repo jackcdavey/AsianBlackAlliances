@@ -178,7 +178,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
             </div>
             </div>
 
-<Paper className='collapsed'>
+<Paper className='collapsed' sx={styles.theRadius}>
             <a href='#fashion' className='collapsed-desc'>
               <SubtitleSeparator title='Fashion' contentJustification='flex-end' marginRight='20%' />
             </a>
@@ -201,7 +201,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
                 {fashion?.link && fashion?.link.map((link) => (
                 // Display a button for each link
                   
-              <Button variant="contained" color="primary" href={fashion?.link[fashion?.link.indexOf(link)]}  target="_blank" rel="noopener noreferrer" sx={{ display: 'flex', width: "90%", textAlign: 'center', margin: '2%' }} >
+              <Button variant="contained" color="primary" href={fashion?.link[fashion?.link.indexOf(link)]}  target="_blank" rel="noopener noreferrer" sx={{ display: 'flex', width: "90%", textAlign: 'center', margin: '2%', borderRadius: '25px' }} >
                   {/* If a linkLabel exists in the same index as the link, use that as the button text. Otherwise, use the link */}
                   {fashion?.linkLabel && fashion?.linkLabel[fashion?.link.indexOf(link)] ? fashion?.linkLabel[fashion?.link.indexOf(link)] : "More Info"}
                 </Button>
@@ -216,7 +216,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, fashion, f
 
           {/* <SubtitleSeparator title='Music / Anime / Manga' contentJustification='flex-end' marginRight='25%' /> */}
 
-          <Paper className='collapsed'>
+          <Paper className='collapsed' sx={styles.theRadius}>
             <a href='#holidays' className='collapsed-desc'>
               <SubtitleSeparator title='Celebrating Cultural Memories' contentJustification='flex-start' marginLeft='10%' />
             </a>
