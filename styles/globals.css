@@ -255,9 +255,14 @@
    }
  } */
 
-
+ .caousel {
+   display: block;
+ }
 
  @media screen and (max-width: 700px) {
+   .carousel {
+     display: none !important;
+   }
 
    /* Collapse the navbar into 3 lines on small screens, expand when clicked */
    #navBar {

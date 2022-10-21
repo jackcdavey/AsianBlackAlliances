@@ -13,7 +13,6 @@ import Layout from '../public/components/layout';
 import GradientMediaCard from '../public/components/cards/gradientMediaCard';
 
 
-import HomeCarousel from '../public/components/carousel.js';
 
 import Carousel from 'react-material-ui-carousel'
 
@@ -68,7 +67,7 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
             </div>
           {/* Create dedicated carousel container later */}
           <div style={{ width: '100vw', overflow: 'hidden' }}>
-            <Carousel animation='slide' sx={{ margin: '5%' }} >
+            <Carousel className="carousel" animation='slide' sx={{ margin: '5%' }} >
             {homepageCarousel?.map((homepageCarousel) => (
               <Paper sx={{ padding: '5%', paddingLeft: '2%', borderRadius: '25px', display: 'flex', alignItems: 'center', overflow: 'hidden', justifyContent: 'flex-start' }}>
                 <div style={{width: "30%", maxHeight: '35vh'}}>
