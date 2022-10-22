@@ -50,7 +50,7 @@ const converted = {
 export default function BioCard({ name, desc, image, link }: BioCardProps) {
     return (
         <div style={converted[".gradientMediaCard"]} id="bioCard">
-            <a href={link}>
+            <a href={link} target="_blank">
                 {image &&
                     <div style={{ width: "100%", display: "flex", flexDirection: "column", aspectRatio: '1/1' }}>
                         <img style={converted[".gradientMediaCard img"] as React.CSSProperties} src={image} alt={name} />

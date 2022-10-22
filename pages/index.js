@@ -121,10 +121,9 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
           <div style={{textAlign: 'left', width: "100vw", padding: '5% 0 0 5%'}}>
             <h1 >About The Team</h1>
           </div>
-          <div style={{ marginBottom: '1vh', textAlign: 'center',display: 'flex', flexDirection: 'row', width: '100vw' }}>
-            
+          <div id='bioSection'>
             {bio.map((bio) => (
-              <div style={{ width: '30vw', margin: '2rem'}}>
+              <div id='bioCol'>
               <BioCard key={bio._id} name={bio?.name} desc={bio?.body} image={urlFor(bio?.image)} link={bio?.link} />
               </div>
             ))}

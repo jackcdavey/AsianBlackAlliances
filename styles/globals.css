@@ -238,7 +238,22 @@
    color: rgb(229, 124, 27)
  }
 
+ #bioSection {
+   display: flex;
+   flex-direction: row;
+   width: 100vw;
+   justify-content: center;
+   align-items: flex-start;
+ }
 
+ #bioCol {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 25%;
+   margin: 2rem;
+ }
 
 
  /* Bit of a hacky workaround for centering final grid item... */
@@ -264,6 +279,14 @@
      display: none !important;
    }
 
+   #bioSection {
+     flex-direction: column;
+   }
+
+   #bioCol {
+     width: 90%;
+   }
+
    /* Collapse the navbar into 3 lines on small screens, expand when clicked */
    #navBar {
      display: none;
@@ -276,13 +299,16 @@
 
    #landingGrid {
      grid-template-columns: repeat(2, 1fr);
-     padding-bottom: 70%;
+     padding-bottom: 100%;
+     margin-bottom: 5%;
    }
 
    #bioCard {
      max-width: 80%;
      align-self: center;
    }
+
+
 
    #foodSection {
      flex-direction: column !important;
