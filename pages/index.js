@@ -61,7 +61,8 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
       </Head>
 
       <Layout title={"Asian and Black Alliances"} description={""}>
-        <div id='body' style={{ backgroundImage: `url(${wave.src})` }}>
+        {/* style={{ backgroundImage: `url(${wave.src})` }} */}
+        <div id='body' >
           <div style={{marginBottom: '10vh'}}>
             <HomepageHeader />
             </div>
