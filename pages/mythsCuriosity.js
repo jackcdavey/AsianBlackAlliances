@@ -14,12 +14,14 @@ import Layout from '../public/components/layout';
 
 import RoadtripMap from '../public/components/roadtripMap';
 
+
 import { Tooltip } from '../public/components/tooltip';
 
 import { Paper } from '@mui/material'
 
 import dynamic from 'next/dynamic'
 const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
+const NewMap = dynamic(() => import('../public/components/newRoadtripMap.js'), { ssr: false });
 
 const styles = {
   theRadius: {
@@ -81,8 +83,11 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
             {/* <h1>Be Curious on Your Next Roadtrip!</h1> */}
           {/* </Tooltip> */}
           <p style={{textAlign: "center", maxWidth: '70%'}}>As racial minorities, we do not see our histories taught in formal education. Therefore, we need to self educate with true and comprehensive information. When you plan your next family vacation, consider building in a couple of such lessons to learn about ourselves and each other</p>
-            <RoadtripMap setTooltipContent={setTooltipContent}/>
-            <ReactTooltip effect='solid' >{tooltipContent}</ReactTooltip>
+            {/* <RoadtripMap setTooltipContent={setTooltipContent}/> */}
+            {/* <ReactTooltip effect='solid' >{tooltipContent}</ReactTooltip> */}
+            <div style={{ height: '500px', width: '90%', margin: "2rem", borderRadius: "25px", overflow: 'hidden'}}>
+              <NewMap />
+              </div>
 
             </div>
         </div>
