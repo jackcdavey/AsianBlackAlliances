@@ -150,7 +150,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
           
            <Paper className='collapsed' sx={styles.theRadius}>
             <a href='#food' className='collapsed-desc'>
-              <SubtitleSeparator title='Food' contentJustification='flex-start' marginLeft='10%' />
+              <SubtitleSeparator title='Food' contentJustification='center' />
             </a>
             </Paper>
          <div className='collapsed-content' id='food'>
@@ -194,7 +194,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
 
 <Paper className='collapsed' sx={styles.theRadius}>
             <a href='#fashion' className='collapsed-desc'>
-              <SubtitleSeparator title='Fashion' contentJustification='flex-end' marginRight='20%' />
+              <SubtitleSeparator title='Fashion' contentJustification='center' />
             </a>
             </Paper>
           <div className='collapsed-content' id='fashion'>
@@ -236,7 +236,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
 
           <Paper className='collapsed' sx={{borderRadius: '25px', overflowX: 'hidden', overflowY: 'hidden'}}>
             <a href='#holidays' className='collapsed-desc'>
-              <SubtitleSeparator title='Celebrating Cultural Memories' contentJustification='flex-start' marginLeft='10%' />
+              <SubtitleSeparator title='Celebrating Cultural Memories' contentJustification='center'  />
             </a>
             </Paper>
          <div className='collapsed-content' id='holidays'>

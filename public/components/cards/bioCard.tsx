@@ -34,8 +34,8 @@ const converted = {
     ".gradientMediaCard img": {
         borderRadius: "50%",
         width: "100%",
+        height: "100%",
         objectFit: "cover",
-        maxHeight: "max(10rem, 30vh)",
         aspectRatio: "1/1",
         padding: "10%"
     },
@@ -52,7 +52,7 @@ export default function BioCard({ name, desc, image, link }: BioCardProps) {
         <div style={converted[".gradientMediaCard"]} id="bioCard">
             <a href={link}>
                 {image &&
-                    <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
+                    <div style={{ width: "100%", display: "flex", flexDirection: "column", aspectRatio: '1/1' }}>
                         <img style={converted[".gradientMediaCard img"] as React.CSSProperties} src={image} alt={name} />
                     </div>
                 }

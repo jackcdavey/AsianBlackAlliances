@@ -124,7 +124,7 @@ export default function Header() {
                         </div>
                     </Link>
                 </div>
-                <div id='langSelect' >
+                {/* <div id='langSelect' >
                     <Box sx={{ wdth: 120 }}>
                         <FormControl fullWidth>
                             <InputLabel id="demo-simple-select-label">Language</InputLabel>
@@ -140,12 +140,11 @@ export default function Header() {
                                 <MenuItem value={'zh'}>Mandarin</MenuItem>
                                 <MenuItem value={'vi'}>Vietnamese</MenuItem>
                                 <MenuItem value={'ko'}>Korean</MenuItem>
-                                <MenuItem value={'fr'}>French</MenuItem>
 
                             </Select>
                         </FormControl>
                     </Box>
-                </div>
+                </div> */}
             </div>
 
 
@@ -210,7 +209,7 @@ export const HomepageHeader = () => {
                 {/* </a> */}
 
             </Container>
-            <Box sx={{ maxWidth: 120, flex: 1, marginLeft: 'auto' }}>
+            {/* <Box sx={{ maxWidth: 120, flex: 1, marginLeft: 'auto' }}>
                 <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">Language</InputLabel>
                     <Select
@@ -225,11 +224,10 @@ export const HomepageHeader = () => {
                         <MenuItem value={'zh'}>Mandarin</MenuItem>
                         <MenuItem value={'vi'}>Vietnamese</MenuItem>
                         <MenuItem value={'ko'}>Korean</MenuItem>
-                        <MenuItem value={'fr'}>French</MenuItem>
 
                     </Select>
                 </FormControl>
-            </Box>
+            </Box> */}
 
 
 

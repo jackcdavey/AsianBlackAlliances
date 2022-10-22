@@ -106,7 +106,7 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
                 
               <a href={homepageTile?.link}>
                   <Paper elevation={10} className={'landingGridContent'}
-                    style={{ backgroundColor: homepageTile?.backgroundColor, color: homepageTile?.textColor }}>
+                    style={{ backgroundColor: homepageTile?.backgroundColor, color: homepageTile?.textColor, overflow: 'auto' }}>
                     
                     {/* If a random number between 1 and 10 is less than 5, display the image */}
                     {/* <Decor /> */}
