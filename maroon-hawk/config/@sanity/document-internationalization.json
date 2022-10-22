@@ -7,8 +7,16 @@
             "title": "English"
         },
         {
-            "id": "fr",
-            "title": "French"
+            "id": "zh",
+            "title": "Mandarin"
+        },
+        {
+            "id": "ko",
+            "title": "Korean"
+        },
+        {
+            "id": "vi",
+            "title": "Vietnamese"
         }
     ]
 }
