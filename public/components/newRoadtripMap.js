@@ -36,11 +36,13 @@ export default function Map({ xPoints, yPoints, titles, bodies, links }) {
      */}
     
     {/* for each entry in xArr, print "Hi" */}
-    <MapContainer center={[40.8054, -74.0241]} zoom={14} attributionControl={false} zoomControl={false} scrollWheelZoom={false} doubleClickZoom={false} dragging={false} style={{ height: "100%", width: "100%" }}>
-      {/* <TileLayer
+    <MapContainer center={[38, -90]} zoom={4} attributionControl={false} zoomControl={false} scrollWheelZoom={false} doubleClickZoom={false} dragging={false} style={{ height: "100%", width: "100%" }}>
+      <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    url="https://www.openstreetmap.org/#map=5/37.003/-95.186"
-  /> */}
+    url="https://api.mapbox.com/styles/v1/jackdavey/cl9jdntyr000416obzw4mbmkn/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiamFja2RhdmV5IiwiYSI6ImNsOWpkbGJlaTNyeDM0MW12OG1yN3kzYXoifQ.uNZ4gl7axbkqaq0zm97DVw"
+      />
+      
+      
       <ComposableMap
             projection="geoMercator"
             projectionConfig={{
@@ -49,14 +51,14 @@ export default function Map({ xPoints, yPoints, titles, bodies, links }) {
                 center: [-96, 29]
             }}
         >
-      <Geographies geography={geoUrl}>
+      {/* <Geographies geography={geoUrl}>
                     {({ geographies }) =>
                         geographies.map((geo) => (
                             // fill={'#00' + Math.floor(Math.random() * 200 + 56).toString(16) + '50'}
                             <Geography key={geo.rsmKey} stroke="#FFF" strokeWidth={1} geography={geo} fill="#BBB" />
                         ))
                     }
-        </Geographies>
+        </Geographies> */}
         
         {/* {roadtripStop?.map((stop) => (
           <Marker key={stop._id} position={[stop.yPos, stop.xPos]}>
@@ -87,7 +89,8 @@ export default function Map({ xPoints, yPoints, titles, bodies, links }) {
       animate={true}
       >
         <Popup>
-          {titles[index]}
+                {titles[index]}
+                {bodies[index]}
         </Popup>
             </Marker>
           )
