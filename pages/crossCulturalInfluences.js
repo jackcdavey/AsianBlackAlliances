@@ -159,13 +159,50 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
               <div style={styles.foodColumnBackground} > </div>
               <h2>Chefs</h2>
               <div style={{paddingBottom: '10%'}} id='chefCard'>
-              <LinkWithImage link='https://www.youtube.com/watch?v=KPkNxb9zlBk&feature=youtu.be&themeRefresh=1'
+              {/* <LinkWithImage link='https://www.youtube.com/watch?v=KPkNxb9zlBk&feature=youtu.be&themeRefresh=1'
                 image="https://cdn.firstwefeast.com/assets/2015/06/adrianmiller1.jpg"
                 title='Adrian Miller'
                   description='Adrian Miller is a chef and author of many books. A “history buff” as he calls himself, Adrian’s books tell stories of rich cultures beyond the food .  '
 
                   
-                />
+                  /> */}
+                  
+                  <a href={'https://www.youtube.com/watch?v=KPkNxb9zlBk&feature=youtu.be&themeRefresh=1'} target="_blank" >
+                    <Paper id="chefCard" className="chefCard" sx={styles.theRadius}>
+                      <div id='millerCard' style={{
+                        display: 'flex',  alignItems: 'center'
+                      }}> 
+                      <img 
+                        src='https://cdn.firstwefeast.com/assets/2015/06/adrianmiller1.jpg'
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          maxWidth: '10rem',
+                          borderRadius: '25px',
+                          // height: 'auto',
+                        
+                        }}
+                      />
+<div style={{
+                        display: 'flex', flexDirection: 'column', paddingLeft: '1rem'
+                      }}> 
+                    <h2>Adrian Miller</h2>
+                    <p>Adrian Miller is a chef and author of many books. A “history buff” as he calls himself, Adrian’s books tell stories of rich cultures beyond the food.</p>
+                          <Button
+                            variant="contained"
+                            href='https://www.youtube.com/watch?v=KPkNxb9zlBk&feature=youtu.be&themeRefresh=1'
+                            style={{
+                              borderRadius: '25px',
+                            }}
+                          >
+                            An Interview with Adrian Miller
+                          </Button>
+                          
+                          </div>
+                        </div>
+                    </Paper>
+                </a>
+                
               </div>
               {chef.map((chef) => (
                 <div style={{ paddingBottom: "10%" }}>

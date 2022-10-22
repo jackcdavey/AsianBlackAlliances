@@ -441,6 +441,10 @@
    text-align: center;
  }
 
+ #millerCard {
+   flex-direction: row;
+ }
+
  @media screen and (max-width: 700px) {
    .foodColumn {
      width: 90vw;
@@ -448,6 +452,10 @@
 
    #chefCard {
      width: 80vw;
+   }
+
+   #millerCard {
+     flex-direction: column;
    }
 
  }
@@ -460,6 +468,8 @@
    gap: 0px 10%;
    text-align: left;
  }
+
+
 
  /* on mobile displays, set the template to a single column */
  @media screen and (max-width: 700px) {
