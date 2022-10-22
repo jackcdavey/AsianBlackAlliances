@@ -103,7 +103,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
             <div style={{ height: '500px', width: '90%', margin: "2rem", borderRadius: "25px", overflow: 'hidden'}}>
               <NewMap xPoints={xPositions} yPoints={yPositions} titles={titles} bodies={body} links={link} colors={colors} />
             </div>
-            <h2 style={{marginTop: 0, marginBottom: '2rem'}}>Please click on a point to view nearby resources.</h2>
+            <h2 style={{marginTop: 0, marginBottom: '2rem', textAlign: "center"}}>Please click on a marker to view nearby resources.</h2>
 
             <Paper style={{
               margin: '2rem',
@@ -112,14 +112,14 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
               borderRadius: '25px',
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'column' }}>
-                <h4>As a nation, there is no national museum to document and learn about the API Americans’ contributions to the United States. We need to have a place to learn how the API’s histories are an integral part of the American story. Please follow the development of the potential to build a National Museum of API Americans. </h4>
+                
                 <div style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', width: '75%' }}>
-                    <h2>Building a National Museum of API Americans </h2>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <h2 style={{ textAlign: 'center', margin: '0.2rem' }}>Building a National Museum of API Americans </h2>
+                    
+                    <h4 style={{margin: '0,2rem'}}>As a nation, there is no national museum to document and learn about the API Americans’ contributions to the United States. We need to have a place to learn how the API’s histories are an integral part of the American story. Please follow the development of the potential to build a National Museum of API Americans. </h4>
                     <p>On June 13 2022 President Joe Biden signed into law H.R. 3525 which establishes a Commission to Study the Potential Creation of a National Museum of Asian Pacific American History and Culture in Washington, D.C. The commission must report recommendations for a plan of action for the establishment and maintenance of a National Museum of Asian Pacific American History and Culture in Washington, DC. Furthermore they must develop a fundraising plan to support the establishment, operation, and maintenance of the museum through public contributions. In relation to this plan they must  obtain an independent review of this fundraising plan, including an analysis of the resources necessary to fund the construction of the museum and its operations and maintenance in perpetuity without reliance on federal funds. Lastly they must submit a legislative plan of action to establish and construct the museum.</p>
-                  </div>
-                  <div style={{ width: '25%'}}>
-                  <Button
+                    <Button
                     variant="contained"
                     href="https://www.whitehouse.gov/briefing-room/legislation/2022/06/13/bill-signed-h-r-3525/#:~:text=signed into law%3A-,H.R.,and Culture in Washington%2C D.C"
                     target="_blank"
@@ -127,14 +127,18 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
                       label="Learn More"
                     style={{
                       margin: '1rem',
-                      width: '100%',
+                      maxWidth: '200px',
                       height: '3rem',
                       borderRadius: '25px',
                       textAlign: 'center',
                     }}
                     >
-                      Whitehouse.gov:  Bill Signed: H.R. 3525 
+                      Whitehouse.gov
                     </Button>
+
+                  </div>
+                  <div style={{ width: '25%'}}>
+                  
                     </div>
                   </div>
                 </div>
