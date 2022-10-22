@@ -236,7 +236,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
 
           <Paper className='collapsed' sx={{borderRadius: '25px', overflowX: 'hidden', overflowY: 'hidden'}}>
             <a href='#holidays' className='collapsed-desc'>
-              <SubtitleSeparator title='Celebrating Cultural Memories' contentJustification='center'  />
+              <SubtitleSeparator title='Celebrations' contentJustification='center'  />
             </a>
             </Paper>
          <div className='collapsed-content' id='holidays'>

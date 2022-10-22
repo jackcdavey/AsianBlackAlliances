@@ -89,7 +89,7 @@ export default function CollaborationMap({ setTooltipContent }) {
                             <Geography
                                 key={geo.rsmKey}
                                 geography={geo}
-                                data-tip="TEST"
+                                // data-tip="TEST"
                                 fill={'lightgray'}
                                 stroke={'gray'}
                                 onMouseEnter={() => {

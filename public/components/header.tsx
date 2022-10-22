@@ -43,7 +43,7 @@ const styles = {
         zIndex: 5,
         opacity: 0.95,
         backdropFilter: 'blur(10px)',
-        backgroundColor: 'rgba(165, 214, 167, 150',
+        backgroundColor: 'rgba(185, 214, 187, 100',
     },
 }
 

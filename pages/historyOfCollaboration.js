@@ -220,11 +220,11 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
               </div>
               {/* Display each link and linkLabel, display a button */}
               {/* Create a centered grid 2 columns wide, with repeating rows */}
-              <Grid container spacing={2} style={{margin: 'auto', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
+              <Grid container style={{margin: 'auto', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
               
               {historyResource?.link && (
                 historyResource?.link?.map((link) => (
-                  <Button variant="contained" color="primary" href={historyResource?.link[historyResource?.link.indexOf(link)]} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '1rem', width: '30%', margin: 'auto', margin: '5%', borderRadius: '25px' }} >
+                  <Button variant="contained" color="primary" href={historyResource?.link[historyResource?.link.indexOf(link)]} target="_blank" rel="noopener noreferrer" style={{  width: '40%', margin: '2%', borderRadius: '25px' }} >
                     <div style={{textAlign: 'center' }}>
                     {/* Display the linkLabel if it exists, otherwise display "More Info" */}
                       {historyResource?.linkLabel && historyResource?.linkLabel[historyResource?.link.indexOf(link)] ? historyResource?.linkLabel[historyResource?.link.indexOf(link)] : "More Info"}

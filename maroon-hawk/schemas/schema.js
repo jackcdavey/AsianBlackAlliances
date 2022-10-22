@@ -20,6 +20,7 @@ import historyResources from './historyResourcesSchema'
 import collaborationTagSchema from './collaborationTagSchema'
 import fashion2 from './fashionSchema2'
 import roadtripStop from './roadtripSchema.js'
+import localResource from './localResourceSchema'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -41,5 +42,6 @@ export default createSchema({
     collaborationTagSchema,
     fashion2,
     roadtripStop,
+    localResource,
   ]),
 })

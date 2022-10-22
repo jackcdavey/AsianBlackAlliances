@@ -60,10 +60,10 @@ export default function BioCard({ name, desc, image, link }: BioCardProps) {
                     <h3 style={{ paddingLeft: '0.5rem', margin: '1%' }}>{name}</h3>
                 }
                 {desc &&
-                    <p style={{ paddingLeft: '0.5rem', margin: "1%" }}>{desc}</p>
+                    <p style={{ paddingLeft: '0.5rem', paddingRight: '0.5rem', margin: "1%" }}>{desc}</p>
                 }
                 {link && !desc &&
-                    <p style={{ paddingLeft: '0.5rem', margin: '1%' }}>{link}</p>
+                    <p style={{ paddingLeft: '0.5rem', paddingRight: '0.5rem', margin: '1%' }}>{link}</p>
                 }
 
             </a >
