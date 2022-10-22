@@ -48,6 +48,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
   const yPositions = roadtripStop.map((stop) => stop.yPos);
   const body = roadtripStop.map((stop) => stop.body);
   const link = roadtripStop.map((stop) => stop.link);
+  const colors = roadtripStop.map((stop) => stop.color);
 
   
   return (
@@ -94,14 +95,15 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
           {/* <Tooltip tooltipText="Washington, DC"> */}
             {/* <h1>Be Curious on Your Next Roadtrip!</h1> */}
           {/* </Tooltip> */}
-            <p style={{ textAlign: "center", maxWidth: '70%' }}>As racial minorities, we do not see our histories taught in formal education. Therefore, we need to self educate with true and comprehensive information. When you plan your next family vacation, consider building in a couple of such lessons to learn about ourselves and each other</p>
+            <p style={{ textAlign: "center", maxWidth: '70%' }}>As racial minorities, we do not see our histories taught in formal education. Therefore, we need to self educate with true and comprehensive information. When you plan your next family vacation, consider building in a couple of such lessons to learn about ourselves and each other.</p>
 
           
             {/* <RoadtripMap setTooltipContent={setTooltipContent}/> */}
             {/* <ReactTooltip effect='solid' >{tooltipContent}</ReactTooltip> */}
             <div style={{ height: '500px', width: '90%', margin: "2rem", borderRadius: "25px", overflow: 'hidden'}}>
-              <NewMap xPoints={xPositions} yPoints={yPositions} titles={titles} bodies={body} links={link} />
-              </div>
+              <NewMap xPoints={xPositions} yPoints={yPositions} titles={titles} bodies={body} links={link} colors={colors} />
+            </div>
+            <h2>Please click on a point to view nearby resources.</h2>
 
             </div>
         </div>

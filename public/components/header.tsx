@@ -182,7 +182,7 @@ export const HomepageHeader = () => {
 
     return (
         <Container style={styles.homeBanner as React.CSSProperties} id='banner' >
-            <Container style={{ height: '100%', width: '100%', position: 'absolute', justifySelf: 'center', display: 'flex', flexDirection: 'column', textAlign: 'center', verticalAlign: 'bottom' }}>
+            <Container style={{ height: '100%', width: '100%', position: 'absolute', justifySelf: 'center', display: 'flex', flexDirection: 'column', textAlign: 'center', verticalAlign: 'bottom', alignItems: 'center' }}>
                 {/* <a href='/'> */}
                 {/* <Image
                         src="/media/CustomAssets/ABAlogo.png"
@@ -201,7 +201,7 @@ export const HomepageHeader = () => {
                     src="/media/CustomAssets/ABAlogohome.png"
                     alt="ABA Logo"
                     style={{
-                        maxHeight: '120%',
+                        maxHeight: '100%',
                         width: 'auto',
                         objectFit: 'contain',
 

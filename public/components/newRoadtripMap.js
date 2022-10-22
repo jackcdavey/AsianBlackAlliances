@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer,Marker,Popup } from 'react-leaflet'
+import { MapContainer, TileLayer,Marker,Popup, L } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import "leaflet-defaulticon-compatibility";
@@ -27,7 +27,15 @@ const client = createClient({
   useCdn: false,
 });
 
-export default function Map({ xPoints, yPoints, titles, bodies, links }) {
+// var blueMarker = L.icon({
+//   iconUrl: '../public/media/CustomAssets/blueMarker.png',
+//   iconSize: [25, 41],
+//   iconAnchor: [12, 41],
+//   popupAnchor: [1, -34],
+//   shadowSize: [41, 41]
+// });
+
+export default function Map({ xPoints, yPoints, titles, bodies, links, colors }) {
   const pointRadius = 10;
   return (<>
     {/* {xPoints.map((xPoint, index) => {
@@ -36,7 +44,7 @@ export default function Map({ xPoints, yPoints, titles, bodies, links }) {
      */}
     
     {/* for each entry in xArr, print "Hi" */}
-    <MapContainer center={[38, -90]} zoom={4} attributionControl={false} zoomControl={false} scrollWheelZoom={false} doubleClickZoom={false} dragging={false} style={{ height: "100%", width: "100%" }}>
+    <MapContainer center={[38, -90]} zoom={4} attributionControl={false} zoomControl={false} scrollWheelZoom={false} doubleClickZoom={false} dragging={true} style={{ height: "100%", width: "100%" }}>
       <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://api.mapbox.com/styles/v1/jackdavey/cl9jdntyr000416obzw4mbmkn/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiamFja2RhdmV5IiwiYSI6ImNsOWpkbGJlaTNyeDM0MW12OG1yN3kzYXoifQ.uNZ4gl7axbkqaq0zm97DVw"
@@ -51,46 +59,20 @@ export default function Map({ xPoints, yPoints, titles, bodies, links }) {
                 center: [-96, 29]
             }}
         >
-      {/* <Geographies geography={geoUrl}>
-                    {({ geographies }) =>
-                        geographies.map((geo) => (
-                            // fill={'#00' + Math.floor(Math.random() * 200 + 56).toString(16) + '50'}
-                            <Geography key={geo.rsmKey} stroke="#FFF" strokeWidth={1} geography={geo} fill="#BBB" />
-                        ))
-                    }
-        </Geographies> */}
-        
-        {/* {roadtripStop?.map((stop) => (
-          <Marker key={stop._id} position={[stop.yPos, stop.xPos]}>
-            <Popup>
-              <div>
-                <h2>{stop.title}</h2>
-                <p>{stop.body}</p>
-              </div>
-            </Popup>
-          </Marker>
-        ))} */}
-
-        
-
-
-
-        {/* JACK */}
-
-          {/* You will need to pass all roadtrip items in as array, then map */}
-
-
-
         {xPoints.map((xPoint, index) => {
           return(
       <Marker 
       position={[xPoint,yPoints[index]]}
       draggable={true}
-      animate={true}
+              animate={true}
+              iconUrl={'../public/media/CustomAssets/blueMarker.png'}
+              iconRetinaUrl={'../public/media/CustomAssets/blueMarker.png'}
+
       >
         <Popup>
-                {titles[index]}
-                {bodies[index]}
+                <h2>{titles[index]}</h2>
+                <p>{bodies[index]}</p>
+                <a href={links[index]}>{links[index]}</a>
         </Popup>
             </Marker>
           )

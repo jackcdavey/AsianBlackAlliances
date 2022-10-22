@@ -24,6 +24,11 @@ export default {
             title: 'Body',
         },
         {
+            name: 'color',
+            type: 'string',
+            title: 'Marker Color',
+        },
+        {
             name: 'link',
             type: 'array',
             title: 'Link',
