@@ -3,6 +3,12 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import "leaflet-defaulticon-compatibility";
 
+import { COLORS } from '../styling/colors.js';
+
+import { createClient } from 'next-sanity'
+
+
+
 const geoUrl = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json';
 
 
@@ -14,9 +20,23 @@ import {
     // Marker
 } from 'react-simple-maps';
 
-const Map = () => {
-  return (
-    <MapContainer center={[40.8054, -74.0241]} zoom={14} attributionControl={false} zoomControl={false} scrollWheelZoom={false} style={{ height: "100%", width: "100%" }}>
+const client = createClient({
+  projectId: 'hiagtp2f',
+  dataset: 'production',
+  apiVersion: '2022-10-03',
+  useCdn: false,
+});
+
+export default function Map({ xPoints, yPoints, titles, bodies, links }) {
+  const pointRadius = 10;
+  return (<>
+    {/* {xPoints.map((xPoint, index) => {
+      return <p>{xPoint}</p>
+        })}
+     */}
+    
+    {/* for each entry in xArr, print "Hi" */}
+    <MapContainer center={[40.8054, -74.0241]} zoom={14} attributionControl={false} zoomControl={false} scrollWheelZoom={false} doubleClickZoom={false} dragging={false} style={{ height: "100%", width: "100%" }}>
       {/* <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://www.openstreetmap.org/#map=5/37.003/-95.186"
@@ -36,19 +56,64 @@ const Map = () => {
                             <Geography key={geo.rsmKey} stroke="#FFF" strokeWidth={1} geography={geo} fill="#BBB" />
                         ))
                     }
-                </Geographies>
+        </Geographies>
+        
+        {/* {roadtripStop?.map((stop) => (
+          <Marker key={stop._id} position={[stop.yPos, stop.xPos]}>
+            <Popup>
+              <div>
+                <h2>{stop.title}</h2>
+                <p>{stop.body}</p>
+              </div>
+            </Popup>
+          </Marker>
+        ))} */}
+
+        
+
+
+
+        {/* JACK */}
+
+          {/* You will need to pass all roadtrip items in as array, then map */}
+
+
+
+        {xPoints.map((xPoint, index) => {
+          return(
       <Marker 
-      position={[40.8054,-74.0241]}
+      position={[xPoint,yPoints[index]]}
       draggable={true}
       animate={true}
       >
         <Popup>
-          Hey ! you found me
+          {titles[index]}
         </Popup>
-        </Marker>
+            </Marker>
+          )
+        })}
+        
+        
         </ComposableMap>
     </MapContainer>
+    </>
   )
 }
 
-export default Map
+
+
+
+export async function getStaticProps() {
+  const roadtripStop = await client.fetch(`*[_type == "roadtripStop"]  | order(order asc)`)
+  const myths = await client.fetch(`*[_type == "myth"]  | order(order asc)`)
+
+  return {
+    props: {
+      roadtripStop,
+      myths
+    },
+   revalidate: 10,
+
+  };
+}
+

@@ -23,6 +23,8 @@ import dynamic from 'next/dynamic'
 const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
 const NewMap = dynamic(() => import('../public/components/newRoadtripMap.js'), { ssr: false });
 
+// import NewMap from '../public/components/newRoadtripMap.js';
+
 const styles = {
   theRadius: {
     borderRadius: '25px',
@@ -36,8 +38,18 @@ const client = createClient({
   useCdn: false,
 });
 
-export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeader }) {
-    const [tooltipContent, setTooltipContent] = useState("");
+
+
+export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeader, roadtripStop }) {
+  const [tooltipContent, setTooltipContent] = useState("");
+
+  const titles = roadtripStop.map((stop) => stop.title);
+  const xPositions = roadtripStop.map((stop) => stop.xPos);
+  const yPositions = roadtripStop.map((stop) => stop.yPos);
+  const body = roadtripStop.map((stop) => stop.body);
+  const link = roadtripStop.map((stop) => stop.link);
+
+  
   return (
     <>
       <Head>
@@ -82,11 +94,13 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
           {/* <Tooltip tooltipText="Washington, DC"> */}
             {/* <h1>Be Curious on Your Next Roadtrip!</h1> */}
           {/* </Tooltip> */}
-          <p style={{textAlign: "center", maxWidth: '70%'}}>As racial minorities, we do not see our histories taught in formal education. Therefore, we need to self educate with true and comprehensive information. When you plan your next family vacation, consider building in a couple of such lessons to learn about ourselves and each other</p>
+            <p style={{ textAlign: "center", maxWidth: '70%' }}>As racial minorities, we do not see our histories taught in formal education. Therefore, we need to self educate with true and comprehensive information. When you plan your next family vacation, consider building in a couple of such lessons to learn about ourselves and each other</p>
+
+          
             {/* <RoadtripMap setTooltipContent={setTooltipContent}/> */}
             {/* <ReactTooltip effect='solid' >{tooltipContent}</ReactTooltip> */}
             <div style={{ height: '500px', width: '90%', margin: "2rem", borderRadius: "25px", overflow: 'hidden'}}>
-              <NewMap />
+              <NewMap xPoints={xPositions} yPoints={yPositions} titles={titles} bodies={body} links={link} />
               </div>
 
             </div>
@@ -108,12 +122,15 @@ export async function getStaticProps() {
   const myth = await client.fetch(`*[_type == "myth" && language == "en"] | order(order asc)`);
   const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
   const mythCuriosityHeader = await client.fetch(`*[_type == "mythCuriosityHeader"]  | order(order asc)`)
+  const roadtripStop = await client.fetch(`*[_type == "roadtripStop"]  | order(order asc)`)
+
 
   return {
     props: {
       myth,
       footerContent,
       mythCuriosityHeader,
+      roadtripStop,
     },
     revalidate: 10,
 
