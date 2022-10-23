@@ -71,7 +71,32 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
           <Paper className='collapsed' sx={styles.theRadius}>
             <a href='#myths' className='collapsed-desc'>
               {/* Display the first item in mythsCuriosityHeader */}
+
+              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', maxHeight: '4rem', width: '100%'}}>
+                <div style={{maxWidth: '50%'}}>
+                <img
+                  src='/media/CustomAssets/vineasset.png'
+                    alt='vine'
+                    width={300}
+                    height={80}
+                    style={{ paddingTop: '1rem' }}
+                    className='homeLogoLong'
+                  />
+                  </div>
               <h1>{mythCuriosityHeader[1]?.title}</h1>
+                <div style={{maxWidth: '50%'}}>
+                <img
+                  src='/media/CustomAssets/vineasset.png'
+                    alt='vine'
+                    width={300}
+                    height={80}
+                    style={{ WebkitTransform: 'scaleX(-1)', paddingTop: '1rem' }}
+                    className='homeLogoLong'
+
+                    />
+                  </div>
+
+              </div>
               <h2>{mythCuriosityHeader[1]?.desc}</h2>
             </a>
           </Paper>
@@ -117,7 +142,31 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
             </div>
           <Paper className='collapsed'  sx={styles.theRadius}>
             <a href='#curiosity' className='collapsed-desc'>
-              <h1>{mythCuriosityHeader[0]?.title}</h1>
+              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', maxHeight: '4rem', width: '100%'}}>
+                <div style={{maxWidth: '50%'}}>
+                <img
+                  src='/media/CustomAssets/vineasset.png'
+                    alt='vine'
+                    width={300}
+                    height={80}
+                    style={{ paddingTop: '1rem' }}
+                    className='homeLogoLong'
+                  />
+                  </div>
+                <h1>{mythCuriosityHeader[0]?.title}</h1>
+                <div style={{maxWidth: '50%'}}>
+                <img
+                  src='/media/CustomAssets/vineasset.png'
+                    alt='vine'
+                    width={300}
+                    height={80}
+                    style={{ WebkitTransform: 'scaleX(-1)', paddingTop: '1rem' }}
+                    className='homeLogoLong'
+
+                    />
+                  </div>
+
+              </div>
               <h2>{mythCuriosityHeader[0]?.desc}</h2>
             </a>
           </Paper>

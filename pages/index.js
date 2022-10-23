@@ -82,6 +82,7 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
                 {homepageCarousel?.link &&
                   <Button
                     variant='contained'
+                    target='_blank'
                     style={{ marginTop: 'auto', marginBottom: 'auto', marginLeft: 'auto', textAlign: 'center' }}
                     href={homepageCarousel.link}>
                     {homepageCarousel.linkLabel}
