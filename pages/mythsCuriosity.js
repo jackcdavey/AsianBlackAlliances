@@ -80,7 +80,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
                     width={300}
                     height={80}
                     style={{ paddingTop: '1rem' }}
-                    className='homeLogoLong'
+                    className='cultureDecor'
                   />
                   </div>
               <h1>{mythCuriosityHeader[1]?.title}</h1>
@@ -91,7 +91,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
                     width={300}
                     height={80}
                     style={{ WebkitTransform: 'scaleX(-1)', paddingTop: '1rem' }}
-                    className='homeLogoLong'
+                    className='cultureDecor'
 
                     />
                   </div>
@@ -150,7 +150,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
                     width={300}
                     height={80}
                     style={{ paddingTop: '1rem' }}
-                    className='homeLogoLong'
+                    className='cultureDecor'
                   />
                   </div>
                 <h1>{mythCuriosityHeader[0]?.title}</h1>
@@ -161,7 +161,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
                     width={300}
                     height={80}
                     style={{ WebkitTransform: 'scaleX(-1)', paddingTop: '1rem' }}
-                    className='homeLogoLong'
+                    className='cultureDecor'
 
                     />
                   </div>

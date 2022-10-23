@@ -682,6 +682,10 @@
    display: none;
  }
 
+ .cultureDecor {
+   display: block;
+ }
+
  @media screen and (max-width: 700px) {
    .homeLogoLong {
      display: none;
@@ -716,4 +720,11 @@
      max-height: 6rem;
      padding: 4%;
    }
+ }
+
+ @media screen and (max-width: 1000px) {
+   .cultureDecor {
+     display: none;
+   }
+
  }

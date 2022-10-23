@@ -148,10 +148,34 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
         <Header />
         <div id='body'>
           
-           <Paper className='collapsed' sx={styles.theRadius}>
-            <a href='#food' className='collapsed-desc'>
+          <Paper className='collapsed' sx={styles.theRadius}>
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', maxHeight: '4rem', width: '100%'}}>
+                <div style={{maxWidth: '50%'}}>
+                <img
+                  src='/media/CustomAssets/vineasset.png'
+                    alt='vine'
+                    width={300}
+                    height={80}
+                    style={{ paddingTop: '1rem' }}
+                    className='cultureDecor'
+                  />
+                  </div>
+<a href='#food' className='collapsed-desc'>
               <SubtitleSeparator title='Food' contentJustification='center' />
-            </a>
+            </a>                <div style={{maxWidth: '50%'}}>
+                <img
+                  src='/media/CustomAssets/vineasset.png'
+                    alt='vine'
+                    width={300}
+                    height={80}
+                    style={{ WebkitTransform: 'scaleX(-1)', paddingTop: '1rem' }}
+                    className='cultureDecor'
+
+                    />
+                  </div>
+
+              </div>
+            
             </Paper>
          <div className='collapsed-content' id='food'>
           <div id="foodSection" style={styles.foodSectionWrap}>
@@ -236,10 +260,37 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
             </div>
             </div>
 
-<Paper className='collapsed' sx={styles.theRadius}>
-            <a href='#fashion' className='collapsed-desc'>
+          <Paper className='collapsed' sx={styles.theRadius}>
+            
+            
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', maxHeight: '4rem', width: '100%'}}>
+                <div style={{maxWidth: '50%'}}>
+                <img
+                  src='/media/CustomAssets/vineasset.png'
+                    alt='vine'
+                    width={300}
+                    height={80}
+                    style={{ paddingTop: '1rem' }}
+                    className='cultureDecor'
+                  />
+              </div>
+              <a href='#fashion' className='collapsed-desc'>
               <SubtitleSeparator title='Fashion' contentJustification='center' />
             </a>
+              <div style={{maxWidth: '50%'}}>
+                <img
+                  src='/media/CustomAssets/vineasset.png'
+                    alt='vine'
+                    width={300}
+                    height={80}
+                    style={{ WebkitTransform: 'scaleX(-1)', paddingTop: '1rem' }}
+                    className='cultureDecor'
+
+                    />
+                  </div>
+
+              </div>
+            
             </Paper>
           <div className='collapsed-content' id='fashion'>
            
@@ -278,10 +329,36 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
 
           {/* <SubtitleSeparator title='Music / Anime / Manga' contentJustification='flex-end' marginRight='25%' /> */}
 
-          <Paper className='collapsed' sx={{borderRadius: '25px', overflowX: 'hidden', overflowY: 'hidden'}}>
-            <a href='#holidays' className='collapsed-desc'>
+          <Paper className='collapsed' sx={{ borderRadius: '25px', overflowX: 'hidden', overflowY: 'hidden' }}>
+            
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', maxHeight: '4rem', width: '100%'}}>
+                <div style={{maxWidth: '50%'}}>
+                <img
+                  src='/media/CustomAssets/vineasset.png'
+                    alt='vine'
+                    width={300}
+                    height={80}
+                    style={{ paddingTop: '1rem' }}
+                    className='cultureDecor'
+                  />
+              </div>
+              <a href='#holidays' className='collapsed-desc'>
               <SubtitleSeparator title='Celebrations' contentJustification='center'  />
             </a>
+              <div style={{maxWidth: '50%'}}>
+                <img
+                  src='/media/CustomAssets/vineasset.png'
+                    alt='vine'
+                    width={300}
+                    height={80}
+                    style={{ WebkitTransform: 'scaleX(-1)', paddingTop: '1rem' }}
+                    className='cultureDecor'
+
+                    />
+                  </div>
+
+              </div>
+            
             </Paper>
          <div className='collapsed-content' id='holidays'>
           {/* SEASON CHART */}
