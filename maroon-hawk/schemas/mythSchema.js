@@ -24,6 +24,11 @@ export default {
             title: 'Title',
         },
         {
+            name: 'group',
+            type: 'string',
+            title: 'Group',
+        },
+        {
             name: 'body',
             type: 'text',
             title: 'Body',
