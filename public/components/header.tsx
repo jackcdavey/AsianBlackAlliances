@@ -208,13 +208,25 @@ export const HomepageHeader = () => {
                         }}
                     /> */}
                 <img
-                    src="/media/CustomAssets/ABAlogohome.png"
+                    src="/media/CustomAssets/ABAlogohome2.png"
                     alt="ABA Logo"
+                    className='homeLogoLong'
                     style={{
                         maxHeight: '100%',
                         width: 'auto',
                         objectFit: 'contain',
-
+                        objectPosition: 'center',
+                    }}
+                />
+                <img
+                    src="/media/CustomAssets/ABAlogohome.png"
+                    alt="ABA Logo"
+                    className='homeLogoTall'
+                    style={{
+                        maxHeight: '100%',
+                        width: 'auto',
+                        objectFit: 'contain',
+                        objectPosition: 'center',
                     }}
                 />
                 {/* </a> */}

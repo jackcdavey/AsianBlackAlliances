@@ -672,7 +672,23 @@
    margin: 0;
  }
 
+ .homeLogoLong {
+   display: block;
+ }
+
+ .homeLogoTall {
+   display: none;
+ }
+
  @media screen and (max-width: 700px) {
+   .homeLogoLong {
+     display: none;
+   }
+
+   .homeLogoTall {
+     display: block;
+   }
+
    .mythCard {
      max-height: 8rem;
      transition: max-height 1.25s ease-in;
