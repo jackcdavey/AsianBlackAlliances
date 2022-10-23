@@ -138,7 +138,7 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
             ))}
           </div>
         </div>
-        <Footer link={
+        <Footer id="homeFooter" link={
           footerContent[0]?.link
         } body={
           footerContent[0]?.body

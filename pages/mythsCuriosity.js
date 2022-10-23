@@ -67,6 +67,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
       <Header />
       <Layout title='ABA: Myths and Curiosity' description=' '>
         <div id='body'>
+
           {/* <h1> Myths &#38; Curiosity</h1> */}
           <Paper className='collapsed' sx={styles.theRadius}>
             <a href='#myths' className='collapsed-desc'>
@@ -105,7 +106,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
             <div className='mythCols'>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 
-              <h2>Myths about Asians</h2>
+              <h2>Asian Myths</h2>
                 <div className='mythCollapsed'>
                   
                 {myth.map((myth) => (
@@ -123,7 +124,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <h2>Myths about Blacks</h2>
+              <h2>Black Myths</h2>
               <div className='mythCollapsed'>
                   {myth.map((myth) => (
                     myth.group === 'black' ? (
