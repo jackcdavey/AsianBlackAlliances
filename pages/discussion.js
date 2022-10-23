@@ -64,7 +64,7 @@ const Discussion = ({footerContent, discussionPost, discussionQuestion}) => {
                     ))}
                     {/* Display each discussion post in a Card below */}
                     {discussionPost.map((post) => (
-                        <Paper className="discussionCard">
+                        <Paper className="discussionCard" style={{borderRadius: "25px"}}>
                             <h2>{post?.title}</h2>
                             <h3>From: {" " + post?.name}</h3>
                             <p>{post?.body}</p>

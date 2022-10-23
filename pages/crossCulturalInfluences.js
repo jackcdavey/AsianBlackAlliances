@@ -229,7 +229,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
               <h2>Dishes</h2>
               {food.map((food) => (
                 <div style={{padding: "0 8% 8% 8%"}}>
-                  <GradientMediaCard key={food._id} imgSource={urlFor(food?.image)} title={food?.title} content={food?.body} link={food?.link} useGradient={true} />
+                  <GradientMediaCard key={food._id} imgSource={urlFor(food?.image)} title={food?.title} content={food?.body} link={food?.link} useGradient={true} id='#foodCard' />
                   </div>
                ))}
             </div>
