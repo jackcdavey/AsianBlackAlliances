@@ -58,7 +58,7 @@ const OurVoices = ({footerContent}) => {
           <h1>Our Voices</h1>
           <div style={styles.playerWrap}>
             <ReactPlayer url='https://www.youtube.com/watch?v=qjYiuV66KEw'
-              width={"70vw"} height={"auto"} style={styles.playerStyle} />
+              width={"90vw"} height={"auto"} style={styles.playerStyle} />
           </div>
         </div>
       </Layout>

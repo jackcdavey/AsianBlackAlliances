@@ -158,18 +158,6 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
           </div>
 
 
-          {/* <Timeline position="alternate" sx={{maxWidth: "100vw"}}>
-            {collaborationTag.map((tag) => {
-              if (tag.section === 'asia') {
-                return (
-                  <div key={timelinePoint._id} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '200px', height: '200px', margin: '20px', backgroundColor: 'white', borderRadius: '10px', boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.75)' }}>
-                    <h3 style={{ textAlign: 'center', margin: '10px' }}>{tag.title}</h3>
-                    <p style={{ textAlign: 'center', margin: '10px' }}>{tag.body}</p>
-                  </div>
-                )
-              }
-            })}
-          </Timeline> */}
               
           <Timeline position="alternate" sx={{maxWidth: "100vw", display: "none"}}>
             {timelinePoint?.map((timelinePoint) => (
@@ -214,7 +202,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
 
           {historyResources?.map((historyResource) => (
             <div key={historyResource._id} style={{ margin: '2%' }}>
-              <h1 style={{ textAlign: 'left', width: "100vw", paddingLeft: '5%' }}>{historyResource?.title}</h1>
+              <h1 style={{ textAlign: 'center', width: "100vw", paddingLeft: '5%' }}>{historyResource?.title}</h1>
               <div style={{textAlign: 'center', paddingLeft: '5%', paddingRight: '5%', alignItems: "center"}}> 
                 {historyResource?.body}
               </div>
