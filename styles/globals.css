@@ -98,7 +98,7 @@
  /* Home */
  #landingGrid {
    width: 80vw;
-   padding: 5vw;
+   padding-top: 5vw;
    justify-content: center;
    align-items: center;
    display: grid;
@@ -300,7 +300,7 @@
 
    #landingGrid {
      grid-template-columns: repeat(2, 1fr);
-     padding-bottom: 100%;
+     /* padding-bottom: 100%; */
      margin-bottom: 5%;
    }
 
