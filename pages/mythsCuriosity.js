@@ -20,6 +20,7 @@ import { Tooltip } from '../public/components/tooltip';
 import { Button, Paper } from '@mui/material'
 
 import dynamic from 'next/dynamic'
+import { COLORS } from '../public/styling/colors';
 const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
 const NewMap = dynamic(() => import('../public/components/newRoadtripMap.js'), { ssr: false });
 
@@ -77,9 +78,11 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
           <div className='collapsed-content' id='myths'>
 
             <div className='mythCols'>
-              <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-              <h3>Myths about Asians</h3>
-              <div className='mythCollapsed'>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                
+              <h2>Myths about Asians</h2>
+                <div className='mythCollapsed'>
+                  
                 {myth.map((myth) => (
                 myth.group === 'asian' ? (
                   <MythCard key={myth._id}
@@ -95,7 +98,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <h3>Myths about Blacks</h3>
+              <h2>Myths about Blacks</h2>
               <div className='mythCollapsed'>
                   {myth.map((myth) => (
                     myth.group === 'black' ? (
