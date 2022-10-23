@@ -18,7 +18,7 @@ const client = createClient({
   useCdn: false,
 });
 
-const Discussion = ({footerContent, discussionPost}) => {
+const Discussion = ({footerContent, discussionPost, discussionQuestion}) => {
     return (
         <>
             <Head>
@@ -34,9 +34,19 @@ const Discussion = ({footerContent, discussionPost}) => {
 
                     <h1>Discussion</h1>
                     <p style={{ textAlign: "center" }}>If you would like to share your own story, plese submit a comment below.</p>
-                    
 
-            <form action="https://formspree.io/f/xgedrjkp" method="POST">
+                    {discussionQuestion.map((question) => (
+                    <div id='form' style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <Paper className='collapsed' style={{borderRadius: '25px'}}>
+            <a href={'#' + question._id} className='collapsed-desc'>
+              {/* Display the first item in mythsCuriosityHeader */}
+              <h1>Question 1</h1>
+              <h2>Question desc</h2>
+            </a>
+          </Paper>
+          <div className='collapsed-content' id={question._id}>
+
+            <form action="https://formspree.io/f/xknevqwl" method="POST">
                 <div id="formWrap">
                     <div className="fieldWrap">
                         <input style={{marginRight: "2%"}} type="text" id="name" placeholder="Name" required name="submissionName" />
@@ -48,8 +58,9 @@ const Discussion = ({footerContent, discussionPost}) => {
                     <Button variant="contained" type="submit" style={{margin: '1rem'}}>Send</Button>
                 </div>
                     </form>
-                    
-
+                        </div>
+                    </div>
+                    ))}
                     {/* Display each discussion post in a Card below */}
                     {discussionPost.map((post) => (
                         <Paper className="discussionCard">
@@ -76,10 +87,12 @@ const Discussion = ({footerContent, discussionPost}) => {
 export async function getStaticProps() {
     const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
     const discussionPost = await client.fetch(`*[_type == "discussionPost"]  | order(order asc)`)
+    const discussionQuestion = await client.fetch(`*[_type == "discussionQuestion"]  | order(order asc)`)
     return {
         props: {
             footerContent,
             discussionPost,
+            discussionQuestion,
         },
     };
 }

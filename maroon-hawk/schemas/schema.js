@@ -21,6 +21,7 @@ import collaborationTagSchema from './collaborationTagSchema'
 import fashion2 from './fashionSchema2'
 import roadtripStop from './roadtripSchema.js'
 import localResource from './localResourceSchema'
+import discussionQuestion from './discussionQuestionSchema'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -43,5 +44,6 @@ export default createSchema({
     fashion2,
     roadtripStop,
     localResource,
+    discussionQuestion,
   ]),
 })
