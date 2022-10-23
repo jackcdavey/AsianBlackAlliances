@@ -63,7 +63,7 @@ export default function Map({ xPoints, yPoints, titles, bodies, links, colors })
           return(
       <Marker 
       position={[xPoint,yPoints[index]]}
-      draggable={true}
+      draggable={false}
               animate={true}
               iconUrl={'../public/media/CustomAssets/blueMarker.png'}
               iconRetinaUrl={'../public/media/CustomAssets/blueMarker.png'}

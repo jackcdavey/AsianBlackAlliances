@@ -9,6 +9,11 @@ export default {
             title: 'Title',
         },
         {
+            name: 'city',
+            type: 'string',
+            title: 'City',
+        },
+        {
             name: 'xPos',
             type: 'number',
             title: 'Y coordinate',
