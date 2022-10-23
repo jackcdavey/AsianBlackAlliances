@@ -40,8 +40,8 @@ const Discussion = ({footerContent, discussionPost, discussionQuestion}) => {
                     <Paper className='collapsed' style={{borderRadius: '25px'}}>
             <a href={'#' + question._id} className='collapsed-desc'>
               {/* Display the first item in mythsCuriosityHeader */}
-              <h1>Question 1</h1>
-              <h2>Question desc</h2>
+                                    <h2 style={{marginBottom: '0'}}>{question.title}</h2>
+                                    <h3 style={{marginTop: 0}}>{question.body}</h3>
             </a>
           </Paper>
           <div className='collapsed-content' id={question._id}>
@@ -51,6 +51,7 @@ const Discussion = ({footerContent, discussionPost, discussionQuestion}) => {
                     <div className="fieldWrap">
                         <input style={{marginRight: "2%"}} type="text" id="name" placeholder="Name" required name="submissionName" />
                         <input style={{marginLeft: "2%"}} type="email" id="email" placeholder="Email" name="email" required />
+                        <input style={{display: 'none'}} type="questionNumer" id="questionNumber" name="questionNumber" value={question.title} />
                     </div>
                     <div className="fieldWrap">
                         <textarea id="message" rows="7" placeholder="Message" name="message" required />

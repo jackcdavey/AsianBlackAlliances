@@ -9,9 +9,9 @@ export default {
             title: 'Title',
         },
         {
-            name: 'quesion',
+            name: 'body',
             type: 'string',
-            title: 'Question',
+            title: 'Body',
         },
         {
             name: "order",
