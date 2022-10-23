@@ -76,9 +76,10 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
           </Paper>
           <div className='collapsed-content' id='myths'>
 
-            <div  className='mythCols'>
+            <div className='mythCols'>
+              <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+              <h3>Myths about Asians</h3>
               <div className='mythCollapsed'>
-            <div style={{maxWidth: '100%', paddingLeft: '10%'}}>
                 {myth.map((myth) => (
                 myth.group === 'asian' ? (
                   <MythCard key={myth._id}
@@ -90,10 +91,12 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
                 ) 
                 : null
                 ))}
-            </div>
-          </div>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <h3>Myths about Blacks</h3>
               <div className='mythCollapsed'>
-                <div style={{maxWidth: '100%', paddingLeft: '10%'}}>
                   {myth.map((myth) => (
                     myth.group === 'black' ? (
                       <MythCard key={myth._id}
@@ -105,8 +108,8 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
                 ) 
                 : null
                 ))}
-            </div>
-              </div>
+                </div>
+                </div>
             </div>
             </div>
           <Paper className='collapsed'  sx={styles.theRadius}>
