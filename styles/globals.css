@@ -242,21 +242,23 @@
    color: rgb(229, 124, 27)
  }
 
- #bioSection {
+ .bioSection {
    display: flex;
-   flex-direction: row;
+   /* grid-template-columns: repeat(1, 4fr); */
+   /* grid-auto-flow: column; */
    width: 100vw;
    justify-content: center;
    align-items: flex-start;
+   padding: 0 2rem 0 2rem;
  }
 
- #bioCol {
+ .bioCol {
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   width: 25%;
-   margin: 2rem;
+   min-width: 10rem;
+   margin: 0.5rem;
  }
 
 
@@ -283,13 +285,15 @@
      display: none !important;
    }
 
-   #bioSection {
+   .bioSection {
      flex-direction: column;
      align-items: center;
    }
 
-   #bioCol {
-     width: 90%;
+   .bioCol {
+     width: 90% !important;
+     min-width: 50vw;
+     max-width: 60vw;
 
    }
 

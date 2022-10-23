@@ -23,6 +23,9 @@ const converted = {
         backgroundImage:
             "linear-gradient(var(--card-gradient), white max(9.5rem, 27vh))",
         overflow: "hidden",
+        maxWidth: "100%",
+        marginTop: "1rem",
+        padding: "0.5rem",
 
     },
 
