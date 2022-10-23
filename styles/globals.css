@@ -484,7 +484,20 @@
    text-align: left;
  }
 
+ .mythCols {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+ }
 
+ .mythCollapsed {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 50%;
+ }
 
  /* on mobile displays, set the template to a single column */
  @media screen and (max-width: 700px) {
@@ -531,7 +544,7 @@
    padding: 2%;
    text-align: center;
    overflow: hidden;
-   max-height: 4rem;
+   max-height: 6rem;
    transition: max-height 1.5s ease-in;
    /* min-height: 100px; */
  }
@@ -541,6 +554,8 @@
    transition: max-height 1.5s ease-in;
    box-shadow: 0px 0px 15px 0px rgb(229, 124, 27) !important;
  }
+
+
 
  @media screen and (max-width: 700px) {
    .mythCard {
@@ -553,6 +568,15 @@
      max-height: 1000vh;
      transition: max-height 1.25s ease-in;
      box-shadow: 0px 0px 15px 0px rgb(229, 124, 27) !important;
+   }
+
+   .mythCols {
+     flex-direction: column !important;
+   }
+
+   .mythCollapsed {
+     width: 70% !important;
+
    }
  }
 

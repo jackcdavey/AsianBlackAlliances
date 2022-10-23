@@ -75,16 +75,40 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
             </a>
           </Paper>
           <div className='collapsed-content' id='myths'>
-          {myth.map((myth) => (
-            <MythCard key={myth._id}
-              mythTitle={myth?.title}
-              mythDesc={myth?.body}
-              mythLink={myth?.link}
-              mythLinkLabel={myth?.linkLabel}
-              mythLinkNote={myth?.linkNote} />
-          ))}
-          </div>
 
+            <div  className='mythCols'>
+              <div className='mythCollapsed'>
+            <div style={{maxWidth: '100%', paddingLeft: '10%'}}>
+                {myth.map((myth) => (
+                myth.group === 'asian' ? (
+                  <MythCard key={myth._id}
+                    mythTitle={myth?.title}
+                    mythDesc={myth?.body}
+                    mythLink={myth?.link}
+                    mythLinkLabel={myth?.linkLabel}
+                    mythLinkNote={myth?.linkNote} />
+                ) 
+                : null
+                ))}
+            </div>
+          </div>
+              <div className='mythCollapsed'>
+                <div style={{maxWidth: '100%', paddingLeft: '10%'}}>
+                  {myth.map((myth) => (
+                    myth.group === 'black' ? (
+                      <MythCard key={myth._id}
+                    mythTitle={myth?.title}
+                    mythDesc={myth?.body}
+                    mythLink={myth?.link}
+                    mythLinkLabel={myth?.linkLabel}
+                    mythLinkNote={myth?.linkNote} />
+                ) 
+                : null
+                ))}
+            </div>
+              </div>
+            </div>
+            </div>
           <Paper className='collapsed'  sx={styles.theRadius}>
             <a href='#curiosity' className='collapsed-desc'>
               <h1>{mythCuriosityHeader[0]?.title}</h1>
