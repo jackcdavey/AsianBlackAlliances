@@ -282,10 +282,12 @@
 
    #bioSection {
      flex-direction: column;
+     align-items: center;
    }
 
    #bioCol {
      width: 90%;
+
    }
 
    /* Collapse the navbar into 3 lines on small screens, expand when clicked */

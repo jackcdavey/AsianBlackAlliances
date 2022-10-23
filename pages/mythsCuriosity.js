@@ -186,7 +186,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
 
             <Paper style={{
               margin: '2rem',
-              width: '60%',
+              width: '90%',
               padding: '2rem',
               borderRadius: '25px',
             }}>
