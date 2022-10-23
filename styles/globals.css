@@ -297,6 +297,11 @@
 
    }
 
+   .bioHeader {
+     text-align: center;
+     padding-top: 2rem;
+   }
+
    /* Collapse the navbar into 3 lines on small screens, expand when clicked */
    #navBar {
      display: none;

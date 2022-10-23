@@ -121,7 +121,7 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
             ))}
           </Box>
           <div style={{textAlign: 'left', width: "100vw", padding: '5% 0 0 5%'}}>
-            <h1 style={{margin: "3rem 0 0 0"}}>About The Team</h1>
+            <h1 className="bioHeader" style={{margin: "3rem 0 0 0" }}>About The Team</h1>
           </div>
           <div className='bioSection'>
             {bio.map((bio) => (
