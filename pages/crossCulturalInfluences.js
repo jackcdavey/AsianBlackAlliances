@@ -159,36 +159,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
               <div style={styles.foodColumnBackground} > </div>
                 <h2>Chefs</h2>
                 
-              <div style={{paddingBottom: '10%'}} id='chefCard'>
-                    <Paper id="chefCard" className="chefCard" sx={styles.theRadius}>
-                      <div id='millerCard' style={{
-                        display: 'flex',  alignItems: 'center'
-                      }}> 
-                      <img 
-                        src='https://cdn.firstwefeast.com/assets/2015/06/adrianmiller1.jpg'
-                        style={{
-                          width: '100%',
-                          height: '100%',
-                          maxWidth: '10rem',
-                          borderRadius: '25px',
-                        }}
-                      />
-                <div style={{display: 'flex', flexDirection: 'column', paddingLeft: '1rem'}}> 
-                    <h2>Adrian Miller</h2>
-                    <p>Adrian Miller is a chef and author of many books. A “history buff” as he calls himself, Adrian’s books tell stories of rich cultures beyond the food.</p>
-                    <Button
-                      variant="contained"
-                      href='https://www.youtube.com/watch?v=KPkNxb9zlBk&feature=youtu.be&themeRefresh=1'
-                      style={{
-                        borderRadius: '25px',
-                      }}
-                    >
-                      An Interview with Adrian Miller
-                    </Button>
-                </div>
-              </div>
-            </Paper>
-          </div>
+              
                 {chef.map((chef) => (
                 
                   
@@ -212,33 +183,41 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
                         src={urlFor(chef?.image).url()}
                         style={{
                           width: '100%',
-                          height: '100%',
-                          maxWidth: '10rem',
+                          maxWidth: '7rem',
                           borderRadius: '25px',
+                          aspectRatio: '1/1',
+                          padding: '0.25rem'
+
                         }}
                       /> 
                         )}
                 <div style={{display: 'flex', flexDirection: 'column', paddingLeft: '1rem'}}> 
                           <h2 style={{marginBottom: 0}}>{chef?.title}</h2>
-                          <p style={{margin: '2%'}}>{chef?.description}</p>
+                          <p style={{margin: '2%'}}>{chef?.body}</p>
                           
                           
 
                 </div>
                       </div>
+                      
                       {chef?.link && (
-                          <Button
-                      variant="contained"
-                              href={chef?.link}
-                              target="_blank"
-                      style={{
-                        borderRadius: '25px',
-                      }}
-                    >
-                              {/* If there is a linkLabel dispay, otherwise display Learn More */}
-                              {chef?.linkLabel ? chef?.linkLabel : 'Learn More'}
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginTop: '1rem', width: '100%' }}>
+
+                                                  {chef?.links.map((link, index) => (
+                          
+                          <a href={chef?.links[index]} target="_blank">
+                            <Button variant="contained" style={{margin: '2%', paddingLeft: '0.5rem', paddingRight: '0.5rem' , borderRadius: '25px', width: '100%'}} >
+                              {chef.linkLabels && (
+                                  <p>{chef.linkLabels[index]}</p>
+                              )
+                              || (
+                                <p>More Info</p>
+                              )}
                             </Button>
-                          )}
+                                                    </a>
+                          ))}
+                        </div>
+                      )}
             </Paper>
           </div>
                 

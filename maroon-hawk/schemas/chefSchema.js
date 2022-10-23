@@ -13,10 +13,22 @@ export default {
             type: 'text',
             title: 'Body',
         },
+        // {
+        //     name: 'link',
+        //     type: 'url',
+        //     title: 'Link',
+        // },
         {
-            name: 'link',
-            type: 'url',
-            title: 'Link',
+            name: 'links',
+            type: 'array',
+            title: 'Links',
+            of: [{ type: 'url' }],
+        },
+        {
+            name: 'linkLabels',
+            type: 'array',
+            title: 'Link Labels',
+            of: [{ type: 'string' }],
         },
         {
             name: 'image',
