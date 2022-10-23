@@ -103,21 +103,22 @@
    align-items: center;
    display: grid;
    grid-template-columns: repeat(4, 1fr);
-   column-gap: 5%;
-   row-gap: 5%;
+   column-gap: 0;
+   row-gap: 1%;
  }
 
 
 
  .landingGridItem {
    grid-column: span 2;
-   height: 100%;
+   height: 80%;
    aspect-ratio: 1/1;
    justify-content: center;
    border: rgb(86, 129, 39) solid 3px;
    border-radius: 25px;
    z-index: 1;
    /* overflow: auto; */
+   margin-left: 20%;
  }
 
  .cardDecor {
@@ -301,6 +302,11 @@
      grid-template-columns: repeat(2, 1fr);
      padding-bottom: 100%;
      margin-bottom: 5%;
+   }
+
+   .landingGridItem {
+     height: 90%;
+     margin-left: 10%;
    }
 
    #bioCard {

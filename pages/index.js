@@ -112,8 +112,8 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
                     {/* If a random number between 1 and 10 is less than 5, display the image */}
                     {/* <Decor /> */}
                     
-                    <h2>{homepageTile?.title}</h2>
-                    <p>{homepageTile?.description}</p>
+                    <h2 style={{margin: 0}}>{homepageTile?.title}</h2>
+                    <p style={{margin: 0}}>{homepageTile?.description}</p>
                 </Paper>
               </a>
             </Box>
