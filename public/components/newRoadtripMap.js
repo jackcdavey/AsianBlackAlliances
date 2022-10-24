@@ -35,8 +35,18 @@ const client = createClient({
 //   shadowSize: [41, 41]
 // });
 
-export default function Map({ xPoints, yPoints, titles, bodies, links, colors }) {
+export default function Map({ xPoints, yPoints, titles, bodies, links, colors, cities, allCities }) {
   const pointRadius = 10;
+  var cityXPostions = [];
+  var cityYPostions = [];
+  // For each city, find the index of its first occurence in allCities, and use that index to find the x and y to push to the cityXPostions and cityYPostions arrays
+  for (var i = 0; i < cities.length; i++) {
+    var cityIndex = allCities.indexOf(cities[i]);
+    cityXPostions.push(xPoints[cityIndex]);
+    cityYPostions.push(yPoints[cityIndex]);
+  }
+
+
   return (<>
     {/* {xPoints.map((xPoint, index) => {
       return <p>{xPoint}</p>
@@ -50,7 +60,6 @@ export default function Map({ xPoints, yPoints, titles, bodies, links, colors })
     url="https://api.mapbox.com/styles/v1/jackdavey/cl9jdntyr000416obzw4mbmkn/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiamFja2RhdmV5IiwiYSI6ImNsOWpkbGJlaTNyeDM0MW12OG1yN3kzYXoifQ.uNZ4gl7axbkqaq0zm97DVw"
       />
       
-      
       <ComposableMap
             projection="geoMercator"
             projectionConfig={{
@@ -58,8 +67,41 @@ export default function Map({ xPoints, yPoints, titles, bodies, links, colors })
                 // Center over the US
                 center: [-96, 29]
             }}
-        >
-        {xPoints.map((xPoint, index) => {
+      >
+        
+        {/* For each city, place a marker */}
+        
+        {cities.map((city, index) => {
+          return <Marker position={[cityXPostions[index], cityYPostions [index]]} draggable={false}
+              animate={true}
+              iconUrl={'../public/media/CustomAssets/blueMarker.png'}
+              iconRetinaUrl={'../public/media/CustomAssets/blueMarker.png'}
+          >
+            <Popup >
+              <div style={{maxHeight: '15rem', overflow: 'auto'}} >
+              {allCities.map((c, index2) => {
+                // {alert(c)}
+                if (c === city && c !== 'undefined') {
+                  return (<div >
+                <h3>{titles[index2]}</h3>
+                <p>{bodies[index2]}</p>
+                <a href={links[index2]}>Learn More</a>
+              </div>)
+                }
+              }
+              )}
+              </div>
+              
+            </Popup>
+          </Marker>
+
+        })}
+       
+
+        
+        
+
+        {/* {xPoints.map((xPoint, index) => {
           return(
       <Marker 
       position={[xPoint,yPoints[index]]}
@@ -69,14 +111,14 @@ export default function Map({ xPoints, yPoints, titles, bodies, links, colors })
               iconRetinaUrl={'../public/media/CustomAssets/blueMarker.png'}
 
       >
-        <Popup>
+              <Popup>
                 <h2>{titles[index]}</h2>
                 <p>{bodies[index]}</p>
                 <a href={links[index]} target='_blank'>{links[index]}</a>
-        </Popup>
+              </Popup>
             </Marker>
           )
-        })}
+        })} */}
         
         
         </ComposableMap>

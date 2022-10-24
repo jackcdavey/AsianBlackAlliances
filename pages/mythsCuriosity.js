@@ -50,6 +50,9 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
   const body = roadtripStop.map((stop) => stop.body);
   const link = roadtripStop.map((stop) => stop.link);
   const colors = roadtripStop.map((stop) => stop.color);
+  const allCities = roadtripStop.map((stop) => stop.city);
+  // Map all unique cities into an array
+  const cities = [...new Set(roadtripStop.map((stop) => stop.city))];
 
   
   return (
@@ -181,8 +184,9 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
             {/* <RoadtripMap setTooltipContent={setTooltipContent}/> */}
             {/* <ReactTooltip effect='solid' >{tooltipContent}</ReactTooltip> */}
             <div style={{ height: '500px', width: '90%', margin: "2rem", borderRadius: "25px", overflow: 'hidden'}}>
-              <NewMap xPoints={xPositions} yPoints={yPositions} titles={titles} bodies={body} links={link} colors={colors} />
+              <NewMap xPoints={xPositions} yPoints={yPositions} titles={titles} bodies={body} links={link} colors={colors} cities={cities} allCities={allCities} />
             </div>
+            {cities}
             <h2 style={{marginTop: 0, marginBottom: '2rem', textAlign: "center"}}>Please click on a marker to view nearby resources.</h2>
 
             <Paper style={{
