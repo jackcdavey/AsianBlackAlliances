@@ -83,8 +83,8 @@ export default function Map({ xPoints, yPoints, titles, bodies, links, colors, c
                 // {alert(c)}
                 if (c === city && c !== 'undefined') {
                   return (<div >
-                <h3>{titles[index2]}</h3>
-                <p>{bodies[index2]}</p>
+                <h3 style={{marginBottom: '0.2rem'}}>{titles[index2]}</h3>
+                <p style={{marginTop: 0, marginBottom: 0}}>{bodies[index2]}</p>
                 <a href={links[index2]}>Learn More</a>
               </div>)
                 }
