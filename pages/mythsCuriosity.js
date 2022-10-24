@@ -186,7 +186,6 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
             <div style={{ height: '500px', width: '90%', margin: "2rem", borderRadius: "25px", overflow: 'hidden'}}>
               <NewMap xPoints={xPositions} yPoints={yPositions} titles={titles} bodies={body} links={link} colors={colors} cities={cities} allCities={allCities} />
             </div>
-            {cities}
             <h2 style={{marginTop: 0, marginBottom: '2rem', textAlign: "center"}}>Please click on a marker to view nearby resources.</h2>
 
             <Paper style={{

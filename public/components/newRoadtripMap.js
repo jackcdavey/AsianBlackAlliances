@@ -78,7 +78,7 @@ export default function Map({ xPoints, yPoints, titles, bodies, links, colors, c
               iconRetinaUrl={'../public/media/CustomAssets/blueMarker.png'}
           >
             <Popup >
-              <div style={{maxHeight: '15rem', overflow: 'auto'}} >
+              <div style={{maxHeight: '15rem', overflow: 'scroll'}} >
               {allCities.map((c, index2) => {
                 // {alert(c)}
                 if (c === city && c !== 'undefined') {
