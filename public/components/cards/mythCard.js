@@ -38,7 +38,7 @@ export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote, 
                             </Button>
                             {/* If a mythLinkNote exists, display it as a p */}
                             {mythLinkNote && mythLinkNote[index] && (
-                             <div style={{width: '100%', display: 'flex', flexDirection:'column', alignItems: 'center', }}>
+                             <div style={{width: '100%', display: 'flex', flexDirection:'column', alignItems: 'center', paddingRight: '2rem' }}>
                                     <p style={{ textAlign: 'center' }}>{mythLinkNote[index]}</p>
                                 </div>
                             )}

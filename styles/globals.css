@@ -530,6 +530,7 @@
    flex-direction: column;
    justify-content: flex-start;
    font-size: 0.8rem;
+   max-width: 100%;
 
  }
 
@@ -540,7 +541,6 @@
    justify-content: flex-start;
    font-size: 0.8rem;
    max-width: 100%;
-
  }
 
  .linkTxt {
