@@ -64,7 +64,7 @@ export default function Header() {
     // }
 
     return (
-        <Container style={styles.banner as React.CSSProperties} id='banner' sx={{ backgroundColor: 'primary.main' }}>
+        <Container style={styles.banner as React.CSSProperties} className='banner' sx={{ backgroundColor: 'primary.main' }}>
             <a href='/'>
                 <Image
                     src="/media/CustomAssets/ABAlogo.png"
@@ -108,7 +108,7 @@ export default function Header() {
                         <i className="fa fa-bars"></i>
                     </a> */}
                 </div>
-                <div id='navBar' >
+                <div className='navBar' >
                     <Link href='/historyOfCollaboration'>
                         <div className='navLink'>
                             <a>Contact & Collaboration</a>
