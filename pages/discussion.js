@@ -44,7 +44,7 @@ const Discussion = ({footerContent, discussionPost, discussionQuestion}) => {
                                     <h3 style={{marginTop: 0}}>{question.body}</h3>
             </a>
           </Paper>
-          <div className='collapsed-content' id={question._id}>
+          <div className='collapsed-form' id={question._id}>
 
             <form action="https://formspree.io/f/xknevqwl" method="POST">
                 <div id="formWrap">
@@ -62,6 +62,8 @@ const Discussion = ({footerContent, discussionPost, discussionQuestion}) => {
                         </div>
                     </div>
                     ))}
+
+
                     {/* Display each discussion post in a Card below */}
                     <h1>Posts</h1>
                     {discussionPost.map((post) => (

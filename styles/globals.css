@@ -617,12 +617,22 @@
    /* margin: 5%; */
    display: grid;
    align-items: center;
-   justify-items: center;
+   justify-items: flex-start;
+ }
+
+ .collapsed-form {
+   max-height: 0vh;
+   display: none;
  }
 
 
  .collapsed-content:target {
    max-height: none;
+ }
+
+ .collapsed-form:target {
+   max-height: 30rem;
+   display: block;
  }
 
 
