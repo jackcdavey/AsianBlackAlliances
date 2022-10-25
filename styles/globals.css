@@ -66,12 +66,6 @@
    min-width: 100vw;
  }
 
- /* #banner h1 {
-   padding-left: 3vh;
-   padding-top: 2vh;
-   padding-bottom: 2vh;
- } */
-
  #footer {
    /* padding: 2rem; */
    border-top: 1px solid #eaeaea;
@@ -613,11 +607,12 @@
  .collapsed-content {
    overflow: auto;
    transition: all 0.5s ease;
-   max-height: 0vh;
+   /* max-height: 0vh; */
    /* margin: 5%; */
-   display: grid;
+   display: none;
    align-items: center;
    justify-items: flex-start;
+   scroll-margin-top: 10vh;
  }
 
  .collapsed-form {
@@ -628,6 +623,7 @@
 
  .collapsed-content:target {
    max-height: none;
+   display: block;
  }
 
  .collapsed-form:target {

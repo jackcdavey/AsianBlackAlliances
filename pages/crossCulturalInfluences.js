@@ -37,6 +37,8 @@ const styles = {
     justifyContent: "space-evenly",
     // alignItems: "center",
     width: "100%",
+    scrollMarginTop: '100px',
+
   },
 
   foodColumn: {
