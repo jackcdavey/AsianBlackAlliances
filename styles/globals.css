@@ -192,12 +192,12 @@
  }
 
  .navLink {
-   color: black;
+   /* color: black; */
    font-size: 1.1rem;
    /* max-width: 15%; */
    text-align: center;
    margin-right: 5%;
-   text-decoration: underline;
+   /* text-decoration: underline; */
    font-family: ofelia-text, sans-serif;
    font-weight: 400;
    font-style: normal;
@@ -206,6 +206,8 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   padding-top: 0.5rem;
+   padding-bottom: 0.5rem;
  }
 
  .navLink :hover {

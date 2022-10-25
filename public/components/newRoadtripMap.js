@@ -75,7 +75,9 @@ export default function Map({ xPoints, yPoints, titles, bodies, links, colors, c
           return <Marker position={[cityXPostions[index], cityYPostions [index]]} draggable={false}
               animate={true}
               iconUrl={'../public/media/CustomAssets/blueMarker.png'}
-              iconRetinaUrl={'../public/media/CustomAssets/blueMarker.png'}
+            iconRetinaUrl={'../public/media/CustomAssets/blueMarker.png'}
+            outlineColor={'#FFFFFF'}
+            outlineWidth={2}
           >
             <Popup >
               <div style={{maxHeight: '15rem', overflow: 'scroll'}} >
