@@ -128,7 +128,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
                 tag.section === 'northamerica' &&
               <TimelineItem key={collaborationTag._id}>
                 <TimelineOppositeContent>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.secondary" style={{fontSize: '1.2rem'}}>
                     {tag.date}
                   </Typography>
                 </TimelineOppositeContent>
