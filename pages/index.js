@@ -68,9 +68,9 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
             </div>
           {/* Create dedicated carousel container later */}
           <div style={{ width: '100vw', overflow: 'hidden' }}>
-            <Carousel className="carousel" animation='slide' sx={{ margin: '5%' }} autoPlay={false} >
+            <Carousel className="carousel" animation='slide' sx={{ margin: '5%', overflow: 'hidden' }} autoPlay={false} navButtonsAlwaysVisible={true} >
             {homepageCarousel?.map((homepageCarousel) => (
-              <Paper sx={{ padding: '5%', paddingLeft: '2%', borderRadius: '25px', display: 'flex', alignItems: 'center', overflow: 'hidden', justifyContent: 'flex-start' }}>
+              <Paper sx={{ padding: '5%', paddingLeft: '2%', borderRadius: '25px', display: 'flex', alignItems: 'center', overflow: 'hidden', justifyContent: 'flex-start', marginLeft: '4rem', marginRight: '4rem' }}>
                 <div style={{width: "30%", maxHeight: '35vh'}}>
                   <img src={urlFor(homepageCarousel.image).url()} alt={homepageCarousel.name} style={{ maxWidth: '100%' }} />
                 </div>
