@@ -28,7 +28,7 @@ export default function HomeCarousel({ homepageCarousel }) {
 
     console.log("Items:" + items.length);
     return (
-        <Carousel animation='slide' sx={{ margin: '5%' }} >
+        <Carousel animation='slide' sx={{ margin: '5%' }} autoPlay={false} >
             {homepageCarousel?.map((homepageCarousel) => (
                 <Paper sx={{ padding: '5%', borderRadius: '25px' }}>
             <h2>{homepageCarousel?.name}</h2>
