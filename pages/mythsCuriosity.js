@@ -177,8 +177,10 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
           <div className='collapsed-content' id='curiosity'>
           {/* <Tooltip tooltipText="Washington, DC"> */}
             {/* <h1>Be Curious on Your Next Roadtrip!</h1> */}
-          {/* </Tooltip> */}
-            <p style={{ textAlign: "center", maxWidth: '70%' }}>As racial minorities, we do not see our histories taught in formal education. Therefore, we need to self educate with true and comprehensive information. When you plan your next family vacation, consider building in a couple of such lessons to learn about ourselves and each other.</p>
+            {/* </Tooltip> */}
+            <div style={{width: '100vw', alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column', padding: 0}}>
+              <p style={{ textAlign: "center", maxWidth: '70%', margin: 0 }}>As racial minorities, we do not see our histories taught in formal education. Therefore, we need to self educate with true and comprehensive information. When you plan your next family vacation, consider building in a couple of such lessons to learn about ourselves and each other.</p>
+            </div>
 
           
             {/* <RoadtripMap setTooltipContent={setTooltipContent}/> */}
