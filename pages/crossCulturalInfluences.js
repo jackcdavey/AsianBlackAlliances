@@ -202,9 +202,11 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
                   <div style={{paddingBottom: '10%'}} id='chefCard' key={chef._id}>
                     <Paper id="chefCard" className="chefCard" sx={styles.theRadius}>
                       <div id='millerCard' style={{
-                        display: 'flex',  alignItems: 'center'
+                        display: 'flex',  alignItems: 'center', justifyContent: 'center'
                       }}> 
-                        {chef?.image && (
+                        
+                <div style={{display: 'flex', flexDirection: 'column', paddingLeft: '1rem', alignItems: 'center', textAlign: "center"}}> 
+                          {chef?.image && (
                       <img 
                         src={urlFor(chef?.image).url()}
                         style={{
@@ -217,8 +219,8 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
                         }}
                       /> 
                         )}
-                <div style={{display: 'flex', flexDirection: 'column', paddingLeft: '1rem'}}> 
-                          <h2 style={{marginBottom: 0, textAlign: 'center'}}>{chef?.title}</h2>
+                          
+                          <h2 style={{ marginBottom: 0, textAlign: 'center' }}>{chef?.title}</h2>
                           <p style={{margin: '2%'}}>{chef?.body}</p>
                           
                           
