@@ -4,8 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { theme } from '../styles/theme';
 import { AnimatePresence } from 'framer-motion';
-
-
+import { Analytics } from '@vercel/analytics/react';
 
 
 
@@ -19,6 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       >
         <CssBaseline />
         <Component {...pageProps} />
+        <Analytics />
       </AnimatePresence>
     </ThemeProvider>
   );
