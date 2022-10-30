@@ -60,7 +60,7 @@
    display: flex;
    flex-direction: column;
    align-items: center;
-   background-color: #e8f5e9;
+   background-color: #f1f9f2;
    background-size: 100% 100%;
    max-width: 100vw;
    min-width: 100vw;
@@ -116,6 +116,7 @@
    z-index: 1;
    /* overflow: auto; */
    margin-left: 20%;
+   opacity: 0.8;
  }
 
  .cardDecor {
@@ -276,6 +277,11 @@
    }
  } */
 
+ #banner,
+ .banner {
+   background-color: rgba(195, 224, 197, 100);
+ }
+
  .caousel {
    display: block;
  }
@@ -316,11 +322,6 @@
      grid-template-columns: repeat(2, 1fr);
      /* padding-bottom: 100%; */
      margin-bottom: 5%;
-   }
-
-   .landingGridItem {
-     height: 90%;
-     margin-left: 10%;
    }
 
    #bioCard {
@@ -377,6 +378,7 @@
 
 
 
+
  .landingGridContent {
    width: 100%;
    height: 100%;
@@ -398,6 +400,7 @@
    background-color: none;
    box-shadow: none;
  }
+
 
 
 

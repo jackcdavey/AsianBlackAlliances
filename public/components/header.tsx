@@ -27,7 +27,6 @@ const styles = {
         opacity: 0.95,
         backdropFilter: 'blur(10px)',
         minHeight: '10vh',
-        backgroundColor: 'rgba(165, 214, 167, 150',
     },
     homeBanner: {
         top: 0,
@@ -43,7 +42,6 @@ const styles = {
         zIndex: 5,
         opacity: 0.95,
         backdropFilter: 'blur(10px)',
-        backgroundColor: 'rgba(185, 214, 187, 100',
     },
 }
 
@@ -64,7 +62,7 @@ export default function Header() {
     // }
 
     return (
-        <Container style={styles.banner as React.CSSProperties} className='banner' sx={{ backgroundColor: 'primary.main' }}>
+        <Container style={styles.banner as React.CSSProperties} className='banner'>
             <a href='/'>
                 <Image
                     src="/media/CustomAssets/ABAlogo.png"
