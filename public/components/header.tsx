@@ -100,6 +100,11 @@ export default function Header() {
                                 <a>Local Resources</a>
                             </div>
                         </Link>
+                        <Link href='/discussion'>
+                            <div className='navLink'>
+                                <a>Contact Us!</a>
+                            </div>
+                        </Link>
 
                     </div>
                     {/* <a href="javascript:void(0);" className="icon" onClick={MobileNavigationToggle}>
@@ -130,6 +135,11 @@ export default function Header() {
                     <Link href='/localResources'>
                         <div className='navLink'>
                             <a>Local Resources</a>
+                        </div>
+                    </Link>
+                    <Link href='/discussion'>
+                        <div className='navLink'>
+                            <a>Contact Us!</a>
                         </div>
                     </Link>
                 </div>

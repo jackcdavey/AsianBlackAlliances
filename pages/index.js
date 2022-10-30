@@ -114,7 +114,7 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
                     {/* <Decor /> */}
                     
                     <h2 style={{margin: 0}}>{homepageTile?.title}</h2>
-                    <p style={{margin: 0}}>{homepageTile?.description}</p>
+                    <p >{homepageTile?.description}</p>
                 </Paper>
               </a>
             </Box>
