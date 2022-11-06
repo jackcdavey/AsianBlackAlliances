@@ -32,7 +32,8 @@
     "react-player": "^2.10.1",
     "react-simple-maps": "^3.0.0",
     "react-tooltip": "^4.2.21",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@sanity/cli": "^2.34.2",

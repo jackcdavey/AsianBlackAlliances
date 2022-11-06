@@ -36,7 +36,7 @@ const Discussion = ({footerContent, discussionPost, discussionQuestion}) => {
                     <p style={{ textAlign: "center" }}>If you would like to share your own story, plese submit a comment below.</p>
 
                     {discussionQuestion.map((question) => (
-                    <div id='form' style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <div id='form' style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}} key={question._id}>
                     <Paper className='collapsed' style={{borderRadius: '25px'}}>
             <a href={'#' + question._id} className='collapsed-desc'>
               {/* Display the first item in mythsCuriosityHeader */}
@@ -48,15 +48,33 @@ const Discussion = ({footerContent, discussionPost, discussionQuestion}) => {
 
             <form action="https://formspree.io/f/xknevqwl" method="POST">
                 <div id="formWrap">
-                    <div className="fieldWrap">
-                        <input style={{marginRight: "2%"}} type="text" id="name" placeholder="Name" required name="submissionName" />
-                        <input style={{marginLeft: "2%"}} type="email" id="email" placeholder="Email" name="email" required />
-                        <input style={{display: 'none'}} type="questionNumer" id="questionNumber" name="questionNumber" value={question.title} />
+                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                        <div id="formWrap">
+                        <div className="fieldWrap">
+                            <input style={{marginRight: "2%"}} type="text" id="name" placeholder="Name" required name="submissionName" />
+                            <input style={{marginLeft: "2%"}} type="email" id="email" placeholder="Email" name="email" required />
+                            <input style={{display: 'none'}} type="questionNumer" id="questionNumber" name="questionNumber" value={question.title} />
+                        </div>
+                    
+                        <div className="fieldWrap">
+                            <textarea id="message" rows="7" placeholder="Message" name="message" required />
+                        </div>
                     </div>
-                    <div className="fieldWrap">
-                        <textarea id="message" rows="7" placeholder="Message" name="message" required />
+                        <label for='attachment' style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            textAlign: 'center',
+                            marginLeft: '2rem',
+                            borderRadius: '25px',
+                            border: '2px solid rgb(115, 149, 116)',
+                            padding: '1rem',
+                            cursor: 'pointer',
+                        }}>Attach a file</label>
+                        <input type='file' name='attachment' id='attachment' style={{visibility: 'hidden'}} />
                     </div>
-                    <Button variant="contained" type="submit" style={{margin: '1rem'}}>Send</Button>
+                <Button variant="contained" type="submit" style={{margin: '1rem'}}>Send</Button>
+
                 </div>
                     </form>
                         </div>
@@ -67,7 +85,7 @@ const Discussion = ({footerContent, discussionPost, discussionQuestion}) => {
                     {/* Display each discussion post in a Card below */}
                     {/* <h1>Posts</h1> */}
                     {discussionPost.map((post) => (
-                        <Paper className="discussionCard" style={{borderRadius: "25px", marginBottom: '2rem'}}>
+                        <Paper className="discussionCard" style={{borderRadius: "25px", marginBottom: '2rem'}} key={post._id}>
                             <h2>{post?.title}</h2>
                             <h3>From: {" " + post?.name}</h3>
                             <p>{post?.body}</p>

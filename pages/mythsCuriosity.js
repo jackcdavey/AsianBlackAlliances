@@ -20,7 +20,11 @@ import { Tooltip } from '../public/components/tooltip';
 import { Button, Paper } from '@mui/material'
 
 import dynamic from 'next/dynamic'
+import Router, {useRouter} from "next/router";
+
 import { COLORS } from '../public/styling/colors';
+
+
 const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
 const NewMap = dynamic(() => import('../public/components/newRoadtripMap.js'), { ssr: false });
 
@@ -43,6 +47,8 @@ const client = createClient({
 
 export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeader, roadtripStop }) {
   const [tooltipContent, setTooltipContent] = useState("");
+  const router = useRouter();  
+  const refreshData = () => router.replace(router.asPath);
 
   const titles = roadtripStop.map((stop) => stop.title);
   const xPositions = roadtripStop.map((stop) => stop.xPos);
@@ -145,7 +151,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
             </div>
             </div>
           <Paper className='collapsed'  sx={styles.theRadius}>
-            <a href='#curiosity' className='collapsed-desc'>
+            <a href='#curiosity' className='collapsed-desc' >
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', maxHeight: '4rem', width: '100%'}}>
                 <div style={{maxWidth: '50%'}}>
                 <img
@@ -186,7 +192,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
             {/* <RoadtripMap setTooltipContent={setTooltipContent}/> */}
             {/* <ReactTooltip effect='solid' >{tooltipContent}</ReactTooltip> */}
             <div style={{ height: '500px', width: '90%', margin: "2rem", borderRadius: "25px", overflow: 'hidden'}}>
-              <NewMap xPoints={xPositions} yPoints={yPositions} titles={titles} bodies={body} links={link} colors={colors} cities={cities} allCities={allCities} />
+              <NewMap xPoints={xPositions} yPoints={yPositions} titles={titles} bodies={body} links={link} colors={colors} cities={cities} allCities={allCities} key={new Date().getTime()}/>
             </div>
             <h2 style={{marginTop: 0, marginBottom: '2rem', textAlign: "center"}}>Please click on a marker to view nearby resources.</h2>
 
