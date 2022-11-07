@@ -50,7 +50,7 @@ export default function LocalResources({ footerContent, localResources }) {
                                                 <div style={{paddingBottom: '2rem'}}>
                                                     <p style={{margin: 0}}>{resource.city}</p>
                                                     <h3 style={{margin: 0}}>{resource.name}</h3>
-                                                    <a href={resource.link} target="_blank" >{resource.link}</a>
+                                                    <a className={"localresource-link"} href={resource.link} target="_blank" >{resource.link}</a>
                                                 </div>
                                             ) : null}
                                         </div>

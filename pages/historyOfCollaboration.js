@@ -212,7 +212,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
               
               {historyResource?.link && (
                 historyResource?.link?.map((link) => (
-                  <Button variant="contained" color="primary" href={historyResource?.link[historyResource?.link.indexOf(link)]} target="_blank" rel="noopener noreferrer" style={{  width: '40%', margin: '2%', borderRadius: '25px' }} >
+                  <Button variant="contained" color="primary" className={"resource-button"} href={historyResource?.link[historyResource?.link.indexOf(link)]} target="_blank" rel="noopener noreferrer" style={{  width: '40%', margin: '2%', borderRadius: '25px' }} >
                     <div style={{textAlign: 'center' }}>
                     {/* Display the linkLabel if it exists, otherwise display "More Info" */}
                       {historyResource?.linkLabel && historyResource?.linkLabel[historyResource?.link.indexOf(link)] ? historyResource?.linkLabel[historyResource?.link.indexOf(link)] : "More Info"}

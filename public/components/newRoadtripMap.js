@@ -63,7 +63,7 @@ export default function Map({ xPoints, yPoints, titles, bodies, links, colors, c
      */}
     
     {/* for each entry in xArr, print "Hi" */}
-    <MapContainer key={v4()} center={[38, -97]} zoom={4} attributionControl={false} zoomControl={true} scrollWheelZoom={false} doubleClickZoom={true} dragging={true} style={{ height: "100%", width: "100%", zIndex: 0 }}>
+    <MapContainer key={v4()} center={[38, -97]} zoom={4} attributionControl={false} zoomControl={true} scrollWheelZoom={false} doubleClickZoom={true} dragging={true} style={{ height: "100%", width: "100%", zIndex: 0, borderRadius: '25px' }}>
       <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://api.mapbox.com/styles/v1/jackdavey/cl9jdntyr000416obzw4mbmkn/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiamFja2RhdmV5IiwiYSI6ImNsOWpkbGJlaTNyeDM0MW12OG1yN3kzYXoifQ.uNZ4gl7axbkqaq0zm97DVw"
