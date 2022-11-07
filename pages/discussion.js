@@ -48,7 +48,7 @@ const Discussion = ({footerContent, discussionPost, discussionQuestion}) => {
 
             <form action="https://formspree.io/f/xknevqwl" method="POST">
                 <div id="formWrap">
-                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                    <div className="innerFormWrap" >
                         <div id="formWrap">
                         <div className="fieldWrap">
                             <input style={{marginRight: "2%"}} type="text" id="name" placeholder="Name" required name="submissionName" />
@@ -60,20 +60,10 @@ const Discussion = ({footerContent, discussionPost, discussionQuestion}) => {
                             <textarea id="message" rows="7" placeholder="Message" name="message" required />
                         </div>
                     </div>
-                        <label for='attachment' style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            textAlign: 'center',
-                            marginLeft: '2rem',
-                            borderRadius: '25px',
-                            border: '2px solid rgb(115, 149, 116)',
-                            padding: '1rem',
-                            cursor: 'pointer',
-                        }}>Attach a File</label>
+                        <label for='attachment'  className="fileAttachmentBtn">Attach a File</label>
                         <input type='file' name='attachment' id='attachment' style={{visibility: 'hidden'}} />
                     </div>
-                <Button variant="contained" type="submit" style={{margin: '1rem'}}>Send</Button>
+                <Button variant="contained" type="submit" style={{marginBottom: '1rem', borderRadius: "25px"}}>Send</Button>
 
                 </div>
                     </form>
