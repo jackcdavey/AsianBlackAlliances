@@ -70,7 +70,7 @@ const Discussion = ({footerContent, discussionPost, discussionQuestion}) => {
                             border: '2px solid rgb(115, 149, 116)',
                             padding: '1rem',
                             cursor: 'pointer',
-                        }}>Attach a file</label>
+                        }}>Attach a File</label>
                         <input type='file' name='attachment' id='attachment' style={{visibility: 'hidden'}} />
                     </div>
                 <Button variant="contained" type="submit" style={{margin: '1rem'}}>Send</Button>

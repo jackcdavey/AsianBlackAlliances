@@ -44,10 +44,9 @@ const client = createClient({
 });
 
 
-
 export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeader, roadtripStop }) {
   const [tooltipContent, setTooltipContent] = useState("");
-  const router = useRouter();  
+  
   const refreshData = () => router.replace(router.asPath);
 
   const titles = roadtripStop.map((stop) => stop.title);
@@ -59,6 +58,13 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
   const allCities = roadtripStop.map((stop) => stop.city);
   // Map all unique cities into an array
   const cities = [...new Set(roadtripStop.map((stop) => stop.city))];
+
+  const router = useRouter();  
+function myFunction() {
+  console.log("hello");
+  // refresh the page
+  router.reload();
+}
 
   
   return (
@@ -151,7 +157,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
             </div>
             </div>
           <Paper className='collapsed'  sx={styles.theRadius}>
-            <a href='#curiosity' className='collapsed-desc' >
+            <a href='#curiosity'  className='collapsed-desc' >
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', maxHeight: '4rem', width: '100%'}}>
                 <div style={{maxWidth: '50%'}}>
                 <img
@@ -180,7 +186,8 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
               <h2>{mythCuriosityHeader[0]?.desc}</h2>
             </a>
           </Paper>
-          <div className='collapsed-content' id='curiosity'>
+          {/* className= 'collapsed-content' */}
+          <div className= 'curiosityMapWrap' id='curiosity'> 
           {/* <Tooltip tooltipText="Washington, DC"> */}
             {/* <h1>Be Curious on Your Next Roadtrip!</h1> */}
             {/* </Tooltip> */}

@@ -27,10 +27,6 @@ function useOutsideAlerter(ref, setMarkerA, setMarkerB) {
         //   setMarkerA(9);
         //   setMarkerB(9);
           
-          
-          
-          
-          
       }
     }
     // Bind the event listener

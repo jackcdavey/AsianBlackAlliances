@@ -618,6 +618,30 @@
    scroll-margin-top: 10vh;
  }
 
+ .curiosityMapWrap {
+   overflow: auto;
+   transition: all 1.5s ease;
+   /* max-height: 0vh; */
+   /* margin: 5%; */
+   align-items: center;
+   justify-items: flex-start;
+   scroll-margin-top: 10vh;
+   position: relative;
+   right: 100vw;
+   padding-left: 5%;
+ }
+
+ .curiosityMapWrap:target {
+   overflow: auto;
+   transition: all 1.5s ease;
+   /* max-height: 0vh; */
+   /* margin: 5%; */
+   align-items: center;
+   justify-items: flex-start;
+   scroll-margin-top: 10vh;
+   right: 0vw;
+ }
+
  .collapsed-form {
    max-height: 0vh;
    display: none;
