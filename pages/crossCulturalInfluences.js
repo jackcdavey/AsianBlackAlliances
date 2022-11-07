@@ -370,7 +370,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
           <div className='seasonGrid'>
       <div style={{ gridColumn: "span 2", backgroundColor: 'lightblue', borderRadius: '25px'}}>
         <div style={styles.seasonQuad}>
-          <div style={{textAlign: 'right', paddingRight: '0.5rem'}}>
+          <div className='holidayTextL'>
             <h1 style={{ alignSelf: 'flex-end' }}>Winter</h1>
                   {holiday.map((holiday) => (
               holiday.season === 'winter' ?
@@ -387,7 +387,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
       </div>
       <div style={{gridColumn: "span 2", backgroundColor: 'lightgreen', borderRadius: '25px' }}>
         <div style={styles.seasonQuad}>
-          <div style={{textAlign: 'left', paddingLeft: '0.5rem'}}>
+          <div className='holidayTextR'>
                   <h1>Spring</h1>
                   {holiday.map((holiday) => (
               holiday.season === 'spring' ?
@@ -403,7 +403,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
       </div>
       <div style={{gridColumn: "span 2", backgroundColor: 'lightyellow', borderRadius: '25px' }}>
         <div style={styles.seasonQuad}>
-          <div style={{textAlign: 'right', paddingRight: '0.5rem'}}>
+          <div className='holidayTextL'>
                   <h1>Summer</h1>
                   {holiday.map((holiday) => (
               holiday.season === 'summer' ?
@@ -419,7 +419,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
       </div>
       <div style={{gridColumn: "span 2", backgroundColor: 'lightsalmon', borderRadius: '25px' }}>
         <div style={styles.seasonQuad}>
-                    <div style={{textAlign: 'left', paddingLeft: '0.5rem'}}>
+                    <div className='holidayTextR'>
                   <h1>Fall</h1>
                   {holiday.map((holiday) => (
               holiday.season === 'fall' ?

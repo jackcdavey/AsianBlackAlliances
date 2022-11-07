@@ -198,7 +198,7 @@ function myFunction() {
           
             {/* <RoadtripMap setTooltipContent={setTooltipContent}/> */}
             {/* <ReactTooltip effect='solid' >{tooltipContent}</ReactTooltip> */}
-            <div style={{ height: '500px', width: '90%', margin: "2rem", borderRadius: "25px", overflow: 'hidden'}}>
+            <div style={{ height: '500px', width: '90%', borderRadius: "25px", overflow: 'hidden', display:'flex', flexDirection: 'column', justifyContent: 'center'}}>
               <NewMap xPoints={xPositions} yPoints={yPositions} titles={titles} bodies={body} links={link} colors={colors} cities={cities} allCities={allCities} key={new Date().getTime()}/>
             </div>
             <h2 style={{marginTop: 0, marginBottom: '2rem', textAlign: "center"}}>Please click on a marker to view nearby resources.</h2>
