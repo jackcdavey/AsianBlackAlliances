@@ -3,24 +3,14 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import "leaflet-defaulticon-compatibility";
 
-import { COLORS } from '../styling/colors.js';
 
 import { createClient } from 'next-sanity';
-
-import Router, {useRouter} from "next/router";
-import { useState, useEffect } from 'react';
-
-
 
 const geoUrl = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json';
 
 
 import {
     ComposableMap,
-    Geographies,
-    Geography,
-    ZoomableGroup,
-    // Marker
 } from 'react-simple-maps';
 import { v4 } from 'uuid';
 
@@ -36,7 +26,6 @@ export default function Map({ xPoints, yPoints, titles, bodies, links, colors, c
   const pointRadius = 10;
   var cityXPostions = [];
   var cityYPostions = [];
-    const [hasLoaded, setHasLoaded] = useState(false);
 
   // For each city, find the index of its first occurence in allCities, and use that index to find the x and y to push to the cityXPostions and cityYPostions arrays
   for (var i = 0; i < cities.length; i++) {

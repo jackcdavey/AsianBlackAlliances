@@ -1,11 +1,9 @@
 import React from "react";
-import { NextPage } from "next";
+// import { NextPage } from "next";
 import Head from "next/head";
 import { createClient } from 'next-sanity'
 
 import { Button, Paper } from '@mui/material';
-
-import { useForm, ValidationError } from '@formspree/react';
 
 import Layout from "../public/components/layout";
 import Header from "../public/components/header";

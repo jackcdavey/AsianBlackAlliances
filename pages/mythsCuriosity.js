@@ -1,6 +1,5 @@
 // import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 
 import { createClient } from 'next-sanity'
 
@@ -12,20 +11,10 @@ import MythCard from '../public/components/cards/mythCard.js';
 
 import Layout from '../public/components/layout';
 
-import RoadtripMap from '../public/components/roadtripMap';
+import { Button, Paper } from '@mui/material';
 
+import dynamic from 'next/dynamic';
 
-import { Tooltip } from '../public/components/tooltip';
-
-import { Button, Paper } from '@mui/material'
-
-import dynamic from 'next/dynamic'
-import Router, {useRouter} from "next/router";
-
-import { COLORS } from '../public/styling/colors';
-
-
-const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
 const NewMap = dynamic(() => import('../public/components/newRoadtripMap.js'), { ssr: false });
 
 // import NewMap from '../public/components/newRoadtripMap.js';
@@ -45,10 +34,6 @@ const client = createClient({
 
 
 export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeader, roadtripStop }) {
-  const [tooltipContent, setTooltipContent] = useState("");
-  
-  const refreshData = () => router.replace(router.asPath);
-
   const titles = roadtripStop.map((stop) => stop.title);
   const xPositions = roadtripStop.map((stop) => stop.xPos);
   const yPositions = roadtripStop.map((stop) => stop.yPos);
@@ -59,12 +44,6 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
   // Map all unique cities into an array
   const cities = [...new Set(roadtripStop.map((stop) => stop.city))];
 
-  const router = useRouter();  
-function myFunction() {
-  console.log("hello");
-  // refresh the page
-  router.reload();
-}
 
   
   return (
