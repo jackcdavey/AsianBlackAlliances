@@ -60,8 +60,17 @@ const Discussion = ({footerContent, discussionPost, discussionQuestion}) => {
                             <textarea id="message" rows="7" placeholder="Message" name="message" required />
                         </div>
                     </div>
-                        <label for='attachment'  className="fileAttachmentBtn">Attach a File</label>
-                        <input type='file' name='attachment' id='attachment' style={{visibility: 'hidden'}} />
+                        {/* <label for='attachment'  className="fileAttachmentBtn">Attach a File</label> */}
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                        }}>
+                            <label for='attachment' style={{width: '50%'}} >
+                                <h4>Attach a File</h4>
+                            </label>
+                            <input type='file' name='attachment' id='attachment' style={{  textAlign: 'center', width: '80%'}}/>
+                        </div>
                     </div>
                 <Button variant="contained" type="submit" style={{marginBottom: '1rem', borderRadius: "25px"}}>Send</Button>
 
