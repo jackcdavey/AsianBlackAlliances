@@ -104,7 +104,9 @@
    row-gap: 1%;
  }
 
-
+ .landingGridItem :hover {
+   box-shadow: 0px 0px 30px 0px rgb(229, 124, 27);
+ }
 
  .landingGridItem {
    grid-column: span 2;
@@ -116,7 +118,6 @@
    z-index: 1;
    /* overflow: auto; */
    margin-left: 20%;
-   opacity: 0.8;
  }
 
  .cardDecor {
@@ -210,9 +211,43 @@
    color: rgb(229, 124, 27)
  }
 
+ .mobileNavWrap {
+   position: fixed;
+   top: 0;
+   right: 90vw;
+   width: 100vw;
+   height: 100vh;
+   background-color: white;
+
+   opacity: 0.8;
+   z-index: 10;
+ }
+
+ .mobileNavWrap:target {
+   right: 80vw;
+ }
+
+ /* When the mobileNavWrap is targeted, set open-nav class to display none */
+
+
+
+
+ .mobileNavWrap:target+.open-nav {
+   display: none;
+ }
+
+ .mobileNavWrap:target+.close-nav {
+   display: block;
+ }
+
+
  .mobileNav #mobileLinks {
    display: none;
  }
+
+
+
+
 
  .mobileNav a {
    color: white;
@@ -371,14 +406,6 @@
  }
 
 
-
- .landingGridItem :hover {
-   box-shadow: 0px 0px 30px 0px rgb(229, 124, 27);
- }
-
-
-
-
  .landingGridContent {
    width: 100%;
    height: 100%;
@@ -397,7 +424,6 @@
  }
 
  .landingGridContent :hover {
-   background-color: none;
    box-shadow: none;
  }
 

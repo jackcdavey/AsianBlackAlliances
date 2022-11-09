@@ -1,8 +1,6 @@
 import React from 'react'
 // import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-
 import { useState } from 'react'
 
 import { createClient } from 'next-sanity'
@@ -16,14 +14,6 @@ import dynamic from 'next/dynamic'
 
 
 import Grid from '@mui/material/Grid';
-
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  ZoomableGroup,
-  Marker
-} from 'react-simple-maps';
 
 import {
   Timeline,

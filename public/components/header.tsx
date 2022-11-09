@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { COLORS } from '../styling/colors.js';
-
+import MobileNavMenu from './mobileNavMenu';
 
 const styles = {
     banner: {
@@ -73,44 +73,9 @@ export default function Header() {
                 />
             </a>
             <div style={{ width: '80%', display: 'flex', flexDirection: "row", alignItems: 'center', justifyContent: "flex-end" }}>
-                <div className='mobileNav'>
-                    <div id='mobileLinks'>
-                        <Link href='/historyOfCollaboration'>
-                            <div className='navLink'>
-                                <a>Contact & Collaboration</a>
-                            </div>
-                        </Link>
-                        <Link href='/crossCulturalInfluences'>
-                            <div className='navLink'>
-                                <a> Cross Cultural Influences</a>
-                            </div>
-                        </Link>
-                        <Link href={'/mythsCuriosity'}>
-                            <div className='navLink'>
-                                <a>Myths & Curiosity</a>
-                            </div>
-                        </Link>
-                        <Link href='/ourVoices'>
-                            <div className='navLink'>
-                                <a>Our Voices</a>
-                            </div>
-                        </Link>
-                        <Link href='/localResources'>
-                            <div className='navLink'>
-                                <a>Local Resources</a>
-                            </div>
-                        </Link>
-                        <Link href='/discussion'>
-                            <div className='navLink'>
-                                <a>Contact Us!</a>
-                            </div>
-                        </Link>
-
-                    </div>
-                    {/* <a href="javascript:void(0);" className="icon" onClick={MobileNavigationToggle}>
-                        <i className="fa fa-bars"></i>
-                    </a> */}
-                </div>
+                {/* <div>
+                    <MobileNavMenu />
+                </div> */}
                 <div className='navBar' >
                     <Link href='/historyOfCollaboration'>
                         <div className='navLink'>

@@ -1,22 +1,8 @@
 
 import Head from 'next/head'
-import Image from 'next/image'
-// import styles from '../styles/Home.module.css'
-
-import Grid from '@mui/material/Grid';
 import Header from '../public/components/header';
 import Footer from '../public/components/footer.js';
 import Layout from '../public/components/layout';
-
-
-import FoodCard from '../public/components/foodCard';
-
-
-import dynamic from 'next/dynamic';
-
-const LinkWithImage = dynamic(
-  () => import('../public/components/cards/linkWithImageCard'),
-);
 
 import React from 'react';
 import Paper from '@mui/material/Paper';
@@ -51,8 +37,10 @@ const styles = {
     padding: '1rem',
     position: 'relative',
     zIndex: '1',
-    // overflow: 'contain',
-  },
+do {
+	    // overflow: 'contain',
+	
+} while (condition);  },
 
 
   foodColumnBackground: {
