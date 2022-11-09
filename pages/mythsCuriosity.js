@@ -180,7 +180,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
             <div style={{ height: '500px', width: '90%', borderRadius: "25px", overflow: 'hidden', display:'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '5%', marginTop: '1rem', marginBottom: '1rem'}}>
               <NewMap xPoints={xPositions} yPoints={yPositions} titles={titles} bodies={body} links={link} colors={colors} cities={cities} allCities={allCities} key={new Date().getTime()}/>
             </div>
-            <h2 style={{marginTop: 0, marginBottom: '2rem', textAlign: "center"}}>Please click on a marker to view nearby resources.</h2>
+            <h3 style={{marginTop: 0, marginBottom: '2rem', textAlign: "center"}}>Please click on a marker to view places to visit.</h3>
 
             <Paper style={{
               margin: '2rem',
