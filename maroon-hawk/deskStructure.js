@@ -6,7 +6,52 @@ export default () =>
     .items(
       S.documentTypeListItems()
     )
+
+
+// export default () =>
+//   S.list()
+//   .title('Content')
+//     .items([
+//       S.listItem()
+//         .title('Documents by Language')
+//         .child(language =>
+//           S.documentList()
+//             .title('Documents by Language')
+//             .filter('_type == $type && $language in [*language]')
+//             .params({ type: 'myth', language: language.id })
+//         ),
+//       S.listItem()
+//         .title('Myths & Curiosity Page')
+//         .child(
+//           S.documentList()
+//             .title('Myths')
+//             .filter('_type == "myth"')
+//       ),
+      
+//     ])
   
+//     export default () =>
+//   S.list()
+//   .title('Content')
+//     .items([
+//       S.listItem()
+//         .title('Filtered Documents')
+//         .child(
+//           S.list()
+//             .title('Filters')
+//             .items([
+//               S.listItem()
+//                 .title('Myths & Curiosity Page')
+//                 // .child(),
+//               S.listItem()
+//                 .title('Homepage / Global')
+//                 // .child(),
+//             ])
+//         ),
+
+      
+      
+      
   // S.list()
   //   .title('Content')
   //   .items([

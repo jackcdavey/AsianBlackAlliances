@@ -28,12 +28,27 @@ import wave from '../public/wave.svg';
 import imageUrlBuilder from '@sanity/image-url'
 
 
+// var languageSelection = 'en';
+
+if (typeof window !== "undefined") {
+  localStorage.setItem("langChoice", 'en');
+  console.log("Set local language to english");
+}
+
+  var languageSelection = 'zh-tw';
+  if (typeof window !== "undefined") {
+    languageSelection = localStorage.getItem('langChoice');
+    console.log("Stored language is " + languageSelection);
+  }
+
 const BioCard  = dynamic(
   () => import("../public/components/cards/bioCard"),
   { ssr: false }
 )
 
 // const theme = useTheme();
+
+
 
 const client = createClient({
   projectId: 'hiagtp2f',
@@ -63,27 +78,27 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
       <Layout title={"Asian and Black Alliances"} description={""}>
         {/* style={{ backgroundImage: `url(${wave.src})` }} */}
         <div id='body' >
-          <div style={{marginBottom: '10vh'}}>
+          <div >
             <HomepageHeader />
             </div>
           {/* Create dedicated carousel container later */}
-          <div style={{ width: '100vw', overflow: 'hidden' }}>
+          <div style={{width: '100vw', overflow: 'hidden' }}>
             <Carousel className="carousel" animation='slide' sx={{ margin: '5%', overflow: 'hidden' }} autoPlay={false} navButtonsAlwaysVisible={true} >
             {homepageCarousel?.map((homepageCarousel) => (
-              <Paper sx={{ padding: '5%', paddingLeft: '2%', borderRadius: '25px', display: 'flex', alignItems: 'center', overflow: 'hidden', justifyContent: 'flex-start', marginLeft: '4rem', marginRight: '4rem' }}>
+              <Paper sx={{padding: '5%', paddingLeft: '2%', borderRadius: '25px', display: 'flex', alignItems: 'center', overflow: 'hidden', justifyContent: 'flex-start', marginLeft: '4rem', marginRight: '4rem' }}>
                 <div style={{width: "30%", maxHeight: '35vh'}}>
                   <img src={urlFor(homepageCarousel.image).url()} alt={homepageCarousel.name} style={{ maxWidth: '100%' }} />
                 </div>
                 <div style={{width: "70%", display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: '1rem'}}>
-            <h2 style={{ margin: "0"}}>{homepageCarousel?.title}</h2>
-                  <p style={{  margin: "0"}}>{homepageCarousel?.description}</p>
+            <h2 style={{margin: "0"}}>{homepageCarousel?.title}</h2>
+                  <p style={{margin: "0"}}>{homepageCarousel?.description}</p>
                   </div>
 
                 {homepageCarousel?.link &&
                   <Button
                     variant='contained'
                     target='_blank'
-                    style={{ marginTop: 'auto', marginBottom: 'auto', marginLeft: 'auto', textAlign: 'center' }}
+                    style={{marginTop: 'auto', marginBottom: 'auto', marginLeft: 'auto', textAlign: 'center'}}
                     href={homepageCarousel.link}>
                     {homepageCarousel.linkLabel}
                   </Button>
@@ -102,19 +117,18 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
             ))}
           </div>
           <Box id={'landingGrid'}>
-            {homepageTile?.map((homepageTile) => (
-              
+            {homepageTile?.map((homepageTile) =>
+              // homepageTile.language === languageSelection &&
+              (
             <Box className={'landingGridItem'} key={homepageTile._id}>
                 
               <a href={homepageTile?.link}>
                   <Paper elevation={10} className={'landingGridContent'}
-                    style={{ backgroundColor: homepageTile?.backgroundColor, color: homepageTile?.textColor, overflow: 'auto' }}>
-                    
+                    style={{ backgroundColor: homepageTile?.backgroundColor, color: homepageTile?.textColor, overflow: 'auto' }}>   
                     {/* If a random number between 1 and 10 is less than 5, display the image */}
                     {/* <Decor /> */}
-                    
                     <h2 style={{margin: 0}}>{homepageTile?.title}</h2>
-                    <p >{homepageTile?.description}</p>
+                    <p>{homepageTile?.description}</p>
                 </Paper>
               </a>
             </Box>
@@ -124,13 +138,14 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
             <h1 className="bioHeader" style={{margin: "3rem 0 0 0" }}>About The Team</h1>
           </div>
           <div className='bioSection'>
-            {bio.map((bio) => (
+            {bio.map((bio) =>
+            // bio.language == languageSelection &&
+            (
               <div className='bioCol' style={{width: '25%'}}>
               <BioCard key={bio._id} name={bio?.name} desc={bio?.body} image={urlFor(bio?.image)} link={bio?.link} />
               </div>
             ))}
           </div>
-
           <div style={{ marginBottom: '1vh', textAlign: 'center', paddingTop: '5%', paddingLeft: '5%', paddingRight: '5%' }}>
             {homepageDescription.map((desc) => (
               // If the description title is "Thanks", then display the body as a paragraph
@@ -138,24 +153,18 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
             ))}
           </div>
         </div>
-        <Footer id="homeFooter" link={
-          footerContent[0]?.link
-        } body={
-          footerContent[0]?.body
-        } />
+        <Footer id="homeFooter" link={footerContent[0]?.link} body={footerContent[0]?.body } />
       </Layout>
- 
-
     </>
   )
 }
 
-export async function getStaticProps() {
-  const homepageTile = await client.fetch(`*[_type == "homepageTile"]  | order(order asc)`)
-  const homepageDescription = await client.fetch(`*[_type == "homepageDescription"]  | order(order asc)`)
-  const bio = await client.fetch(`*[_type == "bio"]  | order(order asc)`)
-  const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
-  const homepageCarousel = await client.fetch(`*[_type == "homepageCarousel"]  | order(order asc)`)
+export async function getStaticProps(context) {
+  const homepageTile = await client.fetch(`*[_type == "homepageTile" && language == "en" ]  | order(order asc)`)
+  const homepageDescription = await client.fetch(`*[_type == "homepageDescription" && language == "en"]  | order(order asc)`)
+  const bio = await client.fetch(`*[_type == "bio" && language == "en"]  | order(order asc)`)
+  const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
+  const homepageCarousel = await client.fetch(`*[_type == "homepageCarousel" && language == "en"]  | order(order asc)`)
 
   return {
     props: {
@@ -165,7 +174,7 @@ export async function getStaticProps() {
       footerContent,
       homepageCarousel,
     },
-    revalidate: 10,
+    revalidate: 5,
   };
 }
 export default Home

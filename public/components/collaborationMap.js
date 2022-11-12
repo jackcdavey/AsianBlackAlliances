@@ -114,13 +114,15 @@ export default function CollaborationMap({ setTooltipContent }) {
                 </Geographies>
                 {/*  */}
                 {/* China */}
-            <Marker coordinates={[100, 30]}>
-                <a href="#asia">
-                    <circle id="asiaCircle" ref={wrapperRef} r={markerA} fill={colorA} opacity={0.5} 
-                        onClick={() => {
+            <Marker coordinates={[100, 30]}
+            onClick={() => {
                             setCurrentSelection('asia');
                             resetMarkers();
                         }}
+                        >
+                <a href="#asia">
+                    <circle id="asiaCircle" ref={wrapperRef} r={markerA} fill={colorA} opacity={0.5} 
+                        
                         onMouseEnter={() => {
                             setMarkerA(100);   
                             setColorA(COLORS.primary);

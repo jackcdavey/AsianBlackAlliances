@@ -11,10 +11,14 @@ export default {
       options: {
         list: [
               { title: 'English', value: 'en' },
-              { title: 'Mandarin', value: 'zh' },
-              { title: 'Vietnamese', value: 'vi' },
-              { title: 'Korean', value: 'ko' },
-            {title: 'French', value: 'fr'}
+              { title: 'Chinese (Simplified)', value: 'zh' },
+              { title: 'Chinese (Traditional)', value: 'zh-tw' },
+              { title: "Cantonese", value: "zh-cn" },
+              { title: "Korean", value: "ko" },
+              { title: "Japanese", value: "ja" },
+              { title: "Vietnamese", value: "vi" },
+              { title: "Tagalog", value: "tl" },
+              { title: "Khmmer", value: "km" },
           ]
       }
         },

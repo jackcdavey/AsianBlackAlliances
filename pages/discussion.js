@@ -104,9 +104,9 @@ const Discussion = ({footerContent, discussionPost, discussionQuestion}) => {
 
 
 export async function getStaticProps() {
-    const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
-    const discussionPost = await client.fetch(`*[_type == "discussionPost"]  | order(order asc)`)
-    const discussionQuestion = await client.fetch(`*[_type == "discussionQuestion"]  | order(order asc)`)
+    const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
+    const discussionPost = await client.fetch(`*[_type == "discussionPost" && language == "en"]  | order(order asc)`)
+    const discussionQuestion = await client.fetch(`*[_type == "discussionQuestion"&& language == "en"]  | order(order asc)`)
     return {
         props: {
             footerContent,

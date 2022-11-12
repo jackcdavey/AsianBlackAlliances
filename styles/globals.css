@@ -185,6 +185,8 @@
    justify-content: space-evenly;
    align-items: center;
    z-index: 20;
+   overflow: hidden;
+   max-width: 60vw;
  }
 
  .navLink {
@@ -321,7 +323,7 @@
    display: block;
  }
 
- @media screen and (max-width: 700px) {
+ @media screen and (max-width: 1000px) {
    .carousel {
      display: none !important;
    }
@@ -667,12 +669,14 @@
    transition: all 1.5s ease;
    /* max-height: 0vh; */
    /* margin: 5%; */
+   display: flex;
+   flex-direction: column;
    align-items: center;
    justify-items: center;
    scroll-margin-top: 10vh;
    position: relative;
    right: 100vw;
-   padding-left: 5%;
+   /* padding-left: 5%; */
  }
 
  .curiosityMapWrap:target {
@@ -754,7 +758,6 @@
    max-height: 350vh;
    transition: max-height 2s ease-in-out;
    box-shadow: 0px 0px 15px 0px rgb(229, 124, 27) !important;
-
  }
 
  .discussionCard {

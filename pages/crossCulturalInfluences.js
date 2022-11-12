@@ -37,10 +37,7 @@ const styles = {
     padding: '1rem',
     position: 'relative',
     zIndex: '1',
-do {
-	    // overflow: 'contain',
-	
-} while (condition);  },
+  },
 
 
   foodColumnBackground: {
@@ -359,7 +356,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
       <div style={{ gridColumn: "span 2", backgroundColor: 'lightblue', borderRadius: '25px'}}>
         <div style={styles.seasonQuad}>
           <div className='holidayTextL'>
-            <h1 style={{ alignSelf: 'flex-end' }}>Winter</h1>
+            <h1 style={{margin:0}}>Winter</h1>
                   {holiday.map((holiday) => (
               holiday.season === 'winter' ?
               <div style={{ paddingBottom: "10%", lineHeight: '1.3rem' }}>
@@ -376,14 +373,14 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
       <div style={{gridColumn: "span 2", backgroundColor: 'lightgreen', borderRadius: '25px' }}>
         <div style={styles.seasonQuad}>
           <div className='holidayTextR'>
-                  <h1>Spring</h1>
+                  <h1 style={{margin:0}}>Spring</h1>
                   {holiday.map((holiday) => (
               holiday.season === 'spring' ?
               <div style={{ paddingBottom: "10%", lineHeight: '1.3rem' }}>
                 <h3 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.title}</h3>
                 <h5 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.date}</h5>
                 <p style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.body}</p>
-                      </div>
+              </div>
               : null
             ))}
             </div>
@@ -392,7 +389,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
       <div style={{gridColumn: "span 2", backgroundColor: 'lightyellow', borderRadius: '25px' }}>
         <div style={styles.seasonQuad}>
           <div className='holidayTextL'>
-                  <h1>Summer</h1>
+                  <h1 style={{margin:0}}>Summer</h1>
                   {holiday.map((holiday) => (
               holiday.season === 'summer' ?
               <div style={{ paddingBottom: "10%", lineHeight: '1.3rem' }}>
@@ -408,7 +405,7 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
       <div style={{gridColumn: "span 2", backgroundColor: 'lightsalmon', borderRadius: '25px' }}>
         <div style={styles.seasonQuad}>
                     <div className='holidayTextR'>
-                  <h1>Fall</h1>
+                  <h1 style={{margin:0}}>Fall</h1>
                   {holiday.map((holiday) => (
               holiday.season === 'fall' ?
               <div style={{ paddingBottom: "10%", lineHeight: '1.3rem' }}>
@@ -441,11 +438,11 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
 
 
 export async function getStaticProps() {
-  const food = await client.fetch(`*[_type == "food"]  | order(order asc)`);
-  const chef = await client.fetch(`*[_type == "chef"]  | order(order asc)`);
-  const holiday = await client.fetch(`*[_type == "holiday"]  | order(order asc)`);
-  const fashion2 = await client.fetch(`*[_type == "fashion2"]  | order(order asc)`);
-  const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
+  const food = await client.fetch(`*[_type == "food" && language == "en"]  | order(order asc)`);
+  const chef = await client.fetch(`*[_type == "chef" && language == "en"]  | order(order asc)`);
+  const holiday = await client.fetch(`*[_type == "holiday" && language == "en"]  | order(order asc)`);
+  const fashion2 = await client.fetch(`*[_type == "fashion2" && language == "en"]  | order(order asc)`);
+  const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
   return {
     props: {
       food,

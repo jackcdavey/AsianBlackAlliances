@@ -231,10 +231,10 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
 }
 
 export async function getStaticProps() {
-  const timelinePoint = await client.fetch(`*[_type == "timelinePoint"] | order(order asc)`)
-  const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
-  const historyResources = await client.fetch(`*[_type == "historyResources"]  | order(order asc)`)
-  const collaborationTag = await client.fetch(`*[_type == "collaborationTag"]  | order(order asc)`)
+  const timelinePoint = await client.fetch(`*[_type == "timelinePoint" && language == "en"] | order(order asc)`)
+  const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
+  const historyResources = await client.fetch(`*[_type == "historyResources" && language == "en"]  | order(order asc)`)
+  const collaborationTag = await client.fetch(`*[_type == "collaborationTag" && language == "en"]  | order(order asc)`)
 
   return {
     props: {

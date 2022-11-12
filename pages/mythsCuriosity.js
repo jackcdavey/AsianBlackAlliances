@@ -78,7 +78,20 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
                     className='cultureDecor'
                   />
                   </div>
-              <h1>{mythCuriosityHeader[1]?.title}</h1>
+                {/* Display the first mythCuriosityHeader document with language == en */}
+                {/* {mythCuriosityHeader.map((item) => {
+                  if (item.title === 'en') {
+                    return (
+                      <div style={{maxWidth: '50%'}}>
+                      <h1 className='collapsed-title'>{item.title}</h1>
+                      <p className='collapsed-text'>{item.desc}</p>
+                      </div>
+                    )
+                  }
+                  // End after the first item
+                  return null;
+                })} */}
+                 <h1>{mythCuriosityHeader[1]?.title}</h1>
                 <div style={{maxWidth: '50%'}}>
                 <img
                   src='/media/CustomAssets/vineasset.png'
@@ -87,7 +100,6 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
                     height={80}
                     style={{ WebkitTransform: 'scaleX(-1)', paddingTop: '1rem' }}
                     className='cultureDecor'
-
                     />
                   </div>
 
@@ -177,7 +189,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
           
             {/* <RoadtripMap setTooltipContent={setTooltipContent}/> */}
             {/* <ReactTooltip effect='solid' >{tooltipContent}</ReactTooltip> */}
-            <div style={{ height: '500px', width: '90%', borderRadius: "25px", overflow: 'hidden', display:'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '5%', marginTop: '1rem', marginBottom: '1rem'}}>
+            <div style={{ height: '500px', width: '100%', borderRadius: "25px", overflow: 'hidden', display:'flex', flexDirection: 'column', justifyContent: 'center',  margin: '1rem', paddingLeft: '3rem', paddingRight: '3rem'}}>
               <NewMap xPoints={xPositions} yPoints={yPositions} titles={titles} bodies={body} links={link} colors={colors} cities={cities} allCities={allCities} key={new Date().getTime()}/>
             </div>
             <h3 style={{marginTop: 0, marginBottom: '2rem', marginLeft: '2rem', marginRight:'2rem', textAlign: "center"}}>Please click on a marker to view places to visit.</h3>
@@ -238,9 +250,9 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
 
 export async function getStaticProps() {
   const myth = await client.fetch(`*[_type == "myth" && language == "en"] | order(order asc)`);
-  const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
-  const mythCuriosityHeader = await client.fetch(`*[_type == "mythCuriosityHeader"]  | order(order asc)`)
-  const roadtripStop = await client.fetch(`*[_type == "roadtripStop"]  | order(order asc)`)
+  const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
+  const mythCuriosityHeader = await client.fetch(`*[_type == "mythCuriosityHeader" && language == "en"] | order(order asc)`)
+  const roadtripStop = await client.fetch(`*[_type == "roadtripStop" && language == "en"]  | order(order asc)`)
 
 
   return {
