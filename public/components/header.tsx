@@ -16,7 +16,7 @@ const styles = {
         left: 0,
         position: 'fixed',
         minWidth: '100vw',
-        // height: '10vh',
+        maxHeight: '7rem',
         /* background: lightgreen; */
         display: 'flex',
         // flexGrow: 1,
@@ -33,7 +33,7 @@ const styles = {
         left: 0,
         position: 'fixed',
         minWidth: '100vw',
-        minHeight: '10vh',
+        minHeight: '10rem',
         /* background: lightgreen; */
         display: 'flex',
         flexDirection: 'row',
@@ -74,7 +74,7 @@ export default function Header() {
 
     return (
         <Container style={styles.banner as React.CSSProperties} className='banner'>
-            <a href='/' style={{ backgroundColor: 'rgba(195, 224, 197, 100)' }}>
+            <a href='/' >
                 <div style={{
                     height: '100%',
                     // position: 'fixed',
