@@ -37,17 +37,8 @@ const client = createClient({
 
 
 export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeader, roadtripStop }) {
-  const titles = roadtripStop.map((stop) => stop.title);
-  const xPositions = roadtripStop.map((stop) => stop.xPos);
-  const yPositions = roadtripStop.map((stop) => stop.yPos);
-  const body = roadtripStop.map((stop) => stop.body);
-  const link = roadtripStop.map((stop) => stop.link);
-  const colors = roadtripStop.map((stop) => stop.color);
-  const allCities = roadtripStop.map((stop) => stop.city);
-  // Map all unique cities into an array
-  const cities = [...new Set(roadtripStop.map((stop) => stop.city))];
 
-  // Set "mythSectionHeader" to the first element in mythCuriosityHeader with section="mythSection" and language=lang
+
 
   const [lang, setLang] = useState('en');
 
@@ -70,6 +61,17 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
   }
 
   checkLang();
+
+
+  const titles = roadtripStop.map((stop) => stop.title);
+  const xPositions = roadtripStop.map((stop) => stop.xPos);
+  const yPositions = roadtripStop.map((stop) => stop.yPos);
+  const body = roadtripStop.map((stop) => stop.body);
+  const link = roadtripStop.map((stop) => stop.link);
+  const colors = roadtripStop.map((stop) => stop.color);
+  const allCities = roadtripStop.map((stop) => stop.city);
+  // Map all unique cities into an array
+  const cities = [...new Set(roadtripStop.map((stop) => stop.city))];
 
 
   
