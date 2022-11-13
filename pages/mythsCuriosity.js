@@ -81,6 +81,12 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
   const curiositySectionHeader = mythCuriosityHeader.find((header) => header.section === "curiositySection" && header.language === lang) ? mythCuriosityHeader.find((header) => header.section === "curiositySection" && header.language === lang).title : mythCuriosityHeader.find((header) => header.section === "curiositySection" && header.language === "en").title
   const curiositySectionDesc = mythCuriosityHeader.find((header) => header.section === "curiositySection" && header.language === lang) ? mythCuriosityHeader.find((header) => header.section === "curiositySection" && header.language === lang).desc : mythCuriosityHeader.find((header) => header.section === "curiositySection" && header.language === "en").desc
 
+ 
+// Add all myths with group == asian and language == lang to the asianMyths array. If there are no myths in the selected language, add the english version.
+  const asianMyths = myth.filter((myth) => myth.group === "asian" && myth.language === lang).length > 0 ? myth.filter((myth) => myth.group === "asian" && myth.language === lang) : myth.filter((myth) => myth.group === "asian" && myth.language === "en")
+
+  const blackMyths = myth.filter((myth) => myth.group === "black" && myth.language === lang).length > 0 ? myth.filter((myth) => myth.group === "black" && myth.language === lang) : myth.filter((myth) => myth.group === "black" && myth.language === "en")
+
 
   
   return (
@@ -174,36 +180,29 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
               <h2>Asian Myths</h2>
                 <div className='mythCollapsed'>
                   
-                  {myth.map((myth) => (
-                  myth.language === lang &&
-                myth.group === 'asian' ? (
+                  {asianMyths.map((myth) => (
                   <MythCard key={myth._id}
                     mythTitle={myth?.title}
                     mythDesc={myth?.body}
                     mythLink={myth?.link}
                     mythLinkLabel={myth?.linkLabel}
                     mythLinkNote={myth?.linkNote} />
-                ) 
-                : null
-                ))}
+                ) )}
                 </div>
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <h2>Black Myths</h2>
               <div className='mythCollapsed'>
-                  {myth.map((myth) => (
-                    myth.language === lang &&
-                    myth.group === 'black' ? (
+                  {blackMyths.map((myth) => (
+                 
                       <MythCard key={myth._id}
                     mythTitle={myth?.title}
                     mythDesc={myth?.body}
                     mythLink={myth?.link}
                     mythLinkLabel={myth?.linkLabel}
                     mythLinkNote={myth?.linkNote} />
-                ) 
-                : null
-                ))}
+                ) )}
                 </div>
                 </div>
             </div>

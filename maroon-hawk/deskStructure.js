@@ -5,7 +5,7 @@ import S from '@sanity/desk-tool/structure-builder'
 //   .title('Content')
 //     .items(
 //       S.documentTypeListItems()
-//     )
+//     
 
 
 export default () =>
