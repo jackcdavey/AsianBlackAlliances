@@ -80,11 +80,12 @@ const [lang, setLang] = useState('en');
 
   checkLang();
 
-  const bioL = bio.map((bio) => bio.language === lang).length > 0 ? bio.filter((bio) => bio.language === lang) : bio.filter((bio) => bio.language === 'en');
-  
-  console.log("bios: " + bioL);
+  // If bios are available in the language selected, display them, otherwise display the English bios
+  var bioL = bio.filter((bio) => bio.language == lang).length > 0 ? bio.filter((bio) => bio.language == lang) : bio.filter((bio) => bio.language == 'en');
 
-  //   const titlesL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.title) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.title);
+  const homepageTileL = homepageTile.filter((homepageTile) => homepageTile.language == lang).length > 0 ? homepageTile.filter((homepageTile) => homepageTile.language == lang) : homepageTile.filter((homepageTile) => homepageTile.language == 'en');
+
+
 
   return (
     <>
@@ -174,7 +175,7 @@ const [lang, setLang] = useState('en');
             ))}
           </div>
           <Box id={'landingGrid'}>
-            {homepageTile?.map((homepageTile) => (
+            {homepageTileL.map((homepageTile) => (
             <Box className={'landingGridItem'} key={homepageTile._id}>
                 
               <a href={homepageTile?.link}>
