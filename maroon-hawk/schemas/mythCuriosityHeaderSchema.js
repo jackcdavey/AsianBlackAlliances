@@ -28,6 +28,17 @@ export default {
             title: 'Title',
         },
         {
+            name: 'section',
+            type: 'string',
+            title: 'Section',
+            options: {
+                list: [
+                    { title: 'Myth Section', value: 'mythSection' },
+                    { title: 'Curiosity Section', value: 'curiositySection' },
+                ]
+            },
+        },
+        {
             name: 'desc',
             type: 'text',
             title: 'Description',

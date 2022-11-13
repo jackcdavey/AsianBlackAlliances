@@ -21,12 +21,8 @@ export default () =>
             .items([
               S.listItem()
                 .title('Homepage Tile')
-                .child(language =>
+                .child(
                   S.documentTypeList('homepageTile')
-                    .title('Homepage Tile')
-                    .filter('language == en')
-                    .params({language})
-                  
               ),
               S.listItem()
                 .title('Homepage Intro & Thanks')

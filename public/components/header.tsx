@@ -142,7 +142,7 @@ export default function Header() {
 
                 </div>
             </div>
-            <div id='langSelect' >
+            {/* <div id='langSelect' >
                 <Box sx={{ wdth: 120 }}>
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label" >
@@ -169,6 +169,13 @@ export default function Header() {
                         </Select>
                     </FormControl>
                 </Box>
+            </div> */}
+            <div style={{
+                minWidth: '13rem',
+                minHeight: '100%',
+                // backgroundColor: 'red'
+            }}>
+
             </div>
 
 

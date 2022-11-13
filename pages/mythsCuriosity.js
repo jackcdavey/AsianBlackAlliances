@@ -11,7 +11,8 @@ import MythCard from '../public/components/cards/mythCard.js';
 
 import Layout from '../public/components/layout';
 
-import { Button, Paper } from '@mui/material';
+import { Button, Paper, Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+
 
 import dynamic from 'next/dynamic';
 
@@ -33,6 +34,8 @@ const client = createClient({
 });
 
 
+
+
 export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeader, roadtripStop }) {
   const titles = roadtripStop.map((stop) => stop.title);
   const xPositions = roadtripStop.map((stop) => stop.xPos);
@@ -43,6 +46,40 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
   const allCities = roadtripStop.map((stop) => stop.city);
   // Map all unique cities into an array
   const cities = [...new Set(roadtripStop.map((stop) => stop.city))];
+
+  // Set "mythSectionHeader" to the first element in mythCuriosityHeader with section="mythSection" and language=lang
+
+  const [lang, setLang] = useState('en');
+
+
+  const handleChange = (event) => {
+        setLang(event.target.value);
+        if (typeof window !== "undefined") {
+            localStorage.setItem("langChoice", event.target.value);
+            console.log("Set local language to: " + event.target.value);
+        }
+  };
+  
+  const checkLang = () => {
+    if (typeof window !== "undefined") {
+      var languageSelection = localStorage.getItem('langChoice');
+      if(languageSelection != lang)
+        setLang(languageSelection);
+      console.log("Stored language is " + languageSelection);
+    }
+  }
+
+  checkLang();
+
+
+  
+  // const mythSectionHeader = mythCuriosityHeader.find((header) => header.section === "mythSection" && header.language === lang).title
+  // If the mythSectionHeader is available in the selected language, use it. Otherwise, use the english version.
+  const mythSectionHeader = mythCuriosityHeader.find((header) => header.section === "mythSection" && header.language === lang) ? mythCuriosityHeader.find((header) => header.section === "mythSection" && header.language === lang).title : mythCuriosityHeader.find((header) => header.section === "mythSection" && header.language === "en").title
+  const mythSectionDesc = mythCuriosityHeader.find((header) => header.section === "mythSection" && header.language === lang) ? mythCuriosityHeader.find((header) => header.section === "mythSection" && header.language === lang).desc : mythCuriosityHeader.find((header) => header.section === "mythSection" && header.language === "en").desc
+
+  const curiositySectionHeader = mythCuriosityHeader.find((header) => header.section === "curiositySection" && header.language === lang) ? mythCuriosityHeader.find((header) => header.section === "curiositySection" && header.language === lang).title : mythCuriosityHeader.find((header) => header.section === "curiositySection" && header.language === "en").title
+  const curiositySectionDesc = mythCuriosityHeader.find((header) => header.section === "curiositySection" && header.language === lang) ? mythCuriosityHeader.find((header) => header.section === "curiositySection" && header.language === lang).desc : mythCuriosityHeader.find((header) => header.section === "curiositySection" && header.language === "en").desc
 
 
   
@@ -59,6 +96,41 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
       </Head>
 
       <Header />
+
+      <div style={{
+        position: 'fixed',
+        right: '0',
+        zIndex: '100',
+        marginTop: '2rem',
+        marginRight: '1.5rem',
+      }}>
+                <Box sx={{ wdth: 120 }}>
+                    <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label" >
+                            {lang}
+                        </InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={lang}
+                            label="Language"
+                            onChange={handleChange}
+                        >
+                            <MenuItem value={'en'}>English</MenuItem>
+                            <MenuItem value={'zh'}>Chinese - Simplified</MenuItem>
+                            <MenuItem value={'zh-tw'}>Chinese - Traditional</MenuItem>
+                            <MenuItem value={'zh-cn'}>Cantonese</MenuItem>
+                            <MenuItem value={'ko'}>Korean</MenuItem>
+                            <MenuItem value={'ja'}>Japanse</MenuItem>
+                            <MenuItem value={'vi'}>Vietnamese</MenuItem>
+                            <MenuItem value={'tl'}>Tagalog</MenuItem>
+                            <MenuItem value={'km'}>Khmer</MenuItem>
+
+
+                        </Select>
+                    </FormControl>
+                </Box>
+            </div>
       <Layout title='ABA: Myths and Curiosity' description=' '>
         <div id='body'>
 
@@ -78,20 +150,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
                     className='cultureDecor'
                   />
                   </div>
-                {/* Display the first mythCuriosityHeader document with language == en */}
-                {/* {mythCuriosityHeader.map((item) => {
-                  if (item.title === 'en') {
-                    return (
-                      <div style={{maxWidth: '50%'}}>
-                      <h1 className='collapsed-title'>{item.title}</h1>
-                      <p className='collapsed-text'>{item.desc}</p>
-                      </div>
-                    )
-                  }
-                  // End after the first item
-                  return null;
-                })} */}
-                 <h1>{mythCuriosityHeader[1]?.title}</h1>
+                <h1>{mythSectionHeader}</h1>
                 <div style={{maxWidth: '50%'}}>
                 <img
                   src='/media/CustomAssets/vineasset.png'
@@ -104,7 +163,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
                   </div>
 
               </div>
-              <h2>{mythCuriosityHeader[1]?.desc}</h2>
+              <h2>{mythSectionDesc}</h2>
             </a>
           </Paper>
           <div className='collapsed-content' id='myths'>
@@ -115,7 +174,8 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
               <h2>Asian Myths</h2>
                 <div className='mythCollapsed'>
                   
-                {myth.map((myth) => (
+                  {myth.map((myth) => (
+                  myth.language === lang &&
                 myth.group === 'asian' ? (
                   <MythCard key={myth._id}
                     mythTitle={myth?.title}
@@ -133,6 +193,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
               <h2>Black Myths</h2>
               <div className='mythCollapsed'>
                   {myth.map((myth) => (
+                    myth.language === lang &&
                     myth.group === 'black' ? (
                       <MythCard key={myth._id}
                     mythTitle={myth?.title}
@@ -160,7 +221,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
                     className='cultureDecor'
                   />
                   </div>
-                <h1>{mythCuriosityHeader[0]?.title}</h1>
+                <h1>{curiositySectionHeader}</h1>
                 <div style={{maxWidth: '50%'}}>
                 <img
                   src='/media/CustomAssets/vineasset.png'
@@ -174,7 +235,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
                   </div>
 
               </div>
-              <h2>{mythCuriosityHeader[0]?.desc}</h2>
+              <h2>{curiositySectionDesc}</h2>
             </a>
           </Paper>
           {/* className= 'collapsed-content' */}
@@ -249,9 +310,9 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
 
 
 export async function getStaticProps() {
-  const myth = await client.fetch(`*[_type == "myth" && language == "en"] | order(order asc)`);
+  const myth = await client.fetch(`*[_type == "myth"] | order(order asc)`);
   const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
-  const mythCuriosityHeader = await client.fetch(`*[_type == "mythCuriosityHeader" && language == "en"] | order(order asc)`)
+  const mythCuriosityHeader = await client.fetch(`*[_type == "mythCuriosityHeader"] | order(order asc)`)
   const roadtripStop = await client.fetch(`*[_type == "roadtripStop" && language == "en"]  | order(order asc)`)
 
 
