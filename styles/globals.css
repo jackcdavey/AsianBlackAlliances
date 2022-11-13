@@ -98,6 +98,7 @@
    padding-top: 5vw;
    justify-content: center;
    align-items: center;
+   justify-items: center;
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    column-gap: 0;
@@ -123,7 +124,6 @@
    border-radius: 25px;
    z-index: 1;
    /* overflow: auto; */
-   margin-left: 20%;
  }
 
  .cardDecor {
@@ -329,7 +329,7 @@
    display: block;
  }
 
- @media screen and (max-width: 1000px) {
+ @media screen and (max-width: 768px) {
    .carousel {
      display: none !important;
    }
