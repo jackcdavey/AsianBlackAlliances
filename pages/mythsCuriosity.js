@@ -316,7 +316,9 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
       <Footer link={
           footerContent[0]?.link
         } body={
-          footerContent[0]?.body
+          // If the footer body is available in the selected language, use it. Otherwise, use the English version
+          footerContent.filter((content) => content.language === lang)[0]?.body || footerContent[0]?.body
+          
         } />
     </>
   )
@@ -325,7 +327,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
 
 export async function getStaticProps() {
   const myth = await client.fetch(`*[_type == "myth"] | order(order asc)`);
-  const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
+  const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
   const mythCuriosityHeader = await client.fetch(`*[_type == "mythCuriosityHeader"] | order(order asc)`)
   const roadtripStop = await client.fetch(`*[_type == "roadtripStop"]  | order(order asc)`)
 
