@@ -2,11 +2,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
 
+import { useState } from 'react';
+
 import { createClient } from 'next-sanity'
 
 import Link from 'next/link'
 // import { useTheme } from '@mui/material/styles';
-import { Container, Grid, Paper, Box, Button } from '@mui/material';
+import { Container, Grid, Paper, Box, Button, FormControl, InputLabel, MenuItem, Select  } from '@mui/material';
 import {HomepageHeader} from '../public/components/header';
 import Footer from '../public/components/footer.js';
 import Layout from '../public/components/layout';
@@ -30,16 +32,6 @@ import imageUrlBuilder from '@sanity/image-url'
 
 // var languageSelection = 'en';
 
-if (typeof window !== "undefined") {
-  localStorage.setItem("langChoice", 'en');
-  console.log("Set local language to english");
-}
-
-  var languageSelection = 'zh-tw';
-  if (typeof window !== "undefined") {
-    languageSelection = localStorage.getItem('langChoice');
-    console.log("Stored language is " + languageSelection);
-  }
 
 const BioCard  = dynamic(
   () => import("../public/components/cards/bioCard"),
@@ -64,6 +56,36 @@ function urlFor(source) {
 
 function Home({ homepageTile, homepageDescription, bio, footerContent, homepageCarousel }) {
   var cardColor = '';
+
+
+const [lang, setLang] = useState('en');
+
+
+  const handleChange = (event) => {
+        setLang(event.target.value);
+        if (typeof window !== "undefined") {
+            localStorage.setItem("langChoice", event.target.value);
+            console.log("Set local language to: " + event.target.value);
+        }
+  };
+  
+  const checkLang = () => {
+    if (typeof window !== "undefined") {
+      var languageSelection = localStorage.getItem('langChoice');
+      if(languageSelection != lang)
+        setLang(languageSelection);
+      console.log("Stored language is " + languageSelection);
+    }
+  }
+
+  checkLang();
+
+  const bioL = bio.map((bio) => bio.language === lang).length > 0 ? bio.filter((bio) => bio.language === lang) : bio.filter((bio) => bio.language === 'en');
+  
+  console.log("bios: " + bioL);
+
+  //   const titlesL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.title) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.title);
+
   return (
     <>
       <Head>
@@ -77,10 +99,45 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
 
       <Layout title={"Asian and Black Alliances"} description={""}>
         {/* style={{ backgroundImage: `url(${wave.src})` }} */}
-        <div id='body' >
+        <div style={{
+        position: 'fixed',
+        right: '0',
+        zIndex: '100',
+        marginTop: '3.2rem',
+        marginRight: '1.5rem',
+      }}>
+                <Box sx={{ wdth: 120 }}>
+                    <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label" >
+                            {lang}
+                        </InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={lang}
+                            label="Language"
+                            onChange={handleChange}
+                        >
+                            <MenuItem value={'en'}>English</MenuItem>
+                            <MenuItem value={'zh'}>Chinese - Simplified</MenuItem>
+                            <MenuItem value={'zh-tw'}>Chinese - Traditional</MenuItem>
+                            <MenuItem value={'zh-cn'}>Cantonese</MenuItem>
+                            <MenuItem value={'ko'}>Korean</MenuItem>
+                            <MenuItem value={'ja'}>Japanse</MenuItem>
+                            <MenuItem value={'vi'}>Vietnamese</MenuItem>
+                            <MenuItem value={'tl'}>Tagalog</MenuItem>
+                            <MenuItem value={'km'}>Khmer</MenuItem>
+
+
+                        </Select>
+                    </FormControl>
+                </Box>
+            </div>
+        <div style={{ paddingTop: '5rem', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <div >
             <HomepageHeader />
-            </div>
+          </div>
+          
           {/* Create dedicated carousel container later */}
           <div style={{width: '100vw', overflow: 'hidden', paddingTop: '3rem' }}>
             <Carousel className="carousel" animation='slide' sx={{ margin: '5%', overflow: 'hidden' }} autoPlay={false} navButtonsAlwaysVisible={true} >
@@ -117,9 +174,7 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
             ))}
           </div>
           <Box id={'landingGrid'}>
-            {homepageTile?.map((homepageTile) =>
-              // homepageTile.language === languageSelection &&
-              (
+            {homepageTile?.map((homepageTile) => (
             <Box className={'landingGridItem'} key={homepageTile._id}>
                 
               <a href={homepageTile?.link}>
@@ -138,9 +193,7 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
             <h1 className="bioHeader" style={{margin: "3rem 0 0 0" }}>About The Team</h1>
           </div>
           <div className='bioSection'>
-            {bio.map((bio) =>
-            // bio.language == languageSelection &&
-            (
+            {bioL.map((bio) =>(
               <div className='bioCol' style={{width: '25%'}}>
               <BioCard key={bio._id} name={bio?.name} desc={bio?.body} image={urlFor(bio?.image)} link={bio?.link} />
               </div>
@@ -160,9 +213,9 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
 }
 
 export async function getStaticProps(context) {
-  const homepageTile = await client.fetch(`*[_type == "homepageTile" && language == "en" ]  | order(order asc)`)
+  const homepageTile = await client.fetch(`*[_type == "homepageTile" ]  | order(order asc)`)
   const homepageDescription = await client.fetch(`*[_type == "homepageDescription" && language == "en"]  | order(order asc)`)
-  const bio = await client.fetch(`*[_type == "bio" && language == "en"]  | order(order asc)`)
+  const bio = await client.fetch(`*[_type == "bio"]  | order(order asc)`)
   const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
   const homepageCarousel = await client.fetch(`*[_type == "homepageCarousel" && language == "en"]  | order(order asc)`)
 
