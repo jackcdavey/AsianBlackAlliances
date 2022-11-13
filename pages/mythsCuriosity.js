@@ -63,15 +63,27 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
   checkLang();
 
 
-  const titles = roadtripStop.map((stop) => stop.title);
-  const xPositions = roadtripStop.map((stop) => stop.xPos);
-  const yPositions = roadtripStop.map((stop) => stop.yPos);
-  const body = roadtripStop.map((stop) => stop.body);
-  const link = roadtripStop.map((stop) => stop.link);
-  const colors = roadtripStop.map((stop) => stop.color);
-  const allCities = roadtripStop.map((stop) => stop.city);
+  // const titles = roadtripStop.map((stop) => stop.title);
+  // Add all titles of with language == lang to the titles array. If there are no titles in the language, add the english version
+  const titlesL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.title) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.title);
+
+  const xPositionsL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.xPos) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.xPos);
+  const yPositionsL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.yPos) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.yPos);
+  const bodyL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.body) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.body);
+  const linkL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.link) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.link);
+  const colorsL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.color) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.color);
+  const allCitiesL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.city) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.city);
   // Map all unique cities into an array
-  const cities = [...new Set(roadtripStop.map((stop) => stop.city))];
+  const citiesL = [...new Set(allCitiesL)];
+
+  console.log("xPositionsL: " + xPositionsL);
+  console.log("yPositionsL: " + yPositionsL);
+  console.log("bodyL: " + bodyL);
+  console.log("linkL: " + linkL);
+  console.log("colorsL: " + colorsL);
+  console.log("allCitiesL: " + allCitiesL);
+  console.log("citiesL: " + citiesL);
+  
 
 
   
@@ -89,6 +101,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
 
   const blackMyths = myth.filter((myth) => myth.group === "black" && myth.language === lang).length > 0 ? myth.filter((myth) => myth.group === "black" && myth.language === lang) : myth.filter((myth) => myth.group === "black" && myth.language === "en")
 
+  
 
   
   return (
@@ -252,7 +265,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
             {/* <RoadtripMap setTooltipContent={setTooltipContent}/> */}
             {/* <ReactTooltip effect='solid' >{tooltipContent}</ReactTooltip> */}
             <div style={{ height: '500px', width: '100%', borderRadius: "25px", overflow: 'hidden', display:'flex', flexDirection: 'column', justifyContent: 'center',  margin: '1rem', paddingLeft: '3rem', paddingRight: '3rem'}}>
-              <NewMap xPoints={xPositions} yPoints={yPositions} titles={titles} bodies={body} links={link} colors={colors} cities={cities} allCities={allCities} key={new Date().getTime()}/>
+              <NewMap xPoints={xPositionsL} yPoints={yPositionsL} titles={titlesL} bodies={bodyL} links={linkL} colors={colorsL} cities={citiesL} allCities={allCitiesL} key={new Date().getTime()}/>
             </div>
             <h3 style={{marginTop: 0, marginBottom: '2rem', marginLeft: '2rem', marginRight:'2rem', textAlign: "center"}}>Please click on a marker to view places to visit.</h3>
 
@@ -314,7 +327,7 @@ export async function getStaticProps() {
   const myth = await client.fetch(`*[_type == "myth"] | order(order asc)`);
   const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
   const mythCuriosityHeader = await client.fetch(`*[_type == "mythCuriosityHeader"] | order(order asc)`)
-  const roadtripStop = await client.fetch(`*[_type == "roadtripStop" && language == "en"]  | order(order asc)`)
+  const roadtripStop = await client.fetch(`*[_type == "roadtripStop"]  | order(order asc)`)
 
 
   return {
