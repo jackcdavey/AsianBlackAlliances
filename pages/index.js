@@ -86,6 +86,11 @@ const [lang, setLang] = useState('en');
   const homepageTileL = homepageTile.filter((homepageTile) => homepageTile.language == lang).length > 0 ? homepageTile.filter((homepageTile) => homepageTile.language == lang) : homepageTile.filter((homepageTile) => homepageTile.language == 'en');
 
 
+  
+  const homepageThanksL = homepageDescription.filter((homepageDescription) => homepageDescription.title == 'Thanks' && homepageDescription.language == lang).length > 0 ? homepageDescription.filter((homepageDescription) => homepageDescription.title == 'Thanks' && homepageDescription.language == lang)[0].body : homepageDescription.filter((homepageDescription) => homepageDescription.title == 'Thanks' && homepageDescription.language == 'en')[0].body
+
+  const homepageDescriptionL = homepageDescription.filter((homepageDescription) => homepageDescription.title == 'Intro' && homepageDescription.language == lang).length > 0 ? homepageDescription.filter((homepageDescription) => homepageDescription.title == 'Intro' && homepageDescription.language == lang)[0].body : homepageDescription.filter((homepageDescription) => homepageDescription.title == 'Intro' && homepageDescription.language == 'en')[0].body
+
 
   return (
     <>
@@ -169,10 +174,7 @@ const [lang, setLang] = useState('en');
         </Carousel>
           </div>
           <div style={{ marginBottom: '1vh', textAlign: 'center', paddingLeft: '5%', paddingRight: '5%' }}>
-            {homepageDescription.map((desc) => (
-              // If the description title is "Intro", then display the body as a paragraph
-              desc.title === "Intro" ? <p>{desc.body}</p> : null
-            ))}
+            {homepageDescriptionL}
           </div>
           <Box id={'landingGrid'}>
             {homepageTileL.map((homepageTile) => (
@@ -201,10 +203,7 @@ const [lang, setLang] = useState('en');
             ))}
           </div>
           <div style={{ marginBottom: '1vh', textAlign: 'center', paddingTop: '5%', paddingLeft: '5%', paddingRight: '5%' }}>
-            {homepageDescription.map((desc) => (
-              // If the description title is "Thanks", then display the body as a paragraph
-              desc.title === "Thanks" ? <p>{desc.body}</p> : null
-            ))}
+            {homepageThanksL}
           </div>
         </div>
         <Footer id="homeFooter" link={footerContent[0]?.link} body={footerContent[0]?.body } />
@@ -215,7 +214,7 @@ const [lang, setLang] = useState('en');
 
 export async function getStaticProps(context) {
   const homepageTile = await client.fetch(`*[_type == "homepageTile" ]  | order(order asc)`)
-  const homepageDescription = await client.fetch(`*[_type == "homepageDescription" && language == "en"]  | order(order asc)`)
+  const homepageDescription = await client.fetch(`*[_type == "homepageDescription"]  | order(order asc)`)
   const bio = await client.fetch(`*[_type == "bio"]  | order(order asc)`)
   const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
   const homepageCarousel = await client.fetch(`*[_type == "homepageCarousel" && language == "en"]  | order(order asc)`)
