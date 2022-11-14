@@ -78,28 +78,18 @@ export default function Header({ titles, links }: HeaderProps) {
         }
     };
 
-    // console.log("Navbar Item: " + navbarItem);
 
     return (
         <Container style={styles.banner as React.CSSProperties} className='banner'>
             <a href='/' >
                 <div style={{
                     height: '100%',
-                    // position: 'fixed',
-                    // justifySelf: 'flex-start',
                     display: 'flex',
                     flexDirection: 'column',
                     verticalAlign: 'bottom',
                     alignItems: 'center',
-                    // backgroundColor: 'rgba(195, 224, 197, 100)',
                 }}>
-                    {/* <Image
-                    src="/media/CustomAssets/ABAlogo.png"
-                    layout='fill'
-                    objectFit='contain'
-                    alt="ABA Logo"
-                    objectPosition='left'
-                /> */}
+
                     <img
                         src="/media/CustomAssets/ABAlogo.png"
                         alt="ABA Logo"
@@ -112,9 +102,7 @@ export default function Header({ titles, links }: HeaderProps) {
                 flexDirection: 'column',
             }}>
                 <div style={{ maxWidth: '100%', display: 'flex', flexDirection: "row", alignItems: 'center', justifyContent: "center", alignSelf: 'center' }}>
-                    {/* <div>
-                    <MobileNavMenu />
-                </div> */}
+
                     <div className='navBar' >
                         {titles && links && titles.map((title, index) => (
                             <Link href={links[index]} key={index}>
@@ -123,69 +111,51 @@ export default function Header({ titles, links }: HeaderProps) {
                                 </div>
                             </Link>
                         ))}
-
-                        {/* <Link href='/historyOfCollaboration'>
-                            <div className='navLink'>
-                                <a>Contact & Collaboration</a>
-                            </div>
-                        </Link>
-                        <Link href='/crossCulturalInfluences'>
-                            <div className='navLink'>
-                                <a> Cross Cultural Influences</a>
-                            </div>
-                        </Link>
-                        <Link href={'/mythsCuriosity'}>
-                            <div className='navLink'>
-                                <a>Myths & Curiosity</a>
-                            </div>
-                        </Link>
-                        <Link href='/ourVoices'>
-                            <div className='navLink'>
-                                <a>Our Voices</a>
-                            </div>
-                        </Link>
-                        <Link href='/localResources'>
-                            <div className='navLink'>
-                                <a>Local Resources</a>
-                            </div>
-                        </Link>
-                        <Link href='/discussion'>
-                            <div className='navLink'>
-                                <a>Contact Us!</a>
-                            </div>
-                        </Link> */}
                     </div>
+
+                    <input id="menu-toggle" type="checkbox" />
+                    <label className='menu-button-container' htmlFor="menu-toggle">
+                        <div className='menu-button'></div>
+                    </label>
+                    <ul className="menu">
+                        {titles && links && titles.map((title, index) => (
+                            <li key={index}>
+                                <Link href={links[index]}>
+                                    <a>{title}</a>
+                                </Link>
+                            </li>
+                        ))}
+
+                    </ul>
+
+                    {/* <div id='mobileNavigatorClosed' style={{ display: 'none' }}> </div>
+                    <div id='mobileNavigator' className='mobileNavigator'>
+                        {titles && links && titles.map((title, index) => (
+                            <Link href={links[index]} key={index}>
+                                <div className='navLink'>
+                                    <a>{title}</a>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                    <a href='#mobileNavigatorClosed' className='mobileNavClose'>
+                        close
+                    </a>
+                    <a href='#mobileNavigator' className='mobileNavOpen'>
+                        open
+                    </a> */}
+
+
+
+
+
+
+                    {/* <div style={{ width: '5rem', height: '5rem', backgroundColor: 'red' }}>
+                    </div> */}
 
                 </div>
             </div>
-            {/* <div id='langSelect' >
-                <Box sx={{ wdth: 120 }}>
-                    <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label" >
-                            {lang}
-                        </InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={lang}
-                            label="Language"
-                            onChange={handleChange}
-                        >
-                            <MenuItem value={'en'}>English</MenuItem>
-                            <MenuItem value={'zh'}>Chinese - Simplified</MenuItem>
-                            <MenuItem value={'zh-tw'}>Chinese - Traditional</MenuItem>
-                            <MenuItem value={'zh-cn'}>Cantonese</MenuItem>
-                            <MenuItem value={'ko'}>Korean</MenuItem>
-                            <MenuItem value={'ja'}>Japanse</MenuItem>
-                            <MenuItem value={'vi'}>Vietnamese</MenuItem>
-                            <MenuItem value={'tl'}>Tagalog</MenuItem>
-                            <MenuItem value={'km'}>Khmer</MenuItem>
 
-
-                        </Select>
-                    </FormControl>
-                </Box>
-            </div> */}
             <div style={{
                 minWidth: '13rem',
                 minHeight: '100%',
@@ -194,26 +164,6 @@ export default function Header({ titles, links }: HeaderProps) {
 
             </div>
 
-
-            {/* <div style={{ display: 'flex', paddingLeft: '20%' }}>
-
-                <a href='/historyOfCollaboration'>
-                    <div style={{ paddingRight: '1.5rem' }}>
-                        <h2>History</h2>
-                    </div>
-                </a>
-
-                <div style={{ paddingRight: '1.5rem' }}>
-                    <Link href='/crossCulturalInfluences'>
-                        <h2>Culture</h2>
-                    </Link>
-                </div>
-                <div style={{ paddingRight: '1.5rem' }}>
-                    <Link href='/mythsCuriosity'>
-                        <h2>Myths</h2>
-                    </Link>
-                </div>
-            </div> */}
 
         </Container>
     )
@@ -271,60 +221,8 @@ export const HomepageHeader = () => {
                         objectPosition: 'center',
                     }}
                 />
-                <div id='langSelect' >
-                    {/* <Box sx={{ wdth: 120 }}>
-                        <FormControl fullWidth>
-                            <InputLabel id="demo-simple-select-label" >
-                                {lang}
-                            </InputLabel>
-                            <Select
-                                labelId="demo-simple-select-label"
-                                id="demo-simple-select"
-                                value={lang}
-                                label="Language"
-                                onChange={handleChange}
-                            >
-                                <MenuItem value={'en'}>English</MenuItem>
-                                <MenuItem value={'zh'}>Chinese - Simplified</MenuItem>
-                                <MenuItem value={'zh-tw'}>Chinese - Traditional</MenuItem>
-                                <MenuItem value={'zh-cn'}>Cantonese</MenuItem>
-                                <MenuItem value={'ko'}>Korean</MenuItem>
-                                <MenuItem value={'ja'}>Japanse</MenuItem>
-                                <MenuItem value={'vi'}>Vietnamese</MenuItem>
-                                <MenuItem value={'tl'}>Tagalog</MenuItem>
-                                <MenuItem value={'km'}>Khmer</MenuItem>
-
-
-                            </Select>
-                        </FormControl>
-                    </Box> */}
-                </div>
-                {/* </a> */}
 
             </Container>
-            {/* <Box sx={{ maxWidth: 120, flex: 1, marginLeft: 'auto' }}>
-                <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Language</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={lang}
-                        label="Language"
-                        onChange={handleChange}
-                        defaultValue='en'
-                    >
-                        <MenuItem value={'en'}>English</MenuItem>
-                        <MenuItem value={'zh'}>Mandarin</MenuItem>
-                        <MenuItem value={'vi'}>Vietnamese</MenuItem>
-                        <MenuItem value={'ko'}>Korean</MenuItem>
-
-                    </Select>
-                </FormControl>
-            </Box> */}
-
-
-
-
         </Container >
     )
 }

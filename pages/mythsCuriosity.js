@@ -105,12 +105,6 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
   const navbarItemTitles = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.title) : navbarItem.filter((item) => item.language === "en").map((item) => item.title)
 
   const navbarItemLinks = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.link) : navbarItem.filter((item) => item.language === "en").map((item) => item.link)
-
-  console.log("navbarItems: " + navbarItemTitles);
-  console.log("navbarLinks: " + navbarItemLinks);
-
-  
-
   
   return (
     <>
