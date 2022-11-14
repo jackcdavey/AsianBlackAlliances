@@ -93,6 +93,8 @@ const [lang, setLang] = useState('en');
 
   const homepageCarouselL = homepageCarousel.filter((homepageCarousel) => homepageCarousel.language == lang).length > 0 ? homepageCarousel.filter((homepageCarousel) => homepageCarousel.language == lang) : homepageCarousel.filter((homepageCarousel) => homepageCarousel.language == 'en');
 
+  const footerContentL = footerContent.filter((footerContent) => footerContent.language == lang).length > 0 ? footerContent.filter((footerContent) => footerContent.language == lang) : footerContent.filter((footerContent) => footerContent.language == 'en');
+
   console.log("carousel" + homepageCarouselL);
 
 
@@ -210,7 +212,7 @@ const [lang, setLang] = useState('en');
             {homepageThanksL}
           </div>
         </div>
-        <Footer id="homeFooter" link={footerContent[0]?.link} body={footerContent[0]?.body } />
+        <Footer id="homeFooter" link={footerContentL[0]?.link} body={footerContentL[0]?.body } />
       </Layout>
     </>
   )
@@ -220,7 +222,7 @@ export async function getStaticProps(context) {
   const homepageTile = await client.fetch(`*[_type == "homepageTile" ]  | order(order asc)`)
   const homepageDescription = await client.fetch(`*[_type == "homepageDescription"]  | order(order asc)`)
   const bio = await client.fetch(`*[_type == "bio"]  | order(order asc)`)
-  const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
+  const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
   const homepageCarousel = await client.fetch(`*[_type == "homepageCarousel"]  | order(order asc)`)
 
   return {
