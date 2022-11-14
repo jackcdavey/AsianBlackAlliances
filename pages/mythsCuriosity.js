@@ -128,7 +128,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
         marginTop: '2rem',
         marginRight: '1.5rem',
       }}>
-                <Box sx={{ wdth: 120 }}>
+                <Box sx={{ width: 100 }}>
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label" >
                             {lang}
