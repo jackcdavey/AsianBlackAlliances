@@ -95,19 +95,32 @@
  /* Home */
  #landingGrid {
    width: 80vw;
+   max-width: 50rem;
    padding-top: 5vw;
    justify-content: center;
    align-items: center;
    justify-items: center;
    display: grid;
    grid-template-columns: repeat(4, 1fr);
-   column-gap: 0;
-   row-gap: 1%;
+   column-gap: 7rem;
+   row-gap: 5rem;
+ }
+
+
+ .homeBody {
+   padding-top: 5rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
  }
 
  @media screen and (max-width: 768px) {
    #landingGrid {
      grid-template-columns: repeat(2, 1fr);
+   }
+
+   .homeBody {
+     padding-top: 9rem;
    }
  }
 
@@ -117,7 +130,7 @@
 
  .landingGridItem {
    grid-column: span 2;
-   height: 80%;
+   height: 20rem;
    aspect-ratio: 1/1;
    justify-content: center;
    border: rgb(86, 129, 39) solid 3px;

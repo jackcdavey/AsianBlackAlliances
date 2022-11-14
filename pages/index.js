@@ -108,9 +108,11 @@ const [lang, setLang] = useState('en');
         <link rel="stylesheet" href="https://use.typekit.net/hco7ora.css" />
         <link rel="stylesheet" href="https://use.typekit.net/hco7ora.css" />
       </Head>
-
+      <HomepageHeader />
       <Layout title={"Asian and Black Alliances"} description={""}>
         {/* style={{ backgroundImage: `url(${wave.src})` }} */}
+
+
         <div style={{
         position: 'fixed',
         right: '0',
@@ -144,13 +146,12 @@ const [lang, setLang] = useState('en');
                         </Select>
                     </FormControl>
                 </Box>
-            </div>
-        <div style={{ paddingTop: '5rem', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-          <div >
-            <HomepageHeader />
-          </div>
+        </div>
+        
+
+        <div className="homeBody" >
           
-          {/* Create dedicated carousel container later */}
+          
           <div style={{width: '100vw', overflow: 'hidden', paddingTop: '3rem' }}>
             <Carousel className="carousel" animation='slide' sx={{ margin: '5%', overflow: 'hidden' }} autoPlay={false} navButtonsAlwaysVisible={true} >
             {homepageCarouselL?.map((homepageCarouselL) => (
@@ -177,8 +178,10 @@ const [lang, setLang] = useState('en');
 
 
             
-        </Carousel>
+            </Carousel>
           </div>
+
+
           <div style={{ marginBottom: '1vh', textAlign: 'center', paddingLeft: '5%', paddingRight: '5%' }}>
             {homepageDescriptionL}
           </div>
