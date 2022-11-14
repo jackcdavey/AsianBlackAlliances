@@ -141,6 +141,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
 
   checkLang();
 
+  const footerContentL = footerContent.filter((footerContent) => footerContent.language == lang).length > 0 ? footerContent.filter((footerContent) => footerContent.language == lang) : footerContent.filter((footerContent) => footerContent.language == 'en');
 
     const navbarItemTitles = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.title) : navbarItem.filter((item) => item.language === "en").map((item) => item.title)
 
@@ -493,9 +494,9 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
         </div>
         <Footer
           link={
-          footerContent[0]?.link
+          footerContentL[0]?.link
         } body={
-          footerContent[0]?.body
+          footerContentL[0]?.body
         } />
       </Layout>
     </>
@@ -508,7 +509,7 @@ export async function getStaticProps() {
   const chef = await client.fetch(`*[_type == "chef" && language == "en"]  | order(order asc)`);
   const holiday = await client.fetch(`*[_type == "holiday" && language == "en"]  | order(order asc)`);
   const fashion2 = await client.fetch(`*[_type == "fashion2" && language == "en"]  | order(order asc)`);
-  const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
+  const footerContent = await client.fetch(`*[_type == "footerContent" ]  | order(order asc)`)
   const navbarItem = await client.fetch(`*[_type == "navbarItem"]  | order(order asc)`)
   return {
     props: {

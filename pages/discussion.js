@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import Head from "next/head";
 import { createClient } from 'next-sanity'
 
-import { Button, Paper } from '@mui/material';
+import { Button, Paper, Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 import Layout from "../public/components/layout";
 import Header from "../public/components/header";
@@ -38,7 +38,9 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
     }
   }
 
-  checkLang();
+    checkLang();
+    
+    const footerContentL = footerContent.filter((footerContent) => footerContent.language == lang).length > 0 ? footerContent.filter((footerContent) => footerContent.language == lang) : footerContent.filter((footerContent) => footerContent.language == 'en');
 
     
   const navbarItemTitles = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.title) : navbarItem.filter((item) => item.language === "en").map((item) => item.title)
@@ -55,6 +57,40 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
 
             </Head>
             <Header titles={navbarItemTitles} links={navbarItemLinks} />
+            <div style={{
+        position: 'fixed',
+        right: '0',
+        zIndex: '100',
+        marginTop: '2rem',
+        marginRight: '1.5rem',
+      }}>
+                <Box sx={{ wdth: 120 }}>
+                    <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label" >
+                            {lang}
+                        </InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={lang}
+                            label="Language"
+                            onChange={handleChange}
+                        >
+                            <MenuItem value={'en'}>English</MenuItem>
+                            <MenuItem value={'zh'}>Chinese - Simplified</MenuItem>
+                            <MenuItem value={'zh-tw'}>Chinese - Traditional</MenuItem>
+                            <MenuItem value={'zh-cn'}>Cantonese</MenuItem>
+                            <MenuItem value={'ko'}>Korean</MenuItem>
+                            <MenuItem value={'ja'}>Japanse</MenuItem>
+                            <MenuItem value={'vi'}>Vietnamese</MenuItem>
+                            <MenuItem value={'tl'}>Tagalog</MenuItem>
+                            <MenuItem value={'km'}>Khmer</MenuItem>
+
+
+                        </Select>
+                    </FormControl>
+                </Box>
+            </div>
             <Layout title='ABA: Discussion' description=' '>
                 <div id='body'>
 
@@ -122,9 +158,9 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
 
             <Footer 
             link={
-          footerContent[0]?.link
+          footerContentL[0]?.link
         } body={
-          footerContent[0]?.body
+          footerContentL[0]?.body
         } />
         </>
     )
@@ -132,7 +168,7 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
 
 
 export async function getStaticProps() {
-    const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
+    const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
     const discussionPost = await client.fetch(`*[_type == "discussionPost" && language == "en"]  | order(order asc)`)
     const discussionQuestion = await client.fetch(`*[_type == "discussionQuestion"&& language == "en"]  | order(order asc)`)
     const navbarItem = await client.fetch(`*[_type == "navbarItem"]  | order(order asc)`)
