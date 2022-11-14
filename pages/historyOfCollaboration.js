@@ -12,6 +12,9 @@ import Layout from '../public/components/layout'
 
 import dynamic from 'next/dynamic'
 
+import { Typography, Button, Paper, Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+
+
 
 import Grid from '@mui/material/Grid';
 
@@ -25,7 +28,6 @@ import {
   TimelineOppositeContent
 } from '@mui/lab';
 
-import { Button, Paper, Typography } from '@mui/material';
 import CollaborationMap from '../public/components/collaborationMap.js'
 
 const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
@@ -50,8 +52,41 @@ const styles = {
 
 
 function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources, collaborationTag }) {
+
+  const [lang, setLang] = useState('en');
+
+
+  const handleChange = (event) => {
+        setLang(event.target.value);
+        if (typeof window !== "undefined") {
+            localStorage.setItem("langChoice", event.target.value);
+            console.log("Set local language to: " + event.target.value);
+        }
+  };
+  
+  const checkLang = () => {
+    if (typeof window !== "undefined") {
+      var languageSelection = localStorage.getItem('langChoice');
+      if(languageSelection != lang)
+        setLang(languageSelection);
+      console.log("Stored language is " + languageSelection);
+    }
+  }
+
+  checkLang();
     
-    const [tooltipContent, setTooltipContent] = useState("");
+  const [tooltipContent, setTooltipContent] = useState("");
+  
+  const timelinePointL = timelinePoint.filter((point) => point.language === lang).length > 0 ? timelinePoint.filter((point) => point.language === lang) : timelinePoint.filter((point) => point.language === 'en');
+
+  const collaborationTagL = collaborationTag.filter((tag) => tag.language === lang).length > 0 ? collaborationTag.filter((tag) => tag.language === lang) : collaborationTag.filter((tag) => tag.language === 'en');
+
+
+  const footerContentL = footerContent.filter((footerContent) => footerContent.language == lang).length > 0 ? footerContent.filter((footerContent) => footerContent.language == lang) : footerContent.filter((footerContent) => footerContent.language == 'en');
+  
+  const historyResourcesL = historyResources.filter((historyResources) => historyResources.language == lang).length > 0 ? historyResources.filter((historyResources) => historyResources.language == lang) : historyResources.filter((historyResources) => historyResources.language == 'en');
+
+
   return (
     <>
       <Head>  
@@ -63,6 +98,40 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
 
 
       </Head>
+      <div style={{
+        position: 'fixed',
+        right: '0',
+        zIndex: '100',
+        marginTop: '2rem',
+        marginRight: '1.5rem',
+      }}>
+                <Box sx={{ wdth: 120 }}>
+                    <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label" >
+                            {lang}
+                        </InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={lang}
+                            label="Language"
+                            onChange={handleChange}
+                        >
+                            <MenuItem value={'en'}>English</MenuItem>
+                            <MenuItem value={'zh'}>Chinese - Simplified</MenuItem>
+                            <MenuItem value={'zh-tw'}>Chinese - Traditional</MenuItem>
+                            <MenuItem value={'zh-cn'}>Cantonese</MenuItem>
+                            <MenuItem value={'ko'}>Korean</MenuItem>
+                            <MenuItem value={'ja'}>Japanse</MenuItem>
+                            <MenuItem value={'vi'}>Vietnamese</MenuItem>
+                            <MenuItem value={'tl'}>Tagalog</MenuItem>
+                            <MenuItem value={'km'}>Khmer</MenuItem>
+
+
+                        </Select>
+                    </FormControl>
+                </Box>
+            </div>
       <Header />
       <Layout title={'Contact & Collaboration'} description={' '}>
         <div id='body'>
@@ -78,9 +147,9 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
           <div className='collapsed-content' id='asia'>
           {/* display all collaboration tags that have section = asia in a timeline */}
           <Timeline position="alternate">
-              {collaborationTag.map((tag) => (
+              {collaborationTagL.map((tag) => (
                 tag.section === 'asia' &&
-              <TimelineItem key={collaborationTag._id}>
+              <TimelineItem key={collaborationTagL._id}>
                 <TimelineOppositeContent>
                   <Typography variant="body2" color="text.secondary">
                     {tag.date}
@@ -114,9 +183,9 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
           <div className='collapsed-content' id='northAmerica'>
           {/* display all collaboration tags that have section = northAmerica in a timeline */}
           <Timeline position="alternate">
-              {collaborationTag.map((tag) => (
+              {collaborationTagL.map((tag) => (
                 tag.section === 'northamerica' &&
-              <TimelineItem key={collaborationTag._id}>
+              <TimelineItem key={collaborationTagL._id}>
                 <TimelineOppositeContent>
                   <Typography variant="body2" color="text.secondary" style={{fontSize: '1.2rem'}}>
                     {tag.date}
@@ -149,48 +218,9 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
 
 
               
-          <Timeline position="alternate" sx={{maxWidth: "100vw", display: "none"}}>
-            {timelinePoint?.map((timelinePoint) => (
-              //if the timelinePoint has no date, insert a timeline separator
-              timelinePoint?.date == null ? (
-                <span
-                  key={timelinePoint._id}
-                  style={{ textAlign: "center"}}>
-                  <h2>{timelinePoint?.body}</h2>
-                </span>
-              ) : (
-              
-              <TimelineItem key={timelinePoint._id} sx={{ margin: '2%' }}>
-                <TimelineOppositeContent color="text.secondary" fontSize="1.2rem" display='flex' flexDirection="column">
-                      {timelinePoint?.date}
-                      {timelinePoint?.citation && (
-                        timelinePoint?.citation?.map((citation) => (
-                          <Button variant="contained" color="primary" href={timelinePoint?.citation[timelinePoint?.citation.indexOf(citation)]} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '1rem', width: '50%', margin: 'auto', marginBottom: '5%' }} >
-                            <div style={{textAlign: 'center' }}>
-                            {/* Display the linkNote if it exists, otherwise display "More Info" */}
-                              {timelinePoint?.linkNote && timelinePoint?.linkNote[timelinePoint?.citation.indexOf(citation)] ? timelinePoint?.linkNote[timelinePoint?.citation.indexOf(citation)] : "More Info"}
-                              </div>
-                          </Button>
-                        ))
-                      )}
-                </TimelineOppositeContent>
-                <TimelineSeparator>
-                  <TimelineDot />
-                  <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent style={{overflow: 'hidden'}}>
-                  <Typography variant="h6" component="span" fontWeight="500">
-                    {timelinePoint?.title}
-                  </Typography>
-                  <Typography>
-                    {timelinePoint?.body}
-                  </Typography>
-                </TimelineContent>
-              </TimelineItem>
-            )))}
-          </Timeline>
+      
 
-          {historyResources?.map((historyResource) => (
+          {historyResourcesL?.map((historyResource) => (
             <div key={historyResource._id} style={{ margin: '2%' }}>
               <h1 style={{ textAlign: 'center', width: "100vw", paddingLeft: '5%' }}>{historyResource?.title}</h1>
               <div style={{textAlign: 'center', paddingLeft: '5%', paddingRight: '5%', alignItems: "center"}}> 
@@ -222,19 +252,19 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
 
       <Footer
       link={
-          footerContent[0]?.link
+          footerContentL[0]?.link
         } body={
-          footerContent[0]?.body
+          footerContentL[0]?.body
         }/>
     </>
   )
 }
 
 export async function getStaticProps() {
-  const timelinePoint = await client.fetch(`*[_type == "timelinePoint" && language == "en"] | order(order asc)`)
-  const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
-  const historyResources = await client.fetch(`*[_type == "historyResources" && language == "en"]  | order(order asc)`)
-  const collaborationTag = await client.fetch(`*[_type == "collaborationTag" && language == "en"]  | order(order asc)`)
+  const timelinePoint = await client.fetch(`*[_type == "timelinePoint"] | order(order asc)`)
+  const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
+  const historyResources = await client.fetch(`*[_type == "historyResources" ]  | order(order asc)`)
+  const collaborationTag = await client.fetch(`*[_type == "collaborationTag"]  | order(order asc)`)
 
   return {
     props: {
