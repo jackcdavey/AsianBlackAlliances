@@ -4,15 +4,14 @@ import Header from '../public/components/header';
 import Footer from '../public/components/footer.js';
 import Layout from '../public/components/layout';
 
-import React from 'react';
-import Paper from '@mui/material/Paper';
+import React, {useState} from 'react';
 import GradientMediaCard from '../public/components/cards/gradientMediaCard';
 import { createClient } from 'next-sanity'
 
 import { COLORS } from '../public/styling/colors.js';
 
 import imageUrlBuilder from '@sanity/image-url'
-import { Button } from '@mui/material';
+import { Button, Paper, Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 
 
@@ -118,8 +117,35 @@ function SubtitleSeparator({ title, contentJustification, marginLeft, marginRigh
 
 
 
-export default function CrossCulturalInfluences({food, chef, holiday, footerContent, fashion2}) {
+export default function CrossCulturalInfluences({ food, chef, holiday, footerContent, fashion2 }) {
+  
+  const [lang, setLang] = useState('en');
+
+
+  const handleChange = (event) => {
+        setLang(event.target.value);
+        if (typeof window !== "undefined") {
+            localStorage.setItem("langChoice", event.target.value);
+            console.log("Set local language to: " + event.target.value);
+        }
+  };
+  
+  const checkLang = () => {
+    if (typeof window !== "undefined") {
+      var languageSelection = localStorage.getItem('langChoice');
+      if(languageSelection != lang)
+        setLang(languageSelection);
+      console.log("Stored language is " + languageSelection);
+    }
+  }
+
+  checkLang();
+
+
   return (
+    
+
+
     <>
       <Head>
         <title>ABA: Cross Cultural Influences</title>
@@ -132,6 +158,40 @@ export default function CrossCulturalInfluences({food, chef, holiday, footerCont
       </Head>
 
       <Layout title='ABA: Cross-Cultural Influences' description=' '>
+        <div style={{
+        position: 'fixed',
+        right: '0',
+        zIndex: '100',
+        marginTop: '2rem',
+        marginRight: '1.5rem',
+      }}>
+                <Box sx={{ wdth: 120 }}>
+                    <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label" >
+                            {lang}
+                        </InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={lang}
+                            label="Language"
+                            onChange={handleChange}
+                        >
+                            <MenuItem value={'en'}>English</MenuItem>
+                            <MenuItem value={'zh'}>Chinese - Simplified</MenuItem>
+                            <MenuItem value={'zh-tw'}>Chinese - Traditional</MenuItem>
+                            <MenuItem value={'zh-cn'}>Cantonese</MenuItem>
+                            <MenuItem value={'ko'}>Korean</MenuItem>
+                            <MenuItem value={'ja'}>Japanse</MenuItem>
+                            <MenuItem value={'vi'}>Vietnamese</MenuItem>
+                            <MenuItem value={'tl'}>Tagalog</MenuItem>
+                            <MenuItem value={'km'}>Khmer</MenuItem>
+
+
+                        </Select>
+                    </FormControl>
+                </Box>
+            </div>
         <Header />
         <div id='body'>
           

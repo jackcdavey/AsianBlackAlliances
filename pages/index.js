@@ -91,6 +91,10 @@ const [lang, setLang] = useState('en');
 
   const homepageDescriptionL = homepageDescription.filter((homepageDescription) => homepageDescription.title == 'Intro' && homepageDescription.language == lang).length > 0 ? homepageDescription.filter((homepageDescription) => homepageDescription.title == 'Intro' && homepageDescription.language == lang)[0].body : homepageDescription.filter((homepageDescription) => homepageDescription.title == 'Intro' && homepageDescription.language == 'en')[0].body
 
+  const homepageCarouselL = homepageCarousel.filter((homepageCarousel) => homepageCarousel.language == lang).length > 0 ? homepageCarousel.filter((homepageCarousel) => homepageCarousel.language == lang) : homepageCarousel.filter((homepageCarousel) => homepageCarousel.language == 'en');
+
+  console.log("carousel" + homepageCarouselL);
+
 
   return (
     <>
@@ -147,23 +151,23 @@ const [lang, setLang] = useState('en');
           {/* Create dedicated carousel container later */}
           <div style={{width: '100vw', overflow: 'hidden', paddingTop: '3rem' }}>
             <Carousel className="carousel" animation='slide' sx={{ margin: '5%', overflow: 'hidden' }} autoPlay={false} navButtonsAlwaysVisible={true} >
-            {homepageCarousel?.map((homepageCarousel) => (
+            {homepageCarouselL?.map((homepageCarouselL) => (
               <Paper sx={{padding: '5%', paddingLeft: '2%', borderRadius: '25px', display: 'flex', alignItems: 'center', overflow: 'hidden', justifyContent: 'flex-start', marginLeft: '4rem', marginRight: '4rem' }}>
                 <div style={{width: "30%", maxHeight: '35vh'}}>
-                  <img src={urlFor(homepageCarousel.image).url()} alt={homepageCarousel.name} style={{ maxWidth: '100%' }} />
+                  <img src={urlFor(homepageCarouselL.image).url()} alt={homepageCarousel.name} style={{ maxWidth: '100%' }} />
                 </div>
                 <div style={{width: "70%", display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: '1rem'}}>
-            <h2 style={{margin: "0"}}>{homepageCarousel?.title}</h2>
-                  <p style={{margin: "0"}}>{homepageCarousel?.description}</p>
+            <h2 style={{margin: "0"}}>{homepageCarouselL?.title}</h2>
+                  <p style={{margin: "0"}}>{homepageCarouselL?.description}</p>
                   </div>
 
-                {homepageCarousel?.link &&
+                {homepageCarouselL?.link &&
                   <Button
                     variant='contained'
                     target='_blank'
                     style={{marginTop: 'auto', marginBottom: 'auto', marginLeft: 'auto', textAlign: 'center'}}
-                    href={homepageCarousel.link}>
-                    {homepageCarousel.linkLabel}
+                    href={homepageCarouselL.link}>
+                    {homepageCarouselL.linkLabel}
                   </Button>
                 }
                 </Paper>
@@ -217,7 +221,7 @@ export async function getStaticProps(context) {
   const homepageDescription = await client.fetch(`*[_type == "homepageDescription"]  | order(order asc)`)
   const bio = await client.fetch(`*[_type == "bio"]  | order(order asc)`)
   const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
-  const homepageCarousel = await client.fetch(`*[_type == "homepageCarousel" && language == "en"]  | order(order asc)`)
+  const homepageCarousel = await client.fetch(`*[_type == "homepageCarousel"]  | order(order asc)`)
 
   return {
     props: {
