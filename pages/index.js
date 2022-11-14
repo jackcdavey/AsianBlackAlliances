@@ -152,7 +152,7 @@ const [lang, setLang] = useState('en');
         <div className="homeBody" >
           
           
-          <div style={{width: '100vw', overflow: 'hidden', paddingTop: '3rem' }}>
+          <div style={{width: '100vw', maxWidth: '70rem', overflow: 'hidden', paddingTop: '3rem' }}>
             <Carousel className="carousel" animation='slide' sx={{ margin: '5%', overflow: 'hidden' }} autoPlay={false} navButtonsAlwaysVisible={true} >
             {homepageCarouselL?.map((homepageCarouselL) => (
               <Paper sx={{padding: '5%', paddingLeft: '2%', borderRadius: '25px', display: 'flex', alignItems: 'center', overflow: 'hidden', justifyContent: 'flex-start', marginLeft: '4rem', marginRight: '4rem' }}>
@@ -182,7 +182,7 @@ const [lang, setLang] = useState('en');
           </div>
 
 
-          <div style={{ marginBottom: '1vh', textAlign: 'center', paddingLeft: '5%', paddingRight: '5%' }}>
+          <div style={{ marginBottom: '1vh', textAlign: 'center', paddingLeft: '5%', paddingRight: '5%', maxWidth: '60rem' }}>
             {homepageDescriptionL}
           </div>
           <Box id={'landingGrid'}>
@@ -201,7 +201,7 @@ const [lang, setLang] = useState('en');
             </Box>
             ))}
           </Box>
-          <div style={{textAlign: 'left', width: "100vw", padding: '5% 0 0 5%'}}>
+          <div style={{textAlign: 'left', width: "100vw", maxWidth: '60rem', padding: '5% 0 0 5%'}}>
             <h1 className="bioHeader" style={{margin: "3rem 0 0 0" }}>About The Team</h1>
           </div>
           <div className='bioSection'>
