@@ -51,7 +51,7 @@ const styles = {
 }
 
 
-function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources, collaborationTag }) {
+function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources, collaborationTag, navbarItem }) {
 
   const [lang, setLang] = useState('en');
 
@@ -85,6 +85,12 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
   const footerContentL = footerContent.filter((footerContent) => footerContent.language == lang).length > 0 ? footerContent.filter((footerContent) => footerContent.language == lang) : footerContent.filter((footerContent) => footerContent.language == 'en');
   
   const historyResourcesL = historyResources.filter((historyResources) => historyResources.language == lang).length > 0 ? historyResources.filter((historyResources) => historyResources.language == lang) : historyResources.filter((historyResources) => historyResources.language == 'en');
+
+    const navbarItemTitles = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.title) : navbarItem.filter((item) => item.language === "en").map((item) => item.title)
+
+  const navbarItemLinks = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.link) : navbarItem.filter((item) => item.language === "en").map((item) => item.link)
+
+  console.log("Navbar Item: " + navbarItem);
 
 
   return (
@@ -132,7 +138,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
                     </FormControl>
                 </Box>
             </div>
-      <Header />
+      <Header titles={navbarItemTitles} links={navbarItemLinks} />
       <Layout title={'Contact & Collaboration'} description={' '}>
         <div id='body'>
           <h1 style={{margin:  0}}>Contact & Collaboration</h1>
@@ -265,6 +271,7 @@ export async function getStaticProps() {
   const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
   const historyResources = await client.fetch(`*[_type == "historyResources" ]  | order(order asc)`)
   const collaborationTag = await client.fetch(`*[_type == "collaborationTag"]  | order(order asc)`)
+  const navbarItem = await client.fetch(`*[_type == "navbarItem"]  | order(order asc)`)
 
   return {
     props: {
@@ -272,6 +279,7 @@ export async function getStaticProps() {
       footerContent,
       historyResources,
       collaborationTag,
+      navbarItem,
     },
     revalidate: 10,
   };

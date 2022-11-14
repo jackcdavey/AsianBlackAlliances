@@ -117,7 +117,7 @@ function SubtitleSeparator({ title, contentJustification, marginLeft, marginRigh
 
 
 
-export default function CrossCulturalInfluences({ food, chef, holiday, footerContent, fashion2 }) {
+export default function CrossCulturalInfluences({ food, chef, holiday, footerContent, fashion2, navbarItem }) {
   
   const [lang, setLang] = useState('en');
 
@@ -140,6 +140,11 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
   }
 
   checkLang();
+
+
+    const navbarItemTitles = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.title) : navbarItem.filter((item) => item.language === "en").map((item) => item.title)
+
+  const navbarItemLinks = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.link) : navbarItem.filter((item) => item.language === "en").map((item) => item.link)
 
 
   return (
@@ -192,7 +197,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                     </FormControl>
                 </Box>
             </div>
-        <Header />
+        <Header titles={navbarItemTitles} links={navbarItemLinks} />
         <div id='body'>
           
           <Paper className='collapsed' sx={styles.theRadius}>
@@ -209,7 +214,8 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                   </div>
 <a href='#food' className='collapsed-desc'>
               <SubtitleSeparator title='Food' contentJustification='center' />
-            </a>                <div style={{maxWidth: '50%'}}>
+              </a>
+              <div style={{ maxWidth: '50%' }}>
                 <img
                   src='/media/CustomAssets/vineasset.png'
                     alt='vine'
@@ -498,11 +504,12 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
 
 
 export async function getStaticProps() {
-  const food = await client.fetch(`*[_type == "food" && language == "en"]  | order(order asc)`);
+  const food = await client.fetch(`*[_type == "food"]  | order(order asc)`);
   const chef = await client.fetch(`*[_type == "chef" && language == "en"]  | order(order asc)`);
   const holiday = await client.fetch(`*[_type == "holiday" && language == "en"]  | order(order asc)`);
   const fashion2 = await client.fetch(`*[_type == "fashion2" && language == "en"]  | order(order asc)`);
   const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
+  const navbarItem = await client.fetch(`*[_type == "navbarItem"]  | order(order asc)`)
   return {
     props: {
       food,
@@ -510,6 +517,7 @@ export async function getStaticProps() {
       holiday,
       footerContent,
       fashion2,
+      navbarItem
     },
     revalidate: 10,
 

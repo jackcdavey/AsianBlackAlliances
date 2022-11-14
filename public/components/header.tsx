@@ -10,6 +10,9 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { COLORS } from '../styling/colors.js';
 import MobileNavMenu from './mobileNavMenu';
 
+import { createClient } from 'next-sanity'
+
+
 const styles = {
     banner: {
         top: 0,
@@ -45,7 +48,19 @@ const styles = {
     },
 }
 
-export default function Header() {
+const client = createClient({
+    projectId: 'hiagtp2f',
+    dataset: 'production',
+    apiVersion: '2022-10-03',
+    useCdn: false,
+});
+
+interface HeaderProps {
+    titles?: string[];
+    links?: string[];
+}
+
+export default function Header({ titles, links }: HeaderProps) {
     const [lang, setLang] = React.useState('en');
     var x = '';
     if (typeof window !== "undefined") {
@@ -63,14 +78,7 @@ export default function Header() {
         }
     };
 
-    // function MobileNavigationToggle() {  
-    //     var x = document.getElementById("mobileLinks");
-    //     if (x.style.display === "block") {
-    //         x.style.display = "none";
-    //     } else {
-    //         x.style.display = "block";
-    //     }
-    // }
+    // console.log("Navbar Item: " + navbarItem);
 
     return (
         <Container style={styles.banner as React.CSSProperties} className='banner'>
@@ -108,7 +116,15 @@ export default function Header() {
                     <MobileNavMenu />
                 </div> */}
                     <div className='navBar' >
-                        <Link href='/historyOfCollaboration'>
+                        {titles && links && titles.map((title, index) => (
+                            <Link href={links[index]} key={index}>
+                                <div className='navLink'>
+                                    <a>{title}</a>
+                                </div>
+                            </Link>
+                        ))}
+
+                        {/* <Link href='/historyOfCollaboration'>
                             <div className='navLink'>
                                 <a>Contact & Collaboration</a>
                             </div>
@@ -137,7 +153,7 @@ export default function Header() {
                             <div className='navLink'>
                                 <a>Contact Us!</a>
                             </div>
-                        </Link>
+                        </Link> */}
                     </div>
 
                 </div>
@@ -311,4 +327,15 @@ export const HomepageHeader = () => {
 
         </Container >
     )
+}
+
+
+export async function getStaticProps() {
+    const navbarItem = await client.fetch(`*[_type == "navbarItem"] | order(order asc)`);
+
+    return {
+        props: {
+            navbarItem,
+        },
+    };
 }

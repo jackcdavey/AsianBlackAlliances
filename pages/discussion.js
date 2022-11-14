@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // import { NextPage } from "next";
 import Head from "next/head";
 import { createClient } from 'next-sanity'
@@ -16,7 +16,35 @@ const client = createClient({
   useCdn: false,
 });
 
-const Discussion = ({footerContent, discussionPost, discussionQuestion}) => {
+const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarItem }) => {
+
+  const [lang, setLang] = useState('en');
+
+
+  const handleChange = (event) => {
+        setLang(event.target.value);
+        if (typeof window !== "undefined") {
+            localStorage.setItem("langChoice", event.target.value);
+            console.log("Set local language to: " + event.target.value);
+        }
+  };
+  
+  const checkLang = () => {
+    if (typeof window !== "undefined") {
+      var languageSelection = localStorage.getItem('langChoice');
+      if(languageSelection != lang)
+        setLang(languageSelection);
+      console.log("Stored language is " + languageSelection);
+    }
+  }
+
+  checkLang();
+
+    
+  const navbarItemTitles = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.title) : navbarItem.filter((item) => item.language === "en").map((item) => item.title)
+
+  const navbarItemLinks = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.link) : navbarItem.filter((item) => item.language === "en").map((item) => item.link)
+
     return (
         <>
             <Head>
@@ -26,7 +54,7 @@ const Discussion = ({footerContent, discussionPost, discussionQuestion}) => {
                 <link rel="stylesheet" href="https://use.typekit.net/hco7ora.css" />
 
             </Head>
-            <Header />
+            <Header titles={navbarItemTitles} links={navbarItemLinks} />
             <Layout title='ABA: Discussion' description=' '>
                 <div id='body'>
 
@@ -107,11 +135,13 @@ export async function getStaticProps() {
     const footerContent = await client.fetch(`*[_type == "footerContent" && language == "en"]  | order(order asc)`)
     const discussionPost = await client.fetch(`*[_type == "discussionPost" && language == "en"]  | order(order asc)`)
     const discussionQuestion = await client.fetch(`*[_type == "discussionQuestion"&& language == "en"]  | order(order asc)`)
+    const navbarItem = await client.fetch(`*[_type == "navbarItem"]  | order(order asc)`)
     return {
         props: {
             footerContent,
             discussionPost,
             discussionQuestion,
+            navbarItem,
         },
     };
 }

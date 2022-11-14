@@ -36,7 +36,7 @@ const client = createClient({
 
 
 
-export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeader, roadtripStop }) {
+export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeader, roadtripStop, navbarItem }) {
 
 
 
@@ -101,6 +101,14 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
 
   const blackMyths = myth.filter((myth) => myth.group === "black" && myth.language === lang).length > 0 ? myth.filter((myth) => myth.group === "black" && myth.language === lang) : myth.filter((myth) => myth.group === "black" && myth.language === "en")
 
+
+  const navbarItemTitles = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.title) : navbarItem.filter((item) => item.language === "en").map((item) => item.title)
+
+  const navbarItemLinks = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.link) : navbarItem.filter((item) => item.language === "en").map((item) => item.link)
+
+  console.log("navbarItems: " + navbarItemTitles);
+  console.log("navbarLinks: " + navbarItemLinks);
+
   
 
   
@@ -116,7 +124,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
 
       </Head>
 
-      <Header />
+      <Header titles={navbarItemTitles} links={navbarItemLinks} />
 
       <div style={{
         position: 'fixed',
@@ -330,6 +338,7 @@ export async function getStaticProps() {
   const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
   const mythCuriosityHeader = await client.fetch(`*[_type == "mythCuriosityHeader"] | order(order asc)`)
   const roadtripStop = await client.fetch(`*[_type == "roadtripStop"]  | order(order asc)`)
+  const navbarItem = await client.fetch(`*[_type == "navbarItem"]  | order(order asc)`)
 
 
   return {
@@ -338,6 +347,7 @@ export async function getStaticProps() {
       footerContent,
       mythCuriosityHeader,
       roadtripStop,
+      navbarItem,
     },
     revalidate: 10,
 

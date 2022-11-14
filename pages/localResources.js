@@ -1,9 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 // import { NextPage } from "next";
 import Head from "next/head";
 import { createClient } from 'next-sanity'
 
-import { Paper } from '@mui/material';
+import { Button, Paper, Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 import Layout from "../public/components/layout";
 import Header from "../public/components/header";
@@ -17,11 +17,43 @@ const client = createClient({
   useCdn: false,
 });
 
-export default function LocalResources({ footerContent, localResources }) {
+export default function LocalResources({ footerContent, localResources, navbarItem }) {
+
+    const [lang, setLang] = useState('en');
+
+
+  const handleChange = (event) => {
+        setLang(event.target.value);
+        if (typeof window !== "undefined") {
+            localStorage.setItem("langChoice", event.target.value);
+            console.log("Set local language to: " + event.target.value);
+        }
+  };
+  
+  const checkLang = () => {
+    if (typeof window !== "undefined") {
+      var languageSelection = localStorage.getItem('langChoice');
+      if(languageSelection != lang)
+        setLang(languageSelection);
+      console.log("Stored language is " + languageSelection);
+    }
+  }
+
+  checkLang();
+
+ const navbarItemTitles = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.title) : navbarItem.filter((item) => item.language === "en").map((item) => item.title)
+
+  const navbarItemLinks = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.link) : navbarItem.filter((item) => item.language === "en").map((item) => item.link)
+
+
     // const states = localResources.map((state) => state.state);
     // add all unique states to an array
     const states = [...new Set(localResources.map((state) => state.state))];
     console.log(states);
+
+
+
+    
 
     return (
         <>
@@ -32,7 +64,41 @@ export default function LocalResources({ footerContent, localResources }) {
                 <link rel="stylesheet" href="https://use.typekit.net/hco7ora.css" />
 
             </Head>
-            <Header />
+            <Header titles={navbarItemTitles} links={navbarItemLinks} />
+            <div style={{
+        position: 'fixed',
+        right: '0',
+        zIndex: '100',
+        marginTop: '2rem',
+        marginRight: '1.5rem',
+      }}>
+                <Box sx={{ wdth: 120 }}>
+                    <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label" >
+                            {lang}
+                        </InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={lang}
+                            label="Language"
+                            onChange={handleChange}
+                        >
+                            <MenuItem value={'en'}>English</MenuItem>
+                            <MenuItem value={'zh'}>Chinese - Simplified</MenuItem>
+                            <MenuItem value={'zh-tw'}>Chinese - Traditional</MenuItem>
+                            <MenuItem value={'zh-cn'}>Cantonese</MenuItem>
+                            <MenuItem value={'ko'}>Korean</MenuItem>
+                            <MenuItem value={'ja'}>Japanse</MenuItem>
+                            <MenuItem value={'vi'}>Vietnamese</MenuItem>
+                            <MenuItem value={'tl'}>Tagalog</MenuItem>
+                            <MenuItem value={'km'}>Khmer</MenuItem>
+
+
+                        </Select>
+                    </FormControl>
+                </Box>
+            </div>
             <Layout title='ABA: Discussion' description=' '>
                 <div id='body'>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginTop: '50px' }}>
@@ -80,11 +146,13 @@ export default function LocalResources({ footerContent, localResources }) {
 export async function getStaticProps() {
     const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
     const localResources = await client.fetch(`*[_type == "localResource"]`)
+    const navbarItem = await client.fetch(`*[_type == "navbarItem"]  | order(order asc)`)
 
     return {
         props: {
             footerContent,
             localResources,
+            navbarItem,
         },
     };
 }
