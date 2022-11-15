@@ -145,7 +145,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
           <span style={{width: '70%', textAlign: 'center'}}>
                 <p>In this interactive page, you will find historically significant Black-Asian interactions. Each event builds on each other to create continuous possibilities for a sustainable relationship. </p>
           </span>
-          <CollaborationMap setTooltipContent={setTooltipContent}/>
+            <CollaborationMap setTooltipContent={setTooltipContent} />
           <ReactTooltip effect='solid' uuid='mytt' >{tooltipContent}</ReactTooltip>
           <h3 style={{fontSize: '1rem', marginBottom: 0}}>Please click on either marker to see a timeline of events. </h3>
           
@@ -186,7 +186,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
           </div>
 
 
-          <div className='collapsed-content' id='northAmerica'>
+          <div className='collapsed-content' id='northAmerica' style={{maxWidth: '80rem'}}>
           {/* display all collaboration tags that have section = northAmerica in a timeline */}
           <Timeline position="alternate">
               {collaborationTagL.map((tag) => (
@@ -227,8 +227,8 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
       
 
           {historyResourcesL?.map((historyResource) => (
-            <div key={historyResource._id} style={{ margin: '2%' }}>
-              <h1 style={{ textAlign: 'center', width: "100vw", paddingLeft: '5%' }}>{historyResource?.title}</h1>
+            <div key={historyResource._id} style={{ margin: '2%', maxWidth: '80rem' }}>
+              <h1 style={{ textAlign: 'center', width: "100%", paddingLeft: '5%' }}>{historyResource?.title}</h1>
               <div style={{textAlign: 'center', paddingLeft: '5%', paddingRight: '5%', alignItems: "center"}}> 
                 {historyResource?.body}
               </div>

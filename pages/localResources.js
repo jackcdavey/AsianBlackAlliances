@@ -104,7 +104,7 @@ export default function LocalResources({ footerContent, localResources, navbarIt
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginTop: '50px' }}>
                             {/* Map each state, and list all links with that state */}
                             {states.map((state) => (
-                                <Paper style={{width: '90vw', paddingLeft: '1rem',paddingTop: '1rem', marginBottom: '2rem', borderRadius: '25px'}}>
+                                <Paper style={{width: '90vw', maxWidth: '60rem', paddingLeft: '1rem',paddingTop: '1rem', marginBottom: '2rem', borderRadius: '25px'}}>
 
                                 <div>
                                     <h2 style={{margin: 0}}>{state}</h2>

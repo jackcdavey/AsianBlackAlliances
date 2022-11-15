@@ -62,7 +62,6 @@
    align-items: center;
    background-color: #f1f9f2;
    background-size: 100% 100%;
-   max-width: 100vw;
    min-width: 100vw;
  }
 
@@ -785,6 +784,7 @@
 
  .collapsed {
    width: 90vw;
+   max-width: 70rem;
    /* height: 17vh; */
    cursor: pointer;
    border-radius: 25px;
