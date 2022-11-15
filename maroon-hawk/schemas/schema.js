@@ -23,6 +23,7 @@ import roadtripStop from './roadtripSchema.js'
 import localResource from './localResourceSchema'
 import discussionQuestion from './discussionQuestionSchema'
 import navbarItem from './navbarItemSchema'
+import curiosityNote from './curiosityNoteSchema'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -47,5 +48,6 @@ export default createSchema({
     localResource,
     discussionQuestion,
     navbarItem,
+    curiosityNote,
   ]),
 })

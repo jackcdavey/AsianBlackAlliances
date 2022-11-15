@@ -36,7 +36,7 @@ const client = createClient({
 
 
 
-export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeader, roadtripStop, navbarItem }) {
+export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeader, roadtripStop, navbarItem, curiosityNote }) {
 
 
 
@@ -76,13 +76,16 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
   // Map all unique cities into an array
   const citiesL = [...new Set(allCitiesL)];
 
-  console.log("xPositionsL: " + xPositionsL);
-  console.log("yPositionsL: " + yPositionsL);
-  console.log("bodyL: " + bodyL);
-  console.log("linkL: " + linkL);
-  console.log("colorsL: " + colorsL);
-  console.log("allCitiesL: " + allCitiesL);
-  console.log("citiesL: " + citiesL);
+
+  const curiosityNoteL = curiosityNote.map((note) => note.language === lang).length > 0 ? curiosityNote.filter((note) => note.language === lang) : curiosityNote.filter((note) => note.language === 'en');
+
+  // console.log("xPositionsL: " + xPositionsL);
+  // console.log("yPositionsL: " + yPositionsL);
+  // console.log("bodyL: " + bodyL);
+  // console.log("linkL: " + linkL);
+  // console.log("colorsL: " + colorsL);
+  // console.log("allCitiesL: " + allCitiesL);
+  // console.log("citiesL: " + citiesL);
   
 
 
@@ -260,19 +263,20 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
           {/* <Tooltip tooltipText="Washington, DC"> */}
             {/* <h1>Be Curious on Your Next Roadtrip!</h1> */}
             {/* </Tooltip> */}
-            <div style={{width: '100vw', alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column'}}>
+            <div style={{width: '100vw', alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column', overflowX: 'hidden'}}>
               <p style={{ textAlign: "center", maxWidth: '90%', margin: 0}}>As racial minorities, we do not see our histories taught in formal education. Therefore, we need to self-educate with truthful and comprehensive information. When you plan your next (family) vacation, consider building in a couple of these stops to learn about ourselves and each other.</p>
             </div>
 
           
             {/* <RoadtripMap setTooltipContent={setTooltipContent}/> */}
             {/* <ReactTooltip effect='solid' >{tooltipContent}</ReactTooltip> */}
-            <div style={{ height: '500px', width: '100%', borderRadius: "25px", overflow: 'hidden', display:'flex', flexDirection: 'column', justifyContent: 'center',  margin: '1rem', paddingLeft: '3rem', paddingRight: '3rem'}}>
+            <div style={{ height: '500px', width: '100%', borderRadius: "25px", overflow: 'hidden', display:'flex', flexDirection: 'column', justifyContent: 'center',  margin: '1rem', paddingLeft: '1.5rem', paddingRight: '1.5rem'}}>
               <NewMap xPoints={xPositionsL} yPoints={yPositionsL} titles={titlesL} bodies={bodyL} links={linkL} colors={colorsL} cities={citiesL} allCities={allCitiesL} key={new Date().getTime()}/>
             </div>
             <h3 style={{marginTop: 0, marginBottom: '2rem', marginLeft: '2rem', marginRight:'2rem', textAlign: "center"}}>Please click on a marker to view places to visit.</h3>
 
-            <Paper style={{
+            {curiosityNoteL.map((note) => (
+            <Paper id={note._id} style={{
               margin: '2rem',
               width: '90%',
               padding: '2rem',
@@ -282,13 +286,13 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
                 
                 <div style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <h2 style={{ textAlign: 'center', margin: '0.2rem' }}>Building a National Museum of API Americans </h2>
+                      <h2 style={{ textAlign: 'center', margin: '0.2rem' }}>{note.title}</h2>
                     
-                    <h4 style={{margin: '0.2rem', textAlign: 'center'}}>As a nation, there is no national museum to document and learn about the API Americans’ contributions to the United States. We need to have a place to learn how the API’s histories are an integral part of the American story. Please follow the development of the potential to build a National Museum of API Americans. </h4>
-                    <p style={{textAlign: 'center'}}>On June 13 2022 President Joe Biden signed into law H.R. 3525 which establishes a Commission to Study the Potential Creation of a National Museum of Asian Pacific American History and Culture in Washington, D.C. The commission must report recommendations for a plan of action for the establishment and maintenance of a National Museum of Asian Pacific American History and Culture in Washington, DC. Furthermore they must develop a fundraising plan to support the establishment, operation, and maintenance of the museum through public contributions. In relation to this plan they must  obtain an independent review of this fundraising plan, including an analysis of the resources necessary to fund the construction of the museum and its operations and maintenance in perpetuity without reliance on federal funds. Lastly they must submit a legislative plan of action to establish and construct the museum.</p>
+                    <h4 style={{margin: '0.2rem', textAlign: 'center'}}>{note.subtitle} </h4>
+                      <p style={{ textAlign: 'center' }}>{note.body}</p>
                     <Button
                     variant="contained"
-                    href="https://www.whitehouse.gov/briefing-room/legislation/2022/06/13/bill-signed-h-r-3525/#:~:text=signed into law%3A-,H.R.,and Culture in Washington%2C D.C"
+                    href={note.link[0]}
                     target="_blank"
                       rel="noopener noreferrer"
                       label="Learn More"
@@ -300,7 +304,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
                       textAlign: 'center',
                     }}
                     >
-                      Whitehouse.gov
+                      {note.linkLabel[0]}
                     </Button>
 
                   </div>
@@ -309,7 +313,8 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
                     </div>
                   </div>
                 </div>
-            </Paper>
+              </Paper>
+            ))}
 
             </div>
         </div>
@@ -334,6 +339,7 @@ export async function getStaticProps() {
   const mythCuriosityHeader = await client.fetch(`*[_type == "mythCuriosityHeader"] | order(order asc)`)
   const roadtripStop = await client.fetch(`*[_type == "roadtripStop"]  | order(order asc)`)
   const navbarItem = await client.fetch(`*[_type == "navbarItem"]  | order(order asc)`)
+  const curiosityNote = await client.fetch(`*[_type == "curiosityNote"]  | order(order asc)`)
 
 
   return {
@@ -343,6 +349,7 @@ export async function getStaticProps() {
       mythCuriosityHeader,
       roadtripStop,
       navbarItem,
+      curiosityNote,
     },
     revalidate: 10,
 

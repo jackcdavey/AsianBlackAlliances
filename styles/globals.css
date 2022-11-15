@@ -821,7 +821,6 @@
  }
 
  .curiosityMapWrap {
-   overflow: auto;
    transition: all 1.5s ease;
    /* max-height: 0vh; */
    /* margin: 5%; */
@@ -832,7 +831,7 @@
    scroll-margin-top: 10vh;
    position: relative;
    right: 100vw;
-   /* padding-left: 5%; */
+   padding-left: 5%;
  }
 
  .curiosityMapWrap:target {
