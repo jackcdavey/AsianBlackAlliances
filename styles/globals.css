@@ -831,7 +831,8 @@
    scroll-margin-top: 10vh;
    position: relative;
    right: 100vw;
-   padding-left: 5%;
+   padding-left: 0;
+   max-width: 70rem;
  }
 
  .curiosityMapWrap:target {
@@ -1004,7 +1005,7 @@
    }
 
    .curiosityMapWrap {
-     padding-left: 0;
+     /* padding-left: 0; */
    }
 
    /* .innerFormWrap {

@@ -263,14 +263,14 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
           {/* <Tooltip tooltipText="Washington, DC"> */}
             {/* <h1>Be Curious on Your Next Roadtrip!</h1> */}
             {/* </Tooltip> */}
-            <div style={{width: '100vw', alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column', overflowX: 'hidden'}}>
+            <div style={{ alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column', overflowX: 'hidden'}}>
               <p style={{ textAlign: "center", maxWidth: '90%', margin: 0}}>As racial minorities, we do not see our histories taught in formal education. Therefore, we need to self-educate with truthful and comprehensive information. When you plan your next (family) vacation, consider building in a couple of these stops to learn about ourselves and each other.</p>
             </div>
 
           
             {/* <RoadtripMap setTooltipContent={setTooltipContent}/> */}
             {/* <ReactTooltip effect='solid' >{tooltipContent}</ReactTooltip> */}
-            <div style={{ height: '500px', width: '100%', borderRadius: "25px", overflow: 'hidden', display:'flex', flexDirection: 'column', justifyContent: 'center',  margin: '1rem', paddingLeft: '1.5rem', paddingRight: '1.5rem'}}>
+            <div style={{ height: '25rem', width: '100%', borderRadius: "25px", overflow: 'hidden', display:'flex', flexDirection: 'column', justifyContent: 'center',  margin: '1rem', paddingLeft: '1.5rem', paddingRight: '1.5rem'}}>
               <NewMap xPoints={xPositionsL} yPoints={yPositionsL} titles={titlesL} bodies={bodyL} links={linkL} colors={colorsL} cities={citiesL} allCities={allCitiesL} key={new Date().getTime()}/>
             </div>
             <h3 style={{marginTop: 0, marginBottom: '2rem', marginLeft: '2rem', marginRight:'2rem', textAlign: "center"}}>Please click on a marker to view places to visit.</h3>
