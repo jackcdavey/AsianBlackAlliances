@@ -54,7 +54,7 @@ function urlFor(source) {
     return builder.image(source)
 }
 
-function Home({ homepageTile, homepageDescription, bio, footerContent, homepageCarousel }) {
+function Home({ homepageTile, homepageDescription, bio, footerContent, homepageCarousel, contributor }) {
   var cardColor = '';
 
 
@@ -95,7 +95,9 @@ const [lang, setLang] = useState('en');
 
   const footerContentL = footerContent.filter((footerContent) => footerContent.language == lang).length > 0 ? footerContent.filter((footerContent) => footerContent.language == lang) : footerContent.filter((footerContent) => footerContent.language == 'en');
 
-  console.log("carousel" + homepageCarouselL);
+  const contributorL = contributor.filter((contributor) => contributor.language == lang).length > 0 ? contributor.filter((contributor) => contributor.language == lang) : contributor.filter((contributor) => contributor.language == 'en');
+
+  console.log("Contributor: " + contributorL[0]);
 
 
   return (
@@ -210,6 +212,58 @@ const [lang, setLang] = useState('en');
               <BioCard key={bio._id} name={bio?.name} desc={bio?.body} image={urlFor(bio?.image)} link={bio?.link} />
               </div>
             ))}
+            <div style={{
+              backgroundColor: '#fff',
+              borderRadius: '25px',
+              boxShadow: "0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.45)",
+              paddingBottom: '0.5rem',
+              backgroundImage:
+            "linear-gradient(var(--card-gradient), white max(9.5rem, 27vh))",
+              overflow: "hidden",
+              minWidth: "10rem",
+              marginTop: "1.5rem",
+              marginLeft: "0.5rem",
+              padding: "0.5rem",
+            }} id='bioCard'>
+              <h3 style={{textAlign: 'center'}}>Contributors & Translators</h3>
+              
+              {contributorL.map((contributor) => (
+                <>
+                <a href={contributor?.link}>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', textAlign: 'right', width: '100%' }}>
+                
+                  {contributor?.image &&
+                     <div style={{ width: "30%", display: "flex", flexDirection: "column", aspectRatio: '1/1'}}>
+                        <img style={{
+                          borderRadius: "50%",
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          aspectRatio: '1/1',
+                        // padding: '10%',
+                          
+                        }}
+                        src={urlFor(contributor.image)}
+                        alt={contributor.name}
+                      />
+                       
+                    </div>
+                  }
+                      <h4 style={{ margin: "0" }}>{contributor?.name}</h4>
+                 
+              
+                  </div>
+                  <p>{contributor.body}</p>
+                </a>
+                  <div style={{ width: '100%', height: '1px', backgroundColor: 'lightgray', margin: '0.5rem 0' }}></div>
+                  </>
+                
+              ))}
+                  
+
+
+            </div>
+
           </div>
           <div style={{ marginBottom: '1vh', textAlign: 'center', paddingTop: '5%', paddingLeft: '5%', paddingRight: '5%' }}>
             {homepageThanksL}
@@ -227,6 +281,7 @@ export async function getStaticProps(context) {
   const bio = await client.fetch(`*[_type == "bio"]  | order(order asc)`)
   const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
   const homepageCarousel = await client.fetch(`*[_type == "homepageCarousel"]  | order(order asc)`)
+  const contributor = await client.fetch(`*[_type == "contributor"]  | order(order asc)`)
 
   return {
     props: {
@@ -235,6 +290,7 @@ export async function getStaticProps(context) {
       bio,
       footerContent,
       homepageCarousel,
+      contributor,
     },
     revalidate: 5,
   };

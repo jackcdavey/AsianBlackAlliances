@@ -25,6 +25,7 @@ import discussionQuestion from './discussionQuestionSchema'
 import navbarItem from './navbarItemSchema'
 import curiosityNote from './curiosityNoteSchema'
 import curiosityIntro from './curiosityIntroSchema'
+import contributorSchema from './contributorSchema'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -50,6 +51,7 @@ export default createSchema({
     discussionQuestion,
     navbarItem,
     curiosityNote,
-    curiosityIntro
+    curiosityIntro,
+    contributorSchema,
   ]),
 })
