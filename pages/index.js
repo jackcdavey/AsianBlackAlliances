@@ -177,8 +177,6 @@ const [lang, setLang] = useState('en');
                 }
                 </Paper>
             ))}
-
-
             
             </Carousel>
           </div>
@@ -204,7 +202,9 @@ const [lang, setLang] = useState('en');
             ))}
           </Box>
           <div style={{textAlign: 'left', width: "100vw", maxWidth: '60rem', padding: '5% 0 0 5%'}}>
-            <h1 className="bioHeader" style={{margin: "3rem 0 0 0" }}>About The Team</h1>
+            <h1 className="bioHeader" style={{ margin: "3rem 0 0 0" }}>
+              {lang == 'en' ? "About the Team" : lang == 'zh' ? "关于我们" : lang == 'zh-tw' ? "關於我們" : lang == 'zh-cn' ? "關於我們" : lang == 'ko' ? "팀 소개" : lang == 'ja' ? "チームについて" : lang == 'vi' ? "Về nhóm" : lang == 'tl' ? "Tungkol sa koponan" : lang == 'km' ? "អំពីក្រុមហ៊ុន" : "About the Team"}
+            </h1>
           </div>
           <div className='bioSection'>
             {bioL.map((bio) =>(
@@ -212,6 +212,7 @@ const [lang, setLang] = useState('en');
               <BioCard key={bio._id} name={bio?.name} desc={bio?.body} image={urlFor(bio?.image)} link={bio?.link} />
               </div>
             ))}
+            <div className='bioCol' style={{width: '25%'}}>
             <div style={{
               backgroundColor: '#fff',
               borderRadius: '25px',
@@ -221,11 +222,14 @@ const [lang, setLang] = useState('en');
             "linear-gradient(var(--card-gradient), white max(9.5rem, 27vh))",
               overflow: "hidden",
               minWidth: "10rem",
-              marginTop: "1.5rem",
+              marginTop: "1rem",
               marginLeft: "0.5rem",
-              padding: "0.5rem",
+                padding: "0.5rem",
+              minWidth: "100%",
             }} id='bioCard'>
-              <h3 style={{textAlign: 'center'}}>Contributors & Translators</h3>
+                <h3 style={{ textAlign: 'center' }}>
+                  {lang == 'en' ? "Contributors & Translators" : lang == 'zh' ? "贡献者和翻译者" : lang == 'zh-tw' ? "貢獻者和翻譯者" : lang == 'zh-cn' ? "貢獻者和翻譯者" : lang == 'ko' ? "기여자 및 번역가" : lang == 'ja' ? "寄稿者と翻訳者" : lang == 'vi' ? "Những người đóng góp và dịch thuật" : lang == 'tl' ? "Mga nag-aambag at Mga Tagasalin" : lang == 'km' ? "អ្នករួមចំណែកនិងអ្នកបកប្រែ" : "Contributors & Translators"}
+              </h3>
               
               {contributorL.map((contributor) => (
                 <>
@@ -263,7 +267,7 @@ const [lang, setLang] = useState('en');
 
 
             </div>
-
+            </div>
           </div>
           <div style={{ marginBottom: '1vh', textAlign: 'center', paddingTop: '5%', paddingLeft: '5%', paddingRight: '5%' }}>
             {homepageThanksL}
