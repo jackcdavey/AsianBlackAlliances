@@ -71,6 +71,7 @@ const OurVoices = ({ footerContent, navbarItem }) => {
 
   const navbarItemLinks = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.link) : navbarItem.filter((item) => item.language === "en").map((item) => item.link)
 
+  const footerContentL = footerContent.filter((footerContent) => footerContent.language == lang).length > 0 ? footerContent.filter((footerContent) => footerContent.language == lang) : footerContent.filter((footerContent) => footerContent.language == 'en');
   
   return (
     <>
@@ -129,9 +130,9 @@ const OurVoices = ({ footerContent, navbarItem }) => {
 
       <Footer
       link={
-          footerContent[0]?.link
+          footerContentL[0]?.link
         } body={
-          footerContent[0]?.body
+          footerContentL[0]?.body
         } />
     </>
   )

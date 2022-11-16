@@ -43,7 +43,9 @@ export default function LocalResources({ footerContent, localResources, navbarIt
 
  const navbarItemTitles = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.title) : navbarItem.filter((item) => item.language === "en").map((item) => item.title)
 
-  const navbarItemLinks = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.link) : navbarItem.filter((item) => item.language === "en").map((item) => item.link)
+    const navbarItemLinks = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.link) : navbarItem.filter((item) => item.language === "en").map((item) => item.link)
+    
+      const footerContentL = footerContent.filter((footerContent) => footerContent.language == lang).length > 0 ? footerContent.filter((footerContent) => footerContent.language == lang) : footerContent.filter((footerContent) => footerContent.language == 'en');
 
 
     // const states = localResources.map((state) => state.state);
@@ -134,9 +136,9 @@ export default function LocalResources({ footerContent, localResources, navbarIt
 
             <Footer 
             link={
-          footerContent[0]?.link
+          footerContentL[0]?.link
         } body={
-          footerContent[0]?.body
+          footerContentL[0]?.body
         } />
         </>
     )
