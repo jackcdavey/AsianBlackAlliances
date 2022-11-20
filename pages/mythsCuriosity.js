@@ -81,11 +81,11 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
 
   console.log("intro: " + curiosityIntro.map((intro) => intro.language === lang));
 
-  const curiosityIntroL = curiosityIntro.map((intro) => intro.language === lang) ? curiosityIntro.filter((intro) => intro.language === lang) : curiosityIntro;
+  const curiosityIntroL = curiosityIntro.map((intro) => intro.language === lang) ? curiosityIntro.filter((intro) => intro.language === lang) : curiosityIntro.filter((intro) => intro.language === 'en');
   // const curiosityIntroL = curiosityIntro[1];
   // const curiosityIntroL = curiosityIntro[0]
 
-  console.log("Curiosity intro: " + curiosityIntroL[0].intro);
+  // console.log("Curiosity introo: " + curiosityIntroL[0].intro);
   // console.log("xPositionsL: " + xPositionsL);
   // console.log("yPositionsL: " + yPositionsL);
   // console.log("bodyL: " + bodyL);
