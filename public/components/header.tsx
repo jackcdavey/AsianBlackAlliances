@@ -88,6 +88,7 @@ export default function Header({ titles, links }: HeaderProps) {
                     flexDirection: 'column',
                     verticalAlign: 'bottom',
                     alignItems: 'center',
+                    marginLeft: '-0.5rem',
                 }}>
 
                     <img
@@ -127,42 +128,14 @@ export default function Header({ titles, links }: HeaderProps) {
                         ))}
 
                     </ul>
-
-                    {/* <div id='mobileNavigatorClosed' style={{ display: 'none' }}> </div>
-                    <div id='mobileNavigator' className='mobileNavigator'>
-                        {titles && links && titles.map((title, index) => (
-                            <Link href={links[index]} key={index}>
-                                <div className='navLink'>
-                                    <a>{title}</a>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                    <a href='#mobileNavigatorClosed' className='mobileNavClose'>
-                        close
-                    </a>
-                    <a href='#mobileNavigator' className='mobileNavOpen'>
-                        open
-                    </a> */}
-
-
-
-
-
-
-                    {/* <div style={{ width: '5rem', height: '5rem', backgroundColor: 'red' }}>
-                    </div> */}
-
                 </div>
             </div>
 
-            <div style={{
+            {/* <div style={{
                 minWidth: '13rem',
                 minHeight: '100%',
                 // backgroundColor: 'red'
-            }}>
-
-            </div>
+            }} /> */}
 
 
         </Container>

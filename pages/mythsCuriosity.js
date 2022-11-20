@@ -65,21 +65,10 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
 
   // const titles = roadtripStop.map((stop) => stop.title);
   // Add all titles of with language == lang to the titles array. If there are no titles in the language, add the english version
-  const titlesL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.title) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.title);
-
-  const xPositionsL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.xPos) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.xPos);
-  const yPositionsL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.yPos) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.yPos);
-  const bodyL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.body) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.body);
-  const linkL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.link) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.link);
-  const colorsL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.color) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.color);
-  const allCitiesL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.city) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.city);
-  // Map all unique cities into an array
-  const citiesL = [...new Set(allCitiesL)];
-
+  
 
   const curiosityNoteL = curiosityNote.map((note) => note.language === lang).length > 0 ? curiosityNote.filter((note) => note.language === lang) : curiosityNote.filter((note) => note.language === 'en');
 
-  console.log("intro: " + curiosityIntro.map((intro) => intro.language === lang));
 
   const curiosityIntroL = curiosityIntro.map((intro) => intro.language === lang) ? curiosityIntro.filter((intro) => intro.language === lang) : curiosityIntro.filter((intro) => intro.language === 'en');
   // const curiosityIntroL = curiosityIntro[1];
@@ -109,13 +98,51 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
 // Add all myths with group == asian and language == lang to the asianMyths array. If there are no myths in the selected language, add the english version.
   const asianMyths = myth.filter((myth) => myth.group === "asian" && myth.language === lang).length > 0 ? myth.filter((myth) => myth.group === "asian" && myth.language === lang) : myth.filter((myth) => myth.group === "asian" && myth.language === "en")
 
+  console.log("asian myths: " + asianMyths.length);
+
   const blackMyths = myth.filter((myth) => myth.group === "black" && myth.language === lang).length > 0 ? myth.filter((myth) => myth.group === "black" && myth.language === lang) : myth.filter((myth) => myth.group === "black" && myth.language === "en")
+
+
+
+
+const titlesL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.title) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.title);
+
+  const xPositionsL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.xPos) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.xPos);
+
+  const yPositionsL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.yPos) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.yPos);
+
+  const bodyL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.body) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.body);
+  const linkL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.link) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.link);
+  const colorsL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.color) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.color);
+  const allCitiesL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.city) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.city);
+  // Map all unique cities into an array
+  const citiesL = [...new Set(allCitiesL)];
+
+  if (roadtripStop.map((stop) => stop.language === lang).length > 0) {
+    console.log("FUCK" + roadtripStop.map((stop) => stop.language === lang).length);
+    console.log("not fuck" + asianMyths.length)
+    console.log("Ci" + citiesL.length)
+  }
+
+
+  console.log("xPositionsL: " + xPositionsL.length);
+  console.log("yPositionsL: " + yPositionsL.length);
+  console.log("all Cities: " + allCitiesL.length);
+
+
+
+
+
+
+
 
   const footerContentL = footerContent.filter((footerContent) => footerContent.language == lang).length > 0 ? footerContent.filter((footerContent) => footerContent.language == lang) : footerContent.filter((footerContent) => footerContent.language == 'en');
 
   const navbarItemTitles = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.title) : navbarItem.filter((item) => item.language === "en").map((item) => item.title)
 
   const navbarItemLinks = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.link) : navbarItem.filter((item) => item.language === "en").map((item) => item.link)
+
+
   
   return (
     <>

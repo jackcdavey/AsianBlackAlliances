@@ -141,13 +141,38 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
       <Header titles={navbarItemTitles} links={navbarItemLinks} />
       <Layout title={'Contact & Collaboration'} description={' '}>
         <div id='body'>
-          <h1 style={{margin:  0}}>Contact & Collaboration</h1>
+          <h1 style={{ margin: 0 }}>{
+            lang == 'en' && 'Contact & Collaboration' ||
+            lang == 'zh-tw' && '聯絡與合作' ||
+            lang == 'zh-cn' && '聯絡與合作' ||
+            lang == 'zh' && '聯絡與合作' ||
+            lang == 'ko' && '연락 및 협력' ||
+            lang == 'vi' && 'Liên hệ và hợp tác' ||
+            lang == 'ja' && '連絡と協力'
+            }</h1>
           <span style={{width: '70%', textAlign: 'center'}}>
-                <p>In this interactive page, you will find historically significant Black-Asian interactions. Each event builds on each other to create continuous possibilities for a sustainable relationship. </p>
+            <p>{
+              lang == 'en' && 'In this interactive page, you will find historically significant Black-Asian interactions. Each event builds on each other to create continuous possibilities for a sustainable relationship.' ||
+              lang == 'zh-tw' && '在這個互動式頁面上，您將找到歷史上重要的黑人亞洲互動。每個事件都建立在彼此之上，以創建可持續關係的連續可能性。' ||
+              lang == 'zh-cn' && '在這個互動式頁面上，您將找到歷史上重要的黑人亞洲互動。每個事件都建立在彼此之上，以創建可持續關係的連續可能性。' ||
+              lang == 'zh' && '在這個互動式頁面上，您將找到歷史上重要的黑人亞洲互動。每個事件都建立在彼此之上，以創建可持續關係的連續可能性。' ||
+              lang == 'ko' && '이 상호 작용 페이지에서는 역사적으로 중요한 흑인-아시아 상호 작용을 찾을 수 있습니다. 각 이벤트는 다른 이벤트를 통해 지속 가능한 관계를 위한 연속적인 가능성을 만들어 냅니다.' ||
+              lang == 'vi' && 'Trên trang tương tác này, bạn sẽ tìm thấy các tương tác Mỹ-Á Châu có ý nghĩa lịch sử. Mỗi sự kiện xây dựng lên nhau để tạo ra những khả năng liên tục cho mối quan hệ có thể duy trì.' ||
+              lang == 'ja' && 'このインタラクティブページでは、歴史的に重要な黒人アジアの相互作用を見つけることができます。各イベントは、持続可能な関係のための連続的な可能性を創造するために、互いに構築されます。'
+                } </p>
           </span>
             <CollaborationMap setTooltipContent={setTooltipContent} />
           <ReactTooltip effect='solid' uuid='mytt' >{tooltipContent}</ReactTooltip>
-          <h3 style={{fontSize: '1rem', marginBottom: 0}}>Please click on either marker to see a timeline of events. </h3>
+          <h3 style={{ fontSize: '1rem', marginBottom: 0 }}>{
+            lang == 'en' && 'Please click on either marker to see a timeline of events.' ||
+            lang == 'zh-tw' && '請點擊任一標記以查看事件的時間表。' ||
+            lang == 'zh-cn' && '請點擊任一標記以查看事件的時間表。' ||
+            lang == 'zh' && '請點擊任一標記以查看事件的時間表。' ||
+            lang == 'ko' && '마커를 클릭하여 이벤트의 타임 라인을 보십시오.' ||
+            lang == 'vi' && 'Vui lòng nhấp vào bất kỳ điểm đánh dấu nào để xem một dòng thời gian các sự kiện.' ||
+            lang == 'ja' && 'マーカーをクリックしてイベントのタイムラインを表示します。'
+          
+          } </h3>
           
 
           <div className='collapsed-content' id='asia'>

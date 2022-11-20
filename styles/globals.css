@@ -204,7 +204,9 @@
    align-items: center;
    z-index: 20;
    overflow: hidden;
-   max-width: 60vw;
+   max-width: 80vw;
+   margin-left: 0;
+   margin-right: 10rem;
  }
 
  .navLink {
