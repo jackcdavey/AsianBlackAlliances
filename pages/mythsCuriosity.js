@@ -232,7 +232,15 @@ const titlesL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? 
             <div className='mythCols'>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 
-              <h2>Asian Myths</h2>
+                <h2>{
+                  lang == 'en' && 'Asian Myths' ||
+                  lang == 'zh-tw' && '亞洲神話' ||
+                  lang == 'zh-cn' && '亚洲神话' ||
+                  lang == 'zh' && '亞洲神話' ||
+                  lang == 'ko' && '아시아 신화' ||
+                  lang == 'vi' && 'Thần thoại châu Á' ||
+                  lang == 'ja' && 'アジア神話'
+                  }</h2>
                 <div className='mythCollapsed'>
                   
                   {asianMyths.map((myth) => (
@@ -247,7 +255,15 @@ const titlesL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? 
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <h2>Black Myths</h2>
+                <h2>{
+                  lang == 'en' && 'Black Myths' ||
+                  lang == 'zh-tw' && '黑人神話' ||
+                  lang == 'zh-cn' && '黑人神话' ||
+                  lang == 'zh' && '黑人神話' ||
+                  lang == 'ko' && '블랙 신화' ||
+                  lang == 'vi' && 'Thần thoại người Mỹ' ||
+                  lang == 'ja' && '黒人神話'
+                  }</h2>
               <div className='mythCollapsed'>
                   {blackMyths.map((myth) => (
                  
