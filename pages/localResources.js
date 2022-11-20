@@ -87,14 +87,14 @@ export default function LocalResources({ footerContent, localResources, navbarIt
                             onChange={handleChange}
                         >
                             <MenuItem value={'en'}>English</MenuItem>
-                            <MenuItem value={'zh'}>Chinese - Simplified</MenuItem>
-                            <MenuItem value={'zh-tw'}>Chinese - Traditional</MenuItem>
-                            <MenuItem value={'zh-cn'}>Cantonese</MenuItem>
-                            <MenuItem value={'ko'}>Korean</MenuItem>
-                            <MenuItem value={'ja'}>Japanse</MenuItem>
-                            <MenuItem value={'vi'}>Vietnamese</MenuItem>
-                            <MenuItem value={'tl'}>Tagalog</MenuItem>
-                            <MenuItem value={'km'}>Khmer</MenuItem>
+                            <MenuItem value={'zh'}>簡體中文</MenuItem>
+                            <MenuItem value={'zh-tw'}>繁體中文</MenuItem>
+                            <MenuItem value={'zh-cn'}>粵語</MenuItem>
+                            <MenuItem value={'ko'}>한국어</MenuItem>
+                            <MenuItem value={'ja'}>にほんご</MenuItem>
+                            <MenuItem value={'vi'}>Tiếng Việt</MenuItem>
+                             
+                              
 
 
                         </Select>
