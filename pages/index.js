@@ -233,7 +233,7 @@ const [lang, setLang] = useState('en');
               
               {contributorL.map((contributor) => (
                 <>
-                <a href={contributor?.link}>
+                <a href={contributor?.link} target="_blank"> 
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', textAlign: 'right', width: '100%' }}>
                 
                   {contributor?.image &&

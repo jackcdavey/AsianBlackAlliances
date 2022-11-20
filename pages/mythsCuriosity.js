@@ -79,10 +79,13 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
 
   const curiosityNoteL = curiosityNote.map((note) => note.language === lang).length > 0 ? curiosityNote.filter((note) => note.language === lang) : curiosityNote.filter((note) => note.language === 'en');
 
-  const curiosityIntroL = curiosityIntro.map((intro) => intro.language === lang).length > 0 ? curiosityIntro.filter((intro) => intro.language === lang) : curiosityIntro.filter((intro) => intro.language === 'en');
+  console.log("intro: " + curiosityIntro.map((intro) => intro.language === lang));
+
+  const curiosityIntroL = curiosityIntro.map((intro) => intro.language === lang) ? curiosityIntro.filter((intro) => intro.language === lang) : curiosityIntro;
+  // const curiosityIntroL = curiosityIntro[1];
+  // const curiosityIntroL = curiosityIntro[0]
 
   console.log("Curiosity intro: " + curiosityIntroL[0].intro);
-
   // console.log("xPositionsL: " + xPositionsL);
   // console.log("yPositionsL: " + yPositionsL);
   // console.log("bodyL: " + bodyL);
@@ -268,7 +271,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
             {/* <h1>Be Curious on Your Next Roadtrip!</h1> */}
             {/* </Tooltip> */}
             <div style={{ alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column', overflowX: 'hidden'}}>
-              <p style={{ textAlign: "center", maxWidth: '90%', margin: 0}}>{curiosityIntroL[0].intro}</p>
+              <p style={{ textAlign: "center", maxWidth: '90%', margin: 0}}>{curiosityIntroL.intro}</p>
             </div>
 
           
@@ -277,7 +280,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
             <div style={{ height: '25rem', width: '100%', borderRadius: "25px", overflow: 'hidden', display:'flex', flexDirection: 'column', justifyContent: 'center',  margin: '1rem', paddingLeft: '1.5rem', paddingRight: '1.5rem'}}>
               <NewMap xPoints={xPositionsL} yPoints={yPositionsL} titles={titlesL} bodies={bodyL} links={linkL} colors={colorsL} cities={citiesL} allCities={allCitiesL} key={new Date().getTime()}/>
             </div>
-            <h3 style={{ marginTop: 0, marginBottom: '2rem', marginLeft: '2rem', marginRight: '2rem', textAlign: "center" }}>{ curiosityIntroL[0].prompt}</h3>
+            <h3 style={{ marginTop: 0, marginBottom: '2rem', marginLeft: '2rem', marginRight: '2rem', textAlign: "center" }}>{ curiosityIntroL.prompt}</h3>
 
             {curiosityNoteL.map((note) => (
             <Paper id={note._id} style={{

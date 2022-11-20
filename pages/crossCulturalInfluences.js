@@ -143,6 +143,19 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
 
   const footerContentL = footerContent.filter((footerContent) => footerContent.language == lang).length > 0 ? footerContent.filter((footerContent) => footerContent.language == lang) : footerContent.filter((footerContent) => footerContent.language == 'en');
 
+
+  const foodL = food.filter((food) => food.language == lang).length > 0 ? food.filter((food) => food.language == lang) : food.filter((food) => food.language == 'en');
+
+  const chefL = chef.filter((chef) => chef.language == lang).length > 0 ? chef.filter((chef) => chef.language == lang) : chef.filter((chef) => chef.language == 'en');
+
+  const holidayL = holiday.filter((holiday) => holiday.language == lang).length > 0 ? holiday.filter((holiday) => holiday.language == lang) : holiday.filter((holiday) => holiday.language == 'en');
+
+  console.log("Holiday length is " + holidayL.length);
+  console.log("Holiday is " + holidayL[0].title);
+
+  const fashion2L = fashion2.filter((fashion2) => fashion2.language == lang).length > 0 ? fashion2.filter((fashion2) => fashion2.language == lang) : fashion2.filter((fashion2) => fashion2.language == 'en');
+
+
     const navbarItemTitles = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.title) : navbarItem.filter((item) => item.language === "en").map((item) => item.title)
 
   const navbarItemLinks = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.link) : navbarItem.filter((item) => item.language === "en").map((item) => item.link)
@@ -214,7 +227,17 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                   />
                   </div>
 <a href='#food' className='collapsed-desc'>
-              <SubtitleSeparator title='Food' contentJustification='center' />
+                <SubtitleSeparator title={
+                  lang == 'en' && 'Food' ||
+                  lang == 'zh' && '食物' ||
+                  lang == 'zh-tw' && '食物' ||
+                  lang == 'zh-cn' && '食物' ||
+                  lang == 'ko' && '음식' ||
+                  lang == 'ja' && '食べ物' ||
+                  lang == 'vi' && 'Thức ăn' ||
+                  lang == 'tl' && 'Pagkain' ||
+                  lang == 'km' && 'មុខម្ហូប'
+            } contentJustification='center' />
               </a>
               <div style={{ maxWidth: '50%' }}>
                 <img
@@ -238,7 +261,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                 <h2>Chefs</h2>
                 
               
-                {chef.map((chef) => (
+                {chefL.map((chef) => (
                 
                   
                 // <div style={{ paddingBottom: "10%" }}>
@@ -307,7 +330,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
             <div className='foodColumn' style={styles.foodColumn}>
               <div style={styles.foodColumnBackground} > </div>
               <h2>Dishes</h2>
-              {food.map((food) => (
+              {foodL.map((food) => (
                 <div style={{padding: "0 8% 8% 8%"}}>
                   <GradientMediaCard key={food._id} imgSource={urlFor(food?.image)} title={food?.title} content={food?.body} link={food?.link} useGradient={true} id='#foodCard' />
                   </div>
@@ -331,7 +354,18 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                   />
               </div>
               <a href='#fashion' className='collapsed-desc'>
-              <SubtitleSeparator title='Fashion' contentJustification='center' />
+                <SubtitleSeparator title={
+                  lang == 'en' && 'Fashion' ||
+                  lang == 'zh' && '时尚' ||
+                  lang == 'zh-tw' && '時尚' ||
+                  lang == 'zh-cn' && '时尚' ||
+                  lang == 'ko' && '패션' ||
+                  lang == 'ja' && 'ファッション' ||
+                  lang == 'vi' && 'Thời trang' ||
+                  lang == 'tl' && 'Pamamaraan' ||
+                  lang == 'km' && 'សម្រាប់អ្នកប្រើប្រាស់'
+
+                } contentJustification='center' />
             </a>
               <div style={{maxWidth: '50%'}}>
                 <img
@@ -351,7 +385,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
           <div className='collapsed-content' id='fashion'>
            
           
-            {fashion2.map((fashion) => (
+            {fashion2L.map((fashion) => (
             
               <div className="fashionTiles" key={fashion._id} style={{  marginBottom: '8vh', position: 'relative', zIndex: '1', padding: "5%", margin: '2vw', justifyContent: 'space-between', alignItems: 'center' }}>
                 {urlFor(fashion?.image) &&
@@ -399,7 +433,17 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                   />
               </div>
               <a href='#holidays' className='collapsed-desc'>
-              <SubtitleSeparator title='Celebrations' contentJustification='center'  />
+                <SubtitleSeparator title={
+                  lang == 'en' && 'Celebrations' ||
+                  lang == 'zh' && '庆祝' ||
+                  lang == 'zh-tw' && '慶祝' ||
+                  lang == 'zh-cn' && '庆祝' ||
+                  lang == 'ko' && '축하' ||
+                  lang == 'ja' && '祝い' ||
+                  lang == 'vi' && 'Lễ kỷ niệm' ||
+                  lang == 'tl' && 'Pagdiriwang' ||
+                  lang == 'km' && 'ការបញ្ចូលបញ្ចាក់'
+                   } contentJustification='center' />
             </a>
               <div style={{maxWidth: '50%'}}>
                 <img
@@ -423,9 +467,19 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
       <div style={{ gridColumn: "span 2", backgroundColor: 'lightblue', borderRadius: '25px'}}>
         <div style={styles.seasonQuad}>
           <div className='holidayTextL'>
-            <h1 style={{margin:0}}>Winter</h1>
-                  {holiday.map((holiday) => (
-              holiday.season === 'winter' ?
+                    <h1 style={{ margin: 0 }}>{
+                      lang == 'en' && 'Winter' ||
+                      lang == 'zh' && '冬季' ||
+                      lang == 'zh-tw' && '冬季' ||
+                      lang == 'zh-cn' && '冬季' ||
+                      lang == 'ko' && '겨울' ||
+                      lang == 'ja' && '冬' ||
+                      lang == 'vi' && 'Đông' ||
+                      lang == 'tl' && 'Tag - init' ||
+                      lang == 'km' && 'ថ្ងៃស្រីពិសិដ្ឋាន'
+                      }</h1>
+                  {holidayL.map((holiday) => (
+              holiday.season === 'winter' || holiday.season === '冬季 ' ?
               <div style={{ paddingBottom: "10%", lineHeight: '1.3rem' }}>
                 <h3 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.title}</h3>
                 <h5 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.date}</h5>
@@ -440,9 +494,20 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
       <div style={{gridColumn: "span 2", backgroundColor: 'lightgreen', borderRadius: '25px' }}>
         <div style={styles.seasonQuad}>
           <div className='holidayTextR'>
-                  <h1 style={{margin:0}}>Spring</h1>
-                  {holiday.map((holiday) => (
-              holiday.season === 'spring' ?
+                    <h1 style={{ margin: 0 }}>{
+                      lang == 'en' && 'Spring' ||
+                      lang == 'zh' && '春季' ||
+                      lang == 'zh-tw' && '春季' ||
+                      lang == 'zh-cn' && '春季' ||
+                      lang == 'ko' && '봄' ||
+                      lang == 'ja' && '春' ||
+                      lang == 'vi' && 'Mùa xuân' ||
+                      lang == 'tl' && 'Tag-init' ||
+                      lang == 'km' && 'ឆ្នាំថ្មី'
+                      
+                    }</h1>
+                  {holidayL.map((holiday) => (
+              holiday.season === 'spring' || holiday.season === '春季 ' ?
               <div style={{ paddingBottom: "10%", lineHeight: '1.3rem' }}>
                 <h3 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.title}</h3>
                 <h5 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.date}</h5>
@@ -456,9 +521,20 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
       <div style={{gridColumn: "span 2", backgroundColor: 'lightyellow', borderRadius: '25px' }}>
         <div style={styles.seasonQuad}>
           <div className='holidayTextL'>
-                  <h1 style={{margin:0}}>Summer</h1>
-                  {holiday.map((holiday) => (
-              holiday.season === 'summer' ?
+                    <h1 style={{ margin: 0 }}>{
+                      lang == 'en' && 'Summer' ||
+                      lang == 'zh' && '夏季 ' ||
+                      lang == 'zh-tw' && '夏季' ||
+                      lang == 'zh-cn' && '夏季' ||  
+                      lang == 'ko' && '여름' ||
+                      lang == 'ja' && '夏' ||
+                      lang == 'vi' && 'Mùa hè' ||
+                      lang == 'tl' && 'Tag-araw' ||
+                      lang == 'km' && 'ថ្ងៃស្រីពិសិដ្ឋាន'
+
+                    }</h1>
+                  {holidayL.map((holiday) => (
+              holiday.season === 'summer' || holiday.season === '夏季 ' ?
               <div style={{ paddingBottom: "10%", lineHeight: '1.3rem' }}>
                 <h3 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.title}</h3>
                 <h5 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.date}</h5>
@@ -472,9 +548,19 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
       <div style={{gridColumn: "span 2", backgroundColor: 'lightsalmon', borderRadius: '25px' }}>
         <div style={styles.seasonQuad}>
                     <div className='holidayTextR'>
-                  <h1 style={{margin:0}}>Fall</h1>
-                  {holiday.map((holiday) => (
-              holiday.season === 'fall' ?
+                    <h1 style={{ margin: 0 }}>{
+                      lang == 'en' && 'Autumn' ||
+                      lang == 'zh' && '秋天' ||
+                      lang == 'zh-tw' && '秋天' ||
+                      lang == 'zh-cn' && '秋天' ||
+                      lang == 'ko' && '가을' ||
+                      lang == 'ja' && '秋' ||
+                      lang == 'vi' && 'Mùa thu' ||
+                      lang == 'tl' && 'Tag-ulan' ||
+                      lang == 'km' && 'ថ្ងៃស្រីពិសិដ្ឋាន'
+                      }</h1>
+                  {holidayL.map((holiday) => (
+              holiday.season === 'fall'|| holiday.season === '秋天 ' ?
               <div style={{ paddingBottom: "10%", lineHeight: '1.3rem' }}>
                 <h3 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.title}</h3>
                 <h5 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.date}</h5>
@@ -506,9 +592,9 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
 
 export async function getStaticProps() {
   const food = await client.fetch(`*[_type == "food"]  | order(order asc)`);
-  const chef = await client.fetch(`*[_type == "chef" && language == "en"]  | order(order asc)`);
-  const holiday = await client.fetch(`*[_type == "holiday" && language == "en"]  | order(order asc)`);
-  const fashion2 = await client.fetch(`*[_type == "fashion2" && language == "en"]  | order(order asc)`);
+  const chef = await client.fetch(`*[_type == "chef"]  | order(order asc)`);
+  const holiday = await client.fetch(`*[_type == "holiday"]  | order(order asc)`);
+  const fashion2 = await client.fetch(`*[_type == "fashion2"]  | order(order asc)`);
   const footerContent = await client.fetch(`*[_type == "footerContent" ]  | order(order asc)`)
   const navbarItem = await client.fetch(`*[_type == "navbarItem"]  | order(order asc)`)
   return {
