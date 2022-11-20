@@ -42,6 +42,10 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
     
     const footerContentL = footerContent.filter((footerContent) => footerContent.language == lang).length > 0 ? footerContent.filter((footerContent) => footerContent.language == lang) : footerContent.filter((footerContent) => footerContent.language == 'en');
 
+    const discussionPostL = discussionPost.filter((discussionPost) => discussionPost.language == lang).length > 0 ? discussionPost.filter((discussionPost) => discussionPost.language == lang) : discussionPost.filter((discussionPost) => discussionPost.language == 'en');
+
+    const discussionQuestionL = discussionQuestion.filter((discussionQuestion) => discussionQuestion.language == lang).length > 0 ? discussionQuestion.filter((discussionQuestion) => discussionQuestion.language == lang) : discussionQuestion.filter((discussionQuestion) => discussionQuestion.language == 'en');
+
     
   const navbarItemTitles = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.title) : navbarItem.filter((item) => item.language === "en").map((item) => item.title)
 
@@ -94,10 +98,32 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
             <Layout title='ABA: Discussion' description=' '>
                 <div id='body'>
 
-                    <h1>Discussion</h1>
-                    <p style={{ textAlign: "center" }}>If you would like to share your own story, plese submit a comment below.</p>
+                    <h1>{lang == 'en' && 'Discussion' ||
+                        lang == 'zh-tw' && '討論' ||
+                        lang == 'zh-cn' && '討論' ||
+                        lang == 'zh' && '討論' ||
+                        lang == 'ko' && '토론' ||
+                        lang == 'vi' && 'Thảo luận' ||
+                        lang == 'ja' && 'ディスカッション'
+                    }</h1>
+                    <p style={{ textAlign: "center" }}>{
+                        lang == 'en' &&
+                        'If you would like to share your own story, plese submit a comment below.'
+                        || lang == 'zh-tw' &&
+                        '如果您想分享您的故事，請在下面提交評論。'
+                        || lang == 'zh-cn' &&
+                        '如果您想分享您的故事，請在下面提交評論。'
+                        || lang == 'zh' &&
+                        '如果您想分享您的故事，請在下面提交評論。'
+                        || lang == 'ko' &&
+                        '자신의 이야기를 공유하려면 아래에 댓글을 남겨주세요.'
+                        || lang == 'vi' &&
+                        'Nếu bạn muốn chia sẻ câu chuyện của riêng mình, vui lòng gửi bình luận bên dưới.'
+                        || lang == 'ja' &&
+                        '自分の話を共有したい場合は、下にコメントを送信してください。'
+                    }</p>
 
-                    {discussionQuestion.map((question) => (
+                    {discussionQuestionL.map((question) => (
                     <div id='form' style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}} key={question._id}>
                     <Paper className='collapsed' style={{borderRadius: '25px'}}>
             <a href={'#' + question._id} className='collapsed-desc'>
@@ -145,7 +171,7 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
 
                     {/* Display each discussion post in a Card below */}
                     {/* <h1>Posts</h1> */}
-                    {discussionPost.map((post) => (
+                    {discussionPostL.map((post) => (
                         <Paper className="discussionCard" style={{borderRadius: "25px", marginBottom: '2rem'}} key={post._id}>
                             <h2>{post?.title}</h2>
                             <h3>From: {" " + post?.name}</h3>
@@ -169,8 +195,8 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
 
 export async function getStaticProps() {
     const footerContent = await client.fetch(`*[_type == "footerContent"]  | order(order asc)`)
-    const discussionPost = await client.fetch(`*[_type == "discussionPost" && language == "en"]  | order(order asc)`)
-    const discussionQuestion = await client.fetch(`*[_type == "discussionQuestion"&& language == "en"]  | order(order asc)`)
+    const discussionPost = await client.fetch(`*[_type == "discussionPost"]  | order(order asc)`)
+    const discussionQuestion = await client.fetch(`*[_type == "discussionQuestion"]  | order(order asc)`)
     const navbarItem = await client.fetch(`*[_type == "navbarItem"]  | order(order asc)`)
     return {
         props: {
