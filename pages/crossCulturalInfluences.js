@@ -577,7 +577,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                       lang == 'km' && 'ថ្ងៃស្រីពិសិដ្ឋាន'
                       }</h1>
                   {holidayL.map((holiday) => (
-              holiday.season === 'fall'|| holiday.season === '秋天 ' ?
+              holiday.season === 'fall'|| holiday.season === '秋天 ' || holiday.season === '가을 ' ?
               <div style={{ paddingBottom: "10%", lineHeight: '1.3rem' }}>
                 <h3 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.title}</h3>
                 <h5 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.date}</h5>
