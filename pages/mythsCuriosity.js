@@ -67,10 +67,14 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
   // Add all titles of with language == lang to the titles array. If there are no titles in the language, add the english version
   
 
-  const curiosityNoteL = curiosityNote.map((note) => note.language === lang).length > 0 ? curiosityNote.filter((note) => note.language === lang) : curiosityNote.filter((note) => note.language === 'en');
+  const curiosityNoteL = curiosityNote.filter((note) => note.language === lang).length > 0 ? curiosityNote.filter((note) => note.language === lang) : curiosityNote.filter((note) => note.language === 'en');
 
 
-  const curiosityIntroL = curiosityIntro.map((intro) => intro.language === lang) ? curiosityIntro.filter((intro) => intro.language === lang) : curiosityIntro.filter((intro) => intro.language === 'en');
+  const curiosityIntroL = curiosityIntro.filter((intro) => intro.language === lang).length > 0 ? curiosityIntro.filter((intro) => intro.language === lang) : curiosityIntro.filter((intro) => intro.language === 'en');
+  // const curiosityIntroL = curiosityIntro.filter((intro) => intro.language === 'en');
+
+  console.log("Curiosity intro: " + JSON.stringify(curiosityIntroL));
+
   // const curiosityIntroL = curiosityIntro[1];
   // const curiosityIntroL = curiosityIntro[0]
 
@@ -314,7 +318,7 @@ const titlesL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? 
             {/* <h1>Be Curious on Your Next Roadtrip!</h1> */}
             {/* </Tooltip> */}
             <div style={{ alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column', overflowX: 'hidden'}}>
-              <p style={{ textAlign: "center", maxWidth: '90%', margin: 0}}>{curiosityIntroL.intro}</p>
+              <p style={{ textAlign: "center", maxWidth: '90%', margin: 0}}>{curiosityIntroL[0].intro}</p>
             </div>
 
           
