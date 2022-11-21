@@ -258,7 +258,15 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
           <div id="foodSection" style={styles.foodSectionWrap}>
             <div className='foodColumn' style={styles.foodColumn}>
               <div style={styles.foodColumnBackground} > </div>
-                <h2>Chefs</h2>
+                <h2>{
+                  lang == 'en' && 'Chefs' ||
+                  lang == 'zh' && '廚師' ||
+                  lang == 'zh-tw' && '廚師' ||
+                  lang == 'zh-cn' && '廚師' ||
+                  lang == 'ko' && '요리사' ||
+                  lang == 'ja' && 'シェフ' ||
+                  lang == 'vi' && 'Nấu ăn' 
+                  }</h2>
                 
               
                 {chefL.map((chef) => (
@@ -329,7 +337,16 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
             </div>
             <div className='foodColumn' style={styles.foodColumn}>
               <div style={styles.foodColumnBackground} > </div>
-              <h2>Dishes</h2>
+                <h2>{
+                  lang == 'en' && 'Dishes' ||
+                  lang == 'zh' && '菜色' ||
+                  lang == 'zh-tw' && '菜色' ||
+                  lang == 'zh-cn' && '菜色' ||
+                  lang == 'ko' && '요리' ||
+                  lang == 'ja' && '料理' ||
+                  lang == 'vi' && 'Món ăn' 
+
+              }</h2>
               {foodL.map((food) => (
                 <div style={{padding: "0 8% 8% 8%"}}>
                   <GradientMediaCard key={food._id} imgSource={urlFor(food?.image)} title={food?.title} content={food?.body} link={food?.link} useGradient={true} id='#foodCard' />
