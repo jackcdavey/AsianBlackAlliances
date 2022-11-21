@@ -390,18 +390,9 @@
      max-width: 80%;
      align-self: center;
    }
-
-
-
-   #foodSection {
-     flex-direction: column !important;
-     align-items: center;
-   }
-
-   .foodColumn {
-     max-width: 90vw !important;
-   }
  }
+
+
 
  #foodCard :hover {
    box-shadow: 0px 0px 15px 0px rgb(229, 124, 27) !important;
@@ -418,6 +409,18 @@
  }
 
  @media screen and (max-width: 700px) {
+
+   #foodSection {
+     flex-direction: column !important;
+     align-items: center;
+   }
+
+
+
+   .foodColumn {
+     max-width: 80vw !important;
+   }
+
    .fashionTiles {
      flex-direction: column;
 
@@ -649,7 +652,7 @@
 
 
  /* On mobile displays, switch to one column */
- @media screen and (max-width: 700px) {
+ @media screen and (max-width: 768px) {
    .seasonGrid {
      grid-template-columns: repeat(1, 1fr);
      grid-template-rows: repeat(4, 1fr);
@@ -693,7 +696,7 @@
    }
 
    #chefCard {
-     width: 80vw;
+     width: 90%;
    }
 
    #millerCard {
@@ -769,7 +772,7 @@
  .mythCard {
    width: 90%;
    border-radius: 25px;
-   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+   /* box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75); */
    border: 3px solid rgb(86, 129, 39);
    margin: 1%;
    padding: 2%;
@@ -784,7 +787,7 @@
  .mythCard:hover {
    max-height: 350vh;
    transition: max-height 1.5s ease-in;
-   box-shadow: 0px 0px 15px 0px rgb(229, 124, 27) !important;
+   /* box-shadow: 0px 0px 15px 0px rgb(229, 124, 27) !important; */
  }
 
 
@@ -842,6 +845,7 @@
    right: 100vw;
    padding-left: 0;
    max-width: 70rem;
+   overflow-x: hidden;
  }
 
  .curiosityMapWrap:target {
@@ -972,7 +976,7 @@
    .mythCard:hover {
      max-height: 1000vh;
      transition: max-height 1.25s ease-in;
-     box-shadow: 0px 0px 15px 0px rgb(229, 124, 27) !important;
+     /* box-shadow: 0px 0px 15px 0px rgb(229, 124, 27) !important; */
    }
 
    .mythCols {

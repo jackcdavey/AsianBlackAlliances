@@ -51,6 +51,7 @@ const styles = {
     backgroundColor: COLORS.primaryLight,
     zIndex: '-1',
     borderRadius: '25px',
+    opacity: '0.5',
   },
 
   fashionRowBackground: {
@@ -65,6 +66,7 @@ const styles = {
     backgroundColor: '#FAC898 ',
     zIndex: '-1',
     borderRadius: '25px',
+    opacity: '0.5',
   },
 
   seasonSectionWrap: {
