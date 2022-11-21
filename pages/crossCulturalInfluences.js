@@ -496,7 +496,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                       lang == 'km' && 'ថ្ងៃស្រីពិសិដ្ឋាន'
                       }</h1>
                   {holidayL.map((holiday) => (
-              holiday.season === 'winter' || holiday.season === '冬季 ' ?
+              holiday.season === 'winter' || holiday.season === '冬季 ' || holiday.season === '겨울 ' ?
               <div style={{ paddingBottom: "10%", lineHeight: '1.3rem' }}>
                 <h3 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.title}</h3>
                 <h5 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.date}</h5>
@@ -524,7 +524,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                       
                     }</h1>
                   {holidayL.map((holiday) => (
-              holiday.season === 'spring' || holiday.season === '春季 ' ?
+              holiday.season === 'spring' || holiday.season === '春季 ' || holiday.season === '봄 ' ?
               <div style={{ paddingBottom: "10%", lineHeight: '1.3rem' }}>
                 <h3 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.title}</h3>
                 <h5 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.date}</h5>
@@ -551,7 +551,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
 
                     }</h1>
                   {holidayL.map((holiday) => (
-              holiday.season === 'summer' || holiday.season === '夏季 ' ?
+              holiday.season === 'summer' || holiday.season === '夏季 ' || holiday.season === '여름 ' ?
               <div style={{ paddingBottom: "10%", lineHeight: '1.3rem' }}>
                 <h3 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.title}</h3>
                 <h5 style={{marginBottom: '0px', marginTop: '0px'}}>{holiday?.date}</h5>
