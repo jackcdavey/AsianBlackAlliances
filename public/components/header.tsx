@@ -206,7 +206,7 @@ export const HomepageHeader = ({ title }: HomeHeaderProps) => {
                             objectPosition: 'center',
                         }}
                     />
-                    <h1 style={{ marginTop: '-0.5rem', padding: 0, fontSize: '2rem' }}>
+                    <h1 style={{ marginTop: '-0.25rem', padding: 0, fontSize: '2rem' }}>
                         {title ||
                             'Asian & Black Alliance'}
                     </h1>

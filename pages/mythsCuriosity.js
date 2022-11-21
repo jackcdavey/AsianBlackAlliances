@@ -327,7 +327,7 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
             <div style={{ height: '25rem', width: '100%', borderRadius: "25px", overflow: 'hidden', display:'flex', flexDirection: 'column', justifyContent: 'center',  margin: '1rem', paddingLeft: '1.5rem', paddingRight: '1.5rem'}}>
               <NewMap xPoints={xPositionsL} yPoints={yPositionsL} titles={titlesL} bodies={bodyL} links={linkL} colors={colorsL} cities={citiesL} allCities={allCitiesL} key={new Date().getTime()}/>
             </div>
-            <h3 style={{ marginTop: 0, marginBottom: '2rem', marginLeft: '2rem', marginRight: '2rem', textAlign: "center" }}>{ curiosityIntroL.prompt}</h3>
+            <h3 style={{ marginTop: 0, marginBottom: '2rem', marginLeft: '2rem', marginRight: '2rem', textAlign: "center" }}>{ curiosityIntroL[0].prompt}</h3>
 
             {curiosityNoteL.map((note) => (
             <Paper id={note._id} style={{
