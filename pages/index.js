@@ -131,8 +131,8 @@ const [lang, setLang] = useState('en');
         marginRight: '1.5rem',
       }}>
                 <Box sx={{ width: 100 }}>
-                    <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label" >
+                    <FormControl fullWidth >
+                        <InputLabel id="demo-simple-select-label" style={{color: 'rgb(86, 129, 39)'}} > 
                             {lang}
                         </InputLabel>
                         <Select
@@ -141,6 +141,7 @@ const [lang, setLang] = useState('en');
                             value={lang}
                             label="Language"
                             onChange={handleChange}
+                            style={{color: 'rgb(86, 129, 39)'}}
                         >
                               <MenuItem value={'en'}>English</MenuItem>
                             <MenuItem value={'zh-tw'}>繁體中文</MenuItem>

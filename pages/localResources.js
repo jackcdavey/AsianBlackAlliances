@@ -76,7 +76,7 @@ export default function LocalResources({ footerContent, localResources, navbarIt
       }}>
                 <Box sx={{ width: 100 }}>
                     <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label" >
+                        <InputLabel id="demo-simple-select-label" style={{color: 'rgb(86, 129, 39)'}} > 
                             {lang}
                         </InputLabel>
                         <Select
@@ -85,6 +85,7 @@ export default function LocalResources({ footerContent, localResources, navbarIt
                             value={lang}
                             label="Language"
                             onChange={handleChange}
+                            style={{color: 'rgb(86, 129, 39)'}}
                         >
                               <MenuItem value={'en'}>English</MenuItem>
                             <MenuItem value={'zh-tw'}>繁體中文</MenuItem>

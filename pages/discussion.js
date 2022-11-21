@@ -70,7 +70,7 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
       }}>
                 <Box sx={{ width: 100 }}>
                     <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label" >
+                        <InputLabel id="demo-simple-select-label" style={{color: 'rgb(86, 129, 39)'}} > 
                             {lang}
                         </InputLabel>
                         <Select
@@ -79,6 +79,7 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
                             value={lang}
                             label="Language"
                             onChange={handleChange}
+                            style={{color: 'rgb(86, 129, 39)'}}
                         >
                               <MenuItem value={'en'}>English</MenuItem>
                             <MenuItem value={'zh-tw'}>繁體中文</MenuItem>
