@@ -194,17 +194,25 @@ export const HomepageHeader = ({ title }: HomeHeaderProps) => {
 
                     </h1>
                 </div>
-                <img
-                    src="/media/CustomAssets/ABAlogohome.png"
-                    alt="ABA Logo"
-                    className='homeLogoTall'
-                    style={{
-                        maxHeight: '100%',
-                        maxWidth: '100%',
-                        objectFit: 'contain',
-                        objectPosition: 'center',
-                    }}
-                />
+                <div className='homeLogoTall' style={{ maxHeight: '100%', maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <img
+                        src="/media/CustomAssets/ABAlogohomeshort.png"
+                        alt="ABA Logo"
+                        className='homeLogoTall'
+                        style={{
+                            maxHeight: '70%',
+                            maxWidth: '100%',
+                            objectFit: 'contain',
+                            objectPosition: 'center',
+                        }}
+                    />
+                    <h1 style={{ marginTop: '-0.5rem', padding: 0, fontSize: '2rem' }}>
+                        {title ||
+                            'Asian & Black Alliance'}
+                    </h1>
+
+
+                </div>
 
             </Container>
         </Container >

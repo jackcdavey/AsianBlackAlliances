@@ -944,7 +944,7 @@
    display: block;
  }
 
- .homeLogoTall {
+ .homeLogoTall * {
    display: none;
  }
 
@@ -959,7 +959,7 @@
      display: none;
    }
 
-   .homeLogoTall {
+   .homeLogoTall * {
      display: block;
    }
 
