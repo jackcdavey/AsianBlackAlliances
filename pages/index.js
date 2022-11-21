@@ -110,7 +110,15 @@ const [lang, setLang] = useState('en');
         <link rel="stylesheet" href="https://use.typekit.net/hco7ora.css" />
         <link rel="stylesheet" href="https://use.typekit.net/hco7ora.css" />
       </Head>
-      <HomepageHeader />
+      <HomepageHeader title={
+        lang == 'en' && 'Asian & Black Alliance' ||
+        lang == 'zh' && '亚洲和黑人联盟' ||
+        lang == 'zh-tw' && '亞洲和黑人聯盟' ||
+        lang == 'zh-cn' && '亚洲和黑人联盟' ||
+        lang == 'ko' && '아시아와 블랙 연맹' ||
+        lang == 'ja' && 'アジアとブラック連盟' ||
+        lang == 'vi' && 'Liên minh châu Á và người Mỹ' 
+      } />
       <Layout title={"Asian and Black Alliances"} description={""}>
         {/* style={{ backgroundImage: `url(${wave.src})` }} */}
 

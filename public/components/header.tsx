@@ -143,7 +143,11 @@ export default function Header({ titles, links }: HeaderProps) {
     )
 }
 
-export const HomepageHeader = () => {
+interface HomeHeaderProps {
+    title?: string;
+}
+
+export const HomepageHeader = ({ title }: HomeHeaderProps) => {
     const [lang, setLang] = React.useState('zh');
 
     if (typeof window !== "undefined") {
@@ -173,17 +177,23 @@ export const HomepageHeader = () => {
                 verticalAlign: 'bottom',
                 alignItems: 'center'
             }}>
-                <img
-                    src="/media/CustomAssets/ABAlogohome2.png"
-                    alt="ABA Logo"
-                    className='homeLogoLong'
-                    style={{
-                        maxHeight: '100%',
-                        maxWidth: '100%',
-                        // height: 'auto',
-                        objectFit: 'contain',
-                        objectPosition: 'center',
-                    }} />
+                <div className='homeLogoLong' style={{ maxHeight: '100%', maxWidth: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+                    <img
+                        src="/media/CustomAssets/ABAlogo.png"
+                        alt="ABA Logo"
+                        style={{
+                            maxHeight: '100%',
+                            maxWidth: '100%',
+                            // height: 'auto',
+                            objectFit: 'contain',
+                            objectPosition: 'center',
+                        }} />
+                    <h1 style={{ textAlign: 'center', paddingTop: '0.5rem', fontSize: '3.5rem' }}>
+                        {title ||
+                            'Asian & Black Alliance'}
+
+                    </h1>
+                </div>
                 <img
                     src="/media/CustomAssets/ABAlogohome.png"
                     alt="ABA Logo"
