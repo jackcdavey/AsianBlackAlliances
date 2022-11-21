@@ -120,7 +120,14 @@ const OurVoices = ({ footerContent, navbarItem }) => {
       <Layout title='ABA: Our Voices' description=' '>
         <div id='body'>
 
-          <h1>Our Voices</h1>
+          <h1>{lang == 'en' && 'Our Voices' ||
+            lang == 'zh-tw' && '我們的聲音' ||
+            lang == 'zh-cn' && '我哋嘅聲音' ||
+            lang == 'zh' && '我们的声音' ||
+            lang == 'ko' && '우리의 목소리' ||
+            lang == 'vi' && 'Tiếng nói của chúng tôi' ||
+            lang == 'ja' && '私たちの声'
+          }</h1>
           <div style={styles.playerWrap}>
             <ReactPlayer url='https://www.youtube.com/watch?v=qjYiuV66KEw'
               width={"90vw"} height={"auto"} style={styles.playerStyle} controls={true} />
