@@ -109,16 +109,16 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
 
 
 
-const titlesL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.title) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.title);
+const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.title) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.title);
 
-  const xPositionsL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.xPos) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.xPos);
+  const xPositionsL = roadtripStop.filter((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.xPos) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.xPos);
 
-  const yPositionsL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.yPos) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.yPos);
+  const yPositionsL = roadtripStop.filter((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.yPos) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.yPos);
 
-  const bodyL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.body) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.body);
-  const linkL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.link) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.link);
-  const colorsL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.color) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.color);
-  const allCitiesL = roadtripStop.map((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.city) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.city);
+  const bodyL = roadtripStop.filter((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.body) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.body);
+  const linkL = roadtripStop.filter((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.link) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.link);
+  const colorsL = roadtripStop.filter((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.color) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.color);
+  const allCitiesL = roadtripStop.filter((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.city) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.city);
   // Map all unique cities into an array
   const citiesL = [...new Set(allCitiesL)];
 
