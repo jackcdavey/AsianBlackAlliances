@@ -101,6 +101,7 @@ export default function Header({ titles, links }: HeaderProps) {
             <div style={{
                 display: 'flex',
                 flexDirection: 'column',
+                width: '100%',
             }}>
                 <div style={{ maxWidth: '100%', display: 'flex', flexDirection: "row", alignItems: 'center', justifyContent: "center", alignSelf: 'center' }}>
 

@@ -209,6 +209,12 @@
    margin-right: 10rem;
  }
 
+ @media screen and (max-width: 968px) {
+   .navBar {
+     display: none;
+   }
+ }
+
  .navLink {
    /* color: black; */
    font-size: 1.1rem;
@@ -367,9 +373,7 @@
    }
 
    /* Collapse the navbar into 3 lines on small screens, expand when clicked */
-   .navBar {
-     display: none;
-   }
+
 
    #langSelect {
      /* margin-left: 50%; */
@@ -500,7 +504,8 @@
    align-items: center;
    position: absolute;
    /* right: 50%; */
-   left: 44.5vw;
+   left: 0;
+   top: 0;
  }
 
  #menu-toggle {
@@ -543,9 +548,11 @@
    transform: rotate(-405deg);
  }
 
- @media (max-width: 768px) {
+ @media (max-width: 968px) {
    .menu-button-container {
      display: flex;
+     margin-left: 50%;
+     padding-right: 50%;
    }
 
    .menu {
