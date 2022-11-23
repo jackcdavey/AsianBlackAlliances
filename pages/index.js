@@ -241,7 +241,7 @@ const [lang, setLang] = useState('en');
               {contributorL.map((contributor) => (
                 <>
                 <a href={contributor?.link} target="_blank"> 
-                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', textAlign: 'right', width: '100%' }}>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', textAlign: 'right', width: '100%', marginTop: '1rem'}}>
                 
                   {contributor?.image &&
                      <div style={{ width: "30%", display: "flex", flexDirection: "column", aspectRatio: '1/1'}}>
@@ -251,7 +251,7 @@ const [lang, setLang] = useState('en');
                           height: "100%",
                           objectFit: "cover",
                           aspectRatio: '1/1',
-                        // padding: '10%',
+                          marginLeft: '20%',
                           
                         }}
                         src={urlFor(contributor.image)}
@@ -259,12 +259,14 @@ const [lang, setLang] = useState('en');
                       />
                        
                     </div>
-                  }
-                      <h4 style={{ margi: "0" }}>{contributor?.name}</h4>
+                      }
+                      <div style={{width: '100%'}}>
+                        <h4 style={{ margin: "0", marginRight: '15%', justifyContent: 'center' }}>{contributor?.name}</h4>
+                        </div>
                  
               
                   </div>
-                  <p style={{textAlign: 'center'}}>{contributor.body}</p>
+                  <p style={{textAlign: 'center', justifyItems: 'flex-end'}}>{contributor.body}</p>
                 </a>
                   <div style={{ width: '100%', height: '1px', backgroundColor: 'lightgray', margin: '0.5rem 0' }}></div>
                   </>
