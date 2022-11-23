@@ -314,7 +314,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                 </div>
                       </div>
                       
-                      {chef?.link && (
+                      {chef?.links && (
                         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginTop: '1rem', width: '100%' }}>
 
                                                   {chef?.links.map((link, index) => (

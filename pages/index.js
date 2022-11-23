@@ -85,8 +85,6 @@ const [lang, setLang] = useState('en');
 
   const homepageTileL = homepageTile.filter((homepageTile) => homepageTile.language == lang).length > 0 ? homepageTile.filter((homepageTile) => homepageTile.language == lang) : homepageTile.filter((homepageTile) => homepageTile.language == 'en');
 
-
-  
   const homepageThanksL = homepageDescription.filter((homepageDescription) => homepageDescription.title == 'Thanks' && homepageDescription.language == lang).length > 0 ? homepageDescription.filter((homepageDescription) => homepageDescription.title == 'Thanks' && homepageDescription.language == lang)[0].body : homepageDescription.filter((homepageDescription) => homepageDescription.title == 'Thanks' && homepageDescription.language == 'en')[0].body
 
   const homepageDescriptionL = homepageDescription.filter((homepageDescription) => homepageDescription.title == 'Intro' && homepageDescription.language == lang).length > 0 ? homepageDescription.filter((homepageDescription) => homepageDescription.title == 'Intro' && homepageDescription.language == lang)[0].body : homepageDescription.filter((homepageDescription) => homepageDescription.title == 'Intro' && homepageDescription.language == 'en')[0].body
@@ -262,11 +260,11 @@ const [lang, setLang] = useState('en');
                        
                     </div>
                   }
-                      <h4 style={{ margin: "0" }}>{contributor?.name}</h4>
+                      <h4 style={{ margi: "0" }}>{contributor?.name}</h4>
                  
               
                   </div>
-                  <p>{contributor.body}</p>
+                  <p style={{textAlign: 'center'}}>{contributor.body}</p>
                 </a>
                   <div style={{ width: '100%', height: '1px', backgroundColor: 'lightgray', margin: '0.5rem 0' }}></div>
                   </>
