@@ -102,7 +102,7 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
                     <h1>{lang == 'en' && 'Discussion' ||
                         lang == 'zh-tw' && '討論' ||
                         lang == 'zh-cn' && '討論' ||
-                        lang == 'zh' && '討論' ||
+                        lang == 'zh' && '讨论' ||
                         lang == 'ko' && '토론' ||
                         lang == 'vi' && 'Thảo luận' ||
                         lang == 'ja' && 'ディスカッション'
@@ -111,11 +111,11 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
                         lang == 'en' &&
                         'If you would like to share your own story, plese submit a comment below.'
                         || lang == 'zh-tw' &&
-                        '如果您想分享您的故事，請在下面提交評論。'
+                        '歡迎您在此分享您的故事，或提供您的想法及建議。'
                         || lang == 'zh-cn' &&
                         '如果您想分享您的故事，請在下面提交評論。'
                         || lang == 'zh' &&
-                        '如果您想分享您的故事，請在下面提交評論。'
+                        '请在下方分享您的故事。'
                         || lang == 'ko' &&
                         '자신의 이야기를 공유하려면 아래에 댓글을 남겨주세요.'
                         || lang == 'vi' &&

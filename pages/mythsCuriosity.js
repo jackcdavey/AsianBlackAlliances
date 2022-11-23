@@ -235,9 +235,9 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
                 
                 <h2>{
                   lang == 'en' && 'Asian Myths' ||
-                  lang == 'zh-tw' && '亞洲神話' ||
-                  lang == 'zh-cn' && '亚洲神话' ||
-                  lang == 'zh' && '亞洲神話' ||
+                  lang == 'zh-tw' && '對亞裔的誤解' ||
+                  lang == 'zh-cn' && '對亞裔嘅誤解' ||
+                  lang == 'zh' && '对亚裔的误解' ||
                   lang == 'ko' && '아시아 신화' ||
                   lang == 'vi' && 'Thần thoại châu Á' ||
                   lang == 'ja' && 'アジア神話'
@@ -258,11 +258,11 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <h2>{
                   lang == 'en' && 'Black Myths' ||
-                  lang == 'zh-tw' && '黑人神話' ||
-                  lang == 'zh-cn' && '黑人神话' ||
-                  lang == 'zh' && '黑人神話' ||
+                  lang == 'zh-tw' && '對黑人的誤解' ||
+                  lang == 'zh-cn' && ' 對黑人嘅誤解' ||
+                  lang == 'zh' && '对黑人的误解' ||
                   lang == 'ko' && '블랙 신화' ||
-                  lang == 'vi' && 'Thần thoại người Mỹ' ||
+                  lang == 'vi' && 'Thần thoại đen' ||
                   lang == 'ja' && '黒人神話'
                   }</h2>
               <div className='mythCollapsed'>
