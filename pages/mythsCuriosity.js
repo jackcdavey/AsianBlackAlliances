@@ -185,14 +185,10 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
                               <MenuItem value={'en'}>English</MenuItem>
                             <MenuItem value={'zh-tw'}>繁體中文</MenuItem>
                             <MenuItem value={'zh-cn'}>粵語</MenuItem>
-                            <MenuItem value={'zh'}>簡體中文</MenuItem>
+                            <MenuItem value={'zh'}>中文</MenuItem>
                             <MenuItem value={'ko'}>한국어</MenuItem>
                             <MenuItem value={'vi'}>Tiếng Việt</MenuItem>
                             <MenuItem value={'ja'}>にほんご</MenuItem>
-                             
-                              
-
-
                         </Select>
                     </FormControl>
                 </Box>
