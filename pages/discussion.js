@@ -87,7 +87,7 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
                             <MenuItem value={'zh'}>簡體中文</MenuItem>
                             <MenuItem value={'ko'}>한국어</MenuItem>
                             <MenuItem value={'vi'}>Tiếng Việt</MenuItem>
-                            <MenuItem value={'ja'}>にほんご</MenuItem>
+                            <MenuItem value={'ja'}>日本語</MenuItem>
                              
                               
 
@@ -135,7 +135,8 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
           </Paper>
           <div className='collapsed-form' id={question._id}>
 
-            <form action="https://formspree.io/f/xknevqwl" method="POST">
+            <form action="https://formspree.io/f/xknevqwl" method="POST"   enctype="multipart/form-data"
+>
                 <div id="formWrap">
                     <div className="innerFormWrap" >
                         <div id="formWrap">

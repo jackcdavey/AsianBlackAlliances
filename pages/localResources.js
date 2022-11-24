@@ -93,7 +93,7 @@ export default function LocalResources({ footerContent, localResources, navbarIt
                             <MenuItem value={'zh'}>簡體中文</MenuItem>
                             <MenuItem value={'ko'}>한국어</MenuItem>
                             <MenuItem value={'vi'}>Tiếng Việt</MenuItem>
-                            <MenuItem value={'ja'}>にほんご</MenuItem>
+                            <MenuItem value={'ja'}>日本語</MenuItem>
                              
                               
 

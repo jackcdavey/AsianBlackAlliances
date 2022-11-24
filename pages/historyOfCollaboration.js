@@ -130,7 +130,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
                             <MenuItem value={'zh'}>簡體中文</MenuItem>
                             <MenuItem value={'ko'}>한국어</MenuItem>
                             <MenuItem value={'vi'}>Tiếng Việt</MenuItem>
-                            <MenuItem value={'ja'}>にほんご</MenuItem>
+                            <MenuItem value={'ja'}>日本語</MenuItem>
                              
                               
 
@@ -149,7 +149,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
             lang == 'zh' && '联系与合作' ||
             lang == 'ko' && '연락처 및 협업' ||
             lang == 'vi' && 'Liên hệ và hợp tác' ||
-            lang == 'ja' && '連絡と協力'
+            lang == 'ja' && '連絡先とコラボレーション'
             }</h1>
           <span style={{width: '70%', textAlign: 'center'}}>
             <p>{
@@ -159,7 +159,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
               lang == 'zh' && '在这个互动页面中，您将找到具有历史意义的黑人与亚裔的互动。 每个历史事件都相互依存，为可持续的关系创造持续的可能性。' ||
               lang == 'ko' && '이 대화형 페이지에서는 역사적으로 중요한 흑인-아시아인 상호 작용을 찾을 수 있습니다. 각 이벤트는 지속 가능한 관계를 위한 지속적인 가능성을 만들기 위해 서로를 기반으로 합니다.' ||
               lang == 'vi' && 'Trên trang tương tác này, bạn sẽ tìm thấy các tương tác Mỹ-Á Châu có ý nghĩa lịch sử. Mỗi sự kiện xây dựng lên nhau để tạo ra những khả năng liên tục cho mối quan hệ có thể duy trì.' ||
-              lang == 'ja' && 'このインタラクティブページでは、歴史的に重要な黒人アジアの相互作用を見つけることができます。各イベントは、持続可能な関係のための連続的な可能性を創造するために、互いに構築されます。'
+              lang == 'ja' && 'このインタラクティブページでは、歴史的に重要な黒人とアジアの相互関係を見つけることができます。各イベントは、持続可能な関係のための継続的な可能性を生み出すために互いに構築されています。'
                 } </p>
           </span>
             <CollaborationMap setTooltipContent={setTooltipContent} />
@@ -171,7 +171,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
             lang == 'zh' && '请点击任一标记以查看事件记录表。' ||
             lang == 'ko' && '두 마커 중 하나를 클릭하면 이벤트 타임라인을 볼 수 있습니다.' ||
             lang == 'vi' && 'Vui lòng nhấp vào bất kỳ điểm đánh dấu nào để xem một dòng thời gian các sự kiện.' ||
-            lang == 'ja' && 'マーカーをクリックしてイベントのタイムラインを表示します。'
+            lang == 'ja' && 'いずれかのマーカーをクリックして、イベントのタイムラインを表示してください。'
           
           } </h3>
           

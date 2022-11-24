@@ -114,7 +114,7 @@ const [lang, setLang] = useState('en');
         lang == 'zh-tw' && '亞裔與黑人聯盟' ||
         lang == 'zh-cn' && '亞裔同黑人聯盟' ||
         lang == 'ko' && '아시안과 흑인 동맹' ||
-        lang == 'ja' && 'アジアとブラック連盟' ||
+        lang == 'ja' && 'アジアン&ブラックアライアンス' ||
         lang == 'vi' && ' Liên minh Châu Á & Châu phi' 
       } />
       <Layout title={"Asian and Black Alliances"} description={""}>
@@ -147,7 +147,7 @@ const [lang, setLang] = useState('en');
                             <MenuItem value={'zh'}>簡體中文</MenuItem>
                             <MenuItem value={'ko'}>한국어</MenuItem>
                             <MenuItem value={'vi'}>Tiếng Việt</MenuItem>
-                            <MenuItem value={'ja'}>にほんご</MenuItem>
+                            <MenuItem value={'ja'}>日本語</MenuItem>
                              
                               
 

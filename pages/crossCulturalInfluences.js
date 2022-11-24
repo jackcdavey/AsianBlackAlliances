@@ -205,7 +205,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                             <MenuItem value={'zh'}>簡體中文</MenuItem>
                             <MenuItem value={'ko'}>한국어</MenuItem>
                             <MenuItem value={'vi'}>Tiếng Việt</MenuItem>
-                            <MenuItem value={'ja'}>にほんご</MenuItem>
+                            <MenuItem value={'ja'}>日本語</MenuItem>
                             
                             
 
@@ -459,7 +459,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                   lang == 'zh-tw' && '重要節慶' ||
                   lang == 'zh-cn' && '重要節慶' ||
                   lang == 'ko' && '축하' ||
-                  lang == 'ja' && '祝い' ||
+                  lang == 'ja' && 'お祝い' ||
                   lang == 'vi' && 'Lễ kỷ niệm' ||
                   lang == 'tl' && 'Pagdiriwang' ||
                   lang == 'km' && 'ការបញ្ចូលបញ្ចាក់'

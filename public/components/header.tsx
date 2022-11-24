@@ -188,7 +188,7 @@ export const HomepageHeader = ({ title }: HomeHeaderProps) => {
                             objectFit: 'contain',
                             objectPosition: 'center',
                         }} />
-                    <h1 style={{ textAlign: 'center', paddingTop: '0.5rem', fontSize: '3.5rem' }}>
+                    <h1 style={{ textAlign: 'center', paddingTop: '0.5rem', fontSize: '3.5rem', overflow: 'hidden' }}>
                         {title ||
                             'Asian & Black Alliance'}
 

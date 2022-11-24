@@ -188,7 +188,7 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
                             <MenuItem value={'zh'}>中文</MenuItem>
                             <MenuItem value={'ko'}>한국어</MenuItem>
                             <MenuItem value={'vi'}>Tiếng Việt</MenuItem>
-                            <MenuItem value={'ja'}>にほんご</MenuItem>
+                            <MenuItem value={'ja'}>日本語</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>
@@ -240,7 +240,7 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
                   lang == 'zh' && '对亚裔的误解' ||
                   lang == 'ko' && '아시아 신화' ||
                   lang == 'vi' && 'Thần thoại châu Á' ||
-                  lang == 'ja' && 'アジア神話'
+                  lang == 'ja' && 'アジアの伝説'
                   }</h2>
                 <div className='mythCollapsed'>
                   
@@ -263,7 +263,7 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
                   lang == 'zh' && '对黑人的误解' ||
                   lang == 'ko' && '블랙 신화' ||
                   lang == 'vi' && 'Thần thoại đen' ||
-                  lang == 'ja' && '黒人神話'
+                  lang == 'ja' && '黒人の伝説'
                   }</h2>
               <div className='mythCollapsed'>
                   {blackMyths.map((myth) => (
