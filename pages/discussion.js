@@ -135,8 +135,7 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
           </Paper>
           <div className='collapsed-form' id={question._id}>
 
-            <form action="https://formspree.io/f/xknevqwl" method="POST"   enctype="multipart/form-data"
->
+            <form action="https://formspree.io/f/xknevqwl" method="POST"   enctype="multipart/form-data">
                 <div id="formWrap">
                     <div className="innerFormWrap" >
                         <div id="formWrap">
@@ -156,10 +155,10 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
                             flexDirection: 'row',
                             alignItems: 'center',
                         }}>
-                            <label for='attachment' style={{width: '50%'}} >
+                            {/* <label for='attachment' style={{width: '50%'}} >
                                 <h4>Attach a File</h4>
                             </label>
-                            <input type='file' name='attachment' id='attachment' style={{  textAlign: 'center', width: '80%'}}/>
+                            <input type='file' name='attachment' id='attachment' style={{  textAlign: 'center', width: '80%'}}/> */}
                         </div>
                     </div>
                 <Button variant="contained" type="submit" style={{marginBottom: '1rem', borderRadius: "25px"}}>Send</Button>
