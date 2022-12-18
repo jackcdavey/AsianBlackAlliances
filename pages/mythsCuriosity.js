@@ -73,7 +73,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
   const curiosityIntroL = curiosityIntro.filter((intro) => intro.language === lang).length > 0 ? curiosityIntro.filter((intro) => intro.language === lang) : curiosityIntro.filter((intro) => intro.language === 'en');
   // const curiosityIntroL = curiosityIntro.filter((intro) => intro.language === 'en');
 
-  console.log("Curiosity intro: " + JSON.stringify(curiosityIntroL));
+  // console.log("Curiosity intro: " + JSON.stringify(curiosityIntroL));
 
   // const curiosityIntroL = curiosityIntro[1];
   // const curiosityIntroL = curiosityIntro[0]
@@ -102,7 +102,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
 // Add all myths with group == asian and language == lang to the asianMyths array. If there are no myths in the selected language, add the english version.
   const asianMyths = myth.filter((myth) => myth.group === "asian" && myth.language === lang).length > 0 ? myth.filter((myth) => myth.group === "asian" && myth.language === lang) : myth.filter((myth) => myth.group === "asian" && myth.language === "en")
 
-  console.log("asian myths: " + asianMyths.length);
+  // console.log("asian myths: " + asianMyths.length);
 
   const blackMyths = myth.filter((myth) => myth.group === "black" && myth.language === lang).length > 0 ? myth.filter((myth) => myth.group === "black" && myth.language === lang) : myth.filter((myth) => myth.group === "black" && myth.language === "en")
 
@@ -122,16 +122,6 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
   // Map all unique cities into an array
   const citiesL = [...new Set(allCitiesL)];
 
-  if (roadtripStop.map((stop) => stop.language === lang).length > 0) {
-    console.log("FUCK" + roadtripStop.map((stop) => stop.language === lang).length);
-    console.log("not fuck" + asianMyths.length)
-    console.log("Ci" + citiesL.length)
-  }
-
-
-  console.log("xPositionsL: " + xPositionsL.length);
-  console.log("yPositionsL: " + yPositionsL.length);
-  console.log("all Cities: " + allCitiesL.length);
 
 
 

@@ -152,8 +152,8 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
 
   const holidayL = holiday.filter((holiday) => holiday.language == lang).length > 0 ? holiday.filter((holiday) => holiday.language == lang) : holiday.filter((holiday) => holiday.language == 'en');
 
-  console.log("Holiday length is " + holidayL.length);
-  console.log("Holiday is " + holidayL[0].title);
+  //console.log("Holiday length is " + holidayL.length);
+  //console.log("Holiday is " + holidayL[0].title);
 
   const fashion2L = fashion2.filter((fashion2) => fashion2.language == lang).length > 0 ? fashion2.filter((fashion2) => fashion2.language == lang) : fashion2.filter((fashion2) => fashion2.language == 'en');
 

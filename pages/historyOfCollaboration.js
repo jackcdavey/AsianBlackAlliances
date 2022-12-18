@@ -90,7 +90,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
 
   const navbarItemLinks = navbarItem.filter((item) => item.language === lang).length > 0 ? navbarItem.filter((item) => item.language === lang).map((item) => item.link) : navbarItem.filter((item) => item.language === "en").map((item) => item.link)
 
-  console.log("Navbar Item: " + navbarItem);
+  // console.log("Navbar Item: " + navbarItem);
 
 
   return (
