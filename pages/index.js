@@ -108,23 +108,11 @@ const [lang, setLang] = useState('en');
         <link rel="stylesheet" href="https://use.typekit.net/hco7ora.css" />
         <link rel="stylesheet" href="https://use.typekit.net/hco7ora.css" />
       </Head>
-      <HomepageHeader title={
-        lang == 'en' && 'Asian & Black Alliance' ||
-        lang == 'zh' && '亚裔与黑人联盟' ||
-        lang == 'zh-tw' && '亞裔與黑人聯盟' ||
-        lang == 'zh-cn' && '亞裔同黑人聯盟' ||
-        lang == 'ko' && '아시안과 흑인 동맹' ||
-        lang == 'ja' && 'アジアン&ブラックアライアンス' ||
-        lang == 'vi' && ' Liên minh Châu Á & Châu phi' 
-      } />
-      <Layout title={"Asian and Black Alliances"} description={""}>
-        {/* style={{ backgroundImage: `url(${wave.src})` }} */}
 
-
-        <div style={{
+      <div style={{
         position: 'fixed',
         right: '0',
-        zIndex: '100',
+        zIndex: '10',
         marginTop: '3.2rem',
         marginRight: '1.5rem',
       }}>
@@ -156,6 +144,20 @@ const [lang, setLang] = useState('en');
                     </FormControl>
                 </Box>
         </div>
+      <HomepageHeader title={
+        lang == 'en' && 'Asian & Black Alliance' ||
+        lang == 'zh' && '亚裔与黑人联盟' ||
+        lang == 'zh-tw' && '亞裔與黑人聯盟' ||
+        lang == 'zh-cn' && '亞裔同黑人聯盟' ||
+        lang == 'ko' && '아시안과 흑인 동맹' ||
+        lang == 'ja' && 'アジアン&ブラックアライアンス' ||
+        lang == 'vi' && ' Liên minh Châu Á & Châu phi' 
+      } />
+      <Layout title={"Asian and Black Alliances"} description={""}>
+        {/* style={{ backgroundImage: `url(${wave.src})` }} */}
+
+
+        
         
 
         <div className="homeBody" >
