@@ -5,7 +5,7 @@ Welcome to the Asian Black Alliance website repo! The website can be accessed at
 #### Before starting, you should have Node.JS, NPM, and Homebrew (if MacOs) installed. 
 
 ### 1. Clone the Repo
-Using either the GitHub web GUI or ```gh repo clone jackcdavey/AsianBlackAlliances``` locally save the repo, and unzip in your development location.
+Use either the GitHub web GUI or the CLI with ```gh repo clone jackcdavey/AsianBlackAlliances``` to locally save the repo, and unzip in your development location.
 
 ### 2. Install Dependencies
 Using the command line to navigate into the project folder, run ```npm install``` to download and install all necessary dependencies for the project
