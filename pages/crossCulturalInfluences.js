@@ -134,9 +134,10 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
   
   const checkLang = () => {
     if (typeof window !== "undefined") {
-      var languageSelection = localStorage.getItem('langChoice');
+      var languageSelection = localStorage.getItem('langChoice') || 'en';
       if(languageSelection != lang)
         setLang(languageSelection);
+      
       console.log("Stored language is " + languageSelection);
     }
   }
