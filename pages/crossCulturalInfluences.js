@@ -178,6 +178,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
 
 
       </Head>
+        <Header titles={navbarItemTitles} links={navbarItemLinks} />
 
       <Layout title='ABA: Cross-Cultural Influences' description=' '>
         <div style={{
@@ -207,15 +208,10 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                             <MenuItem value={'ko'}>한국어</MenuItem>
                             <MenuItem value={'vi'}>Tiếng Việt</MenuItem>
                             <MenuItem value={'ja'}>日本語</MenuItem>
-                            
-                            
-
-
                         </Select>
                     </FormControl>
                 </Box>
-            </div>
-        <Header titles={navbarItemTitles} links={navbarItemLinks} />
+        </div>
         <div id='body'>
           
           <Paper className='collapsed' sx={styles.theRadius}>
