@@ -13,6 +13,7 @@ import MobileNavMenu from './mobileNavMenu.js';
 import { createClient } from 'next-sanity'
 
 
+
 const styles = {
     banner: {
         top: 0,

@@ -1,4 +1,4 @@
-
+import Image from "next/image";
 
 export default function Decor() {
     var assetPosition = "";
@@ -28,7 +28,7 @@ export default function Decor() {
     const randomNum = Math.floor(Math.random() * 40 + 1)
     if (randomNum < 10) {
         return (
-            <img className='cardDecor' id={assetPosition}
+            <Image className='cardDecor' id={assetPosition}
                 src='/media/CustomAssets/orangeLeafAsset.png'
                 width={200}
                 height={100}
@@ -37,7 +37,7 @@ export default function Decor() {
     }
     else if (randomNum < 20) {
         return (
-            <img className='cardDecor' id={assetPosition}
+            <Image className='cardDecor' id={assetPosition}
                 src='/media/CustomAssets/leafAsset.png'
                 width={200}
                 height={100}
@@ -46,7 +46,7 @@ export default function Decor() {
     }
     else if (randomNum < 30) {
         return (
-            <img className='cardDecor' id={assetPosition}
+            <Image className='cardDecor' id={assetPosition}
                 src='/media/CustomAssets/lightLeafAsset.png'
                 width={200}
                 height={100}
@@ -55,7 +55,7 @@ export default function Decor() {
     }
     else {
         return (
-            <img className='cardDecor' id={assetPosition}
+            <Image className='cardDecor' id={assetPosition}
                 src='/media/CustomAssets/lightOrangeLeafAsset.png'
                 width={200}
                 height={100}
