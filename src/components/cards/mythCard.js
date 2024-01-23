@@ -5,17 +5,15 @@ import Paper from "@mui/material/Paper";
 import { Button } from '@mui/material';
 import { v4 } from "uuid";
 
+import styles from "../../styles/mythsCuriosity.module.css";
 
-const styles = {
-  theRadius: {
-    borderRadius: '25px',
-  },
-}
+
+
  
 
 export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote, mythLinkLabel }) {
     return (
-        <Paper className="mythCard" sx={styles.theRadius} key={v4()}>
+        <Paper className={styles.mythCard} sx={{borderRadius: '25px'}} key={v4()}>
 
             <h2 style={{marginTop: 0}}>{mythTitle}</h2>
             <div className="card">
@@ -31,7 +29,7 @@ export default function MythCard({ mythTitle, mythDesc, mythLink, mythLinkNote, 
                                 maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'
                             }}
                         >
-                            <Button variant="contained" color="primary" href={mythLink[index]} target="_blank" rel="noopener noreferrer" sx={styles.theRadius} style={{ marginLeft: '1rem', width: '80%', margin: 'auto', marginBottom: '5%', textAlign: 'center' }} >
+                            <Button variant="contained" color="primary" href={mythLink[index]} target="_blank" rel="noopener noreferrer" sx={{borderRadius: '25px'}} style={{ marginLeft: '1rem', width: '80%', margin: 'auto', marginBottom: '5%', textAlign: 'center' }} >
                                 {/* If a mythLinkLabel exists, display here */}
                                 {mythLinkLabel && mythLinkLabel[index] ? mythLinkLabel[index] : "More Info"}
                             </Button>

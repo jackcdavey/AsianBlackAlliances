@@ -1,0 +1,9 @@
+.localResourceLink {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+}
+
+.localResourceLink:hover {
+    color: rgb(229, 124, 27);
+}

@@ -11,6 +11,7 @@ import Header from '../components/header'
 import Footer from '../components/footer.js'
 import Layout from '../components/layout'
 import CollaborationMap from '../components/collaborationMap.js'
+import styles from '../styles/historyOfCollaboration.module.css'
 
 import {
   Timeline,
@@ -30,11 +31,6 @@ const client = createClient({
   useCdn: false,
 });
 
-const styles = {
-  theRadius: {
-    borderRadius: '25px',
-  },
-}
 
 
 function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources, collaborationTag, navbarItem }) {
@@ -178,7 +174,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent> 
-                  <Paper elevation={3}  className="collabTag" sx={{borderRadius: '25px !important'}}>
+                  <Paper elevation={3}  className={styles.collabTag} sx={{borderRadius: '25px !important'}}>
                     <Typography variant="h2" component="span" fontSize='1.4rem' sx={{ textAlign: 'left' }}>
                       {tag.title}
                     </Typography>
@@ -220,7 +216,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Paper elevation={3} className="collabTag" sx={{borderRadius: '25px !important'}}>
+                  <Paper elevation={3} className={styles.collabTag} sx={{borderRadius: '25px !important'}}>
                     <Typography variant="h2" component="span" fontSize='1.4rem' sx={{ textAlign: 'left' }}>
                       {tag.title}
                     </Typography>
@@ -260,7 +256,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
                 historyResource?.link?.map((link) => (
                   <Button
                     key={historyResource?.link.indexOf(link)}
-                    variant="contained" color="primary" className={"resource-button"} href={historyResource?.link[historyResource?.link.indexOf(link)]} target="_blank" rel="noopener noreferrer" style={{ width: '40%', margin: '2%', borderRadius: '25px' }} >
+                    variant="contained" color="primary" className={styles.resourceButton} href={historyResource?.link[historyResource?.link.indexOf(link)]} target="_blank" rel="noopener noreferrer" style={{ width: '40%', margin: '2%', borderRadius: '25px' }} >
                     <div style={{textAlign: 'center' }}>
                     {/* Display the linkLabel if it exists, otherwise display "More Info" */}
                       {historyResource?.linkLabel && historyResource?.linkLabel[historyResource?.link.indexOf(link)] ? historyResource?.linkLabel[historyResource?.link.indexOf(link)] : "More Info"}

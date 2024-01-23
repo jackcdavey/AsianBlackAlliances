@@ -11,12 +11,8 @@ import Footer from '../components/footer.js';
 import MythCard from '../components/cards/mythCard.js';
 import Layout from '../components/layout';
 import NewMap from '../components/newRoadtripMap.js';
+import styles from '../styles/mythsCuriosity.module.css';
 
-const styles = {
-  theRadius: {
-    borderRadius: '25px',
-  },
-}
 
 const client = createClient({
   projectId: 'hiagtp2f',
@@ -157,7 +153,7 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
         <div id='body'>
 
           {/* <h1> Myths &#38; Curiosity</h1> */}
-          <Paper className='collapsed' sx={styles.theRadius}>
+          <Paper className='collapsed' >
             <a href='#myths' className='collapsed-desc'>
               {/* Display the first item in mythsCuriosityHeader */}
 
@@ -169,7 +165,7 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
                     width={300}
                     height={80}
                     style={{ paddingTop: '1rem' }}
-                    className='cultureDecor'
+                    className={styles.cultureDecor}
                   />
                   </div>
                 <h1>{mythSectionHeader}</h1>
@@ -180,7 +176,7 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
                     width={300}
                     height={80}
                     style={{ WebkitTransform: 'scaleX(-1)', paddingTop: '1rem' }}
-                    className='cultureDecor'
+                    className={styles.cultureDecor}
                     />
                   </div>
 
@@ -190,7 +186,7 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
           </Paper>
           <div className='collapsed-content' id='myths'>
 
-            <div className='mythCols'>
+            <div className={styles.mythCols}>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '50%' }}>
                 
                 <h2>{
@@ -202,7 +198,7 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
                   lang == 'vi' && 'Thần thoại châu Á' ||
                   lang == 'ja' && 'アジアの伝説'
                   }</h2>
-                <div className='mythCollapsed'>
+                <div className={styles.mythCollapsed}>
                   
                   {asianMyths.map((myth) => (
                   <MythCard key={myth._id}
@@ -225,7 +221,7 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
                   lang == 'vi' && 'Thần thoại đen' ||
                   lang == 'ja' && '黒人の伝説'
                   }</h2>
-              <div className='mythCollapsed'>
+              <div className={styles.mythCollapsed}>
                   {blackMyths.map((myth) => (
                  
                       <MythCard key={myth._id}
@@ -239,7 +235,7 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
                 </div>
             </div>
             </div>
-          <Paper className='collapsed'  sx={styles.theRadius}>
+          <Paper className='collapsed'  sx={{borderRadius: '25px'}} >
             <a href='#curiosity'  className='collapsed-desc' >
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', maxHeight: '4rem', width: '100%'}}>
                 <div style={{maxWidth: '50%'}}>
@@ -249,7 +245,7 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
                     width={300}
                     height={80}
                     style={{ paddingTop: '1rem' }}
-                    className='cultureDecor'
+                    className={styles.cultureDecor}
                   />
                   </div>
                 <h1>{curiositySectionHeader}</h1>
@@ -260,7 +256,7 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
                     width={300}
                     height={80}
                     style={{ WebkitTransform: 'scaleX(-1)', paddingTop: '1rem' }}
-                    className='cultureDecor'
+                    className={styles.cultureDecor}
 
                     />
                   </div>
@@ -270,7 +266,7 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
             </a>
           </Paper>
           {/* className= 'collapsed-content' */}
-          <div className= 'curiosityMapWrap' id='curiosity'> 
+          <div className= {styles.curiosityMapWrap} id='curiosity'> 
           {/* <Tooltip tooltipText="Washington, DC"> */}
             {/* <h1>Be Curious on Your Next Roadtrip!</h1> */}
             {/* </Tooltip> */}

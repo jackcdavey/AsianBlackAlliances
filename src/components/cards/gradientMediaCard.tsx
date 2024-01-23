@@ -68,27 +68,4 @@ export default function GradientMediaCard({ imgSource, imgAlt, title, content, l
         </div>
 
     );
-
-    // } else {
-    //     return (
-    //         <a href={link}>
-    //             <div style={converted[".gradientMediaCard"]}>
-    //                 {imgSource &&
-    //                     <img src={imgSource} alt={imgAlt} />
-    //                 }
-    //                 {title &&
-    //                     <h3><a href={link}>{title}</a></h3>
-    //                 }
-    //                 {/* If content exists, then display content, else display the link */}
-    //                 {content &&
-    //                     <p>{content}</p>
-    //                 }
-    //                 {link && !content &&
-    //                     <p>{link}</p>
-    //                 }
-
-    //             </div>
-    //         </a >
-    //     );
-    // }
 }

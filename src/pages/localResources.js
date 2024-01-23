@@ -6,6 +6,7 @@ import { Paper, Box, FormControl, InputLabel, MenuItem, Select } from '@mui/mate
 import Layout from "../components/layout";
 import Header from "../components/header";
 import Footer from "../components/footer.js";
+import styles from "../styles/localResources.module.css";
 
 
 const client = createClient({
@@ -117,7 +118,7 @@ export default function LocalResources({ footerContent, localResources, navbarIt
                                                 <div style={{paddingBottom: '2rem'}}>
                                                     <p style={{margin: 0}}>{resource.city}</p>
                                                     <h3 style={{margin: 0}}>{resource.name}</h3>
-                                                    <a className={"localresource-link"} href={resource.link} target="_blank" >{resource.link}</a>
+                                                    <a className={styles.localResourceLink} href={resource.link} target="_blank" >{resource.link}</a>
                                                 </div>
                                             ) : null}
                                         </div>

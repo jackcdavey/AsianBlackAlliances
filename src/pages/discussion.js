@@ -6,6 +6,7 @@ import { Button, Paper, Box, FormControl, InputLabel, MenuItem, Select } from '@
 import Layout from "../components/layout";
 import Header from "../components/header";
 import Footer from "../components/footer.js";
+import styles from "../styles/discussion.module.css";
 
 const client = createClient({
   projectId: 'hiagtp2f',
@@ -131,19 +132,19 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
                                     <h3 style={{marginTop: 0}}>{question.body}</h3>
             </a>
           </Paper>
-          <div className='collapsed-form' id={question._id}>
+          <div className={styles.collapsedForm} id={question._id}>
 
             <form action="https://formspree.io/f/xknevqwl" method="POST"   enctype="multipart/form-data">
-                <div id="formWrap">
-                    <div className="innerFormWrap" >
-                        <div id="formWrap">
-                        <div className="fieldWrap">
+                <div className={styles.formWrap}>
+                    <div className={styles.innerFormWrap} >
+                        <div id={styles.formWrap}>
+                        <div className={styles.fieldWrap}>
                             <input style={{marginRight: "2%"}} type="text" id="name" placeholder="Name" required name="submissionName" />
                             <input style={{marginLeft: "2%"}} type="email" id="email" placeholder="Email" name="email" required />
                             <input style={{display: 'none'}} type="questionNumer" id="questionNumber" name="questionNumber" value={question.title} />
                         </div>
                     
-                        <div className="fieldWrap">
+                        <div className={styles.fieldWrap}>
                             <textarea id="message" rows="7" placeholder="Message" name="message" required />
                         </div>
                     </div>
@@ -171,7 +172,7 @@ const Discussion = ({ footerContent, discussionPost, discussionQuestion, navbarI
                     {/* Display each discussion post in a Card below */}
                     {/* <h1>Posts</h1> */}
                     {discussionPostL.map((post) => (
-                        <Paper className="discussionCard" style={{borderRadius: "25px", marginBottom: '2rem'}} key={post._id}>
+                        <Paper className={styles.discussionCard} style={{borderRadius: "25px", marginBottom: '2rem'}} key={post._id}>
                             <h2>{post?.title}</h2>
                             <h3>From: {" " + post?.name}</h3>
                             <p>{post?.body}</p>
