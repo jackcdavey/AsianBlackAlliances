@@ -11,6 +11,7 @@ import {  Paper, Box, Button, FormControl, InputLabel, MenuItem, Select } from '
 import { HomepageHeader } from '../components/header';
 import Footer from '../components/footer.js';
 import Layout from '../components/layout';
+import styles from '../styles/home.module.css'
 
 const BioCard = dynamic(
   () => import("../components/cards/bioCard"),
@@ -137,11 +138,11 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
 
 
 
-        <div className="homeBody" >
+        <div className={styles.homeBody}>
 
 
-          <div style={{ width: '100vw', maxWidth: '70rem', overflow: 'hidden', paddingTop: '3rem' }}>
-            <Carousel className="carousel" animation='slide' sx={{ margin: '5%', overflow: 'hidden' }} autoPlay={false} navButtonsAlwaysVisible={true} >
+          <div style={{ width: '100vw', maxWidth: '70rem', overflow: 'hidden', paddingTop: '3rem'}}>
+            <Carousel className={styles.carousel} animation='slide' sx={{ margin: '5%', overflow: 'hidden' }} autoPlay={false} navButtonsAlwaysVisible={true} >
               {homepageCarouselL?.map((homepageCarouselL) => (
                 <Paper
                   key={homepageCarouselL._id}
@@ -173,12 +174,12 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
           <div style={{ marginBottom: '1vh', textAlign: 'center', paddingLeft: '5%', paddingRight: '5%', maxWidth: '60rem' }}>
             {homepageDescriptionL}
           </div>
-          <Box id={'landingGrid'}>
+          <Box className={styles.landingGrid}>
             {homepageTileL.map((homepageTile) => (
-              <Box className={'landingGridItem'} key={homepageTile._id}>
+              <Box className={styles.landingGridItem} key={homepageTile._id}>
 
                 <a href={homepageTile?.link}>
-                  <Paper elevation={10} className={'landingGridContent'}
+                  <Paper elevation={10} className={styles.landingGridContent}
                     style={{ backgroundColor: homepageTile?.backgroundColor, color: homepageTile?.textColor, overflow: 'auto' }}>
                     <h2 style={{ margin: 0 }}>{homepageTile?.title}</h2>
                     <p>{homepageTile?.description}</p>
@@ -188,20 +189,20 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
             ))}
           </Box>
           <div style={{ textAlign: 'left', width: "100vw", maxWidth: '60rem', padding: '5% 0 0 5%' }}>
-            <h1 className="bioHeader" style={{ margin: "3rem 0 0 0" }}>
+            <h1 className={styles.bioHeader} style={{ margin: "3rem 0 0 0" }}>
               {lang == 'en' ? "About the Team" : lang == 'zh' ? "关于我们" : lang == 'zh-tw' ? "關於我們" : lang == 'zh-cn' ? "關於我們" : lang == 'ko' ? "팀 소개" : lang == 'ja' ? "チームについて" : lang == 'vi' ? "Về nhóm" : lang == 'tl' ? "Tungkol sa koponan" : lang == 'km' ? "អំពីក្រុមហ៊ុន" : "About the Team"}
             </h1>
           </div>
-          <div className='bioSection'>
+          <div className={styles.bioSection}>
             {bioL.map((bio) => (
               <div
-                className='bioCol'
+                className={styles.bioCol}
                 key={bio._id}
                 style={{ width: '25%' }}>
                 <BioCard key={bio._id} name={bio?.name} desc={bio?.body} image={urlFor(bio?.image)} link={bio?.link} />
               </div>
             ))}
-            <div className='bioCol' style={{ width: '25%' }}>
+            <div className={styles.bioCol} style={{ width: '25%' }}>
               <div style={{
                 backgroundColor: '#fff',
                 borderRadius: '25px',
@@ -215,7 +216,7 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
                 marginLeft: "0.5rem",
                 padding: "0.5rem",
                 minWidth: "100%",
-              }} id='bioCard'>
+              }} className={styles.bioCard}>
 
                 {contributorL.map((contributor) => (
                   <>
@@ -231,29 +232,21 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
                               objectFit: "cover",
                               aspectRatio: '1/1',
                               marginLeft: '20%',
-
                             }}
                               src={urlFor(contributor.image)}
                               alt={contributor.name}
                             />
-
                           </div>
                         }
                         <div style={{ width: '100%' }}>
                           <h4 style={{ margin: "0", marginRight: '15%', justifyContent: 'center' }}>{contributor?.name}</h4>
                         </div>
-
-
                       </div>
                       <p style={{ textAlign: 'center', justifyItems: 'flex-end' }}>{contributor.body}</p>
                     </a>
                     <div style={{ width: '100%', height: '1px', backgroundColor: 'lightgray', margin: '0.5rem 0' }}></div>
                   </>
-
                 ))}
-
-
-
               </div>
             </div>
           </div>

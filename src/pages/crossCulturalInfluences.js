@@ -1,19 +1,16 @@
 
 import Head from 'next/head'
+import imageUrlBuilder from '@sanity/image-url'
+import React, { useState } from 'react';
+import { createClient } from 'next-sanity'
+import { Button, Paper, Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+
 import Header from '../components/header';
 import Footer from '../components/footer.js';
 import Layout from '../components/layout';
-
-import React, {useState} from 'react';
 import GradientMediaCard from '../components/cards/gradientMediaCard';
-import { createClient } from 'next-sanity'
-
 import { COLORS } from '../styles/colors.js';
-
-import imageUrlBuilder from '@sanity/image-url'
-import { Button, Paper, Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-
-
+import style from '../styles/crossCulturalInfluences.module.css';
 
 const styles = {
   foodSectionWrap: {
@@ -225,7 +222,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                     width={300}
                     height={80}
                     style={{ paddingTop: '1rem' }}
-                    className='cultureDecor'
+                    className={style.cultureDecor}
                   />
                   </div>
 <a href='#food' className='collapsed-desc'>
@@ -248,7 +245,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                     width={300}
                     height={80}
                     style={{ WebkitTransform: 'scaleX(-1)', paddingTop: '1rem' }}
-                    className='cultureDecor'
+                    className={style.cultureDecor}
 
                     />
                   </div>
@@ -258,7 +255,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
             </Paper>
          <div className='collapsed-content' id='food'>
           <div id="foodSection" style={styles.foodSectionWrap}>
-            <div className='foodColumn' style={styles.foodColumn}>
+            <div className={style.foodColumn} style={styles.foodColumn}>
               <div style={styles.foodColumnBackground} > </div>
                 <h2>{
                   lang == 'en' && 'Chefs' ||
@@ -272,20 +269,8 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                 
               
                 {chefL.map((chef) => (
-                
-                  
-                // <div style={{ paddingBottom: "10%" }}>
-                //   <a href={chef?.link} target="_blank">
-                //   <Paper key={chef._id} id="chefCard" className="chefCard" sx={styles.theRadius}>
-                //     <h2>{chef?.title}</h2>
-                //     <a>{chef?.link}</a>
-                //     </Paper>
-                //     </a>
-                //   </div>
-                  
-
-                  <div style={{paddingBottom: '10%'}} id='chefCard' key={chef._id}>
-                    <Paper id="chefCard" className="chefCard" sx={styles.theRadius}>
+                  <div style={{paddingBottom: '10%', width: '100%'}}  key={chef._id}>
+                    <Paper className={style.chefCard} sx={styles.theRadius}>
                       <div id='millerCard' style={{
                         display: 'flex',  alignItems: 'center', justifyContent: 'center'
                       }}> 
@@ -306,10 +291,8 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                         )}
                           
                           <h2 style={{ marginBottom: 0, textAlign: 'center' }}>{chef?.title}</h2>
-                          <p style={{margin: '2%'}}>{chef?.body}</p>
-                          
-                          
-
+                          <p style={{ margin: '2%' }}>{chef?.body}
+                          </p>
                 </div>
                       </div>
                       
@@ -337,7 +320,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
               ))}
 
             </div>
-            <div className='foodColumn' style={styles.foodColumn}>
+            <div className={style.foodcColumn} style={styles.foodColumn}>
               <div style={styles.foodColumnBackground} > </div>
                 <h2>{
                   lang == 'en' && 'Dishes' ||
@@ -369,7 +352,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                     width={300}
                     height={80}
                     style={{ paddingTop: '1rem' }}
-                    className='cultureDecor'
+                    className={style.cultureDecor}
                   />
               </div>
               <a href='#fashion' className='collapsed-desc'>
@@ -393,7 +376,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                     width={300}
                     height={80}
                     style={{ WebkitTransform: 'scaleX(-1)', paddingTop: '1rem' }}
-                    className='cultureDecor'
+                    className={style.cultureDecor}
 
                     />
                   </div>
@@ -406,19 +389,19 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
           
             {fashion2L.map((fashion) => (
             
-              <div className="fashionTiles" key={fashion._id} style={{  marginBottom: '8vh', position: 'relative', zIndex: '1', padding: "5%", margin: '2vw', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div className={style.fashionTiles} key={fashion._id} style={{  marginBottom: '8vh', position: 'relative', zIndex: '1', padding: "5%", margin: '2vw', justifyContent: 'space-between', alignItems: 'center' }}>
                 {urlFor(fashion?.image) &&
                   // <></>
                   // 'image-f2f8d887e3e8139e275cfe39e4413d766a9eff41-1200x675-png'
-                  <div className='fashionCols' style={{padding: 'rem'}}>
+                  <div className={style.fashionTiles} style={{padding: 'rem'}}>
                     <img src={urlFor(fashion?.image)} alt='' style={{maxWidth: "100%", borderRadius: '25px'}} /> 
                     </div>
               } 
                 <div style={styles.fashionRowBackground} > </div>
-              <p className='fashionCols' style={{ paddingTop: 'auto', verticalAlign: "middle"}}>{fashion?.body}</p>
+              <p className={style.fashionCols} style={{ paddingTop: 'auto', verticalAlign: "middle"}}>{fashion?.body}</p>
                 
 
-              <div className='fashionCols' style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',}}>
+              <div className={style.fashionCols} style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',}}>
               {/* for each link, create a button */}
                 {fashion?.link && fashion?.link.map((link) => (
                 // Display a button for each link
@@ -450,7 +433,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                     width={300}
                     height={80}
                     style={{ paddingTop: '1rem' }}
-                    className='cultureDecor'
+                    className={style.cultureDecor}
                   />
               </div>
               <a href='#holidays' className='collapsed-desc'>
@@ -473,7 +456,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
                     width={300}
                     height={80}
                     style={{ WebkitTransform: 'scaleX(-1)', paddingTop: '1rem' }}
-                    className='cultureDecor'
+                    className={style.cultureDecor}
 
                     />
                   </div>
@@ -484,10 +467,10 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
          <div className='collapsed-content' id='holidays'>
           {/* SEASON CHART */}
           {/* This should really be a separate component, but does not seem to work with CMS */}
-          <div className='seasonGrid'>
+          <div className={style.seasonGrid}>
       <div style={{ gridColumn: "span 2", backgroundColor: 'lightblue', borderRadius: '25px'}}>
         <div style={styles.seasonQuad}>
-          <div className='holidayTextL'>
+          <div className={style.holidayTextL}>
                     <h1 style={{ margin: 0 }}>{
                       lang == 'en' && 'Winter' ||
                       lang == 'zh' && '冬季' ||
@@ -516,7 +499,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
       </div>
       <div style={{gridColumn: "span 2", backgroundColor: 'lightgreen', borderRadius: '25px' }}>
         <div style={styles.seasonQuad}>
-          <div className='holidayTextR'>
+          <div className={style.holidayTextR}>
                     <h1 style={{ margin: 0 }}>{
                       lang == 'en' && 'Spring' ||
                       lang == 'zh' && '春季' ||
@@ -545,7 +528,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
       </div>
       <div style={{gridColumn: "span 2", backgroundColor: 'lightyellow', borderRadius: '25px' }}>
         <div style={styles.seasonQuad}>
-          <div className='holidayTextL'>
+          <div className={style.holidayTextL}>
                     <h1 style={{ margin: 0 }}>{
                       lang == 'en' && 'Summer' ||
                       lang == 'zh' && '夏季 ' ||
@@ -574,7 +557,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
       </div>
       <div style={{gridColumn: "span 2", backgroundColor: 'lightsalmon', borderRadius: '25px' }}>
         <div style={styles.seasonQuad}>
-                    <div className='holidayTextR'>
+                    <div className={style.holidayTextR}>
                     <h1 style={{ margin: 0 }}>{
                       lang == 'en' && 'Autumn' ||
                       lang == 'zh' && '秋天' ||
