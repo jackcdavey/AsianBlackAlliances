@@ -415,12 +415,6 @@
      align-items: center;
    }
 
-
-
-   .foodColumn {
-     max-width: 80vw !important;
-   }
-
    .fashionTiles {
      flex-direction: column;
 
@@ -667,12 +661,9 @@
  }
 
 
- .foodColumn {
-   width: 45vw;
- }
 
  #chefCard {
-   width: 35vw
+   width: 90%;
  }
 
  .chefCard {
@@ -719,6 +710,7 @@
    flex-direction: row;
    justify-content: center;
    align-items: flex-start;
+   width: 100%;
  }
 
  .mythCollapsed {
@@ -726,7 +718,7 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   width: 50vw;
+   width: 100%;
  }
 
  /* on mobile displays, set the template to a single column */
@@ -830,6 +822,7 @@
    align-items: center;
    justify-items: flex-start;
    scroll-margin-top: 10vh;
+   max-width: 70rem;
  }
 
  .curiosityMapWrap {

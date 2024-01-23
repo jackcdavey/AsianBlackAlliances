@@ -32,6 +32,7 @@ const styles = {
     paddingBottom: "100%",
     display: "flex",
     justifyContent: "center",
+    maxWidth: "70rem",
   },
   playerStyle: {
     borderRadius: '25px',
@@ -131,7 +132,7 @@ const OurVoices = ({ footerContent, navbarItem }) => {
           }</h1>
           <div style={styles.playerWrap}>
             <ReactPlayer url='https://www.youtube.com/watch?v=qjYiuV66KEw'
-              width={"90vw"} height={"auto"} style={styles.playerStyle} controls={true} />
+              width={"100%"} height={"auto"} style={styles.playerStyle} controls={true} />
           </div>
         </div>
       </Layout>

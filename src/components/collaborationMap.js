@@ -11,7 +11,7 @@ import { useState } from 'react';
 
 import React, { useRef, useEffect, memo } from "react";
 
-import { COLORS } from '../styling/colors.js';
+import { COLORS } from '../styles/colors.js';
 
 const geoUrl = '/features.json';
 

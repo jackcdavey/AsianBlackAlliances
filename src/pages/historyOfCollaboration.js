@@ -220,7 +220,7 @@ function HistoryOfCollaboration({ timelinePoint, footerContent, historyResources
           </div>
 
 
-          <div className='collapsed-content' id='northAmerica' style={{maxWidth: '80rem'}}>
+          <div className='collapsed-content' id='northAmerica' style={{maxWidth: '70rem'}}>
           {/* display all collaboration tags that have section = northAmerica in a timeline */}
           <Timeline position="alternate">
               {collaborationTagL.map((tag) => (

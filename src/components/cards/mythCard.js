@@ -13,7 +13,7 @@ import dynamic from 'next/dynamic';
 // import ReactTinyLink from 'react-tiny-link';
 // import TinyLinkPreview from '../tinyLinkPreview.js';
 
-import { COLORS } from '../../styling/colors.js';
+import { COLORS } from '../../styles/colors.js';
 
 
 const styles = {

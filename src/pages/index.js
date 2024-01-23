@@ -22,7 +22,7 @@ import Carousel from 'react-material-ui-carousel'
 import dynamic from 'next/dynamic';
 
 
-import { COLORS } from '../styling/colors.js';
+import { COLORS } from '../styles/colors.js';
 
 import Decor from '../components/generateDecorPositions.js';
 

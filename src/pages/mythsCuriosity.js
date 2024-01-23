@@ -226,7 +226,7 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
           <div className='collapsed-content' id='myths'>
 
             <div className='mythCols'>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '50%' }}>
                 
                 <h2>{
                   lang == 'en' && 'Asian Myths' ||
@@ -250,7 +250,7 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
                 </div>
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '50%'  }}>
                 <h2>{
                   lang == 'en' && 'Black Myths' ||
                   lang == 'zh-tw' && '對黑人的誤解' ||

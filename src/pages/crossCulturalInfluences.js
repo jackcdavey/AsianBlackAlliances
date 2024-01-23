@@ -8,7 +8,7 @@ import React, {useState} from 'react';
 import GradientMediaCard from '../components/cards/gradientMediaCard';
 import { createClient } from 'next-sanity'
 
-import { COLORS } from '../styling/colors.js';
+import { COLORS } from '../styles/colors.js';
 
 import imageUrlBuilder from '@sanity/image-url'
 import { Button, Paper, Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
@@ -36,6 +36,7 @@ const styles = {
     padding: '1rem',
     position: 'relative',
     zIndex: '1',
+    width: '50%',
   },
 
 
@@ -186,7 +187,8 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
         right: '0',
         zIndex: '100',
         marginTop: '2rem',
-        marginRight: '1.5rem',
+          marginRight: '1.5rem',
+        
       }}>
                 <Box sx={{ width: 100 }}>
                     <FormControl fullWidth>
@@ -358,9 +360,7 @@ export default function CrossCulturalInfluences({ food, chef, holiday, footerCon
             </div>
             </div>
 
-          <Paper className='collapsed' sx={styles.theRadius}>
-            
-            
+          <Paper className='collapsed' sx={styles.theRadius}>   
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', maxHeight: '4rem', width: '100%'}}>
                 <div style={{maxWidth: '50%'}}>
                 <img

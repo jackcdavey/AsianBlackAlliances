@@ -7,7 +7,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { COLORS } from '../styling/colors.js';
+import { COLORS } from '../styles/colors.js';
 import MobileNavMenu from './mobileNavMenu.js';
 
 import { createClient } from 'next-sanity'
