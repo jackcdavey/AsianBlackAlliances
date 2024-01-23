@@ -1,8 +1,8 @@
 
-import createSchema from 'part:@sanity/base/schema-creator'
+// import createSchema from 'part:@sanity/base/schema-creator'
 
 // Then import schema types from any plugins that might expose them
-import schemaTypes from 'all:part:@sanity/base/schema-type'
+// import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import myth from './mythSchema'
 import homepageTile from './homepageTileSchema'
@@ -28,9 +28,11 @@ import curiosityIntro from './curiosityIntroSchema'
 import contributorSchema from './contributorSchema'
 
 // Then we give our schema to the builder and provide the result to Sanity
-export default createSchema({
-  name: 'default',
-  types: schemaTypes.concat([
+// export default createSchema({
+//   name: 'default',
+//   types: schemaTypes.concat([
+
+export const schemaTypes = [
     myth,
     homepageTile,
     homepageCarousel,
@@ -53,5 +55,6 @@ export default createSchema({
     curiosityNote,
     curiosityIntro,
     contributorSchema,
-  ]),
-})
+]
+//   ),
+// })
