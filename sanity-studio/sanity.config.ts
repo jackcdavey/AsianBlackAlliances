@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: 'asian-black-alliances-sanity',
 
-  projectId: 'js4sq3q3',
+  projectId: 'hiagtp2f',
   dataset: 'production',
 
   plugins: [
