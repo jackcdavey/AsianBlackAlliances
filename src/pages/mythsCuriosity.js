@@ -21,7 +21,7 @@ const styles = {
 const client = createClient({
   projectId: 'hiagtp2f',
   dataset: 'production',
-  apiVersion: '2022-10-03',
+  apiVersion: '2024-01-22',
   useCdn: false,
 });
 
@@ -55,7 +55,7 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
   checkLang();
 
 
-  // const titles = roadtripStop.map((stop) => stop.title);
+
   // Add all titles of with language == lang to the titles array. If there are no titles in the language, add the english version
   
 
@@ -63,26 +63,8 @@ export default function MythsCuriosity({ myth, footerContent, mythCuriosityHeade
 
 
   const curiosityIntroL = curiosityIntro.filter((intro) => intro.language === lang).length > 0 ? curiosityIntro.filter((intro) => intro.language === lang) : curiosityIntro.filter((intro) => intro.language === 'en');
-  // const curiosityIntroL = curiosityIntro.filter((intro) => intro.language === 'en');
-
-  // console.log("Curiosity intro: " + JSON.stringify(curiosityIntroL));
-
-  // const curiosityIntroL = curiosityIntro[1];
-  // const curiosityIntroL = curiosityIntro[0]
-
-  // console.log("Curiosity introo: " + curiosityIntroL[0].intro);
-  // console.log("xPositionsL: " + xPositionsL);
-  // console.log("yPositionsL: " + yPositionsL);
-  // console.log("bodyL: " + bodyL);
-  // console.log("linkL: " + linkL);
-  // console.log("colorsL: " + colorsL);
-  // console.log("allCitiesL: " + allCitiesL);
-  // console.log("citiesL: " + citiesL);
-  
 
 
-  
-  // const mythSectionHeader = mythCuriosityHeader.find((header) => header.section === "mythSection" && header.language === lang).title
   // If the mythSectionHeader is available in the selected language, use it. Otherwise, use the english version.
   const mythSectionHeader = mythCuriosityHeader.find((header) => header.section === "mythSection" && header.language === lang) ? mythCuriosityHeader.find((header) => header.section === "mythSection" && header.language === lang).title : mythCuriosityHeader.find((header) => header.section === "mythSection" && header.language === "en").title
   const mythSectionDesc = mythCuriosityHeader.find((header) => header.section === "mythSection" && header.language === lang) ? mythCuriosityHeader.find((header) => header.section === "mythSection" && header.language === lang).desc : mythCuriosityHeader.find((header) => header.section === "mythSection" && header.language === "en").desc
@@ -113,10 +95,6 @@ const titlesL = roadtripStop.filter((stop) => stop.language === lang).length > 0
   const allCitiesL = roadtripStop.filter((stop) => stop.language === lang).length > 0 ? roadtripStop.filter((stop) => stop.language === lang).map((stop) => stop.city) : roadtripStop.filter((stop) => stop.language === 'en').map((stop) => stop.city);
   // Map all unique cities into an array
   const citiesL = [...new Set(allCitiesL)];
-
-
-
-
 
 
 

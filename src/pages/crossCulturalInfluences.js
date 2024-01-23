@@ -100,7 +100,7 @@ const styles = {
 const client = createClient({
   projectId: 'hiagtp2f',
   dataset: 'production',
-  apiVersion: '2022-10-03',
+  apiVersion: '2024-01-22',
   useCdn: false,
 });
 

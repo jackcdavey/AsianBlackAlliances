@@ -15,7 +15,7 @@ const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 const client = createClient({
   projectId: 'hiagtp2f',
   dataset: 'production',
-  apiVersion: '2022-10-03',
+  apiVersion: '2024-01-22',
   useCdn: false,
 });
 

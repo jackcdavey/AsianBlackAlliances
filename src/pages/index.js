@@ -22,7 +22,7 @@ const BioCard = dynamic(
 const client = createClient({
   projectId: 'hiagtp2f',
   dataset: 'production',
-  apiVersion: '2022-10-03',
+  apiVersion: '2024-01-22',
   useCdn: false,
 });
 
@@ -216,9 +216,6 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
                 padding: "0.5rem",
                 minWidth: "100%",
               }} id='bioCard'>
-                {/* <h3 style={{ textAlign: 'center' }}>
-                  {lang == 'en' ? "Contributors & Translators" : lang == 'zh' ? "贡献者和翻译者" : lang == 'zh-tw' ? "貢獻者和翻譯者" : lang == 'zh-cn' ? "貢獻者和翻譯者" : lang == 'ko' ? "기여자 및 번역가" : lang == 'ja' ? "寄稿者と翻訳者" : lang == 'vi' ? "Những người đóng góp và dịch thuật" : lang == 'tl' ? "Mga nag-aambag at Mga Tagasalin" : lang == 'km' ? "អ្នករួមចំណែកនិងអ្នកបកប្រែ" : "Contributors & Translators"}
-              </h3> */}
 
                 {contributorL.map((contributor) => (
                   <>
