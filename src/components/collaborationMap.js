@@ -3,42 +3,16 @@ import {
     ComposableMap,
     Geographies,
     Geography,
-    ZoomableGroup,
     Marker
 } from 'react-simple-maps';
 
 import { useState } from 'react';
 
-import React, { useRef, useEffect, memo } from "react";
+import React from "react";
 
 import { COLORS } from '../styles/colors.js';
 
 const geoUrl = '/features.json';
-
-function useOutsideAlerter(ref, setMarkerA, setMarkerB) {
-  useEffect(() => {
-    /**
-     * Alert if clicked on outside of element
-     */
-    function handleClickOutside(event, setMarkerA, setMarkerB) {
-      if (ref.current && !ref.current.contains(event.target)) {
-        //   alert("You clicked outside of me!");
-        //   Reset market sizes, hide tooltips
-        //   setMarkerA(9);
-        //   setMarkerB(9);
-          
-      }
-    }
-    // Bind the event listener
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      // Unbind the event listener on clean up
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [ref]);
-}
-
-
 
 
 export default function CollaborationMap({ setTooltipContent }) {
@@ -48,9 +22,6 @@ export default function CollaborationMap({ setTooltipContent }) {
     const [colorB, setColorB] = useState(COLORS.secondary);
     const [currentSelection, setCurrentSelection] = useState('');
 
-
-    const wrapperRef = useRef(null);
-    useOutsideAlerter(wrapperRef, setMarkerA, setMarkerB);
 
     function resetMarkers() {
         if (currentSelection == 'asia') {
@@ -121,7 +92,7 @@ export default function CollaborationMap({ setTooltipContent }) {
                         }}
                         >
                 <a href="#asia">
-                    <circle id="asiaCircle" ref={wrapperRef} r={markerA} fill={colorA} opacity={0.5} 
+                    <circle id="asiaCircle" r={markerA} fill={colorA} opacity={0.5} 
                         
                         onMouseEnter={() => {
                             setMarkerA(100);   

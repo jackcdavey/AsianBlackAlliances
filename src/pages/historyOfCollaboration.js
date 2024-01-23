@@ -1,24 +1,16 @@
 
 import React from 'react'
-// import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useState } from 'react'
-
 import { createClient } from 'next-sanity'
+import Grid from '@mui/material/Grid';
+import {Tooltip as ReactTooltip} from 'react-tooltip';
+import { Typography, Button, Paper, Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
-// import styles from '../styles/Home.module.css'
 import Header from '../components/header'
 import Footer from '../components/footer.js'
 import Layout from '../components/layout'
-import {Tooltip as ReactTooltip} from 'react-tooltip';
-
-import dynamic from 'next/dynamic'
-
-import { Typography, Button, Paper, Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-
-
-
-import Grid from '@mui/material/Grid';
+import CollaborationMap from '../components/collaborationMap.js'
 
 import {
   Timeline,
@@ -29,14 +21,6 @@ import {
   TimelineContent,
   TimelineOppositeContent
 } from '@mui/lab';
-
-import CollaborationMap from '../components/collaborationMap.js'
-
-// const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
-
-// import Tooltip from '@mui/material/Tooltip'
-
-// const ReactToolTip = dynamic(() => import('react-tooltip'), { ssr : false });
 
 
 const client = createClient({

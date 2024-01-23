@@ -1,7 +1,5 @@
 import React from "react";
 
-import Paper from "@mui/material/Paper";
-
 interface FoodCardProps {
     chefName: string;
     chefDesc: string;

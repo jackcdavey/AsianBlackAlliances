@@ -12,8 +12,6 @@ interface GradientMediaCardProps {
 
 const converted = {
     ".gradientMediaCard": {
-        // "--card-gradient": "rgb(86, 129, 39), rgb(229, 124, 27)",
-        // "--card-blend-mode": "overlay",
         backgroundColor: "#fff",
         borderRadius: "25px",
         boxShadow: "0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.45)",

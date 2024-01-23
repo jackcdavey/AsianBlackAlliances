@@ -1,20 +1,15 @@
 import Head from 'next/head'
-import Image from 'next/image'
-// import styles from '../styles/Home.module.css'
+import { createClient } from 'next-sanity'
+import { Box, FormControl, InputLabel, MenuItem, Select} from '@mui/material';
+import React, {useState} from 'react'
+import dynamic from 'next/dynamic'
+
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Layout from '../components/layout'
-import { createClient } from 'next-sanity'
 
 
-import React, {useState} from 'react'
 
-
-import Grid from '@mui/material/Grid';
-
-import {Button, Paper, Box, FormControl, InputLabel, MenuItem, Select} from '@mui/material';
-
-import dynamic from 'next/dynamic'
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 const client = createClient({

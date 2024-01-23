@@ -1,15 +1,7 @@
 import { Container } from '@mui/material';
 import Link from 'next/link';
-import Image from 'next/image';
 import React from 'react';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { COLORS } from '../styles/colors.js';
-import MobileNavMenu from './mobileNavMenu.js';
-
+import { SelectChangeEvent } from '@mui/material/Select';
 import { createClient } from 'next-sanity'
 
 

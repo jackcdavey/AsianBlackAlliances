@@ -1,8 +1,6 @@
 import React, {useState} from "react";
-// import { NextPage } from "next";
 import Head from "next/head";
 import { createClient } from 'next-sanity'
-
 import { Button, Paper, Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 import Layout from "../components/layout";

@@ -1,45 +1,21 @@
 'use client'
-// import type { NextPage } from 'next'
+
 import Head from 'next/head'
-import Image from 'next/image'
-
 import { useState } from 'react';
-
 import { createClient } from 'next-sanity'
+import Carousel from 'react-material-ui-carousel'
+import dynamic from 'next/dynamic';
+import imageUrlBuilder from '@sanity/image-url'
+import {  Paper, Box, Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
-import Link from 'next/link'
-// import { useTheme } from '@mui/material/styles';
-import { Container, Grid, Paper, Box, Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { HomepageHeader } from '../components/header';
 import Footer from '../components/footer.js';
 import Layout from '../components/layout';
-import GradientMediaCard from '../components/cards/gradientMediaCard';
-
-
-
-import Carousel from 'react-material-ui-carousel'
-
-import dynamic from 'next/dynamic';
-
-
-import { COLORS } from '../styles/colors.js';
-
-import Decor from '../components/generateDecorPositions.js';
-
-// import wave from '../public/wave.svg';
-
-import imageUrlBuilder from '@sanity/image-url'
-
-
-// var languageSelection = 'en';
-
 
 const BioCard = dynamic(
   () => import("../components/cards/bioCard"),
   { ssr: false }
-)
-
-// const theme = useTheme();
+);
 
 
 
@@ -204,8 +180,6 @@ function Home({ homepageTile, homepageDescription, bio, footerContent, homepageC
                 <a href={homepageTile?.link}>
                   <Paper elevation={10} className={'landingGridContent'}
                     style={{ backgroundColor: homepageTile?.backgroundColor, color: homepageTile?.textColor, overflow: 'auto' }}>
-                    {/* If a random number between 1 and 10 is less than 5, display the image */}
-                    {/* <Decor /> */}
                     <h2 style={{ margin: 0 }}>{homepageTile?.title}</h2>
                     <p>{homepageTile?.description}</p>
                   </Paper>

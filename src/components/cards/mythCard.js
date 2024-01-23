@@ -1,19 +1,9 @@
 'use client'
 
 import React from "react";
-import MultiActionAreaCard from "../richLinkCard";
 import Paper from "@mui/material/Paper";
-
 import { Button } from '@mui/material';
-
 import { v4 } from "uuid";
-
-
-import dynamic from 'next/dynamic';
-// import ReactTinyLink from 'react-tiny-link';
-// import TinyLinkPreview from '../tinyLinkPreview.js';
-
-import { COLORS } from '../../styles/colors.js';
 
 
 const styles = {

@@ -1,29 +1,16 @@
 'use client'
 
-// import type { NextPage } from 'next'
 import Head from 'next/head'
-
 import { createClient } from 'next-sanity'
-
 import Image from 'next/image';
-
 import { useState } from 'react';
+import { Button, Paper, Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 import Header from '../components/header';
 import Footer from '../components/footer.js';
 import MythCard from '../components/cards/mythCard.js';
-
 import Layout from '../components/layout';
-
-import { Button, Paper, Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-
 import NewMap from '../components/newRoadtripMap.js';
-
-// import dynamic from 'next/dynamic';
-
-// const NewMap = dynamic(() => import('../public/components/newRoadtripMap.js'), { ssr: false });
-
-// import NewMap from '../public/components/newRoadtripMap.js';
 
 const styles = {
   theRadius: {

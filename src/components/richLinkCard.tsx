@@ -5,10 +5,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 
-import Image from 'next/image';
-
-// import DishCountryCaptain from './public/media/DishCountryCaptain.png';
-
 const styles = {
     card: {
         width: '25vw',
